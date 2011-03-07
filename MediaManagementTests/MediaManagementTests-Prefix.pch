@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MediaManagementTests' target in the 'MediaManagementTests' project
+//
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+#endif
