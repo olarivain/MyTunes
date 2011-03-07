@@ -26,8 +26,11 @@
 		00B4D109132455E1008B1081 /* HomeView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B4D108132455E1008B1081 /* HomeView_iPhone.xib */; };
 		00B4D10F1324571A008B1081 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D10E1324571A008B1081 /* Server.m */; };
 		00B4D112132458D7008B1081 /* Servers.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D111132458D7008B1081 /* Servers.m */; };
-		00B4D11713245D3E008B1081 /* HomeTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D11613245D3E008B1081 /* HomeTableViewDelegate.m */; };
-		00B4D11B13246644008B1081 /* HomeBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D11A13246643008B1081 /* HomeBackground.m */; };
+		00B4D11B13246644008B1081 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D11A13246643008B1081 /* HomeView.m */; };
+		00B4D11E13248341008B1081 /* ServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D11D1324833F008B1081 /* ServerView.m */; };
+		00B4D12213249309008B1081 /* ServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B4D12113249308008B1081 /* ServerView_iPad.xib */; };
+		00B4D1261324993D008B1081 /* NibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D1251324993D008B1081 /* NibUtils.m */; };
+		00B4D1281324A3B0008B1081 /* ServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B4D1271324A3AE008B1081 /* ServerView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +70,15 @@
 		00B4D110132458D7008B1081 /* Servers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servers.h; sourceTree = "<group>"; };
 		00B4D111132458D7008B1081 /* Servers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servers.m; sourceTree = "<group>"; };
 		00B4D11313245952008B1081 /* ServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersDelegate.h; sourceTree = "<group>"; };
-		00B4D11513245D3E008B1081 /* HomeTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewDelegate.h; sourceTree = "<group>"; };
-		00B4D11613245D3E008B1081 /* HomeTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewDelegate.m; sourceTree = "<group>"; };
 		00B4D11813246055008B1081 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
-		00B4D11913246642008B1081 /* HomeBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBackground.h; sourceTree = "<group>"; };
-		00B4D11A13246643008B1081 /* HomeBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBackground.m; sourceTree = "<group>"; };
+		00B4D11913246642008B1081 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		00B4D11A13246643008B1081 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
+		00B4D11C1324833E008B1081 /* ServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerView.h; sourceTree = "<group>"; };
+		00B4D11D1324833F008B1081 /* ServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerView.m; sourceTree = "<group>"; };
+		00B4D12113249308008B1081 /* ServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPad.xib; sourceTree = "<group>"; };
+		00B4D1241324993D008B1081 /* NibUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibUtils.h; sourceTree = "<group>"; };
+		00B4D1251324993D008B1081 /* NibUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibUtils.m; sourceTree = "<group>"; };
+		00B4D1271324A3AE008B1081 /* ServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +143,7 @@
 				002A0AF51324549D00320A06 /* MediaManagementAppDelegate.m */,
 				002A0AF71324549D00320A06 /* MainWindow_iPad.xib */,
 				002A0B1E1324551400320A06 /* MainWindow_iPhone.xib */,
+				00B4D12313249877008B1081 /* util */,
 				002A0AEC1324549D00320A06 /* Supporting Files */,
 			);
 			path = MediaManagement;
@@ -199,12 +207,23 @@
 				002A0AFB1324549D00320A06 /* HomeViewController.m */,
 				002A0AFD1324549D00320A06 /* HomeView_iPad.xib */,
 				00B4D108132455E1008B1081 /* HomeView_iPhone.xib */,
-				00B4D11513245D3E008B1081 /* HomeTableViewDelegate.h */,
-				00B4D11613245D3E008B1081 /* HomeTableViewDelegate.m */,
-				00B4D11913246642008B1081 /* HomeBackground.h */,
-				00B4D11A13246643008B1081 /* HomeBackground.m */,
+				00B4D11913246642008B1081 /* HomeView.h */,
+				00B4D11A13246643008B1081 /* HomeView.m */,
+				00B4D11C1324833E008B1081 /* ServerView.h */,
+				00B4D11D1324833F008B1081 /* ServerView.m */,
+				00B4D12113249308008B1081 /* ServerView_iPad.xib */,
+				00B4D1271324A3AE008B1081 /* ServerView_iPhone.xib */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		00B4D12313249877008B1081 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				00B4D1241324993D008B1081 /* NibUtils.h */,
+				00B4D1251324993D008B1081 /* NibUtils.m */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +298,8 @@
 				002A0AFF1324549D00320A06 /* HomeView_iPad.xib in Resources */,
 				002A0B1F1324551400320A06 /* MainWindow_iPhone.xib in Resources */,
 				00B4D109132455E1008B1081 /* HomeView_iPhone.xib in Resources */,
+				00B4D12213249309008B1081 /* ServerView_iPad.xib in Resources */,
+				00B4D1281324A3B0008B1081 /* ServerView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +340,9 @@
 				002A0AFC1324549D00320A06 /* HomeViewController.m in Sources */,
 				00B4D10F1324571A008B1081 /* Server.m in Sources */,
 				00B4D112132458D7008B1081 /* Servers.m in Sources */,
-				00B4D11713245D3E008B1081 /* HomeTableViewDelegate.m in Sources */,
-				00B4D11B13246644008B1081 /* HomeBackground.m in Sources */,
+				00B4D11B13246644008B1081 /* HomeView.m in Sources */,
+				00B4D11E13248341008B1081 /* ServerView.m in Sources */,
+				00B4D1261324993D008B1081 /* NibUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

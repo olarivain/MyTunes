@@ -7,12 +7,16 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeTableViewDelegate.h"
+
+#import "Servers.h"
+#import "HomeView.h"
+
 @implementation HomeViewController
 
 - (void)dealloc
 {
-    [super dealloc];
+  [servers release];
+  [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,7 +32,14 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [tableViewDelegate refresh];
+  servers = [[Servers alloc] init];
+  [servers setDelegate: self];
+
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+  [self refresh];
 }
 
 
@@ -39,7 +50,25 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return YES;
+  return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || UIInterfaceOrientationIsPortrait(interfaceOrientation);
+}
+
+#pragma mark - Button Handlers
+- (IBAction) refresh
+{
+  [servers refreshServerList];
+}
+
+#pragma mark - ServersDelegate methods
+- (void) didRefresh:(Servers *)sender
+{
+  NSLog(@"Did refresh, %i", [[servers servers] count]);
+  [homeView setServers: [servers servers]];
+}
+
+- (void) willRefresh:(Servers *)sender
+{
+  NSLog(@"Will refresh, %i", [[servers servers] count]);
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ServersDelegate.h
+//  NibUtils.h
 //  MediaManagement
 //
 //  Created by Kra on 3/6/11.
@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Servers;
 
-@protocol ServersDelegate <NSObject>
 
-- (void) willRefresh: (Servers*) sender;
-- (void) didRefresh: (Servers*) sender;
+@interface NibUtils : NSObject 
+{
+    
+}
+
++ (NSString*) nibName: (NSString*) name;
 
 @end

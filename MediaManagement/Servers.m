@@ -9,6 +9,11 @@
 #import "Servers.h"
 #import "Server.h"
 
+@interface Servers(private)
+- (Server*) pendingServerWithNetService: (NSNetService*) netService;
+- (Server*) serverWithNetService: (NSNetService*) netService;
+- (Server*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList;
+@end
 
 @implementation Servers
 
@@ -17,8 +22,10 @@
   self = [super init];
   if(self)
   {
-    netService = [[NSNetService alloc]  initWithDomain:@"local." type:@"_http._tcp." name:@"iServe"];
-    [netService setDelegate: self];
+    netServiceBrowser = [[NSNetServiceBrowser alloc] init];
+    [netServiceBrowser setDelegate: self];
+    
+    pendingServers = [[NSMutableArray alloc] init];
     servers = [[NSMutableArray alloc] init];
   }
   return self;
@@ -26,9 +33,10 @@
 
 - (void) dealloc
 {
-  [netService stop];
-  [netService release];
+  [netServiceBrowser stop];
+  [netServiceBrowser release];
   
+  [pendingServers release];
   [servers release];
   [self dealloc];
 }
@@ -37,43 +45,92 @@
 @synthesize delegate;
 
 #pragma mark - Server access methods
-- (void) refreshServerList
+
+- (void) startSearch
 {
-  [netService resolveWithTimeout:5];
+  [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
-- (Server*) serverAtIndexPath:(NSIndexPath *)indexPath
+- (void) refreshServerList
 {
-  int row = [indexPath row];
-  if(row < [servers count])
+  [netServiceBrowser stop];
+  [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
+}
+
+- (Server*) pendingServerWithNetService: (NSNetService*) netService
+{
+  return [self serverWithNetService:netService inCollection:pendingServers];
+}
+
+- (Server*) serverWithNetService: (NSNetService*) netService
+{
+  return [self serverWithNetService:netService inCollection:servers];  
+}
+
+
+- (Server*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList
+{
+  for(Server *server in serverList)
   {
-    return [servers objectAtIndex: row];
+    if([[[server netService] name] isEqualToString: [netService name]])
+    {
+      return server;
+    }
   }
   return nil;
 }
 
-#pragma mark - NSNetServiceDelegate methods
-- (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+#pragma mark - NSNetServiceBrowserDelegate methods
+- (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-  NSLog(@"Address not resolved");
-  for(NSString *key in errorDict)
+  if(![[aNetService name] hasPrefix:@"iServe-"])
   {
-    NSObject *value = [errorDict valueForKey:key];
-    NSLog(@"Error: %@ : %@", key, value);
+    return;
   }
+  NSLog(@"Found service.");
 
-  [[self delegate] didNotRefresh: self];
+  Server *server = [[[Server alloc] initWithNetService: aNetService] autorelease];
+  [pendingServers addObject: server];
+  [aNetService setDelegate: self];
+  [aNetService resolveWithTimeout:5];
 }
 
--(void) netServiceDidResolveAddress:(NSNetService *)sender
+- (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-  Server *server = [[[Server alloc] initWithHostName:[sender hostName] andPort:[sender port]] autorelease];
+  NSLog(@"Service removed.");
+  
+  Server *server = [self serverWithNetService: aNetService];
+  [servers removeObject: server];
+  [[self delegate] didRefresh:self];
+}
+
+- (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
+{
+  [servers removeAllObjects];
+  [pendingServers removeAllObjects];
+  
+  [[self delegate] willRefresh:self];
+}
+
+#pragma mark - NSNetService delegate methods
+- (void) netServiceDidResolveAddress:(NSNetService *)sender
+{
+  NSLog(@"Did resolve service.");
+  Server *server = [self pendingServerWithNetService: sender];
   [servers addObject: server];
-  NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-  
-  [center postNotificationName:SERVERS_REFRESHED object:self];
-  
+  [pendingServers removeObject: server];
+
   [[self delegate] didRefresh: self];
 }
+
+- (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+{
+  NSLog(@"Did not resolve service.");
+  
+  Server *server = [self pendingServerWithNetService: sender];
+  [pendingServers removeObject: server];
+  [[self delegate] didRefresh: self];
+}
+
 
 @end

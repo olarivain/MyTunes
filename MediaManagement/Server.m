@@ -11,29 +11,44 @@
 
 @implementation Server
 
-- (id) initWithHostName: (NSString*) host andPort: (int) serverPort
+- (id) initWithNetService: (NSNetService*) service
 {
   self = [super init];
   if(self)
   {
-    hostname = [host retain];
-    port = serverPort;
+    netService = [service retain];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  [hostname release];
+  [netService stop];
+  [netService release];
   [super dealloc];
 }
 
-@synthesize hostname;
-@synthesize port;
+@synthesize netService;
+
+- (int) port
+{
+  return [netService port];
+}
+
+- (NSString*) hostname
+{
+  return [netService hostName];
+}
 
 - (NSString *) name
 {
-  return hostname;
+  NSString *hostname = [self hostname];
+  return [[hostname componentsSeparatedByString:@".local"] objectAtIndex:0];
+}
+
+- (void) resolve
+{
+  [netService resolveWithTimeout:5];
 }
 
 @end

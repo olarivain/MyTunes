@@ -13,17 +13,17 @@
 
 @class Server;
 
-@interface Servers : NSObject<NSNetServiceDelegate>
+@interface Servers : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
-  NSNetService *netService;
+  NSNetServiceBrowser *netServiceBrowser;
   NSMutableArray *servers;
+  NSMutableArray *pendingServers;
   id<ServersDelegate> delegate;
 }
 
 @property (readonly) NSArray *servers;
 @property (readwrite, retain) id<ServersDelegate> delegate;
 
-- (Server*) serverAtIndexPath: (NSIndexPath*) indexPath;
 - (void) refreshServerList;
 
 

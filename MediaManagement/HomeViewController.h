@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class HomeTableViewDelegate;
-
-@interface HomeViewController : UIViewController 
+#import "ServersDelegate.h"
+@class HomeView;
+@class Servers;
+@interface HomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, ServersDelegate>
 {
   @private
-  IBOutlet HomeTableViewDelegate *tableViewDelegate;
+  IBOutlet HomeView *homeView;
+  Servers *servers;
 }
+
+- (IBAction) refresh;
 
 @end

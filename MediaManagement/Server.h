@@ -11,14 +11,16 @@
 
 @interface Server : NSObject {
   @private  
-  NSString *hostname;
-  int port;
+  NSNetService *netService;
 }
 
+- (id) initWithNetService: (NSNetService*) netService;
+
+@property (readonly) NSNetService *netService;
 @property (readonly) NSString *hostname;
 @property (readonly) int port;
+@property (readonly) NSString *name;
 
-- (id) initWithHostName: (NSString*) host andPort: (int) serverPort;
+- (void) resolve;
 
-- (NSString *) name;
 @end

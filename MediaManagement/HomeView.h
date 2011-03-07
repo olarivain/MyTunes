@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HomeBackground : UIView 
+@interface HomeView : UIView 
 {    
+  @private
+  NSArray *servers;
+  
+  NSMutableArray *serverViews;
 }
+
+@property (readwrite, retain) NSArray *servers;
 
 @end
