@@ -75,6 +75,7 @@
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 				</object>
+				<float key="IBUIAlpha">0.5</float>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</object>
