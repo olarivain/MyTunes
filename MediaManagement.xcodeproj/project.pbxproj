@@ -160,11 +160,11 @@
 			children = (
 				00B4D10C132456EC008B1081 /* controllers */,
 				00B4D10B132456E3008B1081 /* domain */,
+				00B4D12313249877008B1081 /* util */,
 				002A0AF41324549D00320A06 /* MediaManagementAppDelegate.h */,
 				002A0AF51324549D00320A06 /* MediaManagementAppDelegate.m */,
 				002A0AF71324549D00320A06 /* MainWindow_iPad.xib */,
 				002A0B1E1324551400320A06 /* MainWindow_iPhone.xib */,
-				00B4D12313249877008B1081 /* util */,
 				002A0AEC1324549D00320A06 /* Supporting Files */,
 			);
 			path = MediaManagement;

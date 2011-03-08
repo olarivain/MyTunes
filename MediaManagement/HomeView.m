@@ -3,7 +3,7 @@
 //  MediaManagement
 //
 //  Created by Kra on 3/6/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 kra. All rights reserved.
 //
 
 #import "HomeView.h"
