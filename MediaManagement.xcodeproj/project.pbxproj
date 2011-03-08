@@ -27,6 +27,7 @@
 		00ACA0871325EAED009C3679 /* EditController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ACA0851325EAED009C3679 /* EditController_iPad.xib */; };
 		00ACA0891325EB45009C3679 /* EditController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ACA0881325EB45009C3679 /* EditController_iPhone.xib */; };
 		00ACA08C1325F1E0009C3679 /* CategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ACA08B1325F1DF009C3679 /* CategoriesTableViewController.m */; };
+		00ACA08F1325FA40009C3679 /* ContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ACA08E1325FA3E009C3679 /* ContentTableViewController.m */; };
 		00B4D109132455E1008B1081 /* HomeView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B4D108132455E1008B1081 /* HomeView_iPhone.xib */; };
 		00B4D10F1324571A008B1081 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D10E1324571A008B1081 /* Server.m */; };
 		00B4D112132458D7008B1081 /* Servers.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4D111132458D7008B1081 /* Servers.m */; };
@@ -79,6 +80,8 @@
 		00ACA0881325EB45009C3679 /* EditController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditController_iPhone.xib; sourceTree = "<group>"; };
 		00ACA08A1325F1DE009C3679 /* CategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesTableViewController.h; sourceTree = "<group>"; };
 		00ACA08B1325F1DF009C3679 /* CategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesTableViewController.m; sourceTree = "<group>"; };
+		00ACA08D1325FA3A009C3679 /* ContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ContentTableViewController.h; sourceTree = "<group>"; };
+		00ACA08E1325FA3E009C3679 /* ContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewController.m; sourceTree = "<group>"; };
 		00B4D108132455E1008B1081 /* HomeView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView_iPhone.xib; sourceTree = "<group>"; };
 		00B4D10E1324571A008B1081 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		00B4D110132458D7008B1081 /* Servers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servers.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 			children = (
 				00ACA08A1325F1DE009C3679 /* CategoriesTableViewController.h */,
 				00ACA08B1325F1DF009C3679 /* CategoriesTableViewController.m */,
+				00ACA08D1325FA3A009C3679 /* ContentTableViewController.h */,
+				00ACA08E1325FA3E009C3679 /* ContentTableViewController.m */,
 				00E714841325E44000F2913A /* MainViewController.h */,
 				00E714771325E12800F2913A /* MainViewController_iPad.h */,
 				00E714781325E12800F2913A /* MainViewController_iPad.m */,
@@ -401,6 +406,7 @@
 				00E714871325E53A00F2913A /* MainViewController_iPhone.m in Sources */,
 				00ACA0861325EAED009C3679 /* EditController.m in Sources */,
 				00ACA08C1325F1E0009C3679 /* CategoriesTableViewController.m in Sources */,
+				00ACA08F1325FA40009C3679 /* ContentTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

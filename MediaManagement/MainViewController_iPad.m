@@ -74,13 +74,6 @@
 {
   [editController setModalPresentationStyle:UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
-  
-//  if(popoverController == nil)
-//  {
-//    popoverController = [[UIPopoverController alloc] initWithContentViewController:editController];
-//    
-//  }
-//  [popoverController presentPopoverFromBarButtonItem:editButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:TRUE];
 }
 
 @end

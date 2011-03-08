@@ -11,12 +11,16 @@
 @class Server;
 @class EditController;
 @class CategoriesTableViewController;
+@class ContentTableViewController;
+
 @interface MainViewController_iPad : UIViewController 
 {
-  IBOutlet EditController *editController;
-  IBOutlet CategoriesTableViewController *categoriesController;
   IBOutlet UIBarButtonItem *editButton;
-  UIPopoverController *popoverController;
+  IBOutlet EditController *editController;
+  
+  IBOutlet CategoriesTableViewController *categoriesController;
+  IBOutlet ContentTableViewController *contentController;
+  
   Server *server;
 }
 
