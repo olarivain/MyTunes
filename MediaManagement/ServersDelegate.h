@@ -11,7 +11,9 @@
 
 @protocol ServersDelegate <NSObject>
 
-- (void) willRefresh: (Servers*) sender;
 - (void) didRefresh: (Servers*) sender;
+
+@optional
+- (void) willRefresh: (Servers*) sender;
 
 @end

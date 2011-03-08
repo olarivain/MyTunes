@@ -18,5 +18,6 @@
 }
 
 @property (readwrite, retain) NSArray *servers;
+@property (readonly) NSArray *serverViews;
 
 @end

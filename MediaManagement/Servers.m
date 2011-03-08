@@ -109,7 +109,11 @@
   [servers removeAllObjects];
   [pendingServers removeAllObjects];
   
-  [[self delegate] willRefresh:self];
+  if([[delegate class] respondsToSelector: @selector(willRefresh:)])
+  {
+    [delegate willRefresh:self];
+  }
+
 }
 
 #pragma mark - NSNetService delegate methods

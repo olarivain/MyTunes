@@ -10,7 +10,7 @@
 
 @class Server;
 
-@interface ServerView : UIView 
+@interface ServerView : UIControl 
 {
   @private
   Server *server;

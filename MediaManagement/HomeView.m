@@ -15,7 +15,7 @@
 
 @interface HomeView(private)
 - (void) removeLastServerIcons: (int) count;
-- (void) addServerIcons: (int) count;
+- (void) addServerView: (int) count;
 - (int) computeServerPerRows;
 - (int) computePaddingWith: (int) countPerRow;
 @end
@@ -42,23 +42,6 @@
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
-{
-  CGContextRef context = UIGraphicsGetCurrentContext();
-  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-  size_t num_locations = 2;
-  CGFloat locations[2] = { 0.0, 1.0 };
-  CGFloat components[8] = { 0.0, 0.35, .7, 1.0,
-                            0.0, 0.0, 0.39f, 1.0 };
-  CGGradientRef gradient = CGGradientCreateWithColorComponents (colorSpace, components,
-                                                    locations, num_locations);  
-
-  CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
-  CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
-  CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation );
-}
-
-
 - (void)dealloc
 {
   [servers release];
@@ -66,7 +49,26 @@
   [super dealloc];
 }
 
+@synthesize serverViews;
+
 #pragma mark - Layout
+- (void)drawRect:(CGRect)rect
+{
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+  size_t num_locations = 2;
+  CGFloat locations[2] = { 0.0, 1.0 };
+  CGFloat components[8] = { 0.0, 0.35, .7, 1.0,
+    0.0, 0.0, 0.39f, 1.0 };
+  CGGradientRef gradient = CGGradientCreateWithColorComponents (colorSpace, components,
+                                                                locations, num_locations);  
+  
+  CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
+  CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
+  CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation );
+}
+
+
 - (void) layoutSubviews
 {
   [super layoutSubviews];
@@ -151,7 +153,7 @@
   }
   if(diff > 0)
   {
-    [self addServerIcons:diff];
+    [self addServerView:diff];
   }
   
   for(int i = 0; i < [servers count]; i++)
@@ -162,6 +164,12 @@
   }
   
   [self setNeedsLayout];
+}
+
+#pragma mark - Action handlers
+- (IBAction) serverSelected: (id) sender
+{
+  
 }
 
 #pragma mark Subview Add/Removal
@@ -175,7 +183,7 @@
   }
 
 }
-- (void) addServerIcons: (int) count
+- (void) addServerView: (int) count
 {
   for(int i = 0; i < count; i++)
   {

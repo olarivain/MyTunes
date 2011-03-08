@@ -10,6 +10,8 @@
 
 #import "Servers.h"
 #import "HomeView.h"
+#import "ServerView.h"
+#import "MainViewController_iPad.h"
 
 @implementation HomeViewController
 
@@ -34,14 +36,8 @@
   [super viewDidLoad];
   servers = [[Servers alloc] init];
   [servers setDelegate: self];
-
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
   [self refresh];
 }
-
 
 - (void)viewDidUnload
 {
@@ -59,16 +55,25 @@
   [servers refreshServerList];
 }
 
+- (IBAction) serverSelected:(id)sender
+{
+  ServerView *view = (ServerView*) sender;
+  [mainViewController setServer: [view server]];
+  
+  [[self navigationController] pushViewController:mainViewController animated:TRUE];
+}
+
 #pragma mark - ServersDelegate methods
 - (void) didRefresh:(Servers *)sender
 {
   NSLog(@"Did refresh, %i", [[servers servers] count]);
   [homeView setServers: [servers servers]];
-}
-
-- (void) willRefresh:(Servers *)sender
-{
-  NSLog(@"Will refresh, %i", [[servers servers] count]);
+  for(ServerView *serverView in [homeView serverViews])
+  {
+    // remove and add targets.
+    [serverView removeTarget: self action: @selector(serverSelected:) forControlEvents: UIControlEventTouchUpInside];
+    [serverView addTarget: self action:@selector(serverSelected:) forControlEvents:UIControlEventTouchUpInside];
+  }
 }
 
 @end
