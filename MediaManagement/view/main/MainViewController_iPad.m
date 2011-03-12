@@ -10,22 +10,44 @@
 
 #import "Server.h"
 #import "EditController.h"
+#import "BaseMainViewController.h"
+
+@interface MainViewController_iPad(private)
+- (void) initialize;
+@end
 
 @implementation MainViewController_iPad
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+  self = [super initWithCoder: aDecoder];
+  if(self)
+  {
+    [self initialize];
+  }
+  return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
+  if (self) 
+  {
+    [self initialize];
   }
   return self;
 }
 
 - (void) dealloc
 {
+  [baseController release];
   [server release];
   [super dealloc];
+}
+
+- (void) initialize
+{
+  baseController = [[BaseMainViewController alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,6 +12,7 @@
 @class EditController;
 @class CategoriesTableViewController;
 @class ContentTableViewController;
+@class BaseMainViewController;
 
 @interface MainViewController_iPad : UIViewController 
 {
@@ -21,6 +22,7 @@
   IBOutlet CategoriesTableViewController *categoriesController;
   IBOutlet ContentTableViewController *contentController;
   
+  BaseMainViewController *baseController;
   Server *server;
 }
 

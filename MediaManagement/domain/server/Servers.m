@@ -121,6 +121,7 @@
 {
   NSLog(@"Did resolve service.");
   Server *server = [self pendingServerWithNetService: sender];
+  [server didResolve];
   [servers addObject: server];
   [pendingServers removeObject: server];
 

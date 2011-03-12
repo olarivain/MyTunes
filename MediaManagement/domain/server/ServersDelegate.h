@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @class Servers;
-
+@class Server;
 @protocol ServersDelegate <NSObject>
 
-- (void) didRefresh: (Servers*) sender;
-
 @optional
+- (void) didRefresh: (Servers*) sender;
 - (void) willRefresh: (Servers*) sender;
+
+- (void) server: (Server*) server receivedContent: (NSArray*) content;
+- (void) server: (Server*) server loadedContent: (NSArray*) content;
 
 @end
