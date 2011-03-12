@@ -45,6 +45,8 @@
 		003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED6132BFCDF00D295A2 /* ServerView.m */; };
 		003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */; };
 		003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */; };
+		00E35D70132C026D00D25EFF /* libjson-arm6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E35D6D132C026D00D25EFF /* libjson-arm6.a */; };
+		00E35D71132C026D00D25EFF /* libjson-arm7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E35D6E132C026D00D25EFF /* libjson-arm7.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,17 @@
 		003CDED6132BFCDF00D295A2 /* ServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPad.xib; sourceTree = "<group>"; };
 		003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPhone.xib; sourceTree = "<group>"; };
+		00E35D65132C026D00D25EFF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		00E35D66132C026D00D25EFF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		00E35D67132C026D00D25EFF /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		00E35D68132C026D00D25EFF /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		00E35D69132C026D00D25EFF /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		00E35D6A132C026D00D25EFF /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		00E35D6B132C026D00D25EFF /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		00E35D6C132C026D00D25EFF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		00E35D6D132C026D00D25EFF /* libjson-arm6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson-arm6.a"; sourceTree = "<group>"; };
+		00E35D6E132C026D00D25EFF /* libjson-arm7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson-arm7.a"; sourceTree = "<group>"; };
+		00E35D6F132C026D00D25EFF /* liblibjson x86.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "liblibjson x86.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +141,8 @@
 				002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */,
 				002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */,
 				002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */,
+				00E35D70132C026D00D25EFF /* libjson-arm6.a in Frameworks */,
+				00E35D71132C026D00D25EFF /* libjson-arm7.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +181,7 @@
 		002A0AE41324549D00320A06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00E35D62132C026D00D25EFF /* JSON */,
 				002A0AE51324549D00320A06 /* UIKit.framework */,
 				002A0AE71324549D00320A06 /* Foundation.framework */,
 				002A0AE91324549D00320A06 /* CoreGraphics.framework */,
@@ -344,6 +360,41 @@
 				003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */,
 			);
 			path = server;
+			sourceTree = "<group>";
+		};
+		00E35D62132C026D00D25EFF /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				00E35D63132C026D00D25EFF /* include */,
+				00E35D6D132C026D00D25EFF /* libjson-arm6.a */,
+				00E35D6E132C026D00D25EFF /* libjson-arm7.a */,
+				00E35D6F132C026D00D25EFF /* liblibjson x86.a */,
+			);
+			name = JSON;
+			path = libraries/JSON;
+			sourceTree = "<group>";
+		};
+		00E35D63132C026D00D25EFF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				00E35D64132C026D00D25EFF /* JSON */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		00E35D64132C026D00D25EFF /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				00E35D65132C026D00D25EFF /* JSON.h */,
+				00E35D66132C026D00D25EFF /* NSObject+JSON.h */,
+				00E35D67132C026D00D25EFF /* SBJsonParser.h */,
+				00E35D68132C026D00D25EFF /* SBJsonStreamParser.h */,
+				00E35D69132C026D00D25EFF /* SBJsonStreamParserAdapter.h */,
+				00E35D6A132C026D00D25EFF /* SBJsonStreamWriter.h */,
+				00E35D6B132C026D00D25EFF /* SBJsonTokeniser.h */,
+				00E35D6C132C026D00D25EFF /* SBJsonWriter.h */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +605,10 @@
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libraries/JSON\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -568,6 +623,10 @@
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libraries/JSON\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
