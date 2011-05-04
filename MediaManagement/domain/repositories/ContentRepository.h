@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Content.h"
+#import <MediaManagement/MMContent.h>
 
 @class Server;
 
 @interface ContentRepository : NSObject {
-  ContentKind kind;
+  MMContentKind kind;
 }
 
-@property (nonatomic, readwrite, assign) ContentKind kind;
+@property (nonatomic, readwrite, assign) MMContentKind kind;
 
 - (void) loadServer: (Server*) server;
-- (void) loadServer: (Server*) server withKind: (ContentKind) kind;
+- (void) loadServer: (Server*) server withKind: (MMContentKind) kind;
 
 @end

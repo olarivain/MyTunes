@@ -20,7 +20,6 @@
 		003CDEA0132BFCD200D295A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9C132BFCD200D295A2 /* InfoPlist.strings */; };
 		003CDEA1132BFCD200D295A2 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */; };
 		003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */; };
-		003CDED9132BFCDF00D295A2 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEA6132BFCDF00D295A2 /* Content.m */; };
 		003CDEDA132BFCDF00D295A2 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEA9132BFCDF00D295A2 /* Query.m */; };
 		003CDEDB132BFCDF00D295A2 /* QueryCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEAB132BFCDF00D295A2 /* QueryCategory.m */; };
 		003CDEDC132BFCDF00D295A2 /* ContentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEAE132BFCDF00D295A2 /* ContentRepository.m */; };
@@ -45,8 +44,7 @@
 		003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED6132BFCDF00D295A2 /* ServerView.m */; };
 		003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */; };
 		003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */; };
-		00E35D70132C026D00D25EFF /* libjson-arm6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E35D6D132C026D00D25EFF /* libjson-arm6.a */; };
-		00E35D71132C026D00D25EFF /* libjson-arm7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E35D6E132C026D00D25EFF /* libjson-arm7.a */; };
+		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +75,6 @@
 		003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
 		003CDE9E132BFCD200D295A2 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
 		003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaManagementAppDelegate.m; sourceTree = "<group>"; };
-		003CDEA5132BFCDF00D295A2 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		003CDEA6132BFCDF00D295A2 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		003CDEA8132BFCDF00D295A2 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		003CDEA9132BFCDF00D295A2 /* Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Query.m; sourceTree = "<group>"; };
 		003CDEAA132BFCDF00D295A2 /* QueryCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCategory.h; sourceTree = "<group>"; };
@@ -120,17 +116,7 @@
 		003CDED6132BFCDF00D295A2 /* ServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPad.xib; sourceTree = "<group>"; };
 		003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPhone.xib; sourceTree = "<group>"; };
-		00E35D65132C026D00D25EFF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		00E35D66132C026D00D25EFF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
-		00E35D67132C026D00D25EFF /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		00E35D68132C026D00D25EFF /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		00E35D69132C026D00D25EFF /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		00E35D6A132C026D00D25EFF /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		00E35D6B132C026D00D25EFF /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
-		00E35D6C132C026D00D25EFF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		00E35D6D132C026D00D25EFF /* libjson-arm6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson-arm6.a"; sourceTree = "<group>"; };
-		00E35D6E132C026D00D25EFF /* libjson-arm7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libjson-arm7.a"; sourceTree = "<group>"; };
-		00E35D6F132C026D00D25EFF /* liblibjson x86.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "liblibjson x86.a"; sourceTree = "<group>"; };
+		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +127,7 @@
 				002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */,
 				002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */,
 				002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */,
-				00E35D70132C026D00D25EFF /* libjson-arm6.a in Frameworks */,
-				00E35D71132C026D00D25EFF /* libjson-arm7.a in Frameworks */,
+				00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +166,7 @@
 		002A0AE41324549D00320A06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00E35D62132C026D00D25EFF /* JSON */,
+				00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */,
 				002A0AE51324549D00320A06 /* UIKit.framework */,
 				002A0AE71324549D00320A06 /* Foundation.framework */,
 				002A0AE91324549D00320A06 /* CoreGraphics.framework */,
@@ -248,8 +233,6 @@
 		003CDEA4132BFCDF00D295A2 /* content */ = {
 			isa = PBXGroup;
 			children = (
-				003CDEA5132BFCDF00D295A2 /* Content.h */,
-				003CDEA6132BFCDF00D295A2 /* Content.m */,
 			);
 			path = content;
 			sourceTree = "<group>";
@@ -360,41 +343,6 @@
 				003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */,
 			);
 			path = server;
-			sourceTree = "<group>";
-		};
-		00E35D62132C026D00D25EFF /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				00E35D63132C026D00D25EFF /* include */,
-				00E35D6D132C026D00D25EFF /* libjson-arm6.a */,
-				00E35D6E132C026D00D25EFF /* libjson-arm7.a */,
-				00E35D6F132C026D00D25EFF /* liblibjson x86.a */,
-			);
-			name = JSON;
-			path = libraries/JSON;
-			sourceTree = "<group>";
-		};
-		00E35D63132C026D00D25EFF /* include */ = {
-			isa = PBXGroup;
-			children = (
-				00E35D64132C026D00D25EFF /* JSON */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		00E35D64132C026D00D25EFF /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				00E35D65132C026D00D25EFF /* JSON.h */,
-				00E35D66132C026D00D25EFF /* NSObject+JSON.h */,
-				00E35D67132C026D00D25EFF /* SBJsonParser.h */,
-				00E35D68132C026D00D25EFF /* SBJsonStreamParser.h */,
-				00E35D69132C026D00D25EFF /* SBJsonStreamParserAdapter.h */,
-				00E35D6A132C026D00D25EFF /* SBJsonStreamWriter.h */,
-				00E35D6B132C026D00D25EFF /* SBJsonTokeniser.h */,
-				00E35D6C132C026D00D25EFF /* SBJsonWriter.h */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,7 +460,6 @@
 			files = (
 				002A0AF31324549D00320A06 /* main.m in Sources */,
 				003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */,
-				003CDED9132BFCDF00D295A2 /* Content.m in Sources */,
 				003CDEDA132BFCDF00D295A2 /* Query.m in Sources */,
 				003CDEDB132BFCDF00D295A2 /* QueryCategory.m in Sources */,
 				003CDEDC132BFCDF00D295A2 /* ContentRepository.m in Sources */,
@@ -603,13 +550,15 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/libraries/JSON\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/olarivain/Development/XCode\\ 4/MediaManagementCommon/MediaManagementCommon/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -621,13 +570,15 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/libraries/JSON\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/olarivain/Development/XCode\\ 4/MediaManagementCommon/MediaManagementCommon/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Content.h"
+#import <MediaManagement/MMContent.h>
 
 @interface Server : NSObject {
   @private  
@@ -43,6 +43,6 @@
 
 - (void) didResolve;
 
-- (void) loadContent: (ContentKind) kind;
+- (void) loadContent: (MMContentKind) kind;
 
 @end

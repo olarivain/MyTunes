@@ -18,7 +18,7 @@
   [self loadServer:server withKind: kind];
 }
 
-- (void) loadServer: (Server*) server withKind: (ContentKind) kind
+- (void) loadServer: (Server*) server withKind: (MMContentKind) kind
 {
   NSLog(@"loadContentWithKind not implemented.");
 }

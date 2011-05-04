@@ -7,7 +7,6 @@
 //
 
 #import "Query.h"
-
 #import "QueryCategory.h"
 
 @implementation Query

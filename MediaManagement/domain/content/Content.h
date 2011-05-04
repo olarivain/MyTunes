@@ -13,7 +13,8 @@ typedef enum ContentKind{
   MOVIE = 1,
   TV_SHOW = 2,
   PODCAST = 3,
-  ITUNES_U = 4
+  ITUNES_U = 4,
+  UNKNOWN = 5;
 }ContentKind;
 
 @interface Content : NSObject {

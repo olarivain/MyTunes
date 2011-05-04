@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Content.h"
+#import <MediaManagement/MMContent.h>
 
 @interface QueryCategory : NSObject 
 {
-  ContentKind kind;
+  MMContentKind kind;
   NSString *name;
   NSMutableArray *queries;
 }
 
-@property (nonatomic, readwrite, assign) ContentKind kind;
+@property (nonatomic, readwrite, assign) MMContentKind kind;
 @property (nonatomic, readwrite, assign) NSArray *queries;
 
 @end

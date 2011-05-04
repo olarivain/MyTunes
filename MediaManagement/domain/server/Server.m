@@ -7,7 +7,7 @@
 //
 
 #import "Server.h"
-
+#import <MediaManagement/MMContent.h>
 
 @implementation Server
 
@@ -64,7 +64,7 @@
   name = [[[host componentsSeparatedByString:@".local"] objectAtIndex:0] retain];
 }
 
-- (void) loadContent: (ContentKind) kind 
+- (void) loadContent: (MMContentKind) kind 
 {
   // TODO: implement
   NSLog(@"loadContent not implemented.");
