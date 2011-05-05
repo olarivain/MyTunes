@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class Server;
+@class MMServer;
 
 @protocol MainViewController <NSObject>
 
-- (void) setServer: (Server*) server;
+- (void) setServer: (MMServer*) server;
 
 @end

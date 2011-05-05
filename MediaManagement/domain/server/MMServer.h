@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <MediaManagement/MMContent.h>
 
-@interface Server : NSObject {
+@class MMQueryGroup;
+
+@interface MMServer : NSObject {
   @private  
   NSNetService *netService;
   
@@ -17,11 +19,7 @@
   NSString *host;
   NSString *name;
   
-  NSMutableArray *songs;
-  NSMutableArray *movies;
-  NSMutableArray *tvShows;
-  NSMutableArray *podcasts;
-  NSMutableArray *itunesU;
+  NSMutableArray *queryGroups;
   
   NSDate *lastUpdate;
 }
@@ -33,16 +31,10 @@
 @property (readonly) NSString *host;
 @property (readonly) NSString *name;
 
-
-@property (readonly) NSMutableArray *songs;
-@property (readonly) NSMutableArray *movies;
-@property (readonly) NSMutableArray *tvShows;
-@property (readonly) NSMutableArray *podcasts;
-@property (readonly) NSMutableArray *itunesU;
+@property (readonly) NSArray *queryGroups;
 
 
 - (void) didResolve;
 
-- (void) loadContent: (MMContentKind) kind;
-
+- (NSString*) serverURL;
 @end

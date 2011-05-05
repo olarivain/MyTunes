@@ -64,12 +64,12 @@
 }
 
 #pragma mark - Server get/set
-- (Server*) server
+- (MMServer*) server
 {
   return server;
 }
 
-- (void) setServer:(Server *)newServer
+- (void) setServer:(MMServer *)newServer
 {
   if(server == newServer)
   {

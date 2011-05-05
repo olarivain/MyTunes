@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class Server;
-@class ContentRepository;
+@class MMServer;
+@class MMContentRepository;
 
 @interface BaseMainViewController : NSObject 
 {
-  Server *server;
-  ContentRepository *repository;
+  MMServer *server;
+  MMContentRepository *repository;
 }
 
-@property (nonatomic, readwrite, retain) Server *server;
-@property (nonatomic, readwrite, retain) ContentRepository *repository;
+@property (nonatomic, readwrite, retain) MMServer *server;
+@property (nonatomic, readwrite, retain) MMContentRepository *repository;
 
 @end

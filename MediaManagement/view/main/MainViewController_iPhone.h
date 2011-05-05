@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class Server;
+@class MMServer;
 @class EditController;
 
 @interface MainViewController_iPhone : UIViewController 
 {
   IBOutlet EditController *editController;
-  Server *server;
+  MMServer *server;
 }
 
-@property (nonatomic, readwrite, retain) Server *server;
+@property (nonatomic, readwrite, retain) MMServer *server;
 
 - (IBAction) editPressed: (id) sender;
 

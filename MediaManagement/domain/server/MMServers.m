@@ -6,16 +6,16 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "Servers.h"
-#import "Server.h"
+#import "MMServers.h"
+#import "MMServer.h"
 
-@interface Servers(private)
-- (Server*) pendingServerWithNetService: (NSNetService*) netService;
-- (Server*) serverWithNetService: (NSNetService*) netService;
-- (Server*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList;
+@interface MMServers(private)
+- (MMServer*) pendingServerWithNetService: (NSNetService*) netService;
+- (MMServer*) serverWithNetService: (NSNetService*) netService;
+- (MMServer*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList;
 @end
 
-@implementation Servers
+@implementation MMServers
 
 - (id) init
 {
@@ -57,20 +57,20 @@
   [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
-- (Server*) pendingServerWithNetService: (NSNetService*) netService
+- (MMServer*) pendingServerWithNetService: (NSNetService*) netService
 {
   return [self serverWithNetService:netService inCollection:pendingServers];
 }
 
-- (Server*) serverWithNetService: (NSNetService*) netService
+- (MMServer*) serverWithNetService: (NSNetService*) netService
 {
   return [self serverWithNetService:netService inCollection:servers];  
 }
 
 
-- (Server*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList
+- (MMServer*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList
 {
-  for(Server *server in serverList)
+  for(MMServer *server in serverList)
   {
     if([[[server netService] name] isEqualToString: [netService name]])
     {
@@ -89,7 +89,7 @@
   }
   NSLog(@"Found service.");
 
-  Server *server = [[[Server alloc] initWithNetService: aNetService] autorelease];
+  MMServer *server = [[[MMServer alloc] initWithNetService: aNetService] autorelease];
   [pendingServers addObject: server];
   [aNetService setDelegate: self];
   [aNetService resolveWithTimeout:5];
@@ -99,7 +99,7 @@
 {
   NSLog(@"Service removed.");
   
-  Server *server = [self serverWithNetService: aNetService];
+  MMServer *server = [self serverWithNetService: aNetService];
   [servers removeObject: server];
   [[self delegate] didRefresh:self];
 }
@@ -120,7 +120,7 @@
 - (void) netServiceDidResolveAddress:(NSNetService *)sender
 {
   NSLog(@"Did resolve service.");
-  Server *server = [self pendingServerWithNetService: sender];
+  MMServer *server = [self pendingServerWithNetService: sender];
   [server didResolve];
   [servers addObject: server];
   [pendingServers removeObject: server];
@@ -132,7 +132,7 @@
 {
   NSLog(@"Did not resolve service.");
   
-  Server *server = [self pendingServerWithNetService: sender];
+  MMServer *server = [self pendingServerWithNetService: sender];
   [pendingServers removeObject: server];
   [[self delegate] didRefresh: self];
 }

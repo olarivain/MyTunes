@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class Server;
+@class MMServer;
 @class EditController;
 @class CategoriesTableViewController;
 @class ContentTableViewController;
 @class BaseMainViewController;
 
-@interface MainViewController_iPad : UIViewController 
+@interface MainViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet UIBarButtonItem *editButton;
   IBOutlet EditController *editController;
@@ -23,10 +23,10 @@
   IBOutlet ContentTableViewController *contentController;
   
   BaseMainViewController *baseController;
-  Server *server;
+  MMServer *server;
 }
 
-@property (nonatomic, readwrite, retain) Server *server;
+@property (nonatomic, readwrite, retain) MMServer *server;
 
 - (IBAction) editPressed: (id) sender;
 

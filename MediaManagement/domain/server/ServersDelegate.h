@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Servers;
-@class Server;
-@protocol ServersDelegate <NSObject>
+@class MMServers;
+@class MMServer;
+@protocol MMServersDelegate <NSObject>
 
 @optional
-- (void) didRefresh: (Servers*) sender;
-- (void) willRefresh: (Servers*) sender;
+- (void) didRefresh: (MMServers*) sender;
+- (void) willRefresh: (MMServers*) sender;
 
-- (void) server: (Server*) server receivedContent: (NSArray*) content;
-- (void) server: (Server*) server loadedContent: (NSArray*) content;
+- (void) server: (MMServer*) server receivedContent: (NSArray*) content;
+- (void) server: (MMServer*) server loadedContent: (NSArray*) content;
 
 @end

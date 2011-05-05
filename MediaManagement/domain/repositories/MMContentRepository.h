@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MediaManagement/MMContent.h>
 
-@class Server;
+@class MMServer;
 
-@interface ContentRepository : NSObject {
+@interface MMContentRepository : NSObject {
   MMContentKind kind;
 }
 
 @property (nonatomic, readwrite, assign) MMContentKind kind;
 
-- (void) loadServer: (Server*) server;
-- (void) loadServer: (Server*) server withKind: (MMContentKind) kind;
+- (void) loadServer: (MMServer*) server;
+- (void) loadServer: (MMServer*) server withKind: (MMContentKind) kind;
 
 @end

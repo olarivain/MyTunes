@@ -11,18 +11,18 @@
 
 #define SERVERS_REFRESHED @"ServersRefreshed"
 
-@class Server;
+@class MMServer;
 
-@interface Servers : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
+@interface MMServers : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
   NSNetServiceBrowser *netServiceBrowser;
   NSMutableArray *servers;
   NSMutableArray *pendingServers;
-  id<ServersDelegate> delegate;
+  id<MMServersDelegate> delegate;
 }
 
 @property (readonly) NSArray *servers;
-@property (readwrite, retain) id<ServersDelegate> delegate;
+@property (readwrite, retain) id<MMServersDelegate> delegate;
 
 - (void) refreshServerList;
 

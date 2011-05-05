@@ -8,25 +8,31 @@
 
 #import "HomeViewController.h"
 
-#import "Servers.h"
+#import "MMServers.h"
 #import "HomeView.h"
 #import "ServerView.h"
 #import "MainViewController_iPad.h"
+#import "NibUtils.h"
+
+@interface HomeViewController()
+@property (nonatomic, readwrite, retain) HomeView *homeView;
+
+@end
 
 @implementation HomeViewController
 
 - (void)dealloc
 {
+  self.homeView = nil;
   [servers release];
   [super dealloc];
 }
 
+@synthesize homeView;
+
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -34,13 +40,14 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  servers = [[Servers alloc] init];
+  servers = [[MMServers alloc] init];
   [servers setDelegate: self];
   [self refresh];
 }
 
 - (void)viewDidUnload
 {
+  self.homeView = nil;
   [super viewDidUnload];
 }
 
@@ -58,13 +65,16 @@
 - (IBAction) serverSelected:(id)sender
 {
   ServerView *view = (ServerView*) sender;
-  [mainViewController setServer: [view server]];
   
+  NSString *nibName = [NibUtils nibName: @"MainViewController"];
+
+  MainViewController_iPad *mainViewController = [[MainViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  [mainViewController setServer: [view server]];
   [[self navigationController] pushViewController:mainViewController animated:TRUE];
 }
 
 #pragma mark - ServersDelegate methods
-- (void) didRefresh:(Servers *)sender
+- (void) didRefresh:(MMServers *)sender
 {
   NSLog(@"Did refresh, %i", [[servers servers] count]);
   [homeView setServers: [servers servers]];

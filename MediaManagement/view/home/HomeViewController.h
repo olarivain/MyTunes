@@ -12,15 +12,13 @@
 
 
 @class HomeView;
-@class Servers;
-@class MainViewController_iPad;
+@class MMServers;
 
-@interface HomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, ServersDelegate>
+@interface HomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, MMServersDelegate>
 {
   @private
   IBOutlet HomeView *homeView;
-  IBOutlet UIViewController<MainViewController> *mainViewController;
-  Servers *servers;
+  MMServers *servers;
 }
 
 - (IBAction) refresh;

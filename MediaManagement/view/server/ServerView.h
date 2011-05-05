@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class Server;
+@class MMServer;
 
 @interface ServerView : UIControl 
 {
   @private
-  Server *server;
+  MMServer *server;
   IBOutlet UILabel *label;
 }
 
-@property (readwrite, retain) Server* server;
+@property (readwrite, retain) MMServer* server;
 
 @end

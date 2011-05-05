@@ -6,19 +6,19 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "ContentRepository.h"
+#import "MMContentRepository.h"
 
 
-@implementation ContentRepository
+@implementation MMContentRepository
 
 @synthesize kind;
 
-- (void) loadServer: (Server*) server
+- (void) loadServer: (MMServer*) server
 {
   [self loadServer:server withKind: kind];
 }
 
-- (void) loadServer: (Server*) server withKind: (MMContentKind) kind
+- (void) loadServer: (MMServer*) server withKind: (MMContentKind) kind
 {
   NSLog(@"loadContentWithKind not implemented.");
 }

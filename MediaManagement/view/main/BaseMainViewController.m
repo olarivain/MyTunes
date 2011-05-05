@@ -8,7 +8,7 @@
 
 #import "BaseMainViewController.h"
 
-#import "Server.h"
+#import "MMServer.h"
 
 @implementation BaseMainViewController
 

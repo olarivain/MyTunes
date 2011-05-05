@@ -158,7 +158,7 @@
   
   for(int i = 0; i < [servers count]; i++)
   {
-    Server *server = [servers objectAtIndex:i];
+    MMServer *server = [servers objectAtIndex:i];
     ServerView *icon = [serverViews objectAtIndex: i];
     [icon setServer: server];
   }

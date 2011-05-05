@@ -8,12 +8,18 @@
 
 #import "MainViewController_iPad.h"
 
-#import "Server.h"
+#import "MMServer.h"
 #import "EditController.h"
 #import "BaseMainViewController.h"
 
+#import "MMQueryGroup.h"
+#import "MMQuery.h"
+
 @interface MainViewController_iPad(private)
 - (void) initialize;
+- (MMQueryGroup*) queryGroupForIndex: (NSUInteger) index;
+- (MMQueryGroup*) queryGroupForIndexPath: (NSIndexPath*) indexPath;
+- (MMQuery*) queryForIndexPath: (NSIndexPath*) indexPath;
 @end
 
 @implementation MainViewController_iPad
@@ -38,6 +44,11 @@
   return self;
 }
 
+- (void) initialize
+{
+  baseController = [[BaseMainViewController alloc] init];
+}
+
 - (void) dealloc
 {
   [baseController release];
@@ -45,10 +56,7 @@
   [super dealloc];
 }
 
-- (void) initialize
-{
-  baseController = [[BaseMainViewController alloc] init];
-}
+@synthesize server;
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,7 +67,12 @@
 }
 
 #pragma mark - View lifecycle
-
+- (void) viewDidLoad
+{
+  [super viewDidLoad];
+  [[self navigationItem] setTitle: [server name]];
+  
+}
 - (void)viewDidUnload
 {
   [super viewDidUnload];
@@ -71,24 +84,67 @@
   return YES;
 }
 
-#pragma mark - Server get/set
-- (Server*) server
+#pragma mark - TableView Data source
+#pragma Convienence accessors
+- (MMQueryGroup*) queryGroupForIndex: (NSUInteger) index
 {
-  return server;
+  MMQueryGroup *group = [[server queryGroups] objectAtIndex: index];
+  return group;
 }
 
-- (void) setServer:(Server *)newServer
+- (MMQueryGroup*) queryGroupForIndexPath: (NSIndexPath*) indexPath
 {
-  if(server == newServer)
+  return [self queryGroupForIndex: indexPath.section];
+}
+
+- (MMQuery*) queryForIndexPath: (NSIndexPath*) indexPath
+{
+  MMQueryGroup *group = [self queryGroupForIndexPath: indexPath];
+  MMQuery *query = [[group queries] objectAtIndex: indexPath.row];
+  return query;
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return [[server queryGroups] count];
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  MMQueryGroup *group = [self queryGroupForIndex: section];
+  return [group queryCount];
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  MMQuery *query = [self queryForIndexPath: indexPath];
+  
+  NSString *cellId = @"queryCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+  if(cell == nil)
   {
-    return;
+    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
   }
   
-  [newServer retain];
-  [server release];
-  server = newServer;
+  cell.textLabel.text = query.name;
+  return cell;
+}
+
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  MMQueryGroup *group = [self queryGroupForIndex: section];
+  return group.name;
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
   
-  [[self navigationItem] setTitle: [server name]];
+  MMQuery *query = [self queryForIndexPath: indexPath];
+  void (^callback)(void) = ^{
+    // 
+  };
+  [query reloadWithBlock:callback];
 }
 
 #pragma mark - Action handlers

@@ -8,7 +8,7 @@
 
 #import "ServerView.h"
 
-#import "Server.h"
+#import "MMServer.h"
 
 @implementation ServerView
 
@@ -35,12 +35,12 @@
 
 
 #pragma  mark - Server management;
-- (Server*) server
+- (MMServer*) server
 {
   return server;
 }
 
-- (void) setServer:(Server *)newServer
+- (void) setServer:(MMServer *)newServer
 {
   if(newServer == server)
   {
