@@ -12,11 +12,11 @@
 
 @interface ContentTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
   MMQuery *query;
-  UITableView *table;
+  IBOutlet UITableView *table;
 }
 
 
-@property (nonatomic, readwrite, assign) UITableView *tableView;
+@property (nonatomic, readwrite, assign) UITableView *table;
 @property (nonatomic, readwrite, retain) MMQuery *query;
 
 - (void) refresh;

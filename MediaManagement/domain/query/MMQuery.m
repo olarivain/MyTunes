@@ -85,6 +85,8 @@
     MMMediaLibrary *newLibrary = [[MMContentAssembler sharedInstance] createLibrary: dto];
     self.library = newLibrary;
     NSLog(@"Library %@ refreshed", library.name);
+    dispatch_queue_t main = dispatch_get_main_queue();
+    dispatch_async(main, callback);
   };
   
   MMQueryScheduler *scheduler = [MMQueryScheduler sharedInstance];

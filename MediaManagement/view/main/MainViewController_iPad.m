@@ -14,6 +14,8 @@
 #import "MMQueryGroup.h"
 #import "MMQuery.h"
 
+#import "ContentTableViewController.h"
+
 @interface MainViewController_iPad(private)
 - (void) initialize;
 - (MMQueryGroup*) queryGroupForIndex: (NSUInteger) index;
@@ -114,8 +116,9 @@
   [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
   
   MMQuery *query = [self queryForIndexPath: indexPath];
+  contentController.query = query;
   void (^callback)(void) = ^{
-    // 
+    [contentController refresh];
   };
   [query reloadWithBlock:callback];
 }

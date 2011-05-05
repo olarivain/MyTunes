@@ -11,6 +11,8 @@
 #import "MMQuery.h"
 #import "MMMusicLibrary.h"
 #import "MMMoviesMediaLibrary.h"
+#import "MMArtist.h"
+#import "MMAlbum.h"
 
 @implementation ContentTableViewController
 
@@ -20,13 +22,13 @@
   [super dealloc];
 }
 
-@synthesize tableView;
+@synthesize table;
 @synthesize query;
 
 #pragma mark - Table view data source
 - (void) refresh
 {
-  [tableView reloadData];
+  [table reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -34,68 +36,74 @@
   
   MMMediaLibrary *library = query.library;
   NSInteger sections = [library sectionsCount];
-    return sections;
+  return sections;
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  return [query.library titleForSection: section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+  MMMediaLibrary *library = query.library;
+  if(![library isKindOfClass: [MMMusicLibrary class]])
+  {
+    return  [library.content count];
+  }
+  
+  NSInteger count = 0;
+  MMMusicLibrary *music = (MMMusicLibrary*) library;
+  MMArtist *artist = [music.artists objectAtIndex: section];
+  for(MMAlbum *album in artist.albums)
+  {
+    count += [album.tracks count];
+  }
+  return  count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+  NSString *CellIdentifier = @"TrackCell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+  }
+  
+  MMContent *content = nil;
+  MMMediaLibrary *library = query.library;
+  if(![library isKindOfClass: [MMMusicLibrary class]])
+  {
+    content = [library.content objectAtIndex: indexPath.row];
+  } 
+  else
+  {
+    MMMusicLibrary *music = (MMMusicLibrary*) library;
+    MMArtist *artist = [music.artists objectAtIndex: indexPath.section];
+    NSInteger count = 0;
+    for(MMAlbum *album in artist.albums)
+    {
+      for(MMContent *track in album.tracks)
+      {
+         if(indexPath.row == count)
+         {
+           content = track;
+           break;
+         }
+        count++;
+      }
+      if(content != nil)
+      {
+        break;
+      }
     }
+  }
     
-    // Configure the cell...
+  cell.textLabel.text = content.name;
     
-    return cell;
+  return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
