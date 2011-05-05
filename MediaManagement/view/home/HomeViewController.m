@@ -71,6 +71,7 @@
   MainViewController_iPad *mainViewController = [[MainViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
   [mainViewController setServer: [view server]];
   [[self navigationController] pushViewController:mainViewController animated:TRUE];
+  [mainViewController release];
 }
 
 #pragma mark - ServersDelegate methods

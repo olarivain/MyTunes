@@ -6,11 +6,14 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <MediaManagement/MMMediaLibrary.h>
+#import <MediaManagement/MMContentAssembler.h>
 #import "MMQuery.h"
 #import "MMQueryGroup.h"
 #import "MMServer.h"
 #import "MMQueryScheduler.h"
 #import "NSHTTPURLResponse+MediaManagement.h"
+#import "JSONKit.h"
 
 @implementation MMQuery
 
@@ -55,7 +58,7 @@
 @synthesize path;
 @synthesize group;
 @synthesize server;
-
+@synthesize library;
 
 - (void) reloadWithBlock: (void(^)(void)) callback
 {
@@ -66,7 +69,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL: url];
     NSHTTPURLResponse *response = nil;
     NSError *error = nil;
-    NSData *responseBody = [NSURLConnection sendSynchronousRequest: request returningResponse: &response error: &error];
+    NSData *body = [NSURLConnection sendSynchronousRequest: request returningResponse: &response error: &error];
     if(error != nil)
     {
       NSLog(@"Error happened, %@", error);
@@ -76,9 +79,12 @@
     {
       NSLog(@"Received code %i from request %@.", [response statusCode], stringURL);
     }
-    NSString *body = [[[NSString alloc] initWithData: responseBody encoding: [response contentEncoding]] autorelease];
-
     
+    JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionStrict];
+    NSDictionary *dto = [decoder objectWithData: body];
+    MMMediaLibrary *newLibrary = [[MMContentAssembler sharedInstance] createLibrary: dto];
+    self.library = newLibrary;
+    NSLog(@"Library %@ refreshed", library.name);
   };
   
   MMQueryScheduler *scheduler = [MMQueryScheduler sharedInstance];

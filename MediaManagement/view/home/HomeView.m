@@ -13,7 +13,8 @@
 #define MARGIN 40
 #define PADDING 20
 
-@interface HomeView(private)
+@interface HomeView()
+@property (nonatomic, readwrite, assign) ServerView *serverCell;
 - (void) removeLastServerIcons: (int) count;
 - (void) addServerView: (int) count;
 - (int) computeServerPerRows;
@@ -49,6 +50,7 @@
   [super dealloc];
 }
 
+@synthesize serverCell;
 @synthesize serverViews;
 
 #pragma mark - Layout
@@ -188,8 +190,7 @@
   for(int i = 0; i < count; i++)
   {
     NSString *nibName = [NibUtils nibName:@"ServerView"];
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
-    ServerView *serverView = [array objectAtIndex:0];
+    [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
     CGRect rect = [serverView frame];
     rect.origin.x = 10;
     rect.origin.y = 10;

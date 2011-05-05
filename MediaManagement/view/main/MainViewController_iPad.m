@@ -10,7 +10,6 @@
 
 #import "MMServer.h"
 #import "EditController.h"
-#import "BaseMainViewController.h"
 
 #import "MMQueryGroup.h"
 #import "MMQuery.h"
@@ -24,34 +23,8 @@
 
 @implementation MainViewController_iPad
 
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-  self = [super initWithCoder: aDecoder];
-  if(self)
-  {
-    [self initialize];
-  }
-  return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) 
-  {
-    [self initialize];
-  }
-  return self;
-}
-
-- (void) initialize
-{
-  baseController = [[BaseMainViewController alloc] init];
-}
-
 - (void) dealloc
 {
-  [baseController release];
   [server release];
   [super dealloc];
 }
@@ -150,8 +123,11 @@
 #pragma mark - Action handlers
 - (IBAction) editPressed: (id) sender
 {
+  NSString *nibName = @"EditController";
+  EditController *editController = [[EditController alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
   [editController setModalPresentationStyle:UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
+  [editController release];
 }
 
 @end

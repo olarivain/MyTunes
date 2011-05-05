@@ -9,20 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @class MMServer;
-@class EditController;
 @class CategoriesTableViewController;
 @class ContentTableViewController;
-@class BaseMainViewController;
 
 @interface MainViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet UIBarButtonItem *editButton;
-  IBOutlet EditController *editController;
   
   IBOutlet CategoriesTableViewController *categoriesController;
   IBOutlet ContentTableViewController *contentController;
   
-  BaseMainViewController *baseController;
   MMServer *server;
 }
 

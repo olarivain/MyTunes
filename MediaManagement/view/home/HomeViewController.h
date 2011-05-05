@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ServersDelegate.h"
-#import "MainViewController.h"
 
 
 @class HomeView;

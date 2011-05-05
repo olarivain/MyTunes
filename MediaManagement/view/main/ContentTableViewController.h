@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class MMQuery;
 
-@interface ContentTableViewController : UITableViewController {
-    
+@interface ContentTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
+  MMQuery *query;
+  UITableView *table;
 }
+
+
+@property (nonatomic, readwrite, assign) UITableView *tableView;
+@property (nonatomic, readwrite, retain) MMQuery *query;
+
+- (void) refresh;
 
 @end
