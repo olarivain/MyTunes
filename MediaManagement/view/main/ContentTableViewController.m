@@ -9,10 +9,8 @@
 #import "ContentTableViewController.h"
 
 #import "MMQuery.h"
-#import "MMMusicPlaylist.h"
-#import "MMMoviesPlaylist.h"
-#import "MMArtist.h"
-#import "MMAlbum.h"
+#import "MMPlaylist.h"
+#import "MMContentList.h"
 
 @implementation ContentTableViewController
 
@@ -35,31 +33,24 @@
 {
   
   MMPlaylist *library = query.library;
-  NSInteger sections = [library sectionsCount];
-  return sections;
+  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  return [contentLists count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  return [query.library titleForSection: section];
+  MMPlaylist *library = query.library;
+  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  MMContentList *contentList = [contentLists objectAtIndex: section];
+  return contentList.name;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   MMPlaylist *library = query.library;
-  if(![library isKindOfClass: [MMMusicPlaylist class]])
-  {
-    return  [library.content count];
-  }
-  
-  NSInteger count = 0;
-  MMMusicPlaylist *music = (MMMusicPlaylist*) library;
-  MMArtist *artist = [music.artists objectAtIndex: section];
-  for(MMAlbum *album in artist.albums)
-  {
-    count += [album.tracks count];
-  }
-  return  count;
+  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  MMContentList *contentList = [contentLists objectAtIndex: section];
+  return [[contentList content] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,35 +62,10 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  MMContent *content = nil;
   MMPlaylist *library = query.library;
-  if(![library isKindOfClass: [MMMusicPlaylist class]])
-  {
-    content = [library.content objectAtIndex: indexPath.row];
-  } 
-  else
-  {
-    MMMusicPlaylist *music = (MMMusicPlaylist*) library;
-    MMArtist *artist = [music.artists objectAtIndex: indexPath.section];
-    NSInteger count = 0;
-    for(MMAlbum *album in artist.albums)
-    {
-      for(MMContent *track in album.tracks)
-      {
-         if(indexPath.row == count)
-         {
-           content = track;
-           break;
-         }
-        count++;
-      }
-      if(content != nil)
-      {
-        break;
-      }
-    }
-  }
-    
+  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  MMContentList *contentList = [contentLists objectAtIndex: indexPath.section];
+  MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
   cell.textLabel.text = content.name;
     
   return cell;
