@@ -41,11 +41,12 @@
 		003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED6132BFCDF00D295A2 /* ServerView.m */; };
 		003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */; };
 		003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */; };
+		00528597137F1F3100A5AFA3 /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 00528596137F1F3100A5AFA3 /* MMRemotePlaylist.m */; };
+		0053A2CA137F10BD0099EE5B /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0053A2C9137F10BD0099EE5B /* MMRemoteLibrary.m */; };
 		0064977713726A5700F64641 /* MMQueryScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0064977613726A5700F64641 /* MMQueryScheduler.m */; };
 		0064977A13726E2500F64641 /* NSHTTPURLResponse+MediaManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0064977913726E2400F64641 /* NSHTTPURLResponse+MediaManagement.m */; };
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
-		008529761372563800629899 /* MMQueryGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 008529751372563800629899 /* MMQueryGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,10 @@
 		003CDED6132BFCDF00D295A2 /* ServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPad.xib; sourceTree = "<group>"; };
 		003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPhone.xib; sourceTree = "<group>"; };
+		00528595137F1F3000A5AFA3 /* MMRemotePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemotePlaylist.h; sourceTree = "<group>"; };
+		00528596137F1F3100A5AFA3 /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
+		0053A2C8137F10BD0099EE5B /* MMRemoteLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteLibrary.h; sourceTree = "<group>"; };
+		0053A2C9137F10BD0099EE5B /* MMRemoteLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteLibrary.m; sourceTree = "<group>"; };
 		0064977513726A5700F64641 /* MMQueryScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMQueryScheduler.h; sourceTree = "<group>"; };
 		0064977613726A5700F64641 /* MMQueryScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMQueryScheduler.m; sourceTree = "<group>"; };
 		0064977813726E2400F64641 /* NSHTTPURLResponse+MediaManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+MediaManagement.h"; sourceTree = "<group>"; };
@@ -141,8 +146,6 @@
 		006497A31372776E00F64641 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		006497A41372776E00F64641 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
-		008529741372563800629899 /* MMQueryGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMQueryGroup.h; sourceTree = "<group>"; };
-		008529751372563800629899 /* MMQueryGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMQueryGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,7 @@
 		003CDEA3132BFCDF00D295A2 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				0053A2C7137F10B00099EE5B /* library */,
 				003CDEA4132BFCDF00D295A2 /* content */,
 				003CDEA7132BFCDF00D295A2 /* query */,
 				003CDEAC132BFCDF00D295A2 /* repositories */,
@@ -269,8 +273,6 @@
 			children = (
 				003CDEA8132BFCDF00D295A2 /* MMQuery.h */,
 				003CDEA9132BFCDF00D295A2 /* MMQuery.m */,
-				008529741372563800629899 /* MMQueryGroup.h */,
-				008529751372563800629899 /* MMQueryGroup.m */,
 				0064977513726A5700F64641 /* MMQueryScheduler.h */,
 				0064977613726A5700F64641 /* MMQueryScheduler.m */,
 				0064977813726E2400F64641 /* NSHTTPURLResponse+MediaManagement.h */,
@@ -369,6 +371,17 @@
 				003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */,
 			);
 			path = server;
+			sourceTree = "<group>";
+		};
+		0053A2C7137F10B00099EE5B /* library */ = {
+			isa = PBXGroup;
+			children = (
+				0053A2C8137F10BD0099EE5B /* MMRemoteLibrary.h */,
+				0053A2C9137F10BD0099EE5B /* MMRemoteLibrary.m */,
+				00528595137F1F3000A5AFA3 /* MMRemotePlaylist.h */,
+				00528596137F1F3100A5AFA3 /* MMRemotePlaylist.m */,
+			);
+			path = library;
 			sourceTree = "<group>";
 		};
 		0064977B1372776E00F64641 /* JSONKit */ = {
@@ -652,10 +665,11 @@
 				003CDEEA132BFCDF00D295A2 /* MainViewController_iPad.m in Sources */,
 				003CDEEC132BFCDF00D295A2 /* MainViewController_iPhone.m in Sources */,
 				003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */,
-				008529761372563800629899 /* MMQueryGroup.m in Sources */,
 				0064977713726A5700F64641 /* MMQueryScheduler.m in Sources */,
 				0064977A13726E2500F64641 /* NSHTTPURLResponse+MediaManagement.m in Sources */,
 				006497BC1372776E00F64641 /* JSONKit.m in Sources */,
+				0053A2CA137F10BD0099EE5B /* MMRemoteLibrary.m in Sources */,
+				00528597137F1F3100A5AFA3 /* MMRemotePlaylist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMQueryGroup;
 @class MMServer;
 @class MMPlaylist;
 
@@ -16,7 +15,6 @@
 { 
   NSString *name;
   NSString *path;
-  MMQueryGroup *group;
   MMServer *server;
   // this should be a collection...
   MMPlaylist *library;
@@ -24,16 +22,13 @@
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *path;
-@property (nonatomic, readwrite, retain) MMQueryGroup *group;
 @property (nonatomic, readwrite, assign) MMServer *server;
 @property (nonatomic, readwrite, retain) MMPlaylist *library;
 
 +(id) queryWithName: (NSString *) name andPath: (NSString*) path;
-+(id) queryWithName: (NSString *) name path: (NSString*) path andGroup: (MMQueryGroup*) group;
 
 -(id) initWithName: (NSString *) name andPath: (NSString*) path;
--(id) initWithName: (NSString *) name path: (NSString*) path andGroup: (MMQueryGroup*) group;
 
-- (void) reloadWithBlock: (void(^)(void)) callback;
+- (void) asyncFetchWithBlock: (void(^)(NSObject *dto)) callback;
 
 @end

@@ -11,16 +11,20 @@
 #import "MMServer.h"
 #import "EditController.h"
 
-#import "MMQueryGroup.h"
 #import "MMQuery.h"
 
 #import "ContentTableViewController.h"
+#import "MMRemoteLibrary.h"
+#import "MMPlaylist.h"
+
 
 @interface MainViewController_iPad(private)
 - (void) initialize;
-- (MMQueryGroup*) queryGroupForIndex: (NSUInteger) index;
-- (MMQueryGroup*) queryGroupForIndexPath: (NSIndexPath*) indexPath;
-- (MMQuery*) queryForIndexPath: (NSIndexPath*) indexPath;
+- (NSArray*) playlistListForIndex: (NSInteger) index;
+- (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
+- (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath;
+
+
 @end
 
 @implementation MainViewController_iPad
@@ -61,64 +65,67 @@
 
 #pragma mark - TableView Data source
 #pragma Convienence accessors
-- (MMQueryGroup*) queryGroupForIndex: (NSUInteger) index
+- (NSArray*) playlistListForIndex: (NSInteger) index
 {
-  MMQueryGroup *group = [[server queryGroups] objectAtIndex: index];
-  return group;
+  return  [self playlistListForIndexPath: [NSIndexPath indexPathForRow: 0 inSection: index]];
 }
 
-- (MMQueryGroup*) queryGroupForIndexPath: (NSIndexPath*) indexPath
+- (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath
 {
-  return [self queryGroupForIndex: indexPath.section];
+  MMRemoteLibrary *library = server.serverLibrary;
+  
+  NSArray *playlists = indexPath.section == 0 ? library.systemPlaylists : library.userPlaylists;
+  return playlists;
 }
 
-- (MMQuery*) queryForIndexPath: (NSIndexPath*) indexPath
+- (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath
 {
-  MMQueryGroup *group = [self queryGroupForIndexPath: indexPath];
-  MMQuery *query = [[group queries] objectAtIndex: indexPath.row];
-  return query;
+  NSArray *playlists = [self playlistListForIndexPath: indexPath];
+  MMPlaylist *playlist = [playlists objectAtIndex: indexPath.row];
+  return playlist;
 }
 
+#pragma mark Data Source methods
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return [[server queryGroups] count];
+  return 2;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  MMQueryGroup *group = [self queryGroupForIndex: section];
-  return [group queryCount];
+  NSArray *playlists = [self playlistListForIndex: section];
+  return [playlists count];
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  MMQuery *query = [self queryForIndexPath: indexPath];
+  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
   
-  NSString *cellId = @"queryCell";
+  NSString *cellId = @"playlistCell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
     cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
   }
   
-  cell.textLabel.text = query.name;
+  cell.textLabel.text = playlist.name;
   return cell;
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  MMQueryGroup *group = [self queryGroupForIndex: section];
-  return group.name;
+  return section == 0 ? @"Library" : @"Playlists";
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {  
-  MMQuery *query = [self queryForIndexPath: indexPath];
-  contentController.query = query;
-  void (^callback)(void) = ^{
-    [contentController refresh];
-  };
-  [query reloadWithBlock:callback];
+  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
+  // TODO: update
+//  contentController.query = query;
+//  void (^callback)(void) = ^{
+//    [contentController refresh];
+//  };
+//  [query reloadWithBlock:callback];
 }
 
 #pragma mark - Action handlers
@@ -132,3 +139,4 @@
 }
 
 @end
+ 

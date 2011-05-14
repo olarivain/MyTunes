@@ -10,13 +10,8 @@
 #import <MediaManagement/MMContent.h>
 
 #import "MMServer.h"
-
-#import "MMQueryGroup.h"
+#import "MMRemoteLibrary.h"
 #import "MMQuery.h"
-
-@interface MMServer()
-- (void) bootstrapQueries;
-@end
 
 @implementation MMServer
 
@@ -26,15 +21,14 @@
   if(self)
   {
     netService = [service retain];
-    queryGroups = [[NSMutableArray alloc] initWithCapacity:5];
-    [self bootstrapQueries];
+    serverLibrary = [[MMRemoteLibrary alloc] initWithServer: self];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  [queryGroups release];
+  [serverLibrary release];
   [host release];
   [name release];
   
@@ -47,24 +41,7 @@
 @synthesize name;
 @synthesize port;
 @synthesize host;
-@synthesize queryGroups;
-
-#pragma mark - Query management
-- (void) bootstrapQueries
-{
-  MMQueryGroup *library = [MMQueryGroup queryGroupWithName:@"Library"];
-  library.server = self;
-  [MMQuery queryWithName:@"Music" path:@"/music" andGroup:library];
-  [MMQuery queryWithName:@"Movies" path:@"/movies" andGroup:library];
-  [MMQuery queryWithName:@"TV Shows" path:@"/shows" andGroup:library];
-  [MMQuery queryWithName:@"Podcasts" path:@"/podcasts" andGroup:library];
-  [MMQuery queryWithName:@"iTunes U" path:@"/itunesu" andGroup:library];
-  [queryGroups addObject: library];
-  
-  MMQueryGroup *user = [MMQueryGroup  queryGroupWithName:@"Playlists"];
-  user.server = self;
-  [queryGroups addObject: user];
-}
+@synthesize serverLibrary;
 
 - (void) didResolve
 {
@@ -85,6 +62,11 @@
 - (NSString*) serverURL
 {
   return [NSString stringWithFormat:@"http://%@:%i", host, port];
+}
+
+- (void) loadLibrary
+{
+
 }
 
 @end
