@@ -43,31 +43,7 @@
 		003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */; };
 		0064977713726A5700F64641 /* MMQueryScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0064977613726A5700F64641 /* MMQueryScheduler.m */; };
 		0064977A13726E2500F64641 /* NSHTTPURLResponse+MediaManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0064977913726E2400F64641 /* NSHTTPURLResponse+MediaManagement.m */; };
-		006497A51372776E00F64641 /* config in Resources */ = {isa = PBXBuildFile; fileRef = 0064977E1372776E00F64641 /* config */; };
-		006497A61372776E00F64641 /* description in Resources */ = {isa = PBXBuildFile; fileRef = 0064977F1372776E00F64641 /* description */; };
-		006497A71372776E00F64641 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 006497801372776E00F64641 /* HEAD */; };
-		006497A81372776E00F64641 /* applypatch-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497821372776E00F64641 /* applypatch-msg.sample */; };
-		006497A91372776E00F64641 /* commit-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497831372776E00F64641 /* commit-msg.sample */; };
-		006497AA1372776E00F64641 /* post-commit.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497841372776E00F64641 /* post-commit.sample */; };
-		006497AB1372776E00F64641 /* post-receive.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497851372776E00F64641 /* post-receive.sample */; };
-		006497AC1372776E00F64641 /* post-update.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497861372776E00F64641 /* post-update.sample */; };
-		006497AD1372776E00F64641 /* pre-applypatch.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497871372776E00F64641 /* pre-applypatch.sample */; };
-		006497AE1372776E00F64641 /* pre-commit.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497881372776E00F64641 /* pre-commit.sample */; };
-		006497AF1372776E00F64641 /* pre-rebase.sample in Resources */ = {isa = PBXBuildFile; fileRef = 006497891372776E00F64641 /* pre-rebase.sample */; };
-		006497B01372776E00F64641 /* prepare-commit-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 0064978A1372776E00F64641 /* prepare-commit-msg.sample */; };
-		006497B11372776E00F64641 /* update.sample in Resources */ = {isa = PBXBuildFile; fileRef = 0064978B1372776E00F64641 /* update.sample */; };
-		006497B21372776E00F64641 /* index in Resources */ = {isa = PBXBuildFile; fileRef = 0064978C1372776E00F64641 /* index */; };
-		006497B31372776E00F64641 /* exclude in Resources */ = {isa = PBXBuildFile; fileRef = 0064978E1372776E00F64641 /* exclude */; };
-		006497B41372776E00F64641 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 006497901372776E00F64641 /* HEAD */; };
-		006497B51372776E00F64641 /* master in Resources */ = {isa = PBXBuildFile; fileRef = 006497931372776E00F64641 /* master */; };
-		006497B61372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.idx in Resources */ = {isa = PBXBuildFile; fileRef = 006497971372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.idx */; };
-		006497B71372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.pack in Resources */ = {isa = PBXBuildFile; fileRef = 006497981372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.pack */; };
-		006497B81372776E00F64641 /* packed-refs in Resources */ = {isa = PBXBuildFile; fileRef = 006497991372776E00F64641 /* packed-refs */; };
-		006497B91372776E00F64641 /* master in Resources */ = {isa = PBXBuildFile; fileRef = 0064979C1372776E00F64641 /* master */; };
-		006497BA1372776E00F64641 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 0064979F1372776E00F64641 /* HEAD */; };
-		006497BB1372776E00F64641 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 006497A11372776E00F64641 /* CHANGELOG.md */; };
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
-		006497BD1372776E00F64641 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 006497A41372776E00F64641 /* README.md */; };
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
 		008529761372563800629899 /* MMQueryGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 008529751372563800629899 /* MMQueryGroup.m */; };
 /* End PBXBuildFile section */
@@ -627,30 +603,6 @@
 				003CDEEE132BFCDF00D295A2 /* MainWindow_iPhone.xib in Resources */,
 				003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */,
 				003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */,
-				006497A51372776E00F64641 /* config in Resources */,
-				006497A61372776E00F64641 /* description in Resources */,
-				006497A71372776E00F64641 /* HEAD in Resources */,
-				006497A81372776E00F64641 /* applypatch-msg.sample in Resources */,
-				006497A91372776E00F64641 /* commit-msg.sample in Resources */,
-				006497AA1372776E00F64641 /* post-commit.sample in Resources */,
-				006497AB1372776E00F64641 /* post-receive.sample in Resources */,
-				006497AC1372776E00F64641 /* post-update.sample in Resources */,
-				006497AD1372776E00F64641 /* pre-applypatch.sample in Resources */,
-				006497AE1372776E00F64641 /* pre-commit.sample in Resources */,
-				006497AF1372776E00F64641 /* pre-rebase.sample in Resources */,
-				006497B01372776E00F64641 /* prepare-commit-msg.sample in Resources */,
-				006497B11372776E00F64641 /* update.sample in Resources */,
-				006497B21372776E00F64641 /* index in Resources */,
-				006497B31372776E00F64641 /* exclude in Resources */,
-				006497B41372776E00F64641 /* HEAD in Resources */,
-				006497B51372776E00F64641 /* master in Resources */,
-				006497B61372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.idx in Resources */,
-				006497B71372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.pack in Resources */,
-				006497B81372776E00F64641 /* packed-refs in Resources */,
-				006497B91372776E00F64641 /* master in Resources */,
-				006497BA1372776E00F64641 /* HEAD in Resources */,
-				006497BB1372776E00F64641 /* CHANGELOG.md in Resources */,
-				006497BD1372776E00F64641 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

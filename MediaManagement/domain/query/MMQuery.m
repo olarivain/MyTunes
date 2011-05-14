@@ -15,6 +15,7 @@
 #import "NSHTTPURLResponse+MediaManagement.h"
 #import "JSONKit.h"
 
+
 @implementation MMQuery
 
 +(id) queryWithName: (NSString *) name andPath: (NSString*) path
@@ -82,9 +83,9 @@
     
     JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionStrict];
     NSDictionary *dto = [decoder objectWithData: body];
-    MMMediaLibrary *newLibrary = [[MMContentAssembler sharedInstance] createLibrary: dto];
+    MMPlaylist *newLibrary = [[MMContentAssembler sharedInstance] createLibrary: dto];
     self.library = newLibrary;
-    NSLog(@"Library %@ refreshed", library.name);
+
     dispatch_queue_t main = dispatch_get_main_queue();
     dispatch_async(main, callback);
   };

@@ -9,8 +9,8 @@
 #import "ContentTableViewController.h"
 
 #import "MMQuery.h"
-#import "MMMusicLibrary.h"
-#import "MMMoviesMediaLibrary.h"
+#import "MMMusicPlaylist.h"
+#import "MMMoviesPlaylist.h"
 #import "MMArtist.h"
 #import "MMAlbum.h"
 
@@ -34,7 +34,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   
-  MMMediaLibrary *library = query.library;
+  MMPlaylist *library = query.library;
   NSInteger sections = [library sectionsCount];
   return sections;
 }
@@ -46,14 +46,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  MMMediaLibrary *library = query.library;
-  if(![library isKindOfClass: [MMMusicLibrary class]])
+  MMPlaylist *library = query.library;
+  if(![library isKindOfClass: [MMMusicPlaylist class]])
   {
     return  [library.content count];
   }
   
   NSInteger count = 0;
-  MMMusicLibrary *music = (MMMusicLibrary*) library;
+  MMMusicPlaylist *music = (MMMusicPlaylist*) library;
   MMArtist *artist = [music.artists objectAtIndex: section];
   for(MMAlbum *album in artist.albums)
   {
@@ -72,14 +72,14 @@
   }
   
   MMContent *content = nil;
-  MMMediaLibrary *library = query.library;
-  if(![library isKindOfClass: [MMMusicLibrary class]])
+  MMPlaylist *library = query.library;
+  if(![library isKindOfClass: [MMMusicPlaylist class]])
   {
     content = [library.content objectAtIndex: indexPath.row];
   } 
   else
   {
-    MMMusicLibrary *music = (MMMusicLibrary*) library;
+    MMMusicPlaylist *music = (MMMusicPlaylist*) library;
     MMArtist *artist = [music.artists objectAtIndex: indexPath.section];
     NSInteger count = 0;
     for(MMAlbum *album in artist.albums)
