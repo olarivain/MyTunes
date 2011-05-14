@@ -112,9 +112,7 @@
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{
-  [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
-  
+{  
   MMQuery *query = [self queryForIndexPath: indexPath];
   contentController.query = query;
   void (^callback)(void) = ^{
