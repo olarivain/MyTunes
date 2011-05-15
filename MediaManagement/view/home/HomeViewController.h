@@ -17,6 +17,7 @@
 {
   @private
   IBOutlet HomeView *homeView;
+  IBOutlet UIActivityIndicatorView *activityIndicator;
   MMServers *servers;
 }
 

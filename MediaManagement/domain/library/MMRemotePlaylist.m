@@ -7,23 +7,59 @@
 //
 
 #import "MMRemotePlaylist.h"
+#import "MMQuery.h"
+#import "MMRemoteLibrary.h"
+#import "MMContentAssembler+Client.h"
 
+@interface MMPlaylist()
+- (MMQuery*) readQuery;
+- (void) reload: (NSObject*) dto;
+@end
 
-@implementation MMRemotePlaylist
+@implementation MMPlaylist(MMPlaylist_Remote)
 
-- (id)init
+#pragma mark - Query generators
+- (MMQuery*) readQuery
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+  NSString *path = [NSString stringWithFormat:@"/playlist/%@", uniqueId];
+  MMQuery *query = [MMQuery queryWithName: @"Read" andPath: path];
+  
+  // TODO make this a little bit more fail proof
+  MMRemoteLibrary *remoteLibrary = (MMRemoteLibrary *) library;
+  query.server = remoteLibrary.server;
+  return query;
 }
 
-- (void)dealloc
+#pragma mark - Network calls
+- (void) loadWithBlock: (void(^)(void)) callback
 {
-    [super dealloc];
+  void (^reload)(NSObject *dto) = ^(NSObject *dto){
+    [self reload: dto];
+    if(callback != nil)
+    {
+      // dispatch on callback on main thread and exit
+      dispatch_queue_t mainQueue = dispatch_get_main_queue();
+      dispatch_async(mainQueue, callback);
+    }
+  };
+
+  MMQuery *query = [self readQuery];
+  [query asyncFetchWithBlock:reload];
+}
+
+#pragma mark - Network callbacks
+#pragma mark Read
+- (void) reload: (NSObject*) dto
+{
+  if(![dto isKindOfClass: [NSDictionary class]])
+  {
+    NSLog(@"FATAL: got unexpected response while reading playlist with ID %@.", uniqueId);
+    return;
+  }
+  
+  NSDictionary *dictionary = (NSDictionary*) dto;
+  MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
+  [assembler updatePlaylist: self withDto: dictionary];
 }
 
 @end

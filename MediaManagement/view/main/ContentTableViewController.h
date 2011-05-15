@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class MMQuery;
+@class MMPlaylist;
 
 @interface ContentTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
-  MMQuery *query;
+  MMPlaylist *playlist;
   IBOutlet UITableView *table;
 }
 
 
 @property (nonatomic, readwrite, assign) UITableView *table;
-@property (nonatomic, readwrite, retain) MMQuery *query;
+@property (nonatomic, readwrite, retain) MMPlaylist *playlist;
 
 - (void) refresh;
 

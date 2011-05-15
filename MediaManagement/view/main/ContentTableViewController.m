@@ -9,19 +9,19 @@
 #import "ContentTableViewController.h"
 
 #import "MMQuery.h"
-#import "MMPlaylist.h"
+
 #import "MMContentList.h"
 
 @implementation ContentTableViewController
 
 - (void)dealloc
 {
-  self.query = nil;
+  self.playlist = nil;
   [super dealloc];
 }
 
 @synthesize table;
-@synthesize query;
+@synthesize playlist;
 
 #pragma mark - Table view data source
 - (void) refresh
@@ -31,24 +31,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  
-  MMPlaylist *library = query.library;
-  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
   return [contentLists count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  MMPlaylist *library = query.library;
-  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return contentList.name;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  MMPlaylist *library = query.library;
-  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return [[contentList content] count];
 }
@@ -62,8 +58,7 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  MMPlaylist *library = query.library;
-  NSArray *contentLists = [library contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
   MMContentList *contentList = [contentLists objectAtIndex: indexPath.section];
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
   cell.textLabel.text = content.name;

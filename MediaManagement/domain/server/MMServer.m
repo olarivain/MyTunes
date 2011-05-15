@@ -21,14 +21,14 @@
   if(self)
   {
     netService = [service retain];
-    serverLibrary = [[MMRemoteLibrary alloc] initWithServer: self];
+    library = [[MMRemoteLibrary alloc] initWithServer: self];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  [serverLibrary release];
+  [library release];
   [host release];
   [name release];
   
@@ -41,7 +41,7 @@
 @synthesize name;
 @synthesize port;
 @synthesize host;
-@synthesize serverLibrary;
+@synthesize library;
 
 - (void) didResolve
 {
@@ -62,11 +62,6 @@
 - (NSString*) serverURL
 {
   return [NSString stringWithFormat:@"http://%@:%i", host, port];
-}
-
-- (void) loadLibrary
-{
-
 }
 
 @end

@@ -8,14 +8,19 @@
 
 #import "HomeViewController.h"
 
+#import "NibUtils.h"
+
+#import "MMServer.h"
+#import "MMRemoteLibrary.h"
+
 #import "MMServers.h"
 #import "HomeView.h"
 #import "ServerView.h"
 #import "MainViewController_iPad.h"
-#import "NibUtils.h"
 
 @interface HomeViewController()
 @property (nonatomic, readwrite, retain) HomeView *homeView;
+@property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -24,10 +29,12 @@
 - (void)dealloc
 {
   self.homeView = nil;
+  self.activityIndicator = nil;
   [servers release];
   [super dealloc];
 }
 
+@synthesize activityIndicator;
 @synthesize homeView;
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +55,7 @@
 - (void)viewDidUnload
 {
   self.homeView = nil;
+  self.activityIndicator = nil;
   [super viewDidUnload];
 }
 
@@ -64,14 +72,27 @@
 
 - (IBAction) serverSelected:(id)sender
 {
-  ServerView *view = (ServerView*) sender;
+  activityIndicator.hidden = FALSE;
+  [activityIndicator startAnimating];
   
+  // load next view controller
   NSString *nibName = [NibUtils nibName: @"MainViewController"];
-
   MainViewController_iPad *mainViewController = [[MainViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
-  [mainViewController setServer: [view server]];
-  [[self navigationController] pushViewController:mainViewController animated:TRUE];
-  [mainViewController release];
+ 
+  // grab server and wire it in
+  ServerView *view = (ServerView*) sender;
+  MMServer *server = view.server;
+  mainViewController.server = server;
+  
+  // and load content.
+  [server.library loadHeadersWithBlock:^(void) {
+    [activityIndicator stopAnimating];
+    activityIndicator.hidden = TRUE;
+    
+    [[self navigationController] pushViewController:mainViewController animated:TRUE];
+    [mainViewController release];
+  }];
+
 }
 
 #pragma mark - ServersDelegate methods

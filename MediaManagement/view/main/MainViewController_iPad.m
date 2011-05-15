@@ -5,18 +5,16 @@
 //  Created by Kra on 3/7/11.
 //  Copyright 2011 kra. All rights reserved.
 //
+#import <MediaManagement/MMPlaylist.h>
 
 #import "MainViewController_iPad.h"
 
 #import "MMServer.h"
-#import "EditController.h"
-
-#import "MMQuery.h"
-
-#import "ContentTableViewController.h"
 #import "MMRemoteLibrary.h"
-#import "MMPlaylist.h"
+#import "MMRemotePlaylist.h"
 
+#import "EditController.h"
+#import "ContentTableViewController.h"
 
 @interface MainViewController_iPad(private)
 - (void) initialize;
@@ -72,7 +70,7 @@
 
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath
 {
-  MMRemoteLibrary *library = server.serverLibrary;
+  MMRemoteLibrary *library = server.library;
   
   NSArray *playlists = indexPath.section == 0 ? library.systemPlaylists : library.userPlaylists;
   return playlists;
@@ -105,7 +103,7 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
+    cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId] autorelease];
   }
   
   cell.textLabel.text = playlist.name;
@@ -120,6 +118,10 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {  
   MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
+  [playlist loadWithBlock:^(void) {
+    contentController.playlist = playlist;
+    [contentController refresh];
+  }];
   // TODO: update
 //  contentController.query = query;
 //  void (^callback)(void) = ^{

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MediaManagement/MMContent.h>
 
-@class MMQueryGroup;
 @class MMRemoteLibrary;
 
 @interface MMServer : NSObject {
@@ -20,7 +19,7 @@
   NSString *host;
   NSString *name;
   
-  MMRemoteLibrary *serverLibrary;
+  MMRemoteLibrary *library;
   
   NSDate *lastUpdate;
 }
@@ -32,10 +31,10 @@
 @property (readonly) NSString *host;
 @property (readonly) NSString *name;
 
-@property (readonly) MMRemoteLibrary *serverLibrary;
+@property (readonly) MMRemoteLibrary *library;
 
 
 - (void) didResolve;
 - (NSString*) serverURL;
-- (void) loadLibrary;
+
 @end

@@ -7,15 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MMPlaylist.h"
+#import <MediaManagement/MMPlaylist.h>
 
-@class MMServer;
-@class MMQuery;
 
-@interface MMRemotePlaylist : MMPlaylist {
-@private
-  MMServer *server;
-  MMQuery *query;
-}
-
+@interface MMPlaylist(MMPlaylist_Remote)
+- (void) loadWithBlock: (void(^)(void)) callback;
 @end

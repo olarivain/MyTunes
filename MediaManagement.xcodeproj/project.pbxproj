@@ -47,6 +47,7 @@
 		0064977A13726E2500F64641 /* NSHTTPURLResponse+MediaManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0064977913726E2400F64641 /* NSHTTPURLResponse+MediaManagement.m */; };
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
+		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,8 @@
 		006497A31372776E00F64641 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		006497A41372776E00F64641 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
+		00CCAF2413806E7800762299 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
+		00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,8 +255,9 @@
 		003CDEA3132BFCDF00D295A2 /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				0053A2C7137F10B00099EE5B /* library */,
+				0043D8CC137F826B00897D4D /* assembler */,
 				003CDEA4132BFCDF00D295A2 /* content */,
+				0053A2C7137F10B00099EE5B /* library */,
 				003CDEA7132BFCDF00D295A2 /* query */,
 				003CDEAC132BFCDF00D295A2 /* repositories */,
 				003CDEAF132BFCDF00D295A2 /* server */,
@@ -371,6 +375,15 @@
 				003CDED8132BFCDF00D295A2 /* ServerView_iPhone.xib */,
 			);
 			path = server;
+			sourceTree = "<group>";
+		};
+		0043D8CC137F826B00897D4D /* assembler */ = {
+			isa = PBXGroup;
+			children = (
+				00CCAF2413806E7800762299 /* MMContentAssembler+Client.h */,
+				00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */,
+			);
+			path = assembler;
 			sourceTree = "<group>";
 		};
 		0053A2C7137F10B00099EE5B /* library */ = {
@@ -670,6 +683,7 @@
 				006497BC1372776E00F64641 /* JSONKit.m in Sources */,
 				0053A2CA137F10BD0099EE5B /* MMRemoteLibrary.m in Sources */,
 				00528597137F1F3100A5AFA3 /* MMRemotePlaylist.m in Sources */,
+				00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

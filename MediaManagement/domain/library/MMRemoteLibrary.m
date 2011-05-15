@@ -6,9 +6,13 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <MediaManagement/MMPlaylist.h>
+#import <MediaManagement/MMPlaylist.h>
+
+#import "MMContentAssembler+Client.h"
 #import "MMRemoteLibrary.h"
 #import "MMQuery.h"
-#import "MMPlaylist.h"
+
 
 @implementation MMRemoteLibrary
 
@@ -44,9 +48,16 @@
 @synthesize systemPlaylists;
 @synthesize userPlaylists;
 
-- (void) addMedialibrary: (MMPlaylist*) mediaLibrary
+- (void) clearPlaylists
 {
-  [super addMedialibrary:mediaLibrary];
+  [super clearPlaylists];
+  [systemPlaylists removeAllObjects];
+  [userPlaylists removeAllObjects];
+}
+
+- (void) addPlaylist: (MMPlaylist*) mediaLibrary
+{
+  [super addPlaylist:mediaLibrary];
   if([systemPlaylists containsObject: mediaLibrary] || [userPlaylists containsObject: mediaLibrary])
   {
     return;
@@ -58,7 +69,17 @@
 
 - (void) reload: (NSObject*) dto
 {
-  // TODO put reload code here.
+  // sanity check
+  if(![dto isKindOfClass: [NSArray class]])
+  {
+    NSLog(@"FATAL: unexpected content fetched from %@.", [query path]);
+  }
+  
+  NSArray *playlistDtos = (NSArray*) dto;
+  
+  // now assemble playlists and add them to self.
+  MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
+  [assembler updateLibrary: self withDto: playlistDtos];  
 }
 
 - (void) loadHeadersWithBlock: (void(^)(void)) callback

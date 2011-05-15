@@ -65,7 +65,7 @@
     NSLog(@"Received code %i from request %@.", [response statusCode], stringURL);
   }
   
-  JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionStrict];
+  JSONDecoder *decoder = [[[JSONDecoder alloc] initWithParseOptions: JKParseOptionLooseUnicode] autorelease];
   NSObject *dto = [decoder objectWithData: body];
   return dto;
 

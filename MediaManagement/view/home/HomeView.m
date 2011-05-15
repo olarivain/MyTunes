@@ -68,6 +68,9 @@
   CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
   CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
   CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation );
+  
+  CFRelease(gradient);
+  CFRelease(colorSpace);
 }
 
 
