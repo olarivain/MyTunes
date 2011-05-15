@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ServersDelegate.h"
+#import "MMServersDelegate.h"
 
 
-@class HomeView;
+@class MMHomeView;
 @class MMServers;
 
-@interface HomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, MMServersDelegate>
+@interface MMHomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, MMServersDelegate>
 {
   @private
-  IBOutlet HomeView *homeView;
+  IBOutlet MMHomeView *homeView;
   IBOutlet UIActivityIndicatorView *activityIndicator;
   MMServers *servers;
 }

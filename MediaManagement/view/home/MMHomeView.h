@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class ServerView;
+@class MMServerView;
 
-@interface HomeView : UIView 
+@interface MMHomeView : UIView 
 {    
   @private
   NSArray *servers;
   NSMutableArray *serverViews;
   
-  IBOutlet ServerView *serverView;
+  IBOutlet MMServerView *serverView;
 }
 
 @property (readwrite, retain) NSArray *servers;

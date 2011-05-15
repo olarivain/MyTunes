@@ -11,13 +11,13 @@
 @class MMServer;
 @class MMPlaylist;
 @class CategoriesTableViewController;
-@class PlaylistTableViewController;
+@class MMPlaylistTableViewController;
 @class MMContentView;
 
-@interface LibraryViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MMLibraryViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet UIBarButtonItem *editButton;
-  IBOutlet PlaylistTableViewController *contentController;
+  IBOutlet MMPlaylistTableViewController *contentController;
   
   IBOutlet MMContentView *contentView;
   

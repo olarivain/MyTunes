@@ -6,13 +6,13 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "EditController.h"
+#import "MMEditController.h"
 
-@interface EditController(private)
+@interface MMEditController(private)
 - (void) dismiss;
 @end
 
-@implementation EditController
+@implementation MMEditController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

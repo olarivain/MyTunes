@@ -6,13 +6,13 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "PlaylistTableViewController.h"
+#import "MMPlaylistTableViewController.h"
 
 #import "MMQuery.h"
 
 #import "MMContentList.h"
 
-@implementation PlaylistTableViewController
+@implementation MMPlaylistTableViewController
 
 - (void)dealloc
 {

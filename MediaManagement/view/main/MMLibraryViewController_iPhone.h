@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class MMServer;
-@class EditController;
+@class MMEditController;
 
-@interface LibraryViewController_iPhone : UIViewController 
+@interface MMLibraryViewController_iPhone : UIViewController 
 {
-  IBOutlet EditController *editController;
+  IBOutlet MMEditController *editController;
   MMServer *server;
 }
 

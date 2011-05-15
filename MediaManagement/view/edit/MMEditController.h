@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface EditController : UIViewController 
+@interface MMEditController : UIViewController 
 {
     
 }

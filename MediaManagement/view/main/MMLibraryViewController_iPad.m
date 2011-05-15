@@ -7,20 +7,20 @@
 //
 #import <MediaManagement/MMPlaylist.h>
 
-#import "LibraryViewController_iPad.h"
+#import "MMLibraryViewController_iPad.h"
 
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
 #import "MMRemotePlaylist.h"
 
-#import "EditController.h"
-#import "PlaylistTableViewController.h"
+#import "MMEditController.h"
+#import "MMPlaylistTableViewController.h"
 #import "MMContentView.h"
 
-@interface LibraryViewController_iPad()
+@interface MMLibraryViewController_iPad()
 
 @property (nonatomic, readwrite, retain) UIBarButtonItem *editButton;
-@property (nonatomic, readwrite, retain) PlaylistTableViewController *contentController;
+@property (nonatomic, readwrite, retain) MMPlaylistTableViewController *contentController;
 @property (nonatomic, readwrite, retain) MMContentView *contentView;
 
 - (NSArray*) playlistListForIndex: (NSInteger) index;
@@ -28,7 +28,7 @@
 - (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath;
 @end
 
-@implementation LibraryViewController_iPad
+@implementation MMLibraryViewController_iPad
 
 - (void) dealloc
 {
@@ -150,7 +150,7 @@
 - (IBAction) editPressed: (id) sender
 {
   NSString *nibName = @"EditController";
-  EditController *editController = [[EditController alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
+  MMEditController *editController = [[MMEditController alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
   [editController setModalPresentationStyle:UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
   [editController release];

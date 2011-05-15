@@ -6,7 +6,7 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "MMHomeViewController.h"
 
 #import "NibUtils.h"
 
@@ -14,17 +14,17 @@
 #import "MMRemoteLibrary.h"
 
 #import "MMServers.h"
-#import "HomeView.h"
-#import "ServerView.h"
-#import "LibraryViewController_iPad.h"
+#import "MMHomeView.h"
+#import "MMServerView.h"
+#import "MMLibraryViewController_iPad.h"
 
-@interface HomeViewController()
-@property (nonatomic, readwrite, retain) HomeView *homeView;
+@interface MMHomeViewController()
+@property (nonatomic, readwrite, retain) MMHomeView *homeView;
 @property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
 - (void) setLoading: (BOOL) loading;
 @end
 
-@implementation HomeViewController
+@implementation MMHomeViewController
 
 - (void)dealloc
 {
@@ -90,11 +90,11 @@
   [self setLoading: TRUE];
   
   // load next view controller
-  NSString *nibName = [NibUtils nibName: @"LibraryViewController"];
-  LibraryViewController_iPad *libraryViewController = [[LibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
+  MMLibraryViewController_iPad *libraryViewController = [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
  
   // grab server and wire it in
-  ServerView *view = (ServerView*) sender;
+  MMServerView *view = (MMServerView*) sender;
   MMServer *server = view.server;
   libraryViewController.server = server;
   
@@ -112,7 +112,7 @@
 {
   NSLog(@"Did refresh, %i", [[servers servers] count]);
   [homeView setServers: [servers servers]];
-  for(ServerView *serverView in [homeView serverViews])
+  for(MMServerView *serverView in [homeView serverViews])
   {
     // remove and add targets.
     [serverView removeTarget: self action: @selector(serverSelected:) forControlEvents: UIControlEventTouchUpInside];

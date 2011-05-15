@@ -6,11 +6,11 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "ServerView.h"
+#import "MMServerView.h"
 
 #import "MMServer.h"
 
-@implementation ServerView
+@implementation MMServerView
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {

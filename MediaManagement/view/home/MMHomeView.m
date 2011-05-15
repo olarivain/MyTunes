@@ -6,22 +6,22 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "HomeView.h"
-#import "ServerView.h"
+#import "MMHomeView.h"
+#import "MMServerView.h"
 #import "NibUtils.h"
 
 #define MARGIN 40
 #define PADDING 20
 
-@interface HomeView()
-@property (nonatomic, readwrite, assign) ServerView *serverCell;
+@interface MMHomeView()
+@property (nonatomic, readwrite, assign) MMServerView *serverCell;
 - (void) removeLastServerIcons: (int) count;
 - (void) addServerView: (int) count;
 - (int) computeServerPerRows;
 - (int) computePaddingWith: (int) countPerRow;
 @end
 
-@implementation HomeView
+@implementation MMHomeView
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
@@ -91,7 +91,7 @@
   
   int padding = [self computePaddingWith: numberOfViewsPerRow];
   
-  for(ServerView *view in serverViews)
+  for(MMServerView *view in serverViews)
   {
     if(count == numberOfViewsPerRow)
     {
@@ -121,7 +121,7 @@
 {
   double actualWidth = [self frame].size.width - 2*MARGIN;
   
-  ServerView *view = [serverViews objectAtIndex: 0];
+  MMServerView *view = [serverViews objectAtIndex: 0];
   double viewWidth = [view frame].size.width;
   
   int numberOfViewPerRow = (actualWidth - PADDING) / (viewWidth + PADDING);
@@ -132,7 +132,7 @@
 {
   double actualWidth = [self frame].size.width - 2*MARGIN;
   
-  ServerView *view = [serverViews objectAtIndex: 0];
+  MMServerView *view = [serverViews objectAtIndex: 0];
   double viewWidth = [view frame].size.width;
 
   double remaining = actualWidth - countPerRow * viewWidth;
@@ -164,7 +164,7 @@
   for(int i = 0; i < [servers count]; i++)
   {
     MMServer *server = [servers objectAtIndex:i];
-    ServerView *icon = [serverViews objectAtIndex: i];
+    MMServerView *icon = [serverViews objectAtIndex: i];
     [icon setServer: server];
   }
   
@@ -182,7 +182,7 @@
 {
   for(int i = 0; i < count; i++)
   {
-    ServerView *icon = [serverViews lastObject];
+    MMServerView *icon = [serverViews lastObject];
     [icon removeFromSuperview];
     [serverViews removeLastObject];
   }

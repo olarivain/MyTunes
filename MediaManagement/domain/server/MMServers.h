@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ServersDelegate.h"
+#import "MMServersDelegate.h"
 
 #define SERVERS_REFRESHED @"ServersRefreshed"
 

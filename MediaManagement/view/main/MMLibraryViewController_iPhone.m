@@ -6,10 +6,10 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "LibraryViewController_iPhone.h"
-#import "EditController.h"
+#import "MMLibraryViewController_iPhone.h"
+#import "MMEditController.h"
 
-@implementation LibraryViewController_iPhone
+@implementation MMLibraryViewController_iPhone
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

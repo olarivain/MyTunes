@@ -8,7 +8,7 @@
 
 #import "MediaManagementAppDelegate.h"
 
-#import "HomeViewController.h"
+#import "MMHomeViewController.h"
 #import "MMServers.h"
 
 @implementation MediaManagementAppDelegate
