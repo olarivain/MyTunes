@@ -11,7 +11,7 @@
 @class MMServer;
 @class EditController;
 
-@interface MainViewController_iPhone : UIViewController 
+@interface LibraryViewController_iPhone : UIViewController 
 {
   IBOutlet EditController *editController;
   MMServer *server;

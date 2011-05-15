@@ -16,12 +16,12 @@
 #import "MMServers.h"
 #import "HomeView.h"
 #import "ServerView.h"
-#import "MainViewController_iPad.h"
+#import "LibraryViewController_iPad.h"
 
 @interface HomeViewController()
 @property (nonatomic, readwrite, retain) HomeView *homeView;
 @property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
-
+- (void) setLoading: (BOOL) loading;
 @end
 
 @implementation HomeViewController
@@ -64,6 +64,21 @@
   return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
+#pragma mark - Loading activity
+- (void) setLoading: (BOOL) loading
+{
+  if(loading)
+  {
+    [activityIndicator startAnimating]; 
+  }
+  else 
+  {
+    [activityIndicator stopAnimating];
+  }
+  activityIndicator.hidden = !loading;
+}
+
+
 #pragma mark - Button Handlers
 - (IBAction) refresh
 {
@@ -72,25 +87,22 @@
 
 - (IBAction) serverSelected:(id)sender
 {
-  activityIndicator.hidden = FALSE;
-  [activityIndicator startAnimating];
+  [self setLoading: TRUE];
   
   // load next view controller
-  NSString *nibName = [NibUtils nibName: @"MainViewController"];
-  MainViewController_iPad *mainViewController = [[MainViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  NSString *nibName = [NibUtils nibName: @"LibraryViewController"];
+  LibraryViewController_iPad *libraryViewController = [[LibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
  
   // grab server and wire it in
   ServerView *view = (ServerView*) sender;
   MMServer *server = view.server;
-  mainViewController.server = server;
+  libraryViewController.server = server;
   
   // and load content.
   [server.library loadHeadersWithBlock:^(void) {
-    [activityIndicator stopAnimating];
-    activityIndicator.hidden = TRUE;
-    
-    [[self navigationController] pushViewController:mainViewController animated:TRUE];
-    [mainViewController release];
+    [self setLoading: FALSE];
+    [[self navigationController] pushViewController:libraryViewController animated:TRUE];
+    [libraryViewController release];
   }];
 
 }

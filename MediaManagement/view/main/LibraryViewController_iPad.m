@@ -7,33 +7,42 @@
 //
 #import <MediaManagement/MMPlaylist.h>
 
-#import "MainViewController_iPad.h"
+#import "LibraryViewController_iPad.h"
 
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
 #import "MMRemotePlaylist.h"
 
 #import "EditController.h"
-#import "ContentTableViewController.h"
+#import "PlaylistTableViewController.h"
+#import "MMContentView.h"
 
-@interface MainViewController_iPad(private)
-- (void) initialize;
+@interface LibraryViewController_iPad()
+
+@property (nonatomic, readwrite, retain) UIBarButtonItem *editButton;
+@property (nonatomic, readwrite, retain) PlaylistTableViewController *contentController;
+@property (nonatomic, readwrite, retain) MMContentView *contentView;
+
 - (NSArray*) playlistListForIndex: (NSInteger) index;
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
 - (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath;
-
-
 @end
 
-@implementation MainViewController_iPad
+@implementation LibraryViewController_iPad
 
 - (void) dealloc
 {
   [server release];
+  self.editButton = nil;
+  self.contentController = nil;
+  self.contentView = nil;
   [super dealloc];
 }
 
 @synthesize server;
+@synthesize editButton;
+@synthesize contentController;
+@synthesize contentView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -52,6 +61,8 @@
 }
 - (void)viewDidUnload
 {
+  self.editButton = nil;
+  self.contentView = nil;
   [super viewDidUnload];
 }
 
@@ -116,18 +127,23 @@
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{  
+{ 
+  
+  // tapped the same playlist again, give up
   MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-  [playlist loadWithBlock:^(void) {
-    contentController.playlist = playlist;
+  if(playlist == selectedPlaylist)
+  {
+    return;
+  }
+  selectedPlaylist = playlist;
+  
+  [contentView setLoading: TRUE];
+  
+  [selectedPlaylist loadWithBlock:^(void) {
+    contentController.playlist = selectedPlaylist;
     [contentController refresh];
+    [contentView setLoading: FALSE];
   }];
-  // TODO: update
-//  contentController.query = query;
-//  void (^callback)(void) = ^{
-//    [contentController refresh];
-//  };
-//  [query reloadWithBlock:callback];
 }
 
 #pragma mark - Action handlers

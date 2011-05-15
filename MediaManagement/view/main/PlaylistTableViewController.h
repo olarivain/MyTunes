@@ -10,7 +10,7 @@
 
 @class MMPlaylist;
 
-@interface ContentTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
+@interface PlaylistTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
   MMPlaylist *playlist;
   IBOutlet UITableView *table;
 }

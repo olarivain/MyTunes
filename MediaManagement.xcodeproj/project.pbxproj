@@ -32,11 +32,11 @@
 		003CDEE4132BFCDF00D295A2 /* HomeView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEC1132BFCDF00D295A2 /* HomeView_iPad.xib */; };
 		003CDEE5132BFCDF00D295A2 /* HomeView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEC2132BFCDF00D295A2 /* HomeView_iPhone.xib */; };
 		003CDEE6132BFCDF00D295A2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEC4132BFCDF00D295A2 /* HomeViewController.m */; };
-		003CDEE9132BFCDF00D295A2 /* ContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDECB132BFCDF00D295A2 /* ContentTableViewController.m */; };
-		003CDEEA132BFCDF00D295A2 /* MainViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDECE132BFCDF00D295A2 /* MainViewController_iPad.m */; };
-		003CDEEB132BFCDF00D295A2 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDECF132BFCDF00D295A2 /* MainViewController_iPad.xib */; };
-		003CDEEC132BFCDF00D295A2 /* MainViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED1132BFCDF00D295A2 /* MainViewController_iPhone.m */; };
-		003CDEED132BFCDF00D295A2 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED2132BFCDF00D295A2 /* MainViewController_iPhone.xib */; };
+		003CDEE9132BFCDF00D295A2 /* PlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDECB132BFCDF00D295A2 /* PlaylistTableViewController.m */; };
+		003CDEEA132BFCDF00D295A2 /* LibraryViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDECE132BFCDF00D295A2 /* LibraryViewController_iPad.m */; };
+		003CDEEB132BFCDF00D295A2 /* LibraryViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDECF132BFCDF00D295A2 /* LibraryViewController_iPad.xib */; };
+		003CDEEC132BFCDF00D295A2 /* LibraryViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED1132BFCDF00D295A2 /* LibraryViewController_iPhone.m */; };
+		003CDEED132BFCDF00D295A2 /* LibraryViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED2132BFCDF00D295A2 /* LibraryViewController_iPhone.xib */; };
 		003CDEEE132BFCDF00D295A2 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */; };
 		003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED6132BFCDF00D295A2 /* ServerView.m */; };
 		003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */; };
@@ -48,6 +48,7 @@
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
+		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,15 +100,15 @@
 		003CDEC2132BFCDF00D295A2 /* HomeView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView_iPhone.xib; sourceTree = "<group>"; };
 		003CDEC3132BFCDF00D295A2 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		003CDEC4132BFCDF00D295A2 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		003CDECA132BFCDF00D295A2 /* ContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentTableViewController.h; sourceTree = "<group>"; };
-		003CDECB132BFCDF00D295A2 /* ContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewController.m; sourceTree = "<group>"; };
-		003CDECD132BFCDF00D295A2 /* MainViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController_iPad.h; sourceTree = "<group>"; };
-		003CDECE132BFCDF00D295A2 /* MainViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController_iPad.m; sourceTree = "<group>"; };
-		003CDECF132BFCDF00D295A2 /* MainViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPad.xib; sourceTree = "<group>"; };
-		003CDED0132BFCDF00D295A2 /* MainViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController_iPhone.h; sourceTree = "<group>"; };
-		003CDED1132BFCDF00D295A2 /* MainViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController_iPhone.m; sourceTree = "<group>"; };
-		003CDED2132BFCDF00D295A2 /* MainViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPhone.xib; sourceTree = "<group>"; };
-		003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		003CDECA132BFCDF00D295A2 /* PlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewController.h; sourceTree = "<group>"; };
+		003CDECB132BFCDF00D295A2 /* PlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewController.m; sourceTree = "<group>"; };
+		003CDECD132BFCDF00D295A2 /* LibraryViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController_iPad.h; sourceTree = "<group>"; };
+		003CDECE132BFCDF00D295A2 /* LibraryViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController_iPad.m; sourceTree = "<group>"; };
+		003CDECF132BFCDF00D295A2 /* LibraryViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryViewController_iPad.xib; sourceTree = "<group>"; };
+		003CDED0132BFCDF00D295A2 /* LibraryViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController_iPhone.h; sourceTree = "<group>"; };
+		003CDED1132BFCDF00D295A2 /* LibraryViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController_iPhone.m; sourceTree = "<group>"; };
+		003CDED2132BFCDF00D295A2 /* LibraryViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryViewController_iPhone.xib; sourceTree = "<group>"; };
+		003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow_iPhone.xib; path = view/main/MainWindow_iPhone.xib; sourceTree = "<group>"; };
 		003CDED5132BFCDF00D295A2 /* ServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerView.h; sourceTree = "<group>"; };
 		003CDED6132BFCDF00D295A2 /* ServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* ServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerView_iPad.xib; sourceTree = "<group>"; };
@@ -149,6 +150,8 @@
 		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
 		00CCAF2413806E7800762299 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
 		00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
+		00CCAF281380790B00762299 /* MMContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMContentView.h; sourceTree = "<group>"; };
+		00CCAF291380790B00762299 /* MMContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,7 @@
 			children = (
 				003CDE9C132BFCD200D295A2 /* InfoPlist.strings */,
 				003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */,
+				003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */,
 				003CDE9E132BFCD200D295A2 /* MediaManagementAppDelegate.h */,
 				003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */,
 				002A0AED1324549D00320A06 /* MediaManagement-Info.plist */,
@@ -320,7 +324,7 @@
 			children = (
 				003CDEB9132BFCDF00D295A2 /* edit */,
 				003CDEBE132BFCDF00D295A2 /* home */,
-				003CDEC5132BFCDF00D295A2 /* main */,
+				003CDEC5132BFCDF00D295A2 /* library */,
 				003CDED4132BFCDF00D295A2 /* server */,
 			);
 			path = view;
@@ -350,19 +354,21 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		003CDEC5132BFCDF00D295A2 /* main */ = {
+		003CDEC5132BFCDF00D295A2 /* library */ = {
 			isa = PBXGroup;
 			children = (
-				003CDECA132BFCDF00D295A2 /* ContentTableViewController.h */,
-				003CDECB132BFCDF00D295A2 /* ContentTableViewController.m */,
-				003CDECD132BFCDF00D295A2 /* MainViewController_iPad.h */,
-				003CDECE132BFCDF00D295A2 /* MainViewController_iPad.m */,
-				003CDECF132BFCDF00D295A2 /* MainViewController_iPad.xib */,
-				003CDED0132BFCDF00D295A2 /* MainViewController_iPhone.h */,
-				003CDED1132BFCDF00D295A2 /* MainViewController_iPhone.m */,
-				003CDED2132BFCDF00D295A2 /* MainViewController_iPhone.xib */,
-				003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */,
+				00CCAF281380790B00762299 /* MMContentView.h */,
+				00CCAF291380790B00762299 /* MMContentView.m */,
+				003CDECA132BFCDF00D295A2 /* PlaylistTableViewController.h */,
+				003CDECB132BFCDF00D295A2 /* PlaylistTableViewController.m */,
+				003CDECD132BFCDF00D295A2 /* LibraryViewController_iPad.h */,
+				003CDECE132BFCDF00D295A2 /* LibraryViewController_iPad.m */,
+				003CDECF132BFCDF00D295A2 /* LibraryViewController_iPad.xib */,
+				003CDED0132BFCDF00D295A2 /* LibraryViewController_iPhone.h */,
+				003CDED1132BFCDF00D295A2 /* LibraryViewController_iPhone.m */,
+				003CDED2132BFCDF00D295A2 /* LibraryViewController_iPhone.xib */,
 			);
+			name = library;
 			path = main;
 			sourceTree = "<group>";
 		};
@@ -624,8 +630,8 @@
 				003CDEE2132BFCDF00D295A2 /* EditController_iPhone.xib in Resources */,
 				003CDEE4132BFCDF00D295A2 /* HomeView_iPad.xib in Resources */,
 				003CDEE5132BFCDF00D295A2 /* HomeView_iPhone.xib in Resources */,
-				003CDEEB132BFCDF00D295A2 /* MainViewController_iPad.xib in Resources */,
-				003CDEED132BFCDF00D295A2 /* MainViewController_iPhone.xib in Resources */,
+				003CDEEB132BFCDF00D295A2 /* LibraryViewController_iPad.xib in Resources */,
+				003CDEED132BFCDF00D295A2 /* LibraryViewController_iPhone.xib in Resources */,
 				003CDEEE132BFCDF00D295A2 /* MainWindow_iPhone.xib in Resources */,
 				003CDEF0132BFCDF00D295A2 /* ServerView_iPad.xib in Resources */,
 				003CDEF1132BFCDF00D295A2 /* ServerView_iPhone.xib in Resources */,
@@ -674,9 +680,9 @@
 				003CDEE0132BFCDF00D295A2 /* EditController.m in Sources */,
 				003CDEE3132BFCDF00D295A2 /* HomeView.m in Sources */,
 				003CDEE6132BFCDF00D295A2 /* HomeViewController.m in Sources */,
-				003CDEE9132BFCDF00D295A2 /* ContentTableViewController.m in Sources */,
-				003CDEEA132BFCDF00D295A2 /* MainViewController_iPad.m in Sources */,
-				003CDEEC132BFCDF00D295A2 /* MainViewController_iPhone.m in Sources */,
+				003CDEE9132BFCDF00D295A2 /* PlaylistTableViewController.m in Sources */,
+				003CDEEA132BFCDF00D295A2 /* LibraryViewController_iPad.m in Sources */,
+				003CDEEC132BFCDF00D295A2 /* LibraryViewController_iPhone.m in Sources */,
 				003CDEEF132BFCDF00D295A2 /* ServerView.m in Sources */,
 				0064977713726A5700F64641 /* MMQueryScheduler.m in Sources */,
 				0064977A13726E2500F64641 /* NSHTTPURLResponse+MediaManagement.m in Sources */,
@@ -684,6 +690,7 @@
 				0053A2CA137F10BD0099EE5B /* MMRemoteLibrary.m in Sources */,
 				00528597137F1F3100A5AFA3 /* MMRemotePlaylist.m in Sources */,
 				00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */,
+				00CCAF2A1380790C00762299 /* MMContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @class MMServer;
+@class MMPlaylist;
 @class CategoriesTableViewController;
-@class ContentTableViewController;
+@class PlaylistTableViewController;
+@class MMContentView;
 
-@interface MainViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface LibraryViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet UIBarButtonItem *editButton;
+  IBOutlet PlaylistTableViewController *contentController;
   
-  IBOutlet CategoriesTableViewController *categoriesController;
-  IBOutlet ContentTableViewController *contentController;
+  IBOutlet MMContentView *contentView;
+  
+  MMPlaylist *selectedPlaylist;
   
   MMServer *server;
 }
