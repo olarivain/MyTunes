@@ -7,26 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MMLibraryViewController.h"
 
-@class MMServer;
-@class MMPlaylist;
 @class CategoriesTableViewController;
 @class MMPlaylistTableViewController;
 @class MMContentView;
 
-@interface MMLibraryViewController_iPad : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet UIBarButtonItem *editButton;
   IBOutlet MMPlaylistTableViewController *contentController;
   
   IBOutlet MMContentView *contentView;
   
-  MMPlaylist *selectedPlaylist;
-  
-  MMServer *server;
-}
 
-@property (nonatomic, readwrite, retain) MMServer *server;
+}
 
 - (IBAction) editPressed: (id) sender;
 

@@ -14,6 +14,7 @@
     
 }
 
++ (BOOL) isiPad;
 + (NSString*) nibName: (NSString*) name;
 
 @end

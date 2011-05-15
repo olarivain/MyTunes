@@ -14,7 +14,9 @@
 #define PADDING 20
 
 @interface MMHomeView()
-@property (nonatomic, readwrite, assign) MMServerView *serverCell;
+
+@property (nonatomic, readwrite, assign) MMServerView *serverView;
+
 - (void) removeLastServerIcons: (int) count;
 - (void) addServerView: (int) count;
 - (int) computeServerPerRows;
@@ -50,7 +52,7 @@
   [super dealloc];
 }
 
-@synthesize serverCell;
+@synthesize serverView;
 @synthesize serverViews;
 
 #pragma mark - Layout
@@ -192,7 +194,7 @@
 {
   for(int i = 0; i < count; i++)
   {
-    NSString *nibName = [NibUtils nibName:@"ServerView"];
+    NSString *nibName = [NibUtils nibName:@"MMServerView"];
     [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
     CGRect rect = [serverView frame];
     rect.origin.x = 10;

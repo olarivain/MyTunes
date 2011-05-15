@@ -49,6 +49,7 @@
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
+		00CCAF3C1380805F00762299 /* MMLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF3B1380805F00762299 /* MMLibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,18 +88,18 @@
 		003CDEB1132BFCDF00D295A2 /* MMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServer.m; sourceTree = "<group>"; };
 		003CDEB2132BFCDF00D295A2 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
 		003CDEB3132BFCDF00D295A2 /* MMServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServers.m; sourceTree = "<group>"; };
-		003CDEB4132BFCDF00D295A2 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMServersDelegate.h; sourceTree = "<group>"; };
+		003CDEB4132BFCDF00D295A2 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServersDelegate.h; sourceTree = "<group>"; };
 		003CDEB6132BFCDF00D295A2 /* NibUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibUtils.h; sourceTree = "<group>"; };
 		003CDEB7132BFCDF00D295A2 /* NibUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibUtils.m; sourceTree = "<group>"; };
-		003CDEBA132BFCDF00D295A2 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMEditController.h; sourceTree = "<group>"; };
+		003CDEBA132BFCDF00D295A2 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController.h; sourceTree = "<group>"; };
 		003CDEBB132BFCDF00D295A2 /* MMEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController.m; sourceTree = "<group>"; };
 		003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPad.xib; sourceTree = "<group>"; };
 		003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPhone.xib; sourceTree = "<group>"; };
-		003CDEBF132BFCDF00D295A2 /* MMHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMHomeView.h; sourceTree = "<group>"; };
+		003CDEBF132BFCDF00D295A2 /* MMHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeView.h; sourceTree = "<group>"; };
 		003CDEC0132BFCDF00D295A2 /* MMHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeView.m; sourceTree = "<group>"; };
 		003CDEC1132BFCDF00D295A2 /* MMHomeView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeView_iPad.xib; sourceTree = "<group>"; };
 		003CDEC2132BFCDF00D295A2 /* MMHomeView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeView_iPhone.xib; sourceTree = "<group>"; };
-		003CDEC3132BFCDF00D295A2 /* MMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMHomeViewController.h; sourceTree = "<group>"; };
+		003CDEC3132BFCDF00D295A2 /* MMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeViewController.h; sourceTree = "<group>"; };
 		003CDEC4132BFCDF00D295A2 /* MMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeViewController.m; sourceTree = "<group>"; };
 		003CDECA132BFCDF00D295A2 /* MMPlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistTableViewController.h; sourceTree = "<group>"; };
 		003CDECB132BFCDF00D295A2 /* MMPlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistTableViewController.m; sourceTree = "<group>"; };
@@ -109,7 +110,7 @@
 		003CDED1132BFCDF00D295A2 /* MMLibraryViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryViewController_iPhone.m; sourceTree = "<group>"; };
 		003CDED2132BFCDF00D295A2 /* MMLibraryViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryViewController_iPhone.xib; sourceTree = "<group>"; };
 		003CDED3132BFCDF00D295A2 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow_iPhone.xib; path = view/main/MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		003CDED5132BFCDF00D295A2 /* MMServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMServerView.h; sourceTree = "<group>"; };
+		003CDED5132BFCDF00D295A2 /* MMServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServerView.h; sourceTree = "<group>"; };
 		003CDED6132BFCDF00D295A2 /* MMServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* MMServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPad.xib; sourceTree = "<group>"; };
 		003CDED8132BFCDF00D295A2 /* MMServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPhone.xib; sourceTree = "<group>"; };
@@ -152,6 +153,8 @@
 		00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		00CCAF281380790B00762299 /* MMContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentView.h; sourceTree = "<group>"; };
 		00CCAF291380790B00762299 /* MMContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentView.m; sourceTree = "<group>"; };
+		00CCAF3A1380805E00762299 /* MMLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController.h; sourceTree = "<group>"; };
+		00CCAF3B1380805F00762299 /* MMLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +364,8 @@
 				00CCAF291380790B00762299 /* MMContentView.m */,
 				003CDECA132BFCDF00D295A2 /* MMPlaylistTableViewController.h */,
 				003CDECB132BFCDF00D295A2 /* MMPlaylistTableViewController.m */,
+				00CCAF3A1380805E00762299 /* MMLibraryViewController.h */,
+				00CCAF3B1380805F00762299 /* MMLibraryViewController.m */,
 				003CDECD132BFCDF00D295A2 /* MMLibraryViewController_iPad.h */,
 				003CDECE132BFCDF00D295A2 /* MMLibraryViewController_iPad.m */,
 				003CDECF132BFCDF00D295A2 /* MMLibraryViewController_iPad.xib */,
@@ -691,6 +696,7 @@
 				00528597137F1F3100A5AFA3 /* MMRemotePlaylist.m in Sources */,
 				00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */,
 				00CCAF2A1380790C00762299 /* MMContentView.m in Sources */,
+				00CCAF3C1380805F00762299 /* MMLibraryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,11 @@ static NSString *deviceSuffix;
 @end
 @implementation NibUtils
 
++ (BOOL) isiPad
+{
+  return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
 + (NSString*) deviceSuffix
 {
   if(deviceSuffix == nil)

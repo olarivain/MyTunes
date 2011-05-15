@@ -16,7 +16,10 @@
 #import "MMServers.h"
 #import "MMHomeView.h"
 #import "MMServerView.h"
+
+#import "MMLibraryViewController.h"
 #import "MMLibraryViewController_iPad.h"
+#import "MMLibraryViewController_iPhone.h"
 
 @interface MMHomeViewController()
 @property (nonatomic, readwrite, retain) MMHomeView *homeView;
@@ -85,14 +88,24 @@
   [servers refreshServerList];
 }
 
+- (MMLibraryViewController*) loadLibraryController
+{
+  NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
+  if([NibUtils isiPad])
+  {
+    return [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  }
+
+  return [[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+}
+
 - (IBAction) serverSelected:(id)sender
 {
   [self setLoading: TRUE];
   
   // load next view controller
-  NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
-  MMLibraryViewController_iPad *libraryViewController = [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
- 
+  MMLibraryViewController *libraryViewController = [self loadLibraryController];
+  
   // grab server and wire it in
   MMServerView *view = (MMServerView*) sender;
   MMServer *server = view.server;

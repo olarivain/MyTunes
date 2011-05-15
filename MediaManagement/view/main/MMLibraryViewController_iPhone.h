@@ -7,19 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MMLibraryViewController.h"
 @class MMServer;
-@class MMEditController;
 
-@interface MMLibraryViewController_iPhone : UIViewController 
+@interface MMLibraryViewController_iPhone : MMLibraryViewController 
 {
-  IBOutlet MMEditController *editController;
-  MMServer *server;
 }
 
-@property (nonatomic, readwrite, retain) MMServer *server;
 
-- (IBAction) editPressed: (id) sender;
 
 
 @end

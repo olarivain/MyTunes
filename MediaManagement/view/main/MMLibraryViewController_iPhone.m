@@ -86,7 +86,6 @@
 #pragma mark - Action handlers
 - (IBAction) editPressed: (id) sender
 {
-  [self presentModalViewController:editController animated:TRUE];
 }
 
 

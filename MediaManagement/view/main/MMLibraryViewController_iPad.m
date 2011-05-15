@@ -32,14 +32,13 @@
 
 - (void) dealloc
 {
-  [server release];
   self.editButton = nil;
   self.contentController = nil;
   self.contentView = nil;
   [super dealloc];
 }
 
-@synthesize server;
+
 @synthesize editButton;
 @synthesize contentController;
 @synthesize contentView;
