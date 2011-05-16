@@ -35,6 +35,7 @@
     MMContent *content = [self createContent: contentDto];
     [playlist addContent: content];
   }
+  [playlist sortContent];
 }
 
 @end
