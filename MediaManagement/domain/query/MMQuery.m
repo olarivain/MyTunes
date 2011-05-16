@@ -6,8 +6,6 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import <MediaManagement/MMPlaylist.h>
-#import <MediaManagement/MMContentAssembler.h>
 #import "MMQuery.h"
 #import "MMServer.h"
 #import "MMQueryScheduler.h"

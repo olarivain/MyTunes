@@ -16,12 +16,14 @@
 #import "MMEditController.h"
 #import "MMPlaylistTableViewController.h"
 #import "MMContentView.h"
+#import "MMPlaylistSubcontentSelector.h"
 
 @interface MMLibraryViewController_iPad()
 
 @property (nonatomic, readwrite, retain) UIBarButtonItem *editButton;
 @property (nonatomic, readwrite, retain) MMPlaylistTableViewController *contentController;
 @property (nonatomic, readwrite, retain) MMContentView *contentView;
+@property (nonatomic, readwrite, retain) MMPlaylistSubcontentSelector *subcontentSelector;
 
 - (NSArray*) playlistListForIndex: (NSInteger) index;
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
@@ -35,6 +37,7 @@
   self.editButton = nil;
   self.contentController = nil;
   self.contentView = nil;
+  self.subcontentSelector = nil;
   [super dealloc];
 }
 
@@ -42,6 +45,7 @@
 @synthesize editButton;
 @synthesize contentController;
 @synthesize contentView;
+@synthesize subcontentSelector;
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,11 +62,25 @@
   [[self navigationItem] setTitle: [server name]];
   
 }
+
 - (void)viewDidUnload
 {
   self.editButton = nil;
   self.contentView = nil;
+  self.subcontentSelector = nil;
   [super viewDidUnload];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear: animated];
+  self.navigationItem.rightBarButtonItem = editButton;
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -140,6 +158,8 @@
   
   [selectedPlaylist loadWithBlock:^(void) {
     contentController.playlist = selectedPlaylist;
+    subcontentSelector.playlistContentTypes = selectedPlaylist.contentTypes;
+    
     [contentController refresh];
     [contentView setLoading: FALSE];
   }];
@@ -153,6 +173,13 @@
   [editController setModalPresentationStyle:UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
   [editController release];
+}
+
+- (IBAction) selectedPlaylistContentType: (id) sender
+{
+  selectedPlaylistContentType = [subcontentSelector selectedContentType];
+  contentController.selectedContentType = selectedPlaylistContentType;
+  [contentController refresh];
 }
 
 @end

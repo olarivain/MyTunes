@@ -29,6 +29,7 @@
 #pragma mark - Loading activity
 - (void) setLoading: (BOOL) loading
 {
+  // animation blocks
   void(^animation)(void) = ^{
     loadingLayer.hidden = !loading;
   };
@@ -45,8 +46,18 @@
     activityIndicator.hidden = !loading;
   };
   
-  [UIView animateWithDuration: 0.2 animations: animation completion: completion];
-   
+  // we have to bring to front and send back when we're done
+  if(loading)
+  {
+    [self bringSubviewToFront: loadingLayer];
   }
+  else
+  {
+    [self sendSubviewToBack: loadingLayer];
+  }
+  
+  // now animate shit around
+  [UIView animateWithDuration: 0.2 animations: animation completion: completion];   
+}
 
 @end

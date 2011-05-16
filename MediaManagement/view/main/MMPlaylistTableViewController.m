@@ -6,11 +6,11 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <MediaManagement/MMPlaylist.h>
+#import <MediaManagement/MMContentList.h>
+#import <MediaManagement/MMContent.h>
+
 #import "MMPlaylistTableViewController.h"
-
-#import "MMQuery.h"
-
-#import "MMContentList.h"
 
 @implementation MMPlaylistTableViewController
 
@@ -22,6 +22,7 @@
 
 @synthesize table;
 @synthesize playlist;
+@synthesize selectedContentType;
 
 #pragma mark - Table view data source
 - (void) refresh
@@ -31,20 +32,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
   return [contentLists count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return contentList.name;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return [[contentList content] count];
 }
@@ -58,7 +59,7 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  NSArray *contentLists = [playlist contentListsWithSubContentType: ARTIST];
+  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
   MMContentList *contentList = [contentLists objectAtIndex: indexPath.section];
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
   cell.textLabel.text = content.name;

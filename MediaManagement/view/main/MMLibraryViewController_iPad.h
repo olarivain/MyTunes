@@ -12,6 +12,7 @@
 @class CategoriesTableViewController;
 @class MMPlaylistTableViewController;
 @class MMContentView;
+@class MMPlaylistSubcontentSelector;
 
 @interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource>
 {
@@ -19,6 +20,7 @@
   IBOutlet MMPlaylistTableViewController *contentController;
   
   IBOutlet MMContentView *contentView;
+  IBOutlet MMPlaylistSubcontentSelector *subcontentSelector;
   
 
 }

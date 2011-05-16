@@ -17,6 +17,7 @@
 		002A0B101324549D00320A06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002A0B0E1324549D00320A06 /* InfoPlist.strings */; };
 		002A0B131324549D00320A06 /* MediaManagementTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 002A0B121324549D00320A06 /* MediaManagementTests.h */; };
 		002A0B151324549D00320A06 /* MediaManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 002A0B141324549D00320A06 /* MediaManagementTests.m */; };
+		0033AE6513809F4E008C0C98 /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0033AE6413809F4D008C0C98 /* MMPlaylistSubcontentSelector.m */; };
 		003CDEA0132BFCD200D295A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9C132BFCD200D295A2 /* InfoPlist.strings */; };
 		003CDEA1132BFCD200D295A2 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */; };
 		003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */; };
@@ -76,6 +77,8 @@
 		002A0B111324549D00320A06 /* MediaManagementTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MediaManagementTests-Prefix.pch"; sourceTree = "<group>"; };
 		002A0B121324549D00320A06 /* MediaManagementTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaManagementTests.h; sourceTree = "<group>"; };
 		002A0B141324549D00320A06 /* MediaManagementTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaManagementTests.m; sourceTree = "<group>"; };
+		0033AE6313809F4D008C0C98 /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
+		0033AE6413809F4D008C0C98 /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		003CDE9C132BFCD200D295A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
 		003CDE9E132BFCD200D295A2 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
@@ -363,8 +366,6 @@
 			children = (
 				00CCAF281380790B00762299 /* MMContentView.h */,
 				00CCAF291380790B00762299 /* MMContentView.m */,
-				003CDECA132BFCDF00D295A2 /* MMPlaylistTableViewController.h */,
-				003CDECB132BFCDF00D295A2 /* MMPlaylistTableViewController.m */,
 				00CCAF3A1380805E00762299 /* MMLibraryViewController.h */,
 				00CCAF3B1380805F00762299 /* MMLibraryViewController.m */,
 				003CDECD132BFCDF00D295A2 /* MMLibraryViewController_iPad.h */,
@@ -373,6 +374,10 @@
 				003CDED0132BFCDF00D295A2 /* MMLibraryViewController_iPhone.h */,
 				003CDED1132BFCDF00D295A2 /* MMLibraryViewController_iPhone.m */,
 				003CDED2132BFCDF00D295A2 /* MMLibraryViewController_iPhone.xib */,
+				003CDECA132BFCDF00D295A2 /* MMPlaylistTableViewController.h */,
+				003CDECB132BFCDF00D295A2 /* MMPlaylistTableViewController.m */,
+				0033AE6313809F4D008C0C98 /* MMPlaylistSubcontentSelector.h */,
+				0033AE6413809F4D008C0C98 /* MMPlaylistSubcontentSelector.m */,
 			);
 			name = library;
 			path = main;
@@ -705,6 +710,7 @@
 				00CCAF3C1380805F00762299 /* MMLibraryViewController.m in Sources */,
 				004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */,
 				004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */,
+				0033AE6513809F4E008C0C98 /* MMPlaylistSubcontentSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
