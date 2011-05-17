@@ -6,6 +6,7 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 #import <MediaManagement/MMPlaylist.h>
+#import <MediaManagement/MMContentGroup.h>
 
 #import "MMLibraryViewController_iPad.h"
 
@@ -157,8 +158,7 @@
   [contentView setLoading: TRUE];
   
   [selectedPlaylist loadWithBlock:^(void) {
-    contentController.playlist = selectedPlaylist;
-    subcontentSelector.playlistContentTypes = selectedPlaylist.contentTypes;
+    subcontentSelector.contentGroups = selectedPlaylist.contentGroups;
     
     [contentController refresh];
     [contentView setLoading: FALSE];
@@ -177,8 +177,8 @@
 
 - (IBAction) selectedPlaylistContentType: (id) sender
 {
-  selectedPlaylistContentType = [subcontentSelector selectedContentType];
-  contentController.selectedContentType = selectedPlaylistContentType;
+  selectedContentGroup = [subcontentSelector selectedContentGroup];
+  contentController.selectedContentGroup = selectedContentGroup;
   [contentController refresh];
 }
 

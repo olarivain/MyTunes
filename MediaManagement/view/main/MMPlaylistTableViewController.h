@@ -9,18 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class MMPlaylist;
-@class MMPlaylistContentType;
+@class MMContentGroup;
 
 @interface MMPlaylistTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
-  MMPlaylist *playlist;
-  MMPlaylistContentType *selectedContentType;
+  MMContentGroup *selectedContentGroup;
   IBOutlet UITableView *table;
 }
 
 
 @property (nonatomic, readwrite, assign) UITableView *table;
-@property (nonatomic, readwrite, retain) MMPlaylist *playlist;
-@property (nonatomic, readwrite, retain) MMPlaylistContentType *selectedContentType;
+@property (nonatomic, readwrite, retain) MMContentGroup *selectedContentGroup;
 
 - (void) refresh;
 

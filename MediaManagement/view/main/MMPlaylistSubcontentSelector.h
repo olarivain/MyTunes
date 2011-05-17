@@ -12,13 +12,13 @@
 
 @interface MMPlaylistSubcontentSelector : UIView 
 {
-  NSArray *playlistContentTypes;
+  NSArray *contentGroups;
   IBOutlet UISegmentedControl *segmentedControl;
 }
 
-@property (nonatomic, readwrite, retain) NSArray *playlistContentTypes;
+@property (nonatomic, readwrite, retain) NSArray *contentGroups;
 @property (nonatomic, readwrite, retain) UISegmentedControl *segmentedControl;
 
-- (MMPlaylistContentType*) selectedContentType;
+- (MMContentGroup*) selectedContentGroup;
 
 @end

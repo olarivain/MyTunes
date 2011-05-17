@@ -48,9 +48,9 @@
 @synthesize systemPlaylists;
 @synthesize userPlaylists;
 
-- (void) clearPlaylists
+- (void) clear
 {
-  [super clearPlaylists];
+  [super clear];
   [systemPlaylists removeAllObjects];
   [userPlaylists removeAllObjects];
 }

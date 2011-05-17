@@ -17,7 +17,7 @@
 
 - (void) updateLibrary: (MMLibrary*) library withDto: (NSArray*) dto
 {
-  [library clearPlaylists];
+  [library clear];
   
   for(NSDictionary *playlistDto in dto)
   {
@@ -28,7 +28,7 @@
 
 - (void) updatePlaylist: (MMPlaylist*) playlist withDto: (NSDictionary*) dto
 {
-  [playlist clearPlaylist];
+  [playlist clear];
   NSArray *contentDtos = [dto objectForKey:@"content"];
   for(NSDictionary *contentDto in contentDtos)
   {

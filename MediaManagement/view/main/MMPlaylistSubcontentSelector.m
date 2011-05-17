@@ -5,36 +5,35 @@
 //  Created by Kra on 5/15/11.
 //  Copyright 2011 kra. All rights reserved.
 //
+#import <MediaManagement/MMContentGroup.h>
 
 #import "MMPlaylistSubcontentSelector.h"
-
-#import "MMPlaylistContentType.h"
 
 @implementation MMPlaylistSubcontentSelector
 
 - (void)dealloc
 {
   self.segmentedControl = nil;
-  self.playlistContentTypes = nil;
+  self.contentGroups = nil;
   [super dealloc];
 }
 
-@synthesize playlistContentTypes;
+@synthesize contentGroups;
 @synthesize segmentedControl;
 
-- (void) setPlaylistContentTypes:(NSArray *)contentTypes
+- (void) setContentGroups:(NSArray *)contentTypes
 {
-  if(playlistContentTypes == contentTypes)
+  if(contentGroups == contentTypes)
   {
     return;
   }
   
   [contentTypes retain];
-  [playlistContentTypes release];
-  playlistContentTypes = contentTypes;
+  [contentGroups release];
+  contentGroups = contentTypes;
   
   [segmentedControl removeAllSegments];
-  for(MMPlaylistContentType *contentType in playlistContentTypes)
+  for(MMContentGroup *contentType in contentGroups)
   {
     NSInteger count = [segmentedControl numberOfSegments];
     [segmentedControl insertSegmentWithTitle: contentType.name atIndex: count animated: YES];
@@ -42,14 +41,14 @@
   segmentedControl.selectedSegmentIndex = 0;
 }
 
-- (MMPlaylistContentType*) selectedContentType
+- (MMContentGroup*) selectedContentGroup
 {
-  if([playlistContentTypes count] <= segmentedControl.selectedSegmentIndex)
+  if([contentGroups count] <= segmentedControl.selectedSegmentIndex)
   {
     return nil;
   }
   
-  return [playlistContentTypes objectAtIndex: segmentedControl.selectedSegmentIndex];
+  return [contentGroups objectAtIndex: segmentedControl.selectedSegmentIndex];
 }
 
 @end

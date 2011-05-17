@@ -10,11 +10,12 @@
 
 @class MMServer;
 @class MMPlaylist;
-@class MMPlaylistContentType;
+@class MMContentGroup;
+
 @interface MMLibraryViewController : UIViewController 
 {
   MMPlaylist *selectedPlaylist;
-  MMPlaylistContentType *selectedPlaylistContentType;
+  MMContentGroup *selectedContentGroup;
   MMServer *server;
 }
 

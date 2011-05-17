@@ -16,13 +16,11 @@
 
 - (void)dealloc
 {
-  self.playlist = nil;
   [super dealloc];
 }
 
 @synthesize table;
-@synthesize playlist;
-@synthesize selectedContentType;
+@synthesize selectedContentGroup;
 
 #pragma mark - Table view data source
 - (void) refresh
@@ -32,20 +30,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
+  NSArray *contentLists = [selectedContentGroup contentLists];
+  NSInteger count = 0;
+  for(MMContentList *contentList in contentLists)
+  {
+    count += [contentList childrenCount];
+  }
   return [contentLists count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
+  NSArray *contentLists = [selectedContentGroup contentLists];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return contentList.name;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
+  NSArray *contentLists = [selectedContentGroup contentLists];
   MMContentList *contentList = [contentLists objectAtIndex: section];
   return [[contentList content] count];
 }
@@ -59,7 +62,7 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  NSArray *contentLists = [playlist contentListsWithSubContentType: selectedContentType];
+  NSArray *contentLists = [selectedContentGroup contentLists];
   MMContentList *contentList = [contentLists objectAtIndex: indexPath.section];
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
   cell.textLabel.text = content.name;
