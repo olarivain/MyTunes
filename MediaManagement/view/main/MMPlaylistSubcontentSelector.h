@@ -10,7 +10,7 @@
 
 @class MMPlaylistContentType; 
 
-@interface MMPlaylistSubcontentSelector : UIView 
+@interface MMPlaylistSubcontentSelector : UIToolbar 
 {
   NSArray *contentGroups;
   IBOutlet UISegmentedControl *segmentedControl;

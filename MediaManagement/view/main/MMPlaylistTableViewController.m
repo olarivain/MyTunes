@@ -6,7 +6,7 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import <MediaManagement/MMPlaylist.h>
+
 #import <MediaManagement/MMContentList.h>
 #import <MediaManagement/MMContent.h>
 
@@ -30,27 +30,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  NSArray *contentLists = [selectedContentGroup contentLists];
-  NSInteger count = 0;
-  for(MMContentList *contentList in contentLists)
-  {
-    count += [contentList childrenCount];
-  }
-  return [contentLists count];
+  return [selectedContentGroup contentListCount];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  NSArray *contentLists = [selectedContentGroup contentLists];
-  MMContentList *contentList = [contentLists objectAtIndex: section];
-  return contentList.name;
+  MMContentList *list = [selectedContentGroup contentListForFlatIndex: section];
+  return list.name;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSArray *contentLists = [selectedContentGroup contentLists];
-  MMContentList *contentList = [contentLists objectAtIndex: section];
-  return [[contentList content] count];
+  MMContentList *list = [selectedContentGroup contentListForFlatIndex: section];
+  return [[list content] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,26 +54,12 @@
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
   
-  NSArray *contentLists = [selectedContentGroup contentLists];
-  MMContentList *contentList = [contentLists objectAtIndex: indexPath.section];
+  MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];
+  
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
   cell.textLabel.text = content.name;
     
   return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 @end
