@@ -24,6 +24,7 @@
 @interface MMHomeViewController()
 @property (nonatomic, readwrite, retain) MMHomeView *homeView;
 @property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, readwrite, retain) MMServers *servers;
 - (void) setLoading: (BOOL) loading;
 @end
 
@@ -33,12 +34,13 @@
 {
   self.homeView = nil;
   self.activityIndicator = nil;
-  [servers release];
+  self.servers = nil;
   [super dealloc];
 }
 
 @synthesize activityIndicator;
 @synthesize homeView;
+@synthesize servers;
 
 - (void)didReceiveMemoryWarning
 {
@@ -46,12 +48,14 @@
 }
 
 #pragma mark - View lifecycle
-
+- (void) awakeFromNib
+{
+  self.servers = [[[MMServers alloc] init] autorelease];
+  [servers setDelegate: self];
+}
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  servers = [[MMServers alloc] init];
-  [servers setDelegate: self];
   [self refresh];
 }
 

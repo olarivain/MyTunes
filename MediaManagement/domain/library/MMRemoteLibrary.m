@@ -62,6 +62,7 @@
   {
     return;
   }
+  mediaLibrary.library = self;
   
   NSMutableArray *targetList = [mediaLibrary isSystem] ? systemPlaylists : userPlaylists;
   [targetList addObject: mediaLibrary];

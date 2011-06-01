@@ -167,7 +167,7 @@
   {
     return;
   }
-  selectedPlaylist = playlist;
+  self.selectedPlaylist = playlist;
   
   [contentView setLoading: TRUE];
   

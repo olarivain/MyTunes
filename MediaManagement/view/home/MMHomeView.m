@@ -149,6 +149,11 @@
 
 - (void) setServers:(NSArray *) newServers
 {
+  if(newServers == servers) 
+  {
+    return;
+  }
+  
   [newServers retain];
   [servers release];
   servers = newServers;
