@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <MediaManagement/MMPlaylist.h>
 
+@class MMContent;
 
 @interface MMPlaylist(MMPlaylist_Remote)
 - (void) loadWithBlock: (void(^)(void)) callback;
+- (void) updateContent: (MMContent*) content withBlock: (void(^)(void)) callback;
 @end

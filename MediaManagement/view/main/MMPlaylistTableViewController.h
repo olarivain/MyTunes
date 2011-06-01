@@ -13,12 +13,14 @@
 
 @interface MMPlaylistTableViewController : NSObject<UITableViewDelegate, UITableViewDataSource> {
   MMContentGroup *selectedContentGroup;
+  MMContent *selectedItem;
   IBOutlet UITableView *table;
 }
 
 
 @property (nonatomic, readwrite, assign) UITableView *table;
 @property (nonatomic, readwrite, retain) MMContentGroup *selectedContentGroup;
+@property (nonatomic, readonly) MMContent *selectedItem;
 
 - (void) refresh;
 

@@ -156,6 +156,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<bool key="IBUIAlwaysBounceVertical">YES</bool>
+								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 								<float key="IBUIRowHeight">44</float>
@@ -169,7 +170,7 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="IBUISegmentedControl" id="693854018">
 										<reference key="NSNextResponder" ref="814890291"/>
-										<int key="NSvFlags">292</int>
+										<int key="NSvFlags">-2147483356</int>
 										<string key="NSFrame">{{290, 8}, {207, 30}}</string>
 										<reference key="NSSuperview" ref="814890291"/>
 										<reference key="NSNextKeyView"/>
@@ -180,7 +181,7 @@
 										<int key="IBSelectedSegmentIndex">0</int>
 										<object class="NSArray" key="IBSegmentTitles">
 											<bool key="EncodedWithXMLCoder">YES</bool>
-											<string>First</string>
+											<string/>
 											<string>Second</string>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentWidths">
@@ -389,6 +390,22 @@
 					</object>
 					<int key="connectionID">65</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">playlistTable</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="254725422"/>
+					</object>
+					<int key="connectionID">66</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">editPressed:</string>
+						<reference key="source" ref="80943135"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">67</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -588,7 +605,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">65</int>
+			<int key="maxID">67</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

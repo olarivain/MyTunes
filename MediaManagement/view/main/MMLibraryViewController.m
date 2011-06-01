@@ -12,6 +12,7 @@
 @implementation MMLibraryViewController
 
 @synthesize server;
+@synthesize selectedPlaylist;
 
 - (void) dealloc
 {

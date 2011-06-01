@@ -14,10 +14,12 @@
 #import "MMRemoteLibrary.h"
 #import "MMRemotePlaylist.h"
 
-#import "MMEditController.h"
+#import "MMEditController_iPad.h"
 #import "MMPlaylistTableViewController.h"
 #import "MMContentView.h"
 #import "MMPlaylistSubcontentSelector.h"
+
+#import "NibUtils.h"
 
 @interface MMLibraryViewController_iPad()
 
@@ -25,6 +27,7 @@
 @property (nonatomic, readwrite, retain) MMPlaylistTableViewController *contentController;
 @property (nonatomic, readwrite, retain) MMContentView *contentView;
 @property (nonatomic, readwrite, retain) MMPlaylistSubcontentSelector *subcontentSelector;
+@property (nonatomic, readwrite, retain) UITableView *playlistTable;
 
 - (NSArray*) playlistListForIndex: (NSInteger) index;
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
@@ -39,6 +42,8 @@
   self.contentController = nil;
   self.contentView = nil;
   self.subcontentSelector = nil;
+  self.selectedPlaylist = nil;
+  self.playlistTable = nil;
   [super dealloc];
 }
 
@@ -47,6 +52,7 @@
 @synthesize contentController;
 @synthesize contentView;
 @synthesize subcontentSelector;
+@synthesize playlistTable;
 
 - (void)didReceiveMemoryWarning
 {
@@ -69,6 +75,7 @@
   self.editButton = nil;
   self.contentView = nil;
   self.subcontentSelector = nil;
+  self.playlistTable = nil;
   [super viewDidUnload];
 }
 
@@ -76,6 +83,13 @@
 {
   [super viewWillAppear: animated];
   self.navigationItem.rightBarButtonItem = editButton;
+  if(selectedPlaylist == nil) {
+    NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
+    [playlistTable selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
+    [self tableView: playlistTable didSelectRowAtIndexPath: path];
+
+  }
+
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -168,8 +182,12 @@
 #pragma mark - Action handlers
 - (IBAction) editPressed: (id) sender
 {
-  NSString *nibName = @"EditController";
-  MMEditController *editController = [[MMEditController alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
+  NSString *nibName = [NibUtils nibName: @"MMEditController"];
+  MMEditController_iPad *editController = [[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
+  editController.currentItem = contentController.selectedItem;
+  editController.contentGroup = contentController.selectedContentGroup;
+  editController.playlist = selectedPlaylist;
+  
   [editController setModalPresentationStyle:UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
   [editController release];

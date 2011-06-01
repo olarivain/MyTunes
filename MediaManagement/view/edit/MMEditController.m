@@ -8,10 +8,6 @@
 
 #import "MMEditController.h"
 
-@interface MMEditController(private)
-- (void) dismiss;
-@end
-
 @implementation MMEditController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,36 +21,41 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+  self.contentGroup = nil;
+  self.currentItem= nil;
+  self.playlist = nil;
+  [super dealloc];
 }
+
+@synthesize playlist;
+@synthesize contentGroup;
+@synthesize currentItem;
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+  // Releases the view if it doesn't have a superview.
+  [super didReceiveMemoryWarning];
 }
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
+  // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+  // Return YES for supported orientations
+  return YES;
 }
 
 #pragma mark - Action Handler
@@ -64,7 +65,6 @@
 }
 - (IBAction) save: (id) sender
 {
-  [self dismiss];
 }
 
 - (IBAction) cancel: (id) sender

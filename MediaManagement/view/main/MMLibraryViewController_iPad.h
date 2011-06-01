@@ -13,15 +13,16 @@
 @class MMPlaylistTableViewController;
 @class MMContentView;
 @class MMPlaylistSubcontentSelector;
-
+@class MMPlaylist;
 @interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource>
 {
+  IBOutlet UITableView *playlistTable;
+  
   IBOutlet UIBarButtonItem *editButton;
   IBOutlet MMPlaylistTableViewController *contentController;
   
   IBOutlet MMContentView *contentView;
   IBOutlet MMPlaylistSubcontentSelector *subcontentSelector;
-  
 
 }
 

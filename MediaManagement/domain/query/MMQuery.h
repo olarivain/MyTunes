@@ -29,6 +29,8 @@
 
 -(id) initWithName: (NSString *) name andPath: (NSString*) path;
 
-- (void) asyncFetchWithBlock: (void(^)(NSObject *dto)) callback;
+- (NSObject*) request: (NSData*) data;
 
+- (void) asyncRequestWithBlock: (void(^)(NSObject *dto)) callback;
+- (void) asyncRequest: (NSObject*) data withBlock:  (void(^)(NSObject *dto)) callback;
 @end

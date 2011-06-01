@@ -21,11 +21,18 @@
 
 @synthesize table;
 @synthesize selectedContentGroup;
+@synthesize selectedItem;
 
 #pragma mark - Table view data source
 - (void) refresh
 {
   [table reloadData];
+  // scroll back to top, take care to avoid stupid exceptions
+  if([table numberOfSections] > 0 && [table numberOfRowsInSection: 0] > 0) 
+  {
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [table scrollToRowAtIndexPath:path atScrollPosition: UITableViewScrollPositionTop animated: NO];
+  }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -60,6 +67,14 @@
   cell.textLabel.text = content.name;
     
   return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];  
+  MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
+
+  selectedItem = content;
 }
 
 @end

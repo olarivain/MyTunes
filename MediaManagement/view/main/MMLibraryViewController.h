@@ -20,6 +20,7 @@
 }
 
 @property (nonatomic, readwrite, retain) MMServer *server;
+@property (nonatomic, readwrite, retain) MMPlaylist *selectedPlaylist;
 
 - (IBAction) editPressed: (id) sender;
 - (IBAction) selectedPlaylistContentType: (id) sender;

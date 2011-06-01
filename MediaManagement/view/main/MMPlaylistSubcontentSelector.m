@@ -33,10 +33,12 @@
   contentGroups = contentTypes;
   
   [segmentedControl removeAllSegments];
+  segmentedControl.hidden = NO;
+  
   for(MMContentGroup *contentType in contentGroups)
   {
     NSInteger count = [segmentedControl numberOfSegments];
-    [segmentedControl insertSegmentWithTitle: contentType.name atIndex: count animated: YES];
+    [segmentedControl insertSegmentWithTitle: contentType.name atIndex: count animated: NO];
   }
   segmentedControl.selectedSegmentIndex = 0;
 }

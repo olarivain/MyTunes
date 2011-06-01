@@ -13,6 +13,7 @@
 
 @interface MMPlaylist()
 - (MMQuery*) readQuery;
+- (MMQuery*) writeQuery;
 - (void) reload: (NSObject*) dto;
 @end
 
@@ -23,6 +24,17 @@
 {
   NSString *path = [NSString stringWithFormat:@"/playlist/%@", uniqueId];
   MMQuery *query = [MMQuery queryWithName: @"Read" andPath: path];
+  
+  // TODO make this a little bit more fail proof
+  MMRemoteLibrary *remoteLibrary = (MMRemoteLibrary *) library;
+  query.server = remoteLibrary.server;
+  return query;
+}
+
+- (MMQuery*) writeQuery
+{
+  NSString *path = @"/track";
+  MMQuery *query = [MMQuery queryWithName: @"Write" andPath: path];
   
   // TODO make this a little bit more fail proof
   MMRemoteLibrary *remoteLibrary = (MMRemoteLibrary *) library;
@@ -44,7 +56,21 @@
   };
 
   MMQuery *query = [self readQuery];
-  [query asyncFetchWithBlock:reload];
+  [query asyncRequestWithBlock: reload];
+}
+
+- (void) updateContent: (MMContent*) content withBlock: (void(^)(void)) callback
+{
+  NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content];
+  void (^updated)(NSObject *dto) = ^(NSObject *dto){
+    // dispatch on callback on main thread and exit
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    dispatch_async(mainQueue, callback);
+  };
+  
+  MMQuery *query = [self writeQuery];
+  [query asyncRequest: dictionary withBlock: updated];
+
 }
 
 #pragma mark - Network callbacks

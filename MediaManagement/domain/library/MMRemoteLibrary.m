@@ -94,7 +94,7 @@
     }
   };
   
-  [query asyncFetchWithBlock: reload];
+  [query asyncRequestWithBlock: reload];
 }
 
 @end
