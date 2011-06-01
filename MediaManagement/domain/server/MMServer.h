@@ -26,7 +26,7 @@
 
 - (id) initWithNetService: (NSNetService*) netService;
 
-@property (readonly) NSNetService *netService;
+@property (nonatomic, readonly, retain) NSNetService *netService;
 @property (readonly) int port;
 @property (readonly) NSString *host;
 @property (readonly) NSString *name;
@@ -36,5 +36,6 @@
 
 - (void) didResolve;
 - (NSString*) serverURL;
+- (void) stop;
 
 @end

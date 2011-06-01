@@ -149,14 +149,10 @@
 
 - (void) setServers:(NSArray *) newServers
 {
-  if(newServers == servers) 
-  {
-    return;
-  }
-  
   [newServers retain];
   [servers release];
   servers = newServers;
+
   
   int diff = [servers count] - [serverViews count];
   if(diff < 0)
@@ -172,7 +168,8 @@
   {
     MMServer *server = [servers objectAtIndex:i];
     MMServerView *icon = [serverViews objectAtIndex: i];
-    [icon setServer: server];
+    icon.server = server;
+    [icon update];
   }
   
   [self setNeedsLayout];
@@ -207,6 +204,7 @@
     [serverView setFrame: rect];
     [self addSubview: serverView];
     [serverViews addObject: serverView];
+    self.serverView = nil;
   }
 }
 

@@ -21,7 +21,6 @@
   MMServers *servers;
 }
 
-- (IBAction) refresh;
 - (IBAction) serverSelected: (id) sender;
 
 @end

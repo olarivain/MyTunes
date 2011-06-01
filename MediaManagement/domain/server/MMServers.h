@@ -22,9 +22,8 @@
 }
 
 @property (readonly) NSArray *servers;
-@property (readwrite, retain) id<MMServersDelegate> delegate;
+@property (readwrite, assign) id<MMServersDelegate> delegate;
 
-- (void) refreshServerList;
-
+- (void) startSearch;
 
 @end

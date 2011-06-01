@@ -56,7 +56,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [self refresh];
+  homeView.servers = [servers servers];
+  [servers startSearch];
 }
 
 - (void)viewDidUnload
@@ -85,12 +86,6 @@
   activityIndicator.hidden = !loading;
 }
 
-
-#pragma mark - Button Handlers
-- (IBAction) refresh
-{
-  [servers refreshServerList];
-}
 
 - (MMLibraryViewController*) loadLibraryController
 {
@@ -127,8 +122,8 @@
 #pragma mark - ServersDelegate methods
 - (void) didRefresh:(MMServers *)sender
 {
-  NSLog(@"Did refresh, %i", [[servers servers] count]);
-  [homeView setServers: [servers servers]];
+  NSLog(@"Did refresh, %i", [[sender servers] count]);
+  [homeView setServers: [sender servers]];
   for(MMServerView *serverView in [homeView serverViews])
   {
     // remove and add targets.

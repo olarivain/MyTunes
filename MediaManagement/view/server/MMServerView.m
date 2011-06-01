@@ -30,29 +30,32 @@
 
 - (void)dealloc
 {
+  self.server = nil;
   [super dealloc];
 }
 
+@synthesize server;
+
 
 #pragma  mark - Server management;
-- (MMServer*) server
-{
-  return server;
-}
+//- (MMServer*) server
+//{
+//  return server;
+//}
+//
+//- (void) setServer:(MMServer *)newServer
+//{
+////  NSLog(@"Setting server: %@ %@", newServer, newServer.netService);
+////  [newServer retain];
+////  [server release];
+//  server = newServer;
+//  
+//  [label setText: [newServer name]]; 
+//}
 
-- (void) setServer:(MMServer *)newServer
+- (void) update
 {
-  if(newServer == server)
-  {
-    return;
-  }
-  
-  [newServer retain];
-  [server release];
-  server = newServer;
-  
-  [label setText: [server name]]; 
+  [label setText: server.name]; 
 }
-
 
 @end

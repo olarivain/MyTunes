@@ -51,12 +51,6 @@
   [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
-- (void) refreshServerList
-{
-  [netServiceBrowser stop];
-  [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
-}
-
 - (MMServer*) pendingServerWithNetService: (NSNetService*) netService
 {
   return [self serverWithNetService:netService inCollection:pendingServers];
@@ -72,7 +66,7 @@
 {
   for(MMServer *server in serverList)
   {
-    if([[[server netService] name] isEqualToString: [netService name]])
+    if([[server.netService name] isEqualToString: [netService name]])
     {
       return server;
     }
@@ -106,9 +100,6 @@
 
 - (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
-  [servers removeAllObjects];
-  [pendingServers removeAllObjects];
-  
   if([[delegate class] respondsToSelector: @selector(willRefresh:)])
   {
     [delegate willRefresh:self];
@@ -122,10 +113,11 @@
   NSLog(@"Did resolve service.");
   MMServer *server = [self pendingServerWithNetService: sender];
   [server didResolve];
+
   [servers addObject: server];
   [pendingServers removeObject: server];
-
   [[self delegate] didRefresh: self];
+  [sender setDelegate: nil];
 }
 
 - (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
@@ -135,6 +127,7 @@
   MMServer *server = [self pendingServerWithNetService: sender];
   [pendingServers removeObject: server];
   [[self delegate] didRefresh: self];
+    [sender setDelegate: nil];
 }
 
 

@@ -13,6 +13,10 @@
 #import "MMRemoteLibrary.h"
 #import "MMQuery.h"
 
+@interface MMServer()
+@property (nonatomic, readwrite, retain) NSNetService *netService;
+@end
+
 @implementation MMServer
 
 - (id) initWithNetService: (NSNetService*) service
@@ -20,7 +24,7 @@
   self = [super init];
   if(self)
   {
-    netService = [service retain];
+    self.netService = service;
     library = [[MMRemoteLibrary alloc] initWithServer: self];
   }
   return self;
@@ -28,20 +32,22 @@
 
 - (void) dealloc
 {
+  NSLog(@"releasing server with name: %@ %@ %@", name, self, netService);
   [library release];
   [host release];
   [name release];
   
   [netService stop];
-  [netService release];
+  self.netService = nil;
   [super dealloc];
 }
 
-@synthesize netService;
+//@synthesize netService;
 @synthesize name;
 @synthesize port;
 @synthesize host;
 @synthesize library;
+@synthesize netService;
 
 - (void) didResolve
 {
@@ -62,6 +68,11 @@
 - (NSString*) serverURL
 {
   return [NSString stringWithFormat:@"http://%@:%i", host, port];
+}
+
+- (void) stop
+{
+  [netService stop];
 }
 
 @end

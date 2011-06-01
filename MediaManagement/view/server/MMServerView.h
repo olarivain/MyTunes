@@ -19,4 +19,6 @@
 
 @property (readwrite, retain) MMServer* server;
 
+- (void) update;
+
 @end
