@@ -26,6 +26,7 @@
 #pragma mark - Table view data source
 - (void) refresh
 {
+  selectedItem = nil;
   [table reloadData];
   // scroll back to top, take care to avoid stupid exceptions
   if([table numberOfSections] > 0 && [table numberOfRowsInSection: 0] > 0) 

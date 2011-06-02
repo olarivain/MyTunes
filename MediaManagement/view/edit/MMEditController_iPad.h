@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MMEditController.h"
+#import "MMEditControllerProtected.h"
 #import "MMContentEditController.h"
 
 @class MMContentPlacholder;

@@ -11,12 +11,19 @@
 @class MMContentGroup;
 @class MMContent;
 @class MMPlaylist;
+@class MMLoadingView;
 
 @interface MMEditController : UIViewController 
 {
   MMPlaylist *playlist;
   MMContentGroup *contentGroup;
   MMContent *currentItem;
+  NSArray *contentList;
+  NSUInteger currentIndex;
+  
+  IBOutlet UIBarButtonItem *next;
+  IBOutlet UIBarButtonItem *previous;
+  IBOutlet MMLoadingView *loadingView;
 }
 
 @property (nonatomic, readwrite, retain) MMPlaylist *playlist;

@@ -26,6 +26,7 @@
   self.episodeField = nil;
   self.showField = nil;
   self.seasonField = nil;
+  [super dealloc];
 }
 
 @synthesize editView;

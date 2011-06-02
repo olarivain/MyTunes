@@ -21,7 +21,7 @@
 @property (nonatomic, readwrite, retain) id<MMContentEditController> musicController;
 @property (nonatomic, readwrite, retain) id<MMContentEditController> movieController;
 
-- (void) updateViewsWithCurrentItem;
+
 
 @end
 
@@ -46,6 +46,11 @@
 @synthesize movieController;
 
 #pragma mark - View Lifecyle
+- (void) viewDidLoad
+{
+  [super viewDidLoad];
+
+}
 - (void) viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear: animated];
@@ -77,6 +82,7 @@
 
 - (void) updateViewsWithCurrentItem
 {
+  [super updateViewsWithCurrentItem];
   // update content controller with new content
   currentEditController = [self editControllerForCurrentItem];
   [currentEditController setContent: currentItem];
@@ -91,16 +97,11 @@
   description.text = currentItem.description;
 }
 
-- (IBAction) save:(id)sender
+- (void) updateContent
 {
   currentItem.name = [nameField text];
   currentItem.description = [description text];
   [currentEditController updateContent];
-  
-  void (^dismiss)(void) = ^{
-    [self dismiss];
-  };
-  [playlist updateContent: currentItem withBlock: dismiss];
 }
 
 @end

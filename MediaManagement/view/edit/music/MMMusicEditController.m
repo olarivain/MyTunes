@@ -23,6 +23,7 @@
   self.artistField = nil;
   self.albumField = nil;
   self.trackNumberField = nil;
+  [super dealloc];
 }
 
 @synthesize editView;

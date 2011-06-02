@@ -6,7 +6,20 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "MMEditController.h"
+#import <MediaManagement/MMContentGroup.h>
+
+#import "MMEditControllerProtected.h"
+#import "MMRemotePlaylist.h"
+#import "MMLoadingView.h"
+
+@interface MMEditController()
+@property (nonatomic, readwrite, retain) NSArray *contentList;
+@property (nonatomic, readwrite, retain) UIBarButtonItem *next;
+@property (nonatomic, readwrite, retain) UIBarButtonItem *previous;
+@property (nonatomic, readwrite, retain) MMLoadingView *loadingView;
+
+- (void) saveWithBlock: (void(^)(void)) block userFeedback: (BOOL) feedback;
+@end
 
 @implementation MMEditController
 
@@ -21,15 +34,24 @@
 
 - (void)dealloc
 {
+  self.contentList = nil;
   self.contentGroup = nil;
   self.currentItem= nil;
   self.playlist = nil;
+  self.next = nil;
+  self.previous = nil;
+  self.loadingView = nil;
+  
   [super dealloc];
 }
 
 @synthesize playlist;
 @synthesize contentGroup;
 @synthesize currentItem;
+@synthesize contentList;
+@synthesize next;
+@synthesize previous;
+@synthesize loadingView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,7 +64,14 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  // Do any additional setup after loading the view from its nib.
+  self.contentList = [contentGroup allContent];
+  if(currentItem == nil && [contentList count] > 0)
+  {
+    self.currentItem = [contentList objectAtIndex: 0];
+  }
+  
+  currentIndex = [contentList indexOfObject: currentItem];
+  [self updateViewsWithCurrentItem];
 }
 
 - (void)viewDidUnload
@@ -65,6 +94,30 @@
 }
 - (IBAction) save: (id) sender
 {
+  void (^dismiss)(void) = ^{
+    [self dismiss];
+  };
+  [self saveWithBlock: dismiss userFeedback: YES];
+}
+
+- (void) saveWithBlock: (void(^)(void)) block userFeedback: (BOOL) feedback
+{
+  if(feedback)
+  {
+    [loadingView setLoading: YES];
+  }
+  
+  [self updateContent];
+  
+  void (^saveBlock)(void) = ^{
+    if(feedback)
+    {
+      [loadingView setLoading: NO];
+    }
+    block();
+  };
+  
+  [playlist updateContent: currentItem withBlock: saveBlock];
 }
 
 - (IBAction) cancel: (id) sender
@@ -72,5 +125,37 @@
   [self dismiss];  
 }
 
+- (IBAction) next: (id) sender
+{
+  void (^nextBlock)(void) = ^{
+    currentIndex++;
+    currentItem = [contentList objectAtIndex: currentIndex];
+    [self updateViewsWithCurrentItem];
+  };
+  
+  [self saveWithBlock: nextBlock userFeedback: NO];
+}
+
+- (IBAction) previous: (id) sender
+{
+  void (^previousBlock)(void) = ^{
+    currentIndex--;
+    currentItem = [contentList objectAtIndex: currentIndex];
+    [self updateViewsWithCurrentItem];
+  };
+  
+  [self saveWithBlock: previousBlock userFeedback: NO];
+}
+
+- (void) updateContent
+{
+  NSLog(@"FATAL: subclasses must override MMEditController.updateContent");
+}
+
+- (void) updateViewsWithCurrentItem
+{
+  next.enabled = currentItem != [contentList lastObject];
+  previous.enabled = currentIndex > 0;
+}
 
 @end
