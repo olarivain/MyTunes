@@ -129,7 +129,7 @@
 {
   void (^nextBlock)(void) = ^{
     currentIndex++;
-    currentItem = [contentList objectAtIndex: currentIndex];
+    self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];
   };
   
@@ -140,7 +140,7 @@
 {
   void (^previousBlock)(void) = ^{
     currentIndex--;
-    currentItem = [contentList objectAtIndex: currentIndex];
+    self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];
   };
   
