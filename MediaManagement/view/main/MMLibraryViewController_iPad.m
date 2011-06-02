@@ -188,7 +188,7 @@
   editController.contentGroup = contentController.selectedContentGroup;
   editController.playlist = selectedPlaylist;
   
-  [editController setModalPresentationStyle:UIModalPresentationFormSheet];
+  [editController setModalPresentationStyle: UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
   [editController release];
 }
