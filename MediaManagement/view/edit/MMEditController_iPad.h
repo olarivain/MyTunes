@@ -8,13 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "MMEditController.h"
+#import "MMContentEditController.h"
+
+@class MMContentPlacholder;
 
 @interface MMEditController_iPad : MMEditController 
 {
+  IBOutlet id<MMContentEditController> showController;
+  IBOutlet id<MMContentEditController> musicController;
+  IBOutlet id<MMContentEditController> movieController;
+  
+  id<MMContentEditController> currentEditController;
+  
+  IBOutlet MMContentPlacholder *contentPlaceholder;
   IBOutlet UITextField *nameField;
-  IBOutlet UITextField *episodeField;
-  IBOutlet UITextField *showField;
-  IBOutlet UITextField *seasonField;
   IBOutlet UITextView *description;
 }
 
