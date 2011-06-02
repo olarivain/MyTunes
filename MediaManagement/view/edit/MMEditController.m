@@ -149,13 +149,35 @@
 
 - (void) updateContent
 {
-  NSLog(@"FATAL: subclasses must override MMEditController.updateContent");
+  currentItem.kind = currentKind;
 }
 
 - (void) updateViewsWithCurrentItem
 {
   next.enabled = currentItem != [contentList lastObject];
   previous.enabled = currentIndex > 0;
+  currentKind = currentItem.kind;
+}
+
+- (NSString*) kindToString: (MMContentKind) kind
+{
+  switch (kind) {
+    case MOVIE:
+      return @"Movie";
+    case MUSIC:
+      return @"Music";
+    case TV_SHOW:
+      return @"TV Show";
+    case PODCAST:
+      return @"Podcast";
+    case ITUNES_U:
+      return @"iTunes U";
+    case BOOKS:
+      return @"Book";      
+    default:
+      break;
+  }
+  return @"Unknown";
 }
 
 @end

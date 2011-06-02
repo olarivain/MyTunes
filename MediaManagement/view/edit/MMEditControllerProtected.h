@@ -12,4 +12,5 @@
 @interface MMEditController()
 - (void) updateViewsWithCurrentItem;
 - (void) updateContent;
+- (NSString*) kindToString: (MMContentKind) kind;
 @end

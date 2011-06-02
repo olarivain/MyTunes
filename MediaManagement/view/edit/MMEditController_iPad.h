@@ -12,7 +12,7 @@
 
 @class MMContentPlacholder;
 
-@interface MMEditController_iPad : MMEditController 
+@interface MMEditController_iPad : MMEditController<UIActionSheetDelegate>
 {
   IBOutlet id<MMContentEditController> showController;
   IBOutlet id<MMContentEditController> musicController;
@@ -23,6 +23,12 @@
   IBOutlet MMContentPlacholder *contentPlaceholder;
   IBOutlet UITextField *nameField;
   IBOutlet UITextView *description;
+  
+  IBOutlet UIButton *typeButton;
+  
+  UIActionSheet *actionSheet;
 }
+
+- (IBAction) typePressed;
 
 @end

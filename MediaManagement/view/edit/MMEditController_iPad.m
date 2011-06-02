@@ -20,8 +20,7 @@
 @property (nonatomic, readwrite, retain) id<MMContentEditController> showController;
 @property (nonatomic, readwrite, retain) id<MMContentEditController> musicController;
 @property (nonatomic, readwrite, retain) id<MMContentEditController> movieController;
-
-
+@property (nonatomic, readwrite, retain) UIButton *typeButton;
 
 @end
 
@@ -35,12 +34,14 @@
   self.showController = nil;
   self.musicController = nil;
   self.movieController = nil;
+  self.typeButton = nil;
   [super dealloc];
 }
 
 @synthesize contentPlaceholder;
 @synthesize nameField;
 @synthesize description;
+@synthesize typeButton;
 @synthesize showController;
 @synthesize musicController;
 @synthesize movieController;
@@ -95,13 +96,52 @@
   
   nameField.text = currentItem.name;
   description.text = currentItem.description;
+  
+  NSString *type = [self kindToString: currentKind];
+  [typeButton setTitle: type forState: UIControlStateNormal];
+  
+  typeButton.enabled = currentKind == MOVIE || currentKind == MUSIC || currentKind == TV_SHOW;
 }
 
 - (void) updateContent
 {
+  [super updateContent];
   currentItem.name = [nameField text];
   currentItem.description = [description text];
   [currentEditController updateContent];
+}
+
+
+
+#warning This is really quick and dirty. Also raises the question of podcast/books type.
+- (void) actionSheet:(UIActionSheet *)anActionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+  currentKind = buttonIndex;
+  
+  NSString *type = [self kindToString: currentKind];
+  typeButton.titleLabel.text = type;
+  [typeButton setTitle: type forState: UIControlStateNormal];
+  
+  [actionSheet release];
+  actionSheet = nil;
+}
+
+- (IBAction) typePressed
+{
+  if(actionSheet != nil)
+  {
+    [actionSheet dismissWithClickedButtonIndex: -1 animated: YES];
+    return;
+  }
+  
+  actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil];
+
+  [actionSheet addButtonWithTitle:@"Music"];
+  [actionSheet addButtonWithTitle:@"Movie"];
+  [actionSheet addButtonWithTitle:@"TV Show"];
+  
+  [actionSheet showFromRect: typeButton.frame inView: typeButton.superview animated: YES];
+
 }
 
 @end

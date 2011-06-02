@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaManagement/MMContent.h>
 
 @class MMContentGroup;
-@class MMContent;
 @class MMPlaylist;
 @class MMLoadingView;
 
@@ -24,6 +24,8 @@
   IBOutlet UIBarButtonItem *next;
   IBOutlet UIBarButtonItem *previous;
   IBOutlet MMLoadingView *loadingView;
+  
+  MMContentKind currentKind;
 }
 
 @property (nonatomic, readwrite, retain) MMPlaylist *playlist;

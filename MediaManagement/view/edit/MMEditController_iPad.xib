@@ -130,7 +130,6 @@
 						<string key="NSFrame">{{273, 120}, {247, 267}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="280125039">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -405,7 +404,6 @@
 						<string key="NSFrame">{{0, 160}, {246, 31}}</string>
 						<reference key="NSSuperview" ref="550977609"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -552,7 +550,6 @@
 						<string key="NSFrame">{{0, 160}, {245, 31}}</string>
 						<reference key="NSSuperview" ref="924801504"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -814,6 +811,23 @@
 						<reference key="destination" ref="336122335"/>
 					</object>
 					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">typePressed</string>
+						<reference key="source" ref="194537312"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">73</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">typeButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="194537312"/>
+					</object>
+					<int key="connectionID">74</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1186,7 +1200,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">72</int>
+			<int key="maxID">74</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1281,6 +1295,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MMEditController_iPad</string>
 					<string key="superclassName">MMEditController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">typePressed</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">typePressed</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">typePressed</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -1291,6 +1316,7 @@
 							<string>musicController</string>
 							<string>nameField</string>
 							<string>showController</string>
+							<string>typeButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1300,6 +1326,7 @@
 							<string>id</string>
 							<string>UITextField</string>
 							<string>id</string>
+							<string>UIButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1312,6 +1339,7 @@
 							<string>musicController</string>
 							<string>nameField</string>
 							<string>showController</string>
+							<string>typeButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1338,6 +1366,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">showController</string>
 								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">typeButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
