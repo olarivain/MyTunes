@@ -95,7 +95,7 @@
     }
   };
   
-  [query asyncRequestWithBlock: reload];
+  [query requestWithCallback: reload];
 }
 
 @end

@@ -56,20 +56,20 @@
   };
 
   MMQuery *query = [self readQuery];
-  [query asyncRequestWithBlock: reload];
+  [query requestWithCallback: reload];
 }
 
 - (void) updateContent: (MMContent*) content withBlock: (void(^)(void)) callback
 {
   NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content];
-  void (^updated)(NSObject *dto) = ^(NSObject *dto){
+  MMQueryCallback updated = ^(NSObject *dto){
     // dispatch on callback on main thread and exit
     dispatch_queue_t mainQueue = dispatch_get_main_queue();
     dispatch_async(mainQueue, callback);
   };
   
   MMQuery *query = [self writeQuery];
-  [query asyncRequest: dictionary withBlock: updated];
+  [query requestWithParams: dictionary andCallback: updated];
 
 }
 

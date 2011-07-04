@@ -8,13 +8,15 @@
 
 #import "MMQuery.h"
 #import "MMServer.h"
-#import "MMQueryScheduler.h"
-#import "NSHTTPURLResponse+MediaManagement.h"
-#import "JSONKit.h"
 
+#import "MMRequestQueueItem.h"
+#import "MMRequestDelegate.h"
 
 @interface MMQuery()
-- (NSObject*) performRequestWithData: (NSData*) data;
+
+@property (nonatomic, readwrite, retain) NSString *name;
+@property (nonatomic, readwrite, retain) NSString *path;
+@property (nonatomic, readwrite, retain) MMRequestDelegate *requestDelegate;
 @end
 
 @implementation MMQuery
@@ -29,8 +31,8 @@
   self = [super init];
   if(self)
   {
-    name = [queryName retain];
-    path = [queryPath retain];
+    self.name = queryName;
+    self.path = queryPath;
   }
   
   return self;
@@ -38,8 +40,9 @@
 
 - (void) dealloc
 {
-  [name release];
-  [path release];
+  self.name = nil;
+  self.path = nil;
+  self.requestDelegate = nil;
   [super dealloc];
 }
 
@@ -47,84 +50,69 @@
 @synthesize path;
 @synthesize server;
 @synthesize library;
+@synthesize requestDelegate;
 
-- (NSObject*) performRequestWithData: (NSData*) data
+- (void) setServer:(MMServer *)newServer
 {
-  NSString *stringURL = [NSString stringWithFormat: @"%@%@", [server serverURL], path];
-  NSURL *url = [NSURL URLWithString: stringURL];
-  
-  NSURLRequest *request = nil;
-  if(data != nil)
+  if(newServer == server)
   {
-    NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL: url];
-    [mutableRequest setHTTPBody: data];
-    [mutableRequest setHTTPMethod: @"POST"];
-    request = mutableRequest;
-  }
-  else
-  {
-    request = [NSURLRequest requestWithURL: url];
+    return;
   }
   
-  NSHTTPURLResponse *response = nil;
-  NSError *error = nil;
-  NSData *body = [NSURLConnection sendSynchronousRequest: request returningResponse: &response error: &error];
-  if(error != nil)
-  {
-    NSLog(@"Error happened, %@", error);
-  }
-  
-  if(![response isValid])
-  {
-    NSLog(@"Received code %i from request %@.", [response statusCode], stringURL);
-  }
-  
-  JSONDecoder *decoder = [[[JSONDecoder alloc] initWithParseOptions: JKParseOptionLooseUnicode] autorelease];
-  NSObject *dto = [decoder objectWithData: body];
-  return dto;
+  [newServer retain];
+  [server release];
+  server = newServer;
+  self.requestDelegate = [MMRequestDelegate delegateWithServer: server];
+}
+
+- (MMRequestQueueItem*) request 
+{
+  return [self requestWithData: nil];
+}
+          
+- (MMRequestQueueItem*) requestWithCallback: (MMQueryCallback) callback 
+{
+  return [self requestWithData: nil andCallback: callback];
+}
+
+- (MMRequestQueueItem*) requestWithData: (NSData*) data
+{
+  // put in callback block here
+  return  [requestDelegate requestWithPath: path andCallback: nil];
 
 }
 
-- (NSObject*) request: (NSData*) data
+- (MMRequestQueueItem*) requestWithData: (NSData*) data andCallback: (MMQueryCallback) callback
 {
-  return [self performRequestWithData: data];
-}
+  DownloadCallback requestCallback = ^(MMRequestQueueItem *item){
+    if(!callback) {
+      return;
+    }
 
-- (void) request: (NSData*) data andCallback: (void(^)(NSObject *dto)) callback
-{
-  NSObject *dto = [self performRequestWithData: data];
-  
-  if(callback != nil)
-  {
+    NSObject *dto = [item jsonObject];
     callback(dto);
-  }
-  
-}
-
-- (void) asyncRequestWithBlock: (void(^)(NSObject *dto)) callback
-{
-  [self asyncRequest: nil withBlock: callback];
-}
-
-- (void) asyncRequest: (NSObject*) object withBlock:  (void(^)(NSObject *dto)) callback
-{
-  NSData *data = nil;
-  if([object isKindOfClass: [NSDictionary class]])
-  {
-    data = [((NSDictionary*) object) JSONData];
-  }
-  else if([object isKindOfClass: [NSArray class]])
-  {
-    data = [((NSArray*) object) JSONData];
-  }
-  
-  void(^updload)(void)  = ^{
-    [self request: data andCallback: callback];
   };
   
-  MMQueryScheduler *scheduler = [MMQueryScheduler sharedInstance];
-  [scheduler scheduleBlock:updload];
+  return [requestDelegate requestWithPath: path data: data andCallback: requestCallback]; 
+}
 
+- (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params
+{
+  return [self requestWithParams: params andCallback: nil];
+}
+
+- (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback
+{
+  DownloadCallback requestCallback = ^(MMRequestQueueItem *item) {
+    if(!callback) {
+      return;
+    }
+    
+    NSObject *dto = [item jsonObject];
+    callback(dto);
+  };
+  
+  return [requestDelegate requestWithPath: path params: params andCallback: requestCallback];
 }
 
 @end
