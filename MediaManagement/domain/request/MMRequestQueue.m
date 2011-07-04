@@ -16,7 +16,7 @@ static MMRequestQueue *sharedInstance;
 @property (nonatomic, readwrite, retain) NSMutableArray *pending;
 @property (nonatomic, readwrite, retain) NSMutableArray *active;
 @property (nonatomic, readwrite, retain) NSMutableArray *processing;
-@property (nonatomic, readwrite, retain) NSOperationQueue *downloadOperationQueue;
+@property (nonatomic, readwrite, retain) NSOperationQueue *requestOperationQueue;
 @property (nonatomic, readwrite, retain) NSOperationQueue *callbackOperationQueue;
 
 - (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback;
@@ -59,7 +59,7 @@ static MMRequestQueue *sharedInstance;
     self.pending = nil;
     self.active = nil;
     self.processing = nil;
-    self.downloadOperationQueue = nil;
+    self.requestOperationQueue = nil;
     self.callbackOperationQueue = nil;
     [super dealloc];
 }
@@ -76,7 +76,7 @@ static MMRequestQueue *sharedInstance;
 @synthesize pending;
 @synthesize active;
 @synthesize processing;
-@synthesize downloadOperationQueue;
+@synthesize requestOperationQueue;
 @synthesize callbackOperationQueue;
 
 #pragma mark - Static methods wrapping singleton calls
@@ -105,7 +105,7 @@ static MMRequestQueue *sharedInstance;
     MMRequestQueueItem *item = nil;
     @synchronized(self){
         // create and item to pending queue
-        item = [MMRequestQueueItem downloadQueueItemWithQueue: self URL: url andCallback: callback];
+        item = [MMRequestQueueItem requestQueueItemWithQueue: self URL: url andCallback: callback];
         [pending addObject: item];
     }
     
@@ -198,7 +198,7 @@ static MMRequestQueue *sharedInstance;
     // We will certainly call this from the UI thread and it's not acceptable to have 
     // download code happening on the UI thread - hence the NSOperation to move this to
     // a background thread.
-    [downloadOperationQueue addOperationWithBlock:^(void) {
+    [requestOperationQueue addOperationWithBlock:^(void) {
         [item start];
         // CFRunLoopRun prevents the operation from terminating. This would result
         // in the download never processing, since the thread would be gone.

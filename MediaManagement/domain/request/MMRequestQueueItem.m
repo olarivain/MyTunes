@@ -27,7 +27,7 @@
 
 @implementation MMRequestQueueItem
 
-+ (id) downloadQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback {
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback {
     return [[[MMRequestQueueItem alloc] initWithQueue: queue URL: url andCallback: RequestCallback] autorelease];
 }
 
@@ -75,7 +75,6 @@
     
     self.connection = [NSURLConnection connectionWithRequest: request delegate: self];
     [connection start];
-    NSLog(@"Request started");
 }
 
 - (void) cancel {
@@ -140,7 +139,6 @@
 
 #pragma mark - NSURLConnection delegate methods
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse {
-    NSLog(@"Got Response.");
     self.response = aResponse;
 }
 
@@ -149,7 +147,6 @@
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Response finished");
     success = YES;
     CFRunLoopStop(CFRunLoopGetCurrent());
     [queue requestFinished: self];

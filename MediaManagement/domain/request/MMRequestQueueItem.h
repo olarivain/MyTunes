@@ -57,7 +57,7 @@
 
 @property (nonatomic, readwrite, assign) BOOL cancelledInCallbackPhase;
 
-+ (id) RequestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback;
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback;
 - (void) start;
 - (void) cancel;
 
