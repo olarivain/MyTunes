@@ -1,5 +1,5 @@
 //
-//  DownloadQueue.h
+//  RequestQueue.h
 //  ECUtil
 //
 //  Created by Kra on 6/28/11.
@@ -11,28 +11,28 @@
 @class MMRequestQueueItem;
 
 // callback typedef
-typedef void(^DownloadCallback)(MMRequestQueueItem*);
+typedef void(^RequestCallback)(MMRequestQueueItem*);
 
 /*
- DownloadQueue is a scheduler for downloads.
+ RequestQueue is a scheduler for HTTP requests.
  Once scheduled, a URL will go through three phases:
- - Pending. The download is waiting for the next available slot. DownloadQueue limits the number of concurrent downloads to 5.
- - Active. The download is now active and getting (or waiting for) data from the network.
- - Callback. The network call is complete, the queue has now called the callback method for that object. Not that a download can 
+ - Pending. The request is waiting for the next available slot. RequestQueue limits the number of concurrent requests to 5.
+ - Active. The request is now active and getting (or waiting for) data from the network.
+ - Callback. The network call is complete, the queue has now called the callback method for that object. Not that a request can 
  be submitted without a callback if the caller is not interested in the server response.
  
- A DownloadQueue can:
- - schedule a download for execution as soon as possible (First In, First Out).
- - schedule a given DownloadItem for low priority, background download (not implemented yet).
- - schedule a high priority download that will bypass FIFO rules (not implemented yet). Those downloads will always be scheduled for immediate execution, even if the no download slots are available.
- - cancel a download, may it be pending or active. Due to the technical architecture of NSOperationQueue, downloads in the 
-    callback phase can NOT be cancelled. Callers should NEVER directly cancel a DownloadItem, but rather send the DownloadQueue that
+ A RequestQueue can:
+ - schedule a request for execution as soon as possible (First In, First Out).
+ - schedule a given DownloadItem for low priority, background request (not implemented yet).
+ - schedule a high priority request that will bypass FIFO rules (not implemented yet). Those requests will always be scheduled for immediate execution, even if the no request slots are available.
+ - cancel a request, may it be pending or active. Due to the technical architecture of NSOperationQueue, requests in the 
+    callback phase can NOT be cancelled. Callers should NEVER directly cancel a DownloadItem, but rather send the RequestQueue that
  created it the cancel: message. Ideally, when we have time, we should move internal methods to a different header file.
  
- On scheduling, the DownloadQueue will build a DownloadQueueItem encapsulating the URL to be called, the callback method. It also
+ On scheduling, the RequestQueue will build a RequestQueueItem encapsulating the URL to be called, the callback method. It also
  provides convenience methods to access to HTTP status codes, in case the caller wants to handle a 304 Not changed for example, or wants
  access to HTTP headers.
- This object is returned by the scheduling methods in case the caller would need them, for cancelling a download for examples.
+ This object is returned by the scheduling methods in case the caller would need them, for cancelling a request for examples.
  It is safe for the caller to retain these, however callers do NOT have ownership of the objects (i.e. it is not their responsibility
  to make sure it has been dealloc'd).
  */
@@ -40,25 +40,25 @@ typedef void(^DownloadCallback)(MMRequestQueueItem*);
     NSMutableArray *pending;
     NSMutableArray *active;
     NSMutableArray *processing;
-    int maxConcurrentDownloads;
-    int currentConcurrentDownloads;
+    int maxConcurrentRequests;
+    int currentConcurrentRequests;
     
-    NSOperationQueue *downloadOperationQueue;
+    NSOperationQueue *requestOperationQueue;
     NSOperationQueue *callbackOperationQueue;
 }
 
-// schedules given URL for download, associating it with given download
-+ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withCallback: (DownloadCallback) callback;
+// schedules given URL for request, associating it with given request
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withCallback: (RequestCallback) callback;
 
-+ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (DownloadCallback) callback;
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (RequestCallback) callback;
 
-// schedules given URL for background download, associating it with given download. Currently a passthrough on
+// schedules given URL for background request, associating it with given request. Currently a passthrough on
 // +scheduleURL:withCallback:
-+ (MMRequestQueueItem*) scheduleURL: (NSURL*) url forBackground: background withCallback: (DownloadCallback) callback;
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url forBackground: background withCallback: (RequestCallback) callback;
 
-// cancels given download queue item. Downloads can only be cancelled in pending or active phase, not in callback phase.
+// cancels given request queue item. requests can only be cancelled in pending or active phase, not in callback phase.
 + (void) cancelItem: (MMRequestQueueItem*) url;
 
 // internal method, DO NOT CALL.
-- (void) downloadFinished: (MMRequestQueueItem*) item;
+- (void) requestFinished: (MMRequestQueueItem*) item;
 @end

@@ -11,6 +11,9 @@
 
 @class MMServer;
 
+/*
+ Dead code...
+ */
 @interface MMContentRepository : NSObject {
   MMContentKind kind;
 }

@@ -19,9 +19,9 @@ static MMRequestQueue *sharedInstance;
 @property (nonatomic, readwrite, retain) NSOperationQueue *downloadOperationQueue;
 @property (nonatomic, readwrite, retain) NSOperationQueue *callbackOperationQueue;
 
-- (MMRequestQueueItem*) addURL: (NSURL*) url callback: (DownloadCallback) callback;
-- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (DownloadCallback) callback;
-- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (DownloadCallback) callback;
+- (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback;
+- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (RequestCallback) callback;
+- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (RequestCallback) callback;
 
 - (void) cancelDownloadItem: (MMRequestQueueItem*) url;
 - (void) cancelFromPending: (MMRequestQueueItem*) item;
@@ -31,7 +31,7 @@ static MMRequestQueue *sharedInstance;
 - (BOOL) canProcessNextQueueItem;
 - (void) processNextQueueItem;
 
-- (void) downloadfinishedBlock: (MMRequestQueueItem *) item;
+- (void) requestFinishedBlock: (MMRequestQueueItem *) item;
 
 @end
 
@@ -43,14 +43,14 @@ static MMRequestQueue *sharedInstance;
         self.pending = [NSMutableArray arrayWithCapacity:20];
         self.active = [NSMutableArray arrayWithCapacity: 20];
         self.processing = [NSMutableArray arrayWithCapacity: 20];
-        maxConcurrentDownloads = 5;
-        currentConcurrentDownloads = 0;
+        maxConcurrentRequests = 5;
+        currentConcurrentRequests = 0;
         
-        downloadOperationQueue = [[NSOperationQueue alloc] init];
-        [downloadOperationQueue setMaxConcurrentOperationCount: maxConcurrentDownloads];
+        requestOperationQueue = [[NSOperationQueue alloc] init];
+        [requestOperationQueue setMaxConcurrentOperationCount: maxConcurrentRequests];
         
         callbackOperationQueue = [[NSOperationQueue alloc] init];
-        [callbackOperationQueue setMaxConcurrentOperationCount: 2*maxConcurrentDownloads];
+        [callbackOperationQueue setMaxConcurrentOperationCount: 2*maxConcurrentRequests];
     }
     return self;
 }
@@ -80,15 +80,15 @@ static MMRequestQueue *sharedInstance;
 @synthesize callbackOperationQueue;
 
 #pragma mark - Static methods wrapping singleton calls
-+ (MMRequestQueueItem*) scheduleURL:(NSURL *)url withCallback:(DownloadCallback)callback {
++ (MMRequestQueueItem*) scheduleURL:(NSURL *)url withCallback:(RequestCallback)callback {
     return [[MMRequestQueue shardInstance] addURL:url callback:callback];
 }
 
-+ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (DownloadCallback) callback {
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (RequestCallback) callback {
     return [[MMRequestQueue shardInstance] addURL:url withData: data andCallback:callback];
 }
 
-+ (MMRequestQueueItem*) scheduleURL:(NSURL *)url forBackground:(id)background withCallback:(DownloadCallback)callback {
++ (MMRequestQueueItem*) scheduleURL:(NSURL *)url forBackground:(id)background withCallback:(RequestCallback)callback {
     return  [[MMRequestQueue shardInstance] addURL:url forBackground:background callback:callback];
 }
 
@@ -97,11 +97,11 @@ static MMRequestQueue *sharedInstance;
 }
 
 #pragma mark - Add URL method
-- (MMRequestQueueItem*) addURL: (NSURL*) url callback: (DownloadCallback) callback {
+- (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback {
     return [self addURL: url withData: nil andCallback: callback];
 }
 
-- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (DownloadCallback) callback {
+- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (RequestCallback) callback {
     MMRequestQueueItem *item = nil;
     @synchronized(self){
         // create and item to pending queue
@@ -115,7 +115,7 @@ static MMRequestQueue *sharedInstance;
 
 }
 
-- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (DownloadCallback) callback {
+- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (RequestCallback) callback {
     // TODO implement properly
     return [self addURL:url callback:callback];
 }
@@ -171,7 +171,7 @@ static MMRequestQueue *sharedInstance;
 #pragma mark - Queue processing
 - (BOOL) canProcessNextQueueItem {
     // we can process if we not all concurrent downloads are used
-    return currentConcurrentDownloads < maxConcurrentDownloads;
+    return currentConcurrentRequests < maxConcurrentRequests;
 }
 - (void) processNextQueueItem {
     MMRequestQueueItem *item = nil;
@@ -186,7 +186,7 @@ static MMRequestQueue *sharedInstance;
         [processing addObject: item];
         [pending removeObject: item];
         
-        currentConcurrentDownloads++;
+        currentConcurrentRequests++;
     }
     
     // just a safeguard, shouldn't happen
@@ -210,25 +210,25 @@ static MMRequestQueue *sharedInstance;
 }
 
 // download is finished, send clean up + callback code to the callback operation queue.
-- (void) downloadFinished:(MMRequestQueueItem *)item {
+- (void) requestFinished:(MMRequestQueueItem *)item {
     void(^finishedBlock)(void) = ^() {
-        [self downloadfinishedBlock: item];  
+        [self requestFinishedBlock: item];  
     };
     
     [callbackOperationQueue addOperationWithBlock: finishedBlock];
 }
 
-- (void) downloadfinishedBlock: (MMRequestQueueItem *) item {
+- (void) requestFinishedBlock: (MMRequestQueueItem *) item {
     // move to processing queue and decrement current active DL count
     [processing addObject: item];
     [active removeObject: item];
-    currentConcurrentDownloads--;
+    currentConcurrentRequests--;
     
     // start processing next item
     [self processNextQueueItem];
     
     // callback if we're supposed to
-    DownloadCallback callback = item.callback;
+    RequestCallback callback = item.callback;
     if(callback) {
         callback(item);
     }

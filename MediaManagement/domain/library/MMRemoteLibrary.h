@@ -12,6 +12,10 @@
 @class MMQuery;
 @class MMServer;
 
+/*
+ A remote library represents the full library held by the remote iTunes instance.
+ Its "headers" (i.e. the playlists descriptions) can be loaded.
+ */
 @interface MMRemoteLibrary : MMLibrary 
 {
   MMQuery *query;

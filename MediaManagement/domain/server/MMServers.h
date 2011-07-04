@@ -13,6 +13,11 @@
 
 @class MMServer;
 
+/*
+ MMServers is the root aggregate for all servers reachable on the network, may they be announced through
+ Bonjour or manually added by the user (this feature is not implemented yet, though).
+ MMServers provides Bonjour abstraction and offers in return the list of reachable servers.
+ */
 @interface MMServers : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
   NSNetServiceBrowser *netServiceBrowser;

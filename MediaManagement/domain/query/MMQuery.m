@@ -84,7 +84,7 @@
 
 - (MMRequestQueueItem*) requestWithData: (NSData*) data andCallback: (MMQueryCallback) callback
 {
-  DownloadCallback requestCallback = ^(MMRequestQueueItem *item){
+  RequestCallback requestCallback = ^(MMRequestQueueItem *item){
     if(!callback) {
       return;
     }
@@ -103,7 +103,7 @@
 
 - (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback
 {
-  DownloadCallback requestCallback = ^(MMRequestQueueItem *item) {
+  RequestCallback requestCallback = ^(MMRequestQueueItem *item) {
     if(!callback) {
       return;
     }

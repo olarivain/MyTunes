@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 @class MMServers;
 @class MMServer;
+
+/**
+ Protocol wrapping Bonjour delegate, letting controllers now that servers have been added/removed from the servers list.
+ */
 @protocol MMServersDelegate <NSObject>
 
 @optional

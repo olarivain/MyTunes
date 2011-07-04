@@ -1,5 +1,5 @@
 //
-//  DownloadQueueItem.h
+//  RequestQueueItem.h
 //  ECUtil
 //
 //  Created by Kra on 6/28/11.
@@ -10,9 +10,9 @@
 
 #import "MMRequestQueue.h"
 /*
- DownloadQueueItem is a high level abstraction for a scheduled download.
- It also is the placeholder for download specific data: url, callback and response.
- DownloadQueueItem provides high level methods to get access to the response:
+ RequestQueueItem is a high level abstraction for a scheduled requests.
+ It also is the placeholder for request specific data: url, callback and response.
+ RequestQueueItem provides high level methods to get access to the response:
  - Raw response NSData,
  - Parsed JSON,
  - HTTP status code,
@@ -25,7 +25,7 @@
  */
 @interface MMRequestQueueItem : NSObject {
     MMRequestQueue *queue;
-    DownloadCallback callback;
+    RequestCallback callback;
     NSURL *url;
     NSData *requestData;
     
@@ -47,7 +47,7 @@
 @property (nonatomic, readonly, retain) NSData *requestData;
 
 // callback block that will be called when request is done. Can be nil.
-@property (nonatomic, readonly, copy) DownloadCallback callback;
+@property (nonatomic, readonly, copy) RequestCallback callback;
 
 @property (nonatomic, readonly, assign) BOOL success;
 @property (nonatomic, readonly, retain) NSError *error;
@@ -57,7 +57,7 @@
 
 @property (nonatomic, readwrite, assign) BOOL cancelledInCallbackPhase;
 
-+ (id) downloadQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(DownloadCallback) downloadCallback;
++ (id) RequestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback;
 - (void) start;
 - (void) cancel;
 

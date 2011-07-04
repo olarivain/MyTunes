@@ -17,26 +17,26 @@
 @property (nonatomic, readwrite, retain) NSURLConnection *connection;
 @property (nonatomic, readwrite, retain) NSURLResponse *response;
 @property (nonatomic, readwrite, retain) NSMutableData *responseData;
-@property (nonatomic, readwrite, copy) DownloadCallback callback;
+@property (nonatomic, readwrite, copy) RequestCallback callback;
 @property (nonatomic, readwrite, assign) BOOL success;
 @property (nonatomic, readwrite, retain) NSError *error;
 
-- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) url andCallback:(DownloadCallback) downloadCallback;
+- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback;
 - (NSHTTPURLResponse*) httpResponse;
 @end
 
 @implementation MMRequestQueueItem
 
-+ (id) downloadQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(DownloadCallback) downloadCallback {
-    return [[[MMRequestQueueItem alloc] initWithQueue: queue URL: url andCallback: downloadCallback] autorelease];
++ (id) downloadQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback {
+    return [[[MMRequestQueueItem alloc] initWithQueue: queue URL: url andCallback: RequestCallback] autorelease];
 }
 
-- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL andCallback:(DownloadCallback) downloadCallback {
+- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL andCallback:(RequestCallback) RequestCallback {
     self = [super init];
     if(self) {
         self.url = downloadURL;
         self.queue = downloadQueue;
-        self.callback = downloadCallback;
+        self.callback = RequestCallback;
         self.responseData = [NSMutableData data];
     }
     
@@ -152,13 +152,13 @@
     NSLog(@"Response finished");
     success = YES;
     CFRunLoopStop(CFRunLoopGetCurrent());
-    [queue downloadFinished: self];
+    [queue requestFinished: self];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)failure {
     success = NO;
     self.error = failure;
-    [queue downloadFinished: self];
+    [queue requestFinished: self];
     CFRunLoopStop(CFRunLoopGetCurrent());
 }
 

@@ -15,6 +15,12 @@ typedef void(^MMQueryCallback)(NSObject*);
 @class MMPlaylist;
 @class MMRequestDelegate;
 
+/*
+ A query represents a iTunes resource on the server. It maps to a library list, playlist, track and such and can be used for read or write operations.
+ Queries a statically instantiated by their owning domain objects.
+ A query is a high level abstraction of the REST, as such it can be requested, with or without data (in which case the request will be a post), with
+ or without params (in which case the query will be a GET. It is async in nature, hence the callback param.
+ */
 @interface MMQuery : NSObject 
 { 
   NSString *name;

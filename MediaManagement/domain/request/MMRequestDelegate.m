@@ -10,7 +10,6 @@
 
 #import "MMRequestQueueItem.h"
 #import "MMServer.h"
-#import "NSHTTPURLResponse+MediaManagement.h"
 
 @interface MMRequestDelegate()
 @property(nonatomic, readwrite, retain) MMServer *server;
@@ -55,11 +54,11 @@
 }
 
 #pragma mark - Request methods
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path andCallback: (DownloadCallback) callback{
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path andCallback: (RequestCallback) callback{
     return [self requestWithPath: path params: nil andCallback: callback];
 }
 
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params  andCallback: (DownloadCallback) callback{
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params  andCallback: (RequestCallback) callback{
     NSString *urlString = [NSString stringWithFormat:@"%@%@", [server serverURL], path];
     NSString *paramString = [self paramString: params];
     if(paramString) {
@@ -70,7 +69,7 @@
     return [MMRequestQueue scheduleURL: url withCallback: callback];
 }
 
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data andCallback: (DownloadCallback) callback
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data andCallback: (RequestCallback) callback
 {
     NSString *urlString = [NSString stringWithFormat:@"%@%@", [server serverURL], path];
     NSURL *url = [NSURL URLWithString: urlString];
