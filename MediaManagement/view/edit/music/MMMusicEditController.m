@@ -7,12 +7,13 @@
 //
 #import <MediaManagement/MMContent.h>
 #import "MMMusicEditController.h"
+#import "MMFieldView.h"
 
 @interface MMMusicEditController()
 @property (nonatomic, readwrite, retain)  UIView *editView;
-@property (nonatomic, readwrite, retain)  UITextField *artistField;
-@property (nonatomic, readwrite, retain)  UITextField *albumField;
-@property (nonatomic, readwrite, retain)  UITextField *trackNumberField;
+@property (nonatomic, readwrite, retain)  MMFieldView *artistField;
+@property (nonatomic, readwrite, retain)  MMFieldView *albumField;
+@property (nonatomic, readwrite, retain)  MMFieldView *trackNumberField;
 @end
 
 @implementation MMMusicEditController
@@ -23,6 +24,8 @@
   self.artistField = nil;
   self.albumField = nil;
   self.trackNumberField = nil;
+  [content release];
+  content = nil;
   [super dealloc];
 }
 
@@ -33,25 +36,24 @@
 
 - (void) setContent:(MMContent *) newContent
 {
-  content = newContent;
-  albumField.text = content.album;
-  artistField.text = content.artist;
+  if(newContent == content) {
+    return;
+  }
   
-  NSInteger track = [content.trackNumber intValue];
-  trackNumberField.text = track == 0 ? @"" : [content.trackNumber stringValue];
+  [content release];
+  content = [newContent retain];
+  
+  content = newContent;
+  [albumField setValue: content.album];
+  [artistField setValue: content.artist];
+  [trackNumberField setValue: content.trackNumber];
 }
 
 - (void) updateContent
 {
-  content.album = albumField.text;
-  content.artist = artistField.text;
-  
-  NSString *trackValue = [trackNumberField text];
-  if([trackValue length] > 0)
-  {
-    NSInteger track = [trackValue intValue];
-    content.trackNumber = [NSNumber numberWithInt: track];
-  }
+  content.album = [albumField stringValue];
+  content.artist = [artistField stringValue];
+  content.trackNumber = [trackNumberField numberValue];
 }
 
 @end

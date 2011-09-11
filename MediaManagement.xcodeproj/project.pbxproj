@@ -10,6 +10,8 @@
 		00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2B141C171000476D08 /* MMRequestDelegate.m */; };
 		00087D31141C171000476D08 /* MMRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2D141C171000476D08 /* MMRequestQueue.m */; };
 		00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2F141C171000476D08 /* MMRequestQueueItem.m */; };
+		00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC2141D5CBC00F196D0 /* MMFieldView.m */; };
+		00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC6141D5D8800F196D0 /* NSString+Converteer.m */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -76,6 +78,10 @@
 		00087D2D141C171000476D08 /* MMRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueue.m; path = MediaManagement/domain/request/MMRequestQueue.m; sourceTree = SOURCE_ROOT; };
 		00087D2E141C171000476D08 /* MMRequestQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestQueueItem.h; path = MediaManagement/domain/request/MMRequestQueueItem.h; sourceTree = SOURCE_ROOT; };
 		00087D2F141C171000476D08 /* MMRequestQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueueItem.m; path = MediaManagement/domain/request/MMRequestQueueItem.m; sourceTree = SOURCE_ROOT; };
+		00158CC1141D5CBC00F196D0 /* MMFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFieldView.h; sourceTree = "<group>"; };
+		00158CC2141D5CBC00F196D0 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
+		00158CC5141D5D8800F196D0 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
+		00158CC6141D5D8800F196D0 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -331,6 +337,8 @@
 			children = (
 				003CDEB6132BFCDF00D295A2 /* NibUtils.h */,
 				003CDEB7132BFCDF00D295A2 /* NibUtils.m */,
+				00158CC5141D5D8800F196D0 /* NSString+Converteer.h */,
+				00158CC6141D5D8800F196D0 /* NSString+Converteer.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -362,6 +370,8 @@
 				003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */,
 				004A11F01397281100C2D027 /* MMContentPlacholder.h */,
 				004A11F11397281100C2D027 /* MMContentPlacholder.m */,
+				00158CC1141D5CBC00F196D0 /* MMFieldView.h */,
+				00158CC2141D5CBC00F196D0 /* MMFieldView.m */,
 			);
 			path = edit;
 			sourceTree = "<group>";
@@ -776,6 +786,8 @@
 				00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */,
 				00087D31141C171000476D08 /* MMRequestQueue.m in Sources */,
 				00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */,
+				00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */,
+				00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

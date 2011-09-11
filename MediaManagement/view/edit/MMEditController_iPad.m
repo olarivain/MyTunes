@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite, retain) id<MMContentEditController> musicController;
 @property (nonatomic, readwrite, retain) id<MMContentEditController> movieController;
 @property (nonatomic, readwrite, retain) UIButton *typeButton;
+@property (nonatomic, readwrite, retain) UIActionSheet *actionSheet;
 
 - (id<MMContentEditController>) editControllerForCurrentItem;
 - (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind;
@@ -37,6 +38,7 @@
   self.showController = nil;
   self.musicController = nil;
   self.movieController = nil;
+  self.actionSheet = nil;
   self.typeButton = nil;
   [super dealloc];
 }
@@ -48,6 +50,7 @@
 @synthesize showController;
 @synthesize musicController;
 @synthesize movieController;
+@synthesize actionSheet;
 
 #pragma mark - View Lifecyle
 - (void) viewDidLoad
@@ -63,13 +66,24 @@
 
 - (void) viewDidUnload
 {
+  self.contentPlaceholder = nil;
+  self.nameField = nil;
+  self.description = nil;
+  self.showController = nil;
+  self.musicController = nil;
+  self.movieController = nil;
+  self.actionSheet = nil;
+  self.typeButton = nil;
+  [super viewDidUnload];
 }
 
+// returns the relevant edit controller for the current item
 - (id<MMContentEditController>) editControllerForCurrentItem
 {
   return [self editControllerForKind: currentItem.kind];
 }
 
+// returns the relevant edit controller for given content kind
 - (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind
 {
   id<MMContentEditController> controller = nil;
@@ -92,7 +106,9 @@
 
 - (void) updateViewsWithCurrentItem
 {
+  // don't forget super
   [super updateViewsWithCurrentItem];
+  
   // update content controller with new content
   currentEditController = [self editControllerForCurrentItem];
   [currentEditController setContent: currentItem];
@@ -103,6 +119,7 @@
   // now start updating ui to reflect changes
   [currentEditController updateContent];
   
+  // inject values into views
   nameField.text = currentItem.name;
   description.text = currentItem.description;
   
@@ -115,21 +132,30 @@
 - (void) updateContent
 {
   [super updateContent];
+  // update view
   currentItem.name = [nameField text];
   currentItem.description = [description text];
+  // and forward to kind specific controller
   [currentEditController updateContent];
 }
 
 - (void) actionSheet:(UIActionSheet *)anActionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+  // get rid of the action sheet first thing
+  self.actionSheet = nil;
+  
+  // value is nonsensical, user tapped out of action sheet, bail out.
+  if(buttonIndex < 0) {
+    return;
+  }
+  
+  // save kind if button value is relevant. button are sorted just like the kinds :)
   currentKind = buttonIndex;
   
+  // update view
   NSString *type = [self kindToString: currentKind];
   typeButton.titleLabel.text = type;
   [typeButton setTitle: type forState: UIControlStateNormal];
-  
-  [actionSheet release];
-  actionSheet = nil;
   
   // update content controller with new content
   currentEditController = [self editControllerForKind: currentKind];
@@ -141,13 +167,15 @@
 
 - (IBAction) typePressed
 {
+  // dismiss current action sheet if user pressed the button again
   if(actionSheet != nil)
   {
     [actionSheet dismissWithClickedButtonIndex: -1 animated: YES];
     return;
   }
   
-  actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil];
+  // otherwise, create a new one
+  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil] autorelease];
 
   [actionSheet addButtonWithTitle:@"Music"];
   [actionSheet addButtonWithTitle:@"Movie"];

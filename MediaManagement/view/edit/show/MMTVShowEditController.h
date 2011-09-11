@@ -10,13 +10,14 @@
 #import "MMContentEditController.h"
 
 @class MMContent;
+@class MMFieldView;
 
 @interface MMTVShowEditController : NSObject<MMContentEditController> 
 {
   IBOutlet UIView *editView;
-  IBOutlet UITextField *episodeField;
-  IBOutlet UITextField *showField;
-  IBOutlet UITextField *seasonField;
+  IBOutlet MMFieldView *episodeField;
+  IBOutlet MMFieldView *showField;
+  IBOutlet MMFieldView *seasonField;
   
   MMContent *content;
 }

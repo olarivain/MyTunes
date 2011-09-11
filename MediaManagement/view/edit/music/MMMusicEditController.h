@@ -10,13 +10,15 @@
 #import "MMContentEditController.h"
 
 @class MMContent;
+@class MMFieldView;
+
 @interface MMMusicEditController : NSObject<MMContentEditController> 
 {
   MMContent *content;
   IBOutlet UIView *editView;
-  IBOutlet UITextField *trackNumberField;    
-  IBOutlet UITextField *artistField;
-  IBOutlet UITextField *albumField;
+  IBOutlet MMFieldView *trackNumberField;    
+  IBOutlet MMFieldView *artistField;
+  IBOutlet MMFieldView *albumField;
 }
 
 @end

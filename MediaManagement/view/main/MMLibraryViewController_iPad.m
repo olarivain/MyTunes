@@ -182,14 +182,13 @@
 - (IBAction) editPressed: (id) sender
 {
   NSString *nibName = [NibUtils nibName: @"MMEditController"];
-  MMEditController_iPad *editController = [[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
+  MMEditController_iPad *editController = [[[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]] autorelease];
   editController.currentItem = contentController.selectedItem;
   editController.contentGroup = contentController.selectedContentGroup;
   editController.playlist = selectedPlaylist;
   
   [editController setModalPresentationStyle: UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
-  [editController release];
 }
 
 - (IBAction) selectedPlaylistContentType: (id) sender

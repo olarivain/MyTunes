@@ -6,15 +6,18 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "MMTVShowEditController.h"
 #import <MediaManagement/MMContent.h>
+
+#import "MMTVShowEditController.h"
+#import "MMFieldView.h"
+
 
 @interface MMTVShowEditController()
 
 @property (nonatomic, readwrite, retain)  UIView *editView;
-@property (nonatomic, readwrite, retain)  UITextField *episodeField;
-@property (nonatomic, readwrite, retain)  UITextField *showField;
-@property (nonatomic, readwrite, retain)  UITextField *seasonField;
+@property (nonatomic, readwrite, retain)  MMFieldView *episodeField;
+@property (nonatomic, readwrite, retain)  MMFieldView *showField;
+@property (nonatomic, readwrite, retain)  MMFieldView *seasonField;
 
 @end
 
@@ -26,6 +29,8 @@
   self.episodeField = nil;
   self.showField = nil;
   self.seasonField = nil;
+  [content release];
+  content = nil;
   [super dealloc];
 }
 
@@ -34,29 +39,26 @@
 @synthesize showField;
 @synthesize seasonField;
 
-- (void) updateContent
-{
-  content.show = [showField text];
-  NSString *episodeValue = [episodeField text];
-  NSNumber *episodeNumber = [NSNumber numberWithInt: [episodeValue intValue]];
-  content.episodeNumber = episodeNumber;
-  
-  NSString *seasonValue = [seasonField text];
-  NSNumber *seasonNumber = [NSNumber numberWithInt: [seasonValue intValue]];
-  content.season = seasonNumber;
-}
-
 - (void) setContent: (MMContent*) newContent
 {
-  content = newContent;
+  if(newContent == content) {
+    return;
+  }
   
-  showField.text = content.show;
+  [content release];
+  content = [newContent retain];
   
-  NSInteger episodeValue = [content.episodeNumber intValue];
-  episodeField.text = episodeValue != 0 ? [content.episodeNumber stringValue] : @"";
+  [showField setValue: content.show];
+  [episodeField setValue: content.episodeNumber];
+  [seasonField setValue: content.season];
+}
+
+- (void) updateContent
+{
   
-  NSInteger seasonValue = [content.season intValue];
-  seasonField.text = seasonValue != 0 ? [content.season stringValue] : @"";
+  content.show = [showField stringValue];
+  content.episodeNumber = [episodeField numberValue];
+  content.season = [seasonField numberValue];
 }
 
 @end

@@ -18,7 +18,8 @@
 @property (nonatomic, readwrite, retain) UIBarButtonItem *previous;
 @property (nonatomic, readwrite, retain) MMLoadingView *loadingView;
 
-- (void) saveWithBlock: (void(^)(void)) block userFeedback: (BOOL) feedback;
+- (void) saveWithBlock: (void(^)(void)) block;
+
 @end
 
 @implementation MMEditController
@@ -87,66 +88,75 @@
   return YES;
 }
 
-#pragma mark - Action Handler
+#pragma mark - Dismissal
 - (void) dismiss
 {
   [[self parentViewController] dismissModalViewControllerAnimated:TRUE];
 }
+
 - (IBAction) save: (id) sender
 {
+  // call dismiss on callback
   void (^dismiss)(void) = ^{
     [self dismiss];
   };
-  [self saveWithBlock: dismiss userFeedback: YES];
+  
+  // first save, then dismiss
+  [self saveWithBlock: dismiss];
 }
 
-- (void) saveWithBlock: (void(^)(void)) block userFeedback: (BOOL) feedback
+#pragma mark - Save/Cancel
+- (void) saveWithBlock: (void(^)(void)) block
 {
-  if(feedback)
-  {
-    [loadingView setLoading: YES];
-  }
+  // display feedback
+  [loadingView setLoading: YES];
   
+  // update content item
   [self updateContent];
   
+  // remove loading view and process callback
   void (^saveBlock)(void) = ^{
-    if(feedback)
-    {
-      [loadingView setLoading: NO];
-    }
+    [loadingView setLoading: NO];
     block();
   };
   
+  // tell playlist to update its content
   [playlist updateContent: currentItem withBlock: saveBlock];
 }
 
 - (IBAction) cancel: (id) sender
 {
+  // just dismiss
   [self dismiss];  
 }
 
 - (IBAction) next: (id) sender
 {
+  // move view to next content item on callback
   void (^nextBlock)(void) = ^{
     currentIndex++;
     self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];
   };
   
-  [self saveWithBlock: nextBlock userFeedback: NO];
+  // save
+  [self saveWithBlock: nextBlock];
 }
 
 - (IBAction) previous: (id) sender
 {
+  // move view to previous item on callback
   void (^previousBlock)(void) = ^{
     currentIndex--;
     self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];
   };
   
-  [self saveWithBlock: previousBlock userFeedback: NO];
+  // and save!
+  [self saveWithBlock: previousBlock];
 }
 
+// this is the only part common to all controllers, so do it here
 - (void) updateContent
 {
   currentItem.kind = currentKind;
@@ -154,11 +164,14 @@
 
 - (void) updateViewsWithCurrentItem
 {
+  // enable next/previous buttons depending on position
   next.enabled = currentItem != [contentList lastObject];
   previous.enabled = currentIndex > 0;
+  // update current kind
   currentKind = currentItem.kind;
 }
 
+// converts kinds enums to string
 - (NSString*) kindToString: (MMContentKind) kind
 {
   switch (kind) {
