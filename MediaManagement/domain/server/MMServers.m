@@ -10,6 +10,12 @@
 #import "MMServer.h"
 
 @interface MMServers(private)
+
+@property (nonatomic, readwrite, retain) NSNetServiceBrowser *netServiceBrowser;
+@property (nonatomic, readwrite, retain) NSMutableArray *servers;
+@property (nonatomic, readwrite, retain) NSMutableArray *pendingServers;
+@property (nonatomic, readwrite, assign) id<MMServersDelegate> delegate;
+
 - (MMServer*) pendingServerWithNetService: (NSNetService*) netService;
 - (MMServer*) serverWithNetService: (NSNetService*) netService;
 - (MMServer*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList;
@@ -34,10 +40,11 @@
 - (void) dealloc
 {
   [netServiceBrowser stop];
-  [netServiceBrowser release];
+  self.netServiceBrowser = nil;
   
-  [pendingServers release];
-  [servers release];
+  self.pendingServers = nil;
+  self.servers = nil;
+  self.delegate = nil;
   [self dealloc];
 }
 
@@ -116,7 +123,7 @@
 
   [servers addObject: server];
   [pendingServers removeObject: server];
-  [[self delegate] didRefresh: self];
+  [delegate didRefresh: self];
   [sender setDelegate: nil];
 }
 
@@ -126,7 +133,7 @@
   
   MMServer *server = [self pendingServerWithNetService: sender];
   [pendingServers removeObject: server];
-  [[self delegate] didRefresh: self];
+  [delegate didRefresh: self];
     [sender setDelegate: nil];
 }
 

@@ -28,9 +28,8 @@
     return;
   }
   
-  [contentTypes retain];
   [contentGroups release];
-  contentGroups = contentTypes;
+  contentGroups = [contentTypes retain];
   
   [segmentedControl removeAllSegments];
   segmentedControl.hidden = NO;

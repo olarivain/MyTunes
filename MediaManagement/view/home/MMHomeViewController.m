@@ -51,7 +51,7 @@
 - (void) awakeFromNib
 {
   self.servers = [[[MMServers alloc] init] autorelease];
-  [servers setDelegate: self];
+  servers.delegate = self;
 }
 - (void)viewDidLoad
 {
@@ -92,10 +92,10 @@
   NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
   if([NibUtils isiPad])
   {
-    return [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+    return [[[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]] autorelease];
   }
 
-  return [[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  return [[[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]] autorelease];
 }
 
 - (IBAction) serverSelected:(id)sender
@@ -114,7 +114,6 @@
   [server.library loadHeadersWithBlock:^(void) {
     [self setLoading: FALSE];
     [[self navigationController] pushViewController:libraryViewController animated:TRUE];
-    [libraryViewController release];
   }];
 
 }

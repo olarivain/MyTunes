@@ -27,9 +27,9 @@
 - (id) initWithNetService: (NSNetService*) netService;
 
 @property (nonatomic, readonly, retain) NSNetService *netService;
-@property (readonly) int port;
-@property (readonly) NSString *host;
-@property (readonly) NSString *name;
+@property (nonatomic, readonly, assign) int port;
+@property (nonatomic, readonly, retain) NSString *host;
+@property (nonatomic, readonly, retain) NSString *name;
 
 @property (readonly) MMRemoteLibrary *library;
 

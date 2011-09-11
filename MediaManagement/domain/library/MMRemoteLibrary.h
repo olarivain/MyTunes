@@ -12,6 +12,8 @@
 @class MMQuery;
 @class MMServer;
 
+typedef void(^MMRemoteLibraryCallback)(void);
+
 /*
  A remote library represents the full library held by the remote iTunes instance.
  Its "headers" (i.e. the playlists descriptions) can be loaded.
@@ -25,14 +27,14 @@
   NSMutableArray *userPlaylists;
 }
 
-@property (nonatomic, readonly) MMQuery *query;
-@property (nonatomic, readonly) MMServer *server;
-@property (nonatomic, readonly) NSArray *systemPlaylists;
-@property (nonatomic, readonly) NSArray *userPlaylists;
+@property (nonatomic, readonly, retain) MMQuery *query;
+@property (nonatomic, readonly, assign) MMServer *server;
+@property (nonatomic, readonly, retain) NSArray *systemPlaylists;
+@property (nonatomic, readonly, retain) NSArray *userPlaylists;
 
 + (id) libraryWithServer: (MMServer*) server;
 - (id) initWithServer: (MMServer*) server;
 
-- (void) loadHeadersWithBlock: (void(^)(void)) callback;
+- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback;
 
 @end

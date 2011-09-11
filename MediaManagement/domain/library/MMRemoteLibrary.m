@@ -13,12 +13,18 @@
 #import "MMRemoteLibrary.h"
 #import "MMQuery.h"
 
+@interface MMRemoteLibrary()
+@property (nonatomic, readwrite, retain) MMQuery *query;
+@property (nonatomic, readwrite, assign) MMServer *server;
+@property (nonatomic, readwrite, retain) NSArray *systemPlaylists;
+@property (nonatomic, readwrite, retain) NSArray *userPlaylists;
+@end
 
 @implementation MMRemoteLibrary
 
 + (id) libraryWithServer: (MMServer*) server
 {
-  return  [[[MMLibrary alloc] initWithServer: server] autorelease];
+  return  [[[MMRemoteLibrary alloc] initWithServer: server] autorelease];
 }
 
 - (id) initWithServer: (MMServer*) parent 
@@ -26,20 +32,22 @@
   self = [super init];
   if(self)
   {
-    server = parent;
-    query = [[MMQuery alloc] initWithName: @"all" andPath:@"/library"];
+    self.server = parent;
+    self.query = [[MMQuery alloc] initWithName: @"all" andPath:@"/library"];
     query.server = server;
-    systemPlaylists = [[NSMutableArray alloc] initWithCapacity: 6];
-    userPlaylists = [[NSMutableArray alloc] initWithCapacity: 10];
+    self.systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
+    self.userPlaylists = [NSMutableArray arrayWithCapacity: 10];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  [query release];
-  [systemPlaylists release];
-  [userPlaylists release];
+  self.query = nil;
+  self.server = nil;
+  self.systemPlaylists = nil;
+  self.userPlaylists = nil;
+
   [super dealloc];
 }
 
@@ -83,9 +91,9 @@
   [assembler updateLibrary: self withDto: playlistDtos];  
 }
 
-- (void) loadHeadersWithBlock: (void(^)(void)) callback
+- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback
 {
-  void (^reload)(NSObject *dto) = ^(NSObject *dto){
+  MMQueryCallback reload = ^(NSObject *dto){
     [self reload: dto];
     if(callback != nil)
     {

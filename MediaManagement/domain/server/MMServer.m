@@ -15,6 +15,10 @@
 
 @interface MMServer()
 @property (nonatomic, readwrite, retain) NSNetService *netService;
+@property (nonatomic, readwrite, assign) int port;
+@property (nonatomic, readwrite, retain) NSString *host;
+@property (nonatomic, readwrite, retain) NSString *name;
+@property (nonatomic, readwrite, retain) MMRemoteLibrary *library;
 @end
 
 @implementation MMServer
@@ -25,7 +29,7 @@
   if(self)
   {
     self.netService = service;
-    library = [[MMRemoteLibrary alloc] initWithServer: self];
+    self.library = [MMRemoteLibrary libraryWithServer: self];
   }
   return self;
 }
@@ -33,9 +37,9 @@
 - (void) dealloc
 {
   NSLog(@"releasing server with name: %@ %@ %@", name, self, netService);
-  [library release];
-  [host release];
-  [name release];
+  self.library = nil;
+  self.host = nil;
+  self.name = nil;
   
   [netService stop];
   self.netService = nil;

@@ -16,6 +16,7 @@
 
 - (void)dealloc
 {
+  self.selectedContentGroup = nil;
   [super dealloc];
 }
 

@@ -26,8 +26,9 @@
   id<MMServersDelegate> delegate;
 }
 
-@property (readonly) NSArray *servers;
-@property (readwrite, assign) id<MMServersDelegate> delegate;
+@property (nonatomic, readonly, retain) NSArray *servers;
+#warning assign? is that right?
+@property (nonatomic, readwrite, assign) id<MMServersDelegate> delegate;
 
 - (void) startSearch;
 

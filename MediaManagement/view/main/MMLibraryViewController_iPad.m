@@ -193,7 +193,7 @@
 
 - (IBAction) selectedPlaylistContentType: (id) sender
 {
-  selectedContentGroup = [subcontentSelector selectedContentGroup];
+  self.selectedContentGroup = [subcontentSelector selectedContentGroup];
   contentController.selectedContentGroup = selectedContentGroup;
   [contentController refresh];
 }

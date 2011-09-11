@@ -13,10 +13,13 @@
 
 @synthesize server;
 @synthesize selectedPlaylist;
+@synthesize selectedContentGroup;
 
 - (void) dealloc
 {
-  [server release];
+  self.server = nil;
+  self.selectedPlaylist = nil;
+  self.selectedContentGroup = nil;
   [super dealloc];
 }
 
