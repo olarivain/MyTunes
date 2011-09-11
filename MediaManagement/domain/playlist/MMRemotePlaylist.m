@@ -14,6 +14,7 @@
 @interface MMPlaylist()
 - (MMQuery*) readQuery;
 - (MMQuery*) writeQuery;
+- (MMQuery*) writeQueryForContent: (MMContent *) content;
 - (void) reload: (NSObject*) dto;
 @end
 
@@ -22,7 +23,7 @@
 #pragma mark - Query generators
 - (MMQuery*) readQuery
 {
-  NSString *path = [NSString stringWithFormat:@"/playlist/%@", uniqueId];
+  NSString *path = [NSString stringWithFormat:@"/library/%@", uniqueId];
   MMQuery *query = [MMQuery queryWithName: @"Read" andPath: path];
   
   // TODO make this a little bit more fail proof
@@ -33,7 +34,12 @@
 
 - (MMQuery*) writeQuery
 {
-  NSString *path = @"/track";
+  return [self writeQueryForContent: nil];
+}
+
+- (MMQuery*) writeQueryForContent: (MMContent *) content
+{
+  NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
   MMQuery *query = [MMQuery queryWithName: @"Write" andPath: path];
   
   // TODO make this a little bit more fail proof
@@ -68,7 +74,7 @@
     dispatch_async(mainQueue, callback);
   };
   
-  MMQuery *query = [self writeQuery];
+  MMQuery *query = [self writeQueryForContent: content];
   [query updateRequestWithParams: dictionary andCallback: updated];
 
 }

@@ -22,6 +22,9 @@
 @property (nonatomic, readwrite, retain) id<MMContentEditController> movieController;
 @property (nonatomic, readwrite, retain) UIButton *typeButton;
 
+- (id<MMContentEditController>) editControllerForCurrentItem;
+- (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind;
+
 @end
 
 @implementation MMEditController_iPad
@@ -64,8 +67,13 @@
 
 - (id<MMContentEditController>) editControllerForCurrentItem
 {
+  return [self editControllerForKind: currentItem.kind];
+}
+
+- (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind
+{
   id<MMContentEditController> controller = nil;
-  switch (currentItem.kind) {
+  switch (kind) {
     case MOVIE:
       controller = movieController;
       break;
@@ -79,6 +87,7 @@
       break;
   }
   return controller;
+
 }
 
 - (void) updateViewsWithCurrentItem
@@ -111,9 +120,6 @@
   [currentEditController updateContent];
 }
 
-
-
-#warning This is really quick and dirty. Also raises the question of podcast/books type.
 - (void) actionSheet:(UIActionSheet *)anActionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
   currentKind = buttonIndex;
@@ -124,6 +130,13 @@
   
   [actionSheet release];
   actionSheet = nil;
+  
+  // update content controller with new content
+  currentEditController = [self editControllerForKind: currentKind];
+  [currentEditController setContent: currentItem];
+  
+  // insert content specific view
+  [contentPlaceholder setEditView: [currentEditController editView]];
 }
 
 - (IBAction) typePressed
