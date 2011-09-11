@@ -26,8 +26,7 @@
   self.albumField = nil;
   self.trackNumberField = nil;
   self.genreField = nil;
-  [content release];
-  content = nil;
+  self.content = nil;
   [super dealloc];
 }
 

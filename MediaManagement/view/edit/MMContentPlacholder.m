@@ -8,27 +8,30 @@
 
 #import "MMContentPlacholder.h"
 
+@interface MMContentPlacholder()
+@property (nonatomic, readwrite, retain) UIView *contentEditView;
+@end
 
 @implementation MMContentPlacholder
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)dealloc
 {
-    [super dealloc];
+  self.contentEditView = nil;
+  [super dealloc];
 }
+
+@synthesize contentEditView;
 
 - (void) setEditView:(UIView *)editView
 {
+  if(editView == contentEditView) {
+    return;
+  }
+  
   [contentEditView removeFromSuperview];
-  contentEditView = editView;
+  [contentEditView release];
+  
+  contentEditView = [editView retain];
   [self addSubview: contentEditView];
   
   CGRect frame = contentEditView.frame;

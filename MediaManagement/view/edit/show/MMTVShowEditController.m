@@ -29,8 +29,7 @@
   self.episodeField = nil;
   self.showField = nil;
   self.seasonField = nil;
-  [content release];
-  content = nil;
+  self.content = nil;
   [super dealloc];
 }
 

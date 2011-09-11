@@ -86,6 +86,7 @@
 		00158CC9141D620700F196D0 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
 		00158CCA141D620700F196D0 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
 		00158CCC141D6DCF00F196D0 /* MMBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBlocks.h; sourceTree = "<group>"; };
+		00158CCE141D7F9A00F196D0 /* MMAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAnimation.h; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -348,6 +349,7 @@
 		003CDEB5132BFCDF00D295A2 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				00158CCE141D7F9A00F196D0 /* MMAnimation.h */,
 				00158CCC141D6DCF00F196D0 /* MMBlocks.h */,
 				003CDEB6132BFCDF00D295A2 /* NibUtils.h */,
 				003CDEB7132BFCDF00D295A2 /* NibUtils.m */,

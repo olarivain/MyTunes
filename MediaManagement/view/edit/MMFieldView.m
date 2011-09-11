@@ -15,16 +15,6 @@
 
 @implementation MMFieldView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) 
-    {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void) dealloc 
 {
   self.textView = nil;

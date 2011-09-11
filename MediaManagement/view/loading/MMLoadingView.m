@@ -8,7 +8,9 @@
 
 #import "MMLoadingView.h"
 
-
+@interface MMLoadingView()
+@property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
+@end
 @implementation MMLoadingView
 
 - (id)initWithFrame:(CGRect)frame
@@ -16,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) 
     {
-      activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
+      self.activityIndicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite] autorelease];
       [self addSubview: activityIndicator];
       
       CGSize frameSize = frame.size;
@@ -29,9 +31,11 @@
 
 - (void)dealloc
 {
-  [activityIndicator release];
+  self.activityIndicator = nil;
   [super dealloc];
 }
+
+@synthesize activityIndicator;
 
 - (void) setLoading: (BOOL) loading
 {

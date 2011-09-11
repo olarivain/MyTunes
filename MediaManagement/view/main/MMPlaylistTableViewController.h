@@ -20,7 +20,7 @@
 
 @property (nonatomic, readwrite, assign) UITableView *table;
 @property (nonatomic, readwrite, retain) MMContentGroup *selectedContentGroup;
-@property (nonatomic, readonly) MMContent *selectedItem;
+@property (nonatomic, readonly, retain) MMContent *selectedItem;
 
 - (void) refresh;
 

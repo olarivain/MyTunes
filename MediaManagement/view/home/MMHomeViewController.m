@@ -111,10 +111,11 @@
   libraryViewController.server = server;
   
   // and load content.
-  [server.library loadHeadersWithBlock:^(void) {
+  MMRemoteLibraryCallback callback = ^(void) {
     [self setLoading: FALSE];
     [[self navigationController] pushViewController:libraryViewController animated:TRUE];
-  }];
+  };
+  [server.library loadHeadersWithBlock: callback];
 
 }
 

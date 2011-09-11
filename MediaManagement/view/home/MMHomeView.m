@@ -15,6 +15,7 @@
 
 @interface MMHomeView()
 
+@property (nonatomic, readwrite, retain) NSArray *serverViews;
 @property (nonatomic, readwrite, assign) MMServerView *serverView;
 
 - (void) removeLastServerIcons: (int) count;
@@ -47,8 +48,10 @@
 
 - (void)dealloc
 {
-  [servers release];
-  [serverViews release];
+  self.servers = nil;
+  self.serverView = nil;
+  self.serverViews = nil;
+  
   [super dealloc];
 }
 
@@ -173,12 +176,6 @@
   }
   
   [self setNeedsLayout];
-}
-
-#pragma mark - Action handlers
-- (IBAction) serverSelected: (id) sender
-{
-  
 }
 
 #pragma mark Subview Add/Removal

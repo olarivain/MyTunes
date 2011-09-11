@@ -31,7 +31,7 @@
 @property (nonatomic, readonly, retain) NSString *host;
 @property (nonatomic, readonly, retain) NSString *name;
 
-@property (readonly) MMRemoteLibrary *library;
+@property (nonatomic, readonly, retain) MMRemoteLibrary *library;
 
 
 - (void) didResolve;

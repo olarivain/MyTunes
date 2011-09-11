@@ -24,8 +24,7 @@
 {
   self.editView = nil;
   self.genreFieldView = nil;
-  [content release];
-  content = nil;
+  self.content = nil;
   [super dealloc];
 }
 

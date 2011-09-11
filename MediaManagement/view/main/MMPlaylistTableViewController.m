@@ -12,11 +12,18 @@
 
 #import "MMPlaylistTableViewController.h"
 
+
+@interface MMPlaylistTableViewController()
+@property (nonatomic, readwrite, retain) MMContent *selectedItem;
+@end
+
 @implementation MMPlaylistTableViewController
 
 - (void)dealloc
 {
   self.selectedContentGroup = nil;
+  self.table = nil;
+  self.selectedItem = nil;
   [super dealloc];
 }
 

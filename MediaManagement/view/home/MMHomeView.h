@@ -19,7 +19,7 @@
   IBOutlet MMServerView *serverView;
 }
 
-@property (readwrite, retain) NSArray *servers;
-@property (readonly) NSArray *serverViews;
+@property (nonatomic, readwrite, retain) NSArray *servers;
+@property (nonatomic, readonly, retain) NSArray *serverViews;
 
 @end

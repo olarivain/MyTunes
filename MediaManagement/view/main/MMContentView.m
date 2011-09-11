@@ -8,6 +8,8 @@
 
 #import "MMContentView.h"
 
+#import "MMAnimation.h"
+
 
 @interface MMContentView()
 @property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
@@ -30,11 +32,11 @@
 - (void) setLoading: (BOOL) loading
 {
   // animation blocks
-  void(^animation)(void) = ^{
+  MMAnimationBlock animation = ^{
     loadingLayer.hidden = !loading;
   };
   
-  void(^completion)(BOOL finished) = ^(BOOL finished){
+  MMCompletionBlock completion = ^(BOOL finished){
     if(loading)
     {
       [activityIndicator startAnimating]; 
@@ -57,7 +59,7 @@
   }
   
   // now animate shit around
-  [UIView animateWithDuration: 0.2 animations: animation completion: completion];   
+  [UIView animateWithDuration: SHORT_ANIMATION_DURATION animations: animation completion: completion];   
 }
 
 @end
