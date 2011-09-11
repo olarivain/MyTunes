@@ -69,7 +69,7 @@
   };
   
   MMQuery *query = [self writeQuery];
-  [query requestWithParams: dictionary andCallback: updated];
+  [query updateRequestWithParams: dictionary andCallback: updated];
 
 }
 

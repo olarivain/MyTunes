@@ -25,6 +25,9 @@
 - (id) initWithServer: (MMServer *) base;
 
 - (MMRequestQueueItem*) requestWithPath: (NSString *) path andCallback: (RequestCallback) callback;
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params  andCallback: (RequestCallback) callback;
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (RequestCallback) callback;
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback: (RequestCallback) callback;
+
 - (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data andCallback: (RequestCallback) callback;
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data method: (NSString *) method andCallback: (RequestCallback) callback;
 @end

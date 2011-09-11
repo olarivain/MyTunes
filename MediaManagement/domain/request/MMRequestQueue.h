@@ -51,10 +51,7 @@ typedef void(^RequestCallback)(MMRequestQueueItem*);
 + (MMRequestQueueItem*) scheduleURL: (NSURL*) url withCallback: (RequestCallback) callback;
 
 + (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (RequestCallback) callback;
-
-// schedules given URL for background request, associating it with given request. Currently a passthrough on
-// +scheduleURL:withCallback:
-+ (MMRequestQueueItem*) scheduleURL: (NSURL*) url forBackground: background withCallback: (RequestCallback) callback;
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data withMethod: (NSString *) method andCallback: (RequestCallback) callback;
 
 // cancels given request queue item. requests can only be cancelled in pending or active phase, not in callback phase.
 + (void) cancelItem: (MMRequestQueueItem*) url;

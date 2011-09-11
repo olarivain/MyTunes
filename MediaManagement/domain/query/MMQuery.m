@@ -72,7 +72,7 @@
           
 - (MMRequestQueueItem*) requestWithCallback: (MMQueryCallback) callback 
 {
-  return [self requestWithData: nil andCallback: callback];
+  return [self requestWithParams: nil andCallback: callback];
 }
 
 - (MMRequestQueueItem*) requestWithData: (NSData*) data
@@ -113,6 +113,20 @@
   };
   
   return [requestDelegate requestWithPath: path params: params andCallback: requestCallback];
+}
+
+- (MMRequestQueueItem*) updateRequestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback
+{
+  RequestCallback requestCallback = ^(MMRequestQueueItem *item) {
+    if(!callback) {
+      return;
+    }
+    
+    NSObject *dto = [item jsonObject];
+    callback(dto);
+  };
+  
+  return [requestDelegate requestWithPath: path params: params method: @"POST" andCallback: requestCallback];
 }
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2B141C171000476D08 /* MMRequestDelegate.m */; };
+		00087D31141C171000476D08 /* MMRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2D141C171000476D08 /* MMRequestQueue.m */; };
+		00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2F141C171000476D08 /* MMRequestQueueItem.m */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -50,9 +53,6 @@
 		0051DD911395DA2700F9357C /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0051DD901395DA2700F9357C /* MMEditController_iPad.m */; };
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
 		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
-		0085794C13C262A500EC007F /* MMRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0085794713C262A500EC007F /* MMRequestDelegate.m */; };
-		0085794D13C262A500EC007F /* MMRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0085794913C262A500EC007F /* MMRequestQueue.m */; };
-		0085794E13C262A500EC007F /* MMRequestQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0085794B13C262A500EC007F /* MMRequestQueueItem.m */; };
 		00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA91681397215100594D18 /* MMTVShowEditController.m */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
@@ -70,6 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00087D2A141C171000476D08 /* MMRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestDelegate.h; path = MediaManagement/domain/request/MMRequestDelegate.h; sourceTree = SOURCE_ROOT; };
+		00087D2B141C171000476D08 /* MMRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestDelegate.m; path = MediaManagement/domain/request/MMRequestDelegate.m; sourceTree = SOURCE_ROOT; };
+		00087D2C141C171000476D08 /* MMRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestQueue.h; path = MediaManagement/domain/request/MMRequestQueue.h; sourceTree = SOURCE_ROOT; };
+		00087D2D141C171000476D08 /* MMRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueue.m; path = MediaManagement/domain/request/MMRequestQueue.m; sourceTree = SOURCE_ROOT; };
+		00087D2E141C171000476D08 /* MMRequestQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestQueueItem.h; path = MediaManagement/domain/request/MMRequestQueueItem.h; sourceTree = SOURCE_ROOT; };
+		00087D2F141C171000476D08 /* MMRequestQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueueItem.m; path = MediaManagement/domain/request/MMRequestQueueItem.m; sourceTree = SOURCE_ROOT; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,12 +169,6 @@
 		006497A31372776E00F64641 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		006497A41372776E00F64641 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
-		0085794613C262A500EC007F /* MMRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequestDelegate.h; sourceTree = "<group>"; };
-		0085794713C262A500EC007F /* MMRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRequestDelegate.m; sourceTree = "<group>"; };
-		0085794813C262A500EC007F /* MMRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequestQueue.h; sourceTree = "<group>"; };
-		0085794913C262A500EC007F /* MMRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRequestQueue.m; sourceTree = "<group>"; };
-		0085794A13C262A500EC007F /* MMRequestQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequestQueueItem.h; sourceTree = "<group>"; };
-		0085794B13C262A500EC007F /* MMRequestQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRequestQueueItem.m; sourceTree = "<group>"; };
 		00AA91671397215100594D18 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTVShowEditController.h; path = show/MMTVShowEditController.h; sourceTree = "<group>"; };
 		00AA91681397215100594D18 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTVShowEditController.m; path = show/MMTVShowEditController.m; sourceTree = "<group>"; };
 		00AA916A1397218600594D18 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
@@ -614,12 +614,12 @@
 		0085794513C262A500EC007F /* request */ = {
 			isa = PBXGroup;
 			children = (
-				0085794613C262A500EC007F /* MMRequestDelegate.h */,
-				0085794713C262A500EC007F /* MMRequestDelegate.m */,
-				0085794813C262A500EC007F /* MMRequestQueue.h */,
-				0085794913C262A500EC007F /* MMRequestQueue.m */,
-				0085794A13C262A500EC007F /* MMRequestQueueItem.h */,
-				0085794B13C262A500EC007F /* MMRequestQueueItem.m */,
+				00087D2A141C171000476D08 /* MMRequestDelegate.h */,
+				00087D2B141C171000476D08 /* MMRequestDelegate.m */,
+				00087D2C141C171000476D08 /* MMRequestQueue.h */,
+				00087D2D141C171000476D08 /* MMRequestQueue.m */,
+				00087D2E141C171000476D08 /* MMRequestQueueItem.h */,
+				00087D2F141C171000476D08 /* MMRequestQueueItem.m */,
 			);
 			name = request;
 			path = ../../../mediamanagement/MediaManagement/domain/request;
@@ -773,9 +773,9 @@
 				004A11F21397281100C2D027 /* MMContentPlacholder.m in Sources */,
 				004A11F613972A0500C2D027 /* MMMusicEditController.m in Sources */,
 				004A12041397367000C2D027 /* MMLoadingView.m in Sources */,
-				0085794C13C262A500EC007F /* MMRequestDelegate.m in Sources */,
-				0085794D13C262A500EC007F /* MMRequestQueue.m in Sources */,
-				0085794E13C262A500EC007F /* MMRequestQueueItem.m in Sources */,
+				00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */,
+				00087D31141C171000476D08 /* MMRequestQueue.m in Sources */,
+				00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,6 +822,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DDEBUG_NETWORK=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -85,8 +85,8 @@
   self.navigationItem.rightBarButtonItem = editButton;
   if(selectedPlaylist == nil) {
     NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
-    [playlistTable selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
-    [self tableView: playlistTable didSelectRowAtIndexPath: path];
+//    [playlistTable selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
+//    [self tableView: playlistTable didSelectRowAtIndexPath: path];
 
   }
 

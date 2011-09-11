@@ -10,34 +10,36 @@
 
 #import "MMRequestQueue.h"
 /*
- RequestQueueItem is a high level abstraction for a scheduled requests.
- It also is the placeholder for request specific data: url, callback and response.
- RequestQueueItem provides high level methods to get access to the response:
- - Raw response NSData,
- - Parsed JSON,
- - HTTP status code,
- - HTTP headers
- 
- In case the connection failed, the callback will still be called. Caller can check the "success" property to know
- wether a download went through.
- In case success is NO, the "error" property will hold the NSError sent to the NSURLConnection delegate.
- If the download is successfully cancelled, the callback will NOT be called.
- */
-@interface MMRequestQueueItem : NSObject {
-    MMRequestQueue *queue;
-    RequestCallback callback;
-    NSURL *url;
-    NSData *requestData;
-    
-    NSURLConnection *connection;
-    NSURLResponse *response;
+RequestQueueItem is a high level abstraction for a scheduled requests.
+It also is the placeholder for request specific data: url, callback and response.
+RequestQueueItem provides high level methods to get access to the response:
+- Raw response NSData,
+- Parsed JSON,
+- HTTP status code,
+- HTTP headers
 
-    NSMutableData *responseData;
-    
-    BOOL success;
-    NSError *error;
-    
-    BOOL cancelledInCallbackPhase;
+In case the connection failed, the callback will still be called. Caller can check the "success" property to know
+wether a download went through.
+In case success is NO, the "error" property will hold the NSError sent to the NSURLConnection delegate.
+If the download is successfully cancelled, the callback will NOT be called.
+*/
+@interface MMRequestQueueItem : NSObject {
+  MMRequestQueue *queue;
+  RequestCallback callback;
+  NSURL *url;
+  NSData *requestData;
+
+  NSString *method;
+  
+  NSURLConnection *connection;
+  NSURLResponse *response;
+
+  NSMutableData *responseData;
+  
+  BOOL success;
+  NSError *error;
+  
+  BOOL cancelledInCallbackPhase;
 }
 
 // URL this object will/has requested
@@ -45,6 +47,9 @@
 
 // request body, if any
 @property (nonatomic, readonly, retain) NSData *requestData;
+
+// request method, one of GET PUT POST DELETE
+@property (nonatomic, readonly, retain) NSString *method;
 
 // callback block that will be called when request is done. Can be nil.
 @property (nonatomic, readonly, copy) RequestCallback callback;
@@ -57,7 +62,8 @@
 
 @property (nonatomic, readwrite, assign) BOOL cancelledInCallbackPhase;
 
-+ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) RequestCallback;
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) requestCallback;
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback;
 - (void) start;
 - (void) cancel;
 

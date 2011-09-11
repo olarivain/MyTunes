@@ -20,8 +20,7 @@ static MMRequestQueue *sharedInstance;
 @property (nonatomic, readwrite, retain) NSOperationQueue *callbackOperationQueue;
 
 - (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback;
-- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (RequestCallback) callback;
-- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (RequestCallback) callback;
+- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data withMethod: (NSString *) method andCallback: (RequestCallback) callback;
 
 - (void) cancelDownloadItem: (MMRequestQueueItem*) url;
 - (void) cancelFromPending: (MMRequestQueueItem*) item;
@@ -80,16 +79,19 @@ static MMRequestQueue *sharedInstance;
 @synthesize callbackOperationQueue;
 
 #pragma mark - Static methods wrapping singleton calls
+// default, no data, simple get
 + (MMRequestQueueItem*) scheduleURL:(NSURL *)url withCallback:(RequestCallback)callback {
-    return [[MMRequestQueue shardInstance] addURL:url callback:callback];
+  return [MMRequestQueue scheduleURL: url withData: nil andCallback: callback];
 }
 
+// GET with params
 + (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data andCallback: (RequestCallback) callback {
-    return [[MMRequestQueue shardInstance] addURL:url withData: data andCallback:callback];
+  return [MMRequestQueue scheduleURL: url withData: data withMethod: @"GET" andCallback: callback];
 }
 
-+ (MMRequestQueueItem*) scheduleURL:(NSURL *)url forBackground:(id)background withCallback:(RequestCallback)callback {
-    return  [[MMRequestQueue shardInstance] addURL:url forBackground:background callback:callback];
+// Full blown control over method, body etc
++ (MMRequestQueueItem*) scheduleURL: (NSURL*) url withData: (NSData *) data withMethod: (NSString *) method andCallback: (RequestCallback) callback {
+  return  [[MMRequestQueue shardInstance] addURL: url withData: data withMethod: method andCallback: callback];
 }
 
 + (void) cancelItem: (MMRequestQueueItem*) item {
@@ -98,14 +100,14 @@ static MMRequestQueue *sharedInstance;
 
 #pragma mark - Add URL method
 - (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback {
-    return [self addURL: url withData: nil andCallback: callback];
+    return [self addURL: url withData: nil withMethod: @"GET" andCallback: callback];
 }
 
-- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data andCallback: (RequestCallback) callback {
+- (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data withMethod: (NSString *) method andCallback: (RequestCallback) callback {
     MMRequestQueueItem *item = nil;
     @synchronized(self){
         // create and item to pending queue
-        item = [MMRequestQueueItem requestQueueItemWithQueue: self URL: url andCallback: callback];
+      item = [MMRequestQueueItem requestQueueItemWithQueue: self URL: url method: method data: data andCallback: callback];
         [pending addObject: item];
     }
     
@@ -113,11 +115,6 @@ static MMRequestQueue *sharedInstance;
     [self processNextQueueItem];
     return  item;
 
-}
-
-- (MMRequestQueueItem*) addURL: (NSURL*) url forBackground: background callback: (RequestCallback) callback {
-    // TODO implement properly
-    return [self addURL:url callback:callback];
 }
 
 #pragma mark - Cancellation

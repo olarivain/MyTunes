@@ -48,4 +48,6 @@ typedef void(^MMQueryCallback)(NSObject*);
 
 - (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params;
 - (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback;
+
+- (MMRequestQueueItem*) updateRequestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback;
 @end

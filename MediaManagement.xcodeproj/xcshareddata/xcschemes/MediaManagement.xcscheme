@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   version = "1.3">
+   version = "1.8">
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00323DCE132C2B21003BED87"
-               BuildableName = "libmedia-management-common-arm.a"
-               BlueprintName = "media-management-common-arm"
-               ReferencedContainer = "container:../MediaManagementCommon/MediaManagementCommon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
