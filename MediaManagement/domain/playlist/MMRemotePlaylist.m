@@ -49,9 +49,9 @@
 }
 
 #pragma mark - Network calls
-- (void) loadWithBlock: (void(^)(void)) callback
+- (void) loadWithBlock: (MMPlaylistCallback) callback
 {
-  void (^reload)(NSObject *dto) = ^(NSObject *dto){
+  MMQueryCallback reload = ^(NSObject *dto){
     [self reload: dto];
     if(callback != nil)
     {
@@ -65,7 +65,7 @@
   [query requestWithCallback: reload];
 }
 
-- (void) updateContent: (MMContent*) content withBlock: (void(^)(void)) callback
+- (void) updateContent: (MMContent*) content withBlock: (MMPlaylistCallback) callback
 {
   NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content];
   MMQueryCallback updated = ^(NSObject *dto){

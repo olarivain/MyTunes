@@ -12,13 +12,15 @@
 #import "MMRemotePlaylist.h"
 #import "MMLoadingView.h"
 
+typedef void(^MMEditControllerCallback)(void);
+
 @interface MMEditController()
 @property (nonatomic, readwrite, retain) NSArray *contentList;
 @property (nonatomic, readwrite, retain) UIBarButtonItem *next;
 @property (nonatomic, readwrite, retain) UIBarButtonItem *previous;
 @property (nonatomic, readwrite, retain) MMLoadingView *loadingView;
 
-- (void) saveWithBlock: (void(^)(void)) block;
+- (void) saveWithBlock: (MMEditControllerCallback) block;
 
 @end
 
@@ -97,7 +99,7 @@
 - (IBAction) save: (id) sender
 {
   // call dismiss on callback
-  void (^dismiss)(void) = ^{
+  MMEditControllerCallback dismiss = ^{
     [self dismiss];
   };
   
@@ -106,7 +108,7 @@
 }
 
 #pragma mark - Save/Cancel
-- (void) saveWithBlock: (void(^)(void)) block
+- (void) saveWithBlock: (MMEditControllerCallback) block
 {
   // display feedback
   [loadingView setLoading: YES];
@@ -115,7 +117,7 @@
   [self updateContent];
   
   // remove loading view and process callback
-  void (^saveBlock)(void) = ^{
+  MMPlaylistCallback saveBlock = ^{
     [loadingView setLoading: NO];
     block();
   };
@@ -133,7 +135,7 @@
 - (IBAction) next: (id) sender
 {
   // move view to next content item on callback
-  void (^nextBlock)(void) = ^{
+  MMEditControllerCallback nextBlock = ^{
     currentIndex++;
     self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];
@@ -146,7 +148,7 @@
 - (IBAction) previous: (id) sender
 {
   // move view to previous item on callback
-  void (^previousBlock)(void) = ^{
+  MMEditControllerCallback previousBlock = ^{
     currentIndex--;
     self.currentItem = [contentList objectAtIndex: currentIndex];
     [self updateViewsWithCurrentItem];

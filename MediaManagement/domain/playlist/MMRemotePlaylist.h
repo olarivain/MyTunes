@@ -11,12 +11,14 @@
 
 @class MMContent;
 
+typedef void(^MMPlaylistCallback)(void);
+
 /*
  Remote playlist represents a playlist sitting in the remote iTunes instance.
  A remote playlist can either be loaded or one of its MMContent can be updated (one item at a time)
  */
 
 @interface MMPlaylist(MMPlaylist_Remote)
-- (void) loadWithBlock: (void(^)(void)) callback;
-- (void) updateContent: (MMContent*) content withBlock: (void(^)(void)) callback;
+- (void) loadWithBlock: (MMPlaylistCallback) callback;
+- (void) updateContent: (MMContent*) content withBlock: (MMPlaylistCallback) callback;
 @end
