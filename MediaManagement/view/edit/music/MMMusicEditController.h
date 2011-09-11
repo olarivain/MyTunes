@@ -19,6 +19,7 @@
   IBOutlet MMFieldView *trackNumberField;    
   IBOutlet MMFieldView *artistField;
   IBOutlet MMFieldView *albumField;
+  IBOutlet MMFieldView *genreField;
 }
 
 @end

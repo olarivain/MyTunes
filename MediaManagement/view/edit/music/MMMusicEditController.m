@@ -10,10 +10,11 @@
 #import "MMFieldView.h"
 
 @interface MMMusicEditController()
-@property (nonatomic, readwrite, retain)  UIView *editView;
-@property (nonatomic, readwrite, retain)  MMFieldView *artistField;
-@property (nonatomic, readwrite, retain)  MMFieldView *albumField;
-@property (nonatomic, readwrite, retain)  MMFieldView *trackNumberField;
+@property (nonatomic, readwrite, retain) UIView *editView;
+@property (nonatomic, readwrite, retain) MMFieldView *artistField;
+@property (nonatomic, readwrite, retain) MMFieldView *albumField;
+@property (nonatomic, readwrite, retain) MMFieldView *trackNumberField;
+@property (nonatomic, readwrite, retain) MMFieldView *genreField;
 @end
 
 @implementation MMMusicEditController
@@ -24,6 +25,7 @@
   self.artistField = nil;
   self.albumField = nil;
   self.trackNumberField = nil;
+  self.genreField = nil;
   [content release];
   content = nil;
   [super dealloc];
@@ -33,6 +35,7 @@
 @synthesize artistField;
 @synthesize albumField;
 @synthesize trackNumberField;
+@synthesize genreField;
 
 - (void) setContent:(MMContent *) newContent
 {
@@ -46,6 +49,7 @@
   [albumField setValue: content.album];
   [artistField setValue: content.artist];
   [trackNumberField setValue: content.trackNumber];
+  [genreField setValue: content.genre];
 }
 
 - (void) updateContent
@@ -53,6 +57,7 @@
   content.album = [albumField stringValue];
   content.artist = [artistField stringValue];
   content.trackNumber = [trackNumberField numberValue];
+  content.genre = [genreField stringValue];
 }
 
 @end
