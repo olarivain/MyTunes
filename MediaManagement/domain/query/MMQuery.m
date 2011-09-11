@@ -65,46 +65,28 @@
   self.requestDelegate = [MMRequestDelegate delegateWithServer: server];
 }
 
+#pragma mark - Read requests
 - (MMRequestQueueItem*) request 
 {
-  return [self requestWithData: nil];
+  return [self requestWithParams: nil];
 }
-          
-- (MMRequestQueueItem*) requestWithCallback: (MMQueryCallback) callback 
-{
-  return [self requestWithParams: nil andCallback: callback];
-}
-
-- (MMRequestQueueItem*) requestWithData: (NSData*) data
-{
-  // put in callback block here
-  return  [requestDelegate requestWithPath: path andCallback: nil];
-
-}
-
-- (MMRequestQueueItem*) requestWithData: (NSData*) data andCallback: (MMQueryCallback) callback
-{
-  RequestCallback requestCallback = ^(MMRequestQueueItem *item){
-    if(!callback) {
-      return;
-    }
-
-    NSObject *dto = [item jsonObject];
-    callback(dto);
-  };
-  
-  return [requestDelegate requestWithPath: path data: data andCallback: requestCallback]; 
-}
-
+ 
 - (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params
 {
   return [self requestWithParams: params andCallback: nil];
 }
 
+- (MMRequestQueueItem*) requestWithCallback: (MMQueryCallback) callback 
+{
+  return [self requestWithParams: nil andCallback: callback];
+}
+
 - (MMRequestQueueItem*) requestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback
 {
-  RequestCallback requestCallback = ^(MMRequestQueueItem *item) {
-    if(!callback) {
+  RequestCallback requestCallback = ^(MMRequestQueueItem *item) 
+  {
+    if(!callback) 
+    {
       return;
     }
     
@@ -115,10 +97,18 @@
   return [requestDelegate requestWithPath: path params: params andCallback: requestCallback];
 }
 
+#pragma mark - Update requests
+- (MMRequestQueueItem*) updateRequestWithParams: (NSDictionary*) params 
+{
+  return [self updateRequestWithParams: params andCallback: nil];
+}
+
 - (MMRequestQueueItem*) updateRequestWithParams: (NSDictionary*) params andCallback: (MMQueryCallback) callback
 {
-  RequestCallback requestCallback = ^(MMRequestQueueItem *item) {
-    if(!callback) {
+  RequestCallback requestCallback = ^(MMRequestQueueItem *item) 
+  {
+    if(!callback) 
+    {
       return;
     }
     

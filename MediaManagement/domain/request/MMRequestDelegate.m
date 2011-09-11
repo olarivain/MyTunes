@@ -45,11 +45,21 @@
   NSMutableString *paramString = [NSMutableString stringWithString:@"?"];
   NSArray *allKeys = [params allKeys];
   for(NSString *key in allKeys) {
-      NSString *value = [params objectForKey: key];
-      [paramString appendFormat:@"%@=%@", key, [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-      if(key != [allKeys lastObject]) {
-        [paramString appendString:@"&"];
-      }
+    id value = [params objectForKey: key];
+    // we have a number, make sure we grab the string representation
+    if([value isKindOfClass: [NSNumber class]]) {
+      value = [(NSNumber *) value stringValue];
+    } 
+    
+    // escape the string if possible
+    if([value respondsToSelector:@selector(stringByAddingPercentEscapesUsingEncoding:)]){
+      value = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    
+    [paramString appendFormat:@"%@=%@", key, value];
+    if(key != [allKeys lastObject]) {
+      [paramString appendString:@"&"];
+    }
   }
   return paramString;
 }
@@ -68,6 +78,7 @@
   NSString *urlString = [NSString stringWithFormat:@"%@%@", [server serverURL], path];
 
   NSData *data = nil;
+  // process parameters appropriately, depending on requested method
   if([@"GET" isEqualToString: method]) {
     NSString *paramString = [self paramString: params];
     if(paramString) {
@@ -78,27 +89,12 @@
     data = [params JSONData];
   }
 
+  // and schedule the guy
+#if DEBUG_NETWORK==1
+  NSLog(@"Scheduling for request:\n%@", urlString);
+#endif
   NSURL *url = [NSURL URLWithString: urlString];
   return [MMRequestQueue scheduleURL: url withData: data withMethod: method andCallback: callback];
-}
-
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data andCallback: (RequestCallback) callback
-{
-  return [self requestWithPath: path data: data method: @"POST" andCallback: callback];
-}
-
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data method: (NSString *) method andCallback: (RequestCallback) callback
-{
-  if([@"GET" isEqualToString: method]) {
-    // GET with body is invalid
-    return nil;
-  }
-  
-  NSString *urlString = [NSString stringWithFormat:@"%@%@", [server serverURL], path];
-  NSURL *url = [NSURL URLWithString: urlString];
-  
-  return [MMRequestQueue scheduleURL: url withData: data withMethod: method andCallback: callback];
-
 }
 
 @end

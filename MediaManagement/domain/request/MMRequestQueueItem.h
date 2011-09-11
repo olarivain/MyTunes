@@ -60,6 +60,7 @@ If the download is successfully cancelled, the callback will NOT be called.
 // Raw server response.
 @property (nonatomic, readonly, retain) NSData *responseData;
 
+@property (nonatomic, readwrite, retain) id cancellationKey;
 @property (nonatomic, readwrite, assign) BOOL cancelledInCallbackPhase;
 
 + (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) requestCallback;
@@ -71,9 +72,15 @@ If the download is successfully cancelled, the callback will NOT be called.
 - (NSObject*) jsonObject;
 - (NSDictionary*) jsonDictionary;
 - (NSArray*) jsonArray;
+
 // HTTP status code
 - (NSInteger) status;
+
 // HTTP headers
 - (NSDictionary *) headers;
+
+
+- (BOOL) isSuccessful;
+- (void) logFailure;
 
 @end

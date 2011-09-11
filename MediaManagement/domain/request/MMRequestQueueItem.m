@@ -29,17 +29,21 @@
 
 @implementation MMRequestQueueItem
 
-+ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) requestCallback {
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url andCallback:(RequestCallback) requestCallback 
+{
   return [MMRequestQueueItem requestQueueItemWithQueue: queue URL: url method: @"GET" data: nil andCallback: requestCallback];
 }
 
-+ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback {
++ (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback 
+{
   return [[[MMRequestQueueItem alloc] initWithQueue: queue URL: url method: aMethod data: data andCallback: requestCallback] autorelease];
 }
 
-- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback {
+- (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback 
+{
   self = [super init];
-  if(self) {
+  if(self) 
+{
     self.url = downloadURL;
     self.requestData = data;
     self.method = aMethod;
@@ -51,7 +55,8 @@
   return self;
 }
 
-- (void) dealloc {
+- (void) dealloc 
+{
   self.url = nil;
   self.requestData = nil;
   self.callback = nil;
@@ -61,6 +66,7 @@
   self.error = nil;
   self.response = nil;
   self.method = nil;
+  self.cancellationKey = nil;
   [super dealloc];
 }
 
@@ -75,46 +81,50 @@
 @synthesize cancelledInCallbackPhase;
 @synthesize requestData;
 @synthesize method;
+@synthesize cancellationKey;
 
 #pragma mark - Start/Stop methods
-- (void) start {
+- (void) start 
+{
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url];;
   [request setHTTPBody: requestData];
-  NSLog(@"content is: %i", [requestData length]);
   [request setHTTPMethod: method];
   
   self.connection = [NSURLConnection connectionWithRequest: request delegate: self];
   
-#if DEBUG_NETWORK==1
-  NSLog(@"starting connection to %@", [url absoluteString]);
-#endif
   [connection start];
 }
 
-- (void) cancel {
+- (void) cancel 
+{
   [connection cancel];
   CFRunLoopStop(CFRunLoopGetCurrent());
 }
 
 #pragma mark - JSON converter
-- (NSObject*) jsonObject {
+- (NSObject*) jsonObject 
+{
   JSONDecoder *decoder = [JSONDecoder decoderWithParseOptions: JKParseOptionLooseUnicode];
   NSObject *object = [decoder objectWithData: responseData];
   return object;
 }
 
-- (NSDictionary*) jsonDictionary {
+- (NSDictionary*) jsonDictionary 
+{
   NSObject *object = [self jsonObject];
-  if([object isKindOfClass: [NSDictionary class]]){
+  if([object isKindOfClass: [NSDictionary class]])
+{
       return (NSDictionary *) object;
   }
   
   return nil;
 }
 
-- (NSArray*) jsonArray {
+- (NSArray*) jsonArray 
+{
   NSObject *object = [self jsonObject];
-  if([object isKindOfClass: [NSArray class]]){
+  if([object isKindOfClass: [NSArray class]])
+{
       return (NSArray *) object;
   }
   
@@ -122,60 +132,85 @@
 }
 
 #pragma mark - HTTP convenience
-- (NSInteger) status {
+- (BOOL) isSuccessful 
+{
+  // successful = no errors and http code in 200 range
+  NSInteger status = [self status];
+  return  error == nil && (199 < status) && (status < 300);
+}
+
+- (void) logFailure 
+{
+  if([self isSuccessful]) 
+  {
+    return;
+  }
+  NSLog(@"\n***\nCould not perform request:\n-Request URL: %@\n-HTTP Status Code: %i\n-Reason: %@\n-Description: %@\n***\n", url, [self status], [error localizedFailureReason], [error localizedDescription]);
+}
+
+- (NSInteger) status 
+{
   NSHTTPURLResponse *httpResponse = [self httpResponse];
-  if(httpResponse == nil) {
+  if(httpResponse == nil)
+  {
       return -1;
   }
      
   return [httpResponse statusCode];
 }
 
-- (NSDictionary*) headers {
+- (NSDictionary*) headers 
+{
   NSHTTPURLResponse *httpResponse = [self httpResponse];
-  if(httpResponse == nil) {
+  if(httpResponse == nil) 
+  {
       return nil;
   }
   
   return [httpResponse allHeaderFields];
 }
 
-- (NSHTTPURLResponse*) httpResponse {
-  if(response == nil) {
+- (NSHTTPURLResponse*) httpResponse 
+{
+  if(response == nil) 
+  {
       return nil;
   }
   
-  if(![response isKindOfClass: [NSHTTPURLResponse class]]){
+  if(![response isKindOfClass: [NSHTTPURLResponse class]])
+  {
       return nil;
   }
   return (NSHTTPURLResponse*) response;
 }
 
 #pragma mark - NSURLConnection delegate methods
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse {
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse 
+{
   self.response = aResponse;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)newData  {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)newData  
+{
   [responseData appendData: newData];
 }
 
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-#if DEBUG_NETWORK==1
-  NSLog(@"connetion finished");
-#endif
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection 
+{
   success = YES;
+#ifdef DEBUG
+  [self logFailure];
+#endif
   CFRunLoopStop(CFRunLoopGetCurrent());
   [queue requestFinished: self];
 }
 
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)failure {
-  
-#if DEBUG_NETWORK==1
-  NSLog(@"connetion failed with error %@", failure);
-#endif
-  
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)failure 
+{
   success = NO;
+#ifdef DEBUG
+  [self logFailure];
+#endif
   self.error = failure;
   [queue requestFinished: self];
   CFRunLoopStop(CFRunLoopGetCurrent());

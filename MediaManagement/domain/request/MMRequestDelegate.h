@@ -24,10 +24,11 @@
 + (id) delegateWithServer: (MMServer *) baseServer;
 - (id) initWithServer: (MMServer *) base;
 
+// simple GET, no params
 - (MMRequestQueueItem*) requestWithPath: (NSString *) path andCallback: (RequestCallback) callback;
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (RequestCallback) callback;
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback: (RequestCallback) callback;
 
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data andCallback: (RequestCallback) callback;
-- (MMRequestQueueItem*) requestWithPath: (NSString *) path data: (NSData *) data method: (NSString *) method andCallback: (RequestCallback) callback;
+// simple GET, params are considered HTTP URL params
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (RequestCallback) callback;
+// exposes method, params are considered HTTP URL params if method is GET, will be serialized to JSON as body otherwise
+- (MMRequestQueueItem*) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback: (RequestCallback) callback;
 @end
