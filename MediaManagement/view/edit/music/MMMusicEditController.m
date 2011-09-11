@@ -43,7 +43,6 @@
   [content release];
   content = [newContent retain];
   
-  content = newContent;
   [albumField setValue: content.album];
   [artistField setValue: content.artist];
   [trackNumberField setValue: content.trackNumber];

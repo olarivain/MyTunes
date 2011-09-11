@@ -35,6 +35,11 @@
 
 - (void) setValue: (id) value 
 {
+  if(value == nil)
+  {
+    textView.text = @"";
+    return;
+  }
   textView.text = [NSString convert: value];
 }
 

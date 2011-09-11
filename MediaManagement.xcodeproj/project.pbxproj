@@ -12,6 +12,7 @@
 		00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2F141C171000476D08 /* MMRequestQueueItem.m */; };
 		00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC2141D5CBC00F196D0 /* MMFieldView.m */; };
 		00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC6141D5D8800F196D0 /* NSString+Converteer.m */; };
+		00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CCA141D620700F196D0 /* MMMovieEditController.m */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -82,6 +83,8 @@
 		00158CC2141D5CBC00F196D0 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
 		00158CC5141D5D8800F196D0 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
 		00158CC6141D5D8800F196D0 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
+		00158CC9141D620700F196D0 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
+		00158CCA141D620700F196D0 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +214,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00158CC8141D61F200F196D0 /* movie */ = {
+			isa = PBXGroup;
+			children = (
+				00158CC9141D620700F196D0 /* MMMovieEditController.h */,
+				00158CCA141D620700F196D0 /* MMMovieEditController.m */,
+			);
+			path = movie;
+			sourceTree = "<group>";
+		};
 		002A0AD61324549D00320A06 = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +370,7 @@
 		003CDEB9132BFCDF00D295A2 /* edit */ = {
 			isa = PBXGroup;
 			children = (
+				00158CC8141D61F200F196D0 /* movie */,
 				004A11F3139729F400C2D027 /* music */,
 				00AA91661397211200594D18 /* show */,
 				00AA916A1397218600594D18 /* MMContentEditController.h */,
@@ -788,6 +801,7 @@
 				00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */,
 				00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */,
 				00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */,
+				00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
