@@ -13,6 +13,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "00323DCE132C2B21003BED87"
+               BuildableName = "libmedia-management-common-arm.a"
+               BlueprintName = "media-management-common-arm"
+               ReferencedContainer = "container:../MediaManagementCommon/MediaManagementCommon.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "002A0AE01324549D00320A06"
                BuildableName = "MediaManagement.app"
                BlueprintName = "MediaManagement"
