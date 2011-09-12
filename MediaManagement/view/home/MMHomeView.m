@@ -31,7 +31,7 @@
   self = [super initWithCoder: aDecoder];
   if(self)
   {
-    serverViews = [[NSMutableArray alloc] init];
+    self.serverViews = [NSMutableArray array];
   }
   return self;
 }
@@ -41,7 +41,7 @@
     self = [super initWithFrame:frame];
     if (self) 
     {
-      serverViews = [[NSMutableArray alloc] init];
+      self.serverViews = [NSMutableArray array];
     }
     return self;
 }

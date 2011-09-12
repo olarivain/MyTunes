@@ -24,10 +24,10 @@
   NSMutableArray *servers;
   NSMutableArray *pendingServers;
   id<MMServersDelegate> delegate;
+  BOOL didStartSearch;
 }
 
 @property (nonatomic, readonly, retain) NSArray *servers;
-#warning assign? is that right?
 @property (nonatomic, readwrite, assign) id<MMServersDelegate> delegate;
 
 - (void) startSearch;

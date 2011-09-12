@@ -10,48 +10,24 @@
 
 #import "MMServer.h"
 
+@interface MMServerView()
+@property (nonatomic, readwrite, retain) UILabel *label;
+@end
+
 @implementation MMServerView
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-  self = [super initWithCoder:aDecoder];
-  return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-  self = [super initWithFrame:frame];
-  if (self) {
-      // Initialization code
-  }
-  return self;
-}
-
 
 - (void)dealloc
 {
   self.server = nil;
+  self.label = nil;
   [super dealloc];
 }
 
 @synthesize server;
+@synthesize label;
 
 
 #pragma  mark - Server management;
-//- (MMServer*) server
-//{
-//  return server;
-//}
-//
-//- (void) setServer:(MMServer *)newServer
-//{
-////  NSLog(@"Setting server: %@ %@", newServer, newServer.netService);
-////  [newServer retain];
-////  [server release];
-//  server = newServer;
-//  
-//  [label setText: [newServer name]]; 
-//}
 
 - (void) update
 {

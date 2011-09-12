@@ -22,6 +22,10 @@
 @end
 
 @implementation MMServer
++ (MMServer *) serverWithNetService: (NSNetService*) netService
+{
+  return [[[MMServer alloc] initWithNetService: netService] autorelease];
+}
 
 - (id) initWithNetService: (NSNetService*) service
 {
@@ -37,16 +41,16 @@
 - (void) dealloc
 {
   NSLog(@"releasing server with name: %@ %@ %@", name, self, netService);
+//  self.netService = nil;
   self.library = nil;
   self.host = nil;
   self.name = nil;
+//  [self.netService stop];
+
   
-  [netService stop];
-  self.netService = nil;
   [super dealloc];
 }
 
-//@synthesize netService;
 @synthesize name;
 @synthesize port;
 @synthesize host;
@@ -67,16 +71,12 @@
     [name release];
   }
   name = [[[host componentsSeparatedByString:@".local"] objectAtIndex:0] retain];
+
 }
 
 - (NSString*) serverURL
 {
   return [NSString stringWithFormat:@"http://%@:%i", host, port];
-}
-
-- (void) stop
-{
-  [netService stop];
 }
 
 @end

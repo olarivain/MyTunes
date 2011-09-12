@@ -13,7 +13,7 @@
 #import "MMServer.h"
 
 @interface MMRequestDelegate()
-@property(nonatomic, readwrite, retain) MMServer *server;
+@property(nonatomic, readwrite, assign) MMServer *server;
 @end
 
 @implementation MMRequestDelegate

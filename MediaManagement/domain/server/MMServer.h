@@ -24,6 +24,8 @@
   NSDate *lastUpdate;
 }
 
++ (MMServer *) serverWithNetService: (NSNetService*) netService;
+
 - (id) initWithNetService: (NSNetService*) netService;
 
 @property (nonatomic, readonly, retain) NSNetService *netService;
@@ -36,6 +38,5 @@
 
 - (void) didResolve;
 - (NSString*) serverURL;
-- (void) stop;
 
 @end

@@ -17,7 +17,7 @@
   IBOutlet UILabel *label;
 }
 
-@property (readwrite, retain) MMServer* server;
+@property (nonatomic, readwrite, retain) MMServer* server;
 
 - (void) update;
 

@@ -59,8 +59,6 @@
     return;
   }
   
-  [newServer retain];
-  [server release];
   server = newServer;
   self.requestDelegate = [MMRequestDelegate delegateWithServer: server];
 }

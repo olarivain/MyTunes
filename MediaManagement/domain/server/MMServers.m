@@ -55,6 +55,11 @@
 
 - (void) startSearch
 {
+  if(didStartSearch)
+  {
+    return;
+  }
+  didStartSearch = YES;
   [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
@@ -90,8 +95,9 @@
   }
   NSLog(@"Found service.");
 
-  MMServer *server = [[[MMServer alloc] initWithNetService: aNetService] autorelease];
+  MMServer *server = [MMServer serverWithNetService: aNetService];
   [pendingServers addObject: server];
+  
   [aNetService setDelegate: self];
   [aNetService resolveWithTimeout:5];
 }
@@ -118,13 +124,13 @@
 - (void) netServiceDidResolveAddress:(NSNetService *)sender
 {
   NSLog(@"Did resolve service.");
-  MMServer *server = [self pendingServerWithNetService: sender];
-  [server didResolve];
 
+  MMServer *server = [self pendingServerWithNetService: sender];
   [servers addObject: server];
   [pendingServers removeObject: server];
+  
+  [server didResolve];
   [delegate didRefresh: self];
-  [sender setDelegate: nil];
 }
 
 - (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict

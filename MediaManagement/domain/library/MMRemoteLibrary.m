@@ -33,7 +33,7 @@
   if(self)
   {
     self.server = parent;
-    self.query = [[MMQuery alloc] initWithName: @"all" andPath:@"/library"];
+    self.query = [MMQuery queryWithName: @"all" andPath:@"/library"];
     query.server = server;
     self.systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
     self.userPlaylists = [NSMutableArray arrayWithCapacity: 10];

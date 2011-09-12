@@ -30,6 +30,29 @@
 
 @implementation MMHomeViewController
 
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+  self = [super initWithCoder: aDecoder];
+  if(self)
+  {
+    self.servers = [[[MMServers alloc] init] autorelease];
+    servers.delegate = self;
+  }
+  
+  return self;
+}
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+  self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
+  if(self)
+  {
+    self.servers = [[[MMServers alloc] init] autorelease];
+    servers.delegate = self;
+  }
+  return self;
+}
+
 - (void)dealloc
 {
   self.homeView = nil;
@@ -48,11 +71,7 @@
 }
 
 #pragma mark - View lifecycle
-- (void) awakeFromNib
-{
-  self.servers = [[[MMServers alloc] init] autorelease];
-  servers.delegate = self;
-}
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -86,7 +105,7 @@
   activityIndicator.hidden = !loading;
 }
 
-
+#pragma mark - Moving to next view controller
 - (MMLibraryViewController*) loadLibraryController
 {
   NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];

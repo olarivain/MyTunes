@@ -35,7 +35,7 @@ typedef void(^MMQueryCallback)(NSObject*);
 @property (nonatomic, readonly, retain) NSString *name;
 @property (nonatomic, readonly, retain) NSString *path;
 @property (nonatomic, readwrite, assign) MMServer *server;
-@property (nonatomic, readwrite, retain) MMPlaylist *library;
+@property (nonatomic, readwrite, assign) MMPlaylist *library;
 
 +(id) queryWithName: (NSString *) name andPath: (NSString*) path;
 -(id) initWithName: (NSString *) name andPath: (NSString*) path;
