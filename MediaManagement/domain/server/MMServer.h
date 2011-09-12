@@ -39,4 +39,6 @@
 - (void) didResolve;
 - (NSString*) serverURL;
 
+- (BOOL) hasSystemPlaylist;
+
 @end

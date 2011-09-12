@@ -56,6 +56,7 @@
 @synthesize library;
 @synthesize netService;
 
+#pragma mark - Bonjour resolution
 - (void) didResolve
 {
   port = [netService port];
@@ -73,9 +74,16 @@
 
 }
 
+#pragma mark - Synthetic getter
 - (NSString*) serverURL
 {
   return [NSString stringWithFormat:@"http://%@:%i", host, port];
+}
+
+#pragma mark - Playlist convenience
+- (BOOL) hasSystemPlaylist
+{
+  return [library.systemPlaylists count] > 0;
 }
 
 @end

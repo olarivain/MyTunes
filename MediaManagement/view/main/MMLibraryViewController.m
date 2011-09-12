@@ -28,7 +28,7 @@
   @throw [NSException exceptionWithName:@"IllegalOperationException" reason:@"MMLibraryViewController.editPressed: MUST be overriden by subclasses" userInfo: nil];
 }
 
-- (IBAction) selectedPlaylistContentType: (id) sender
+- (IBAction) didSelectPlaylistContentType: (id) sender
 {
   @throw [NSException exceptionWithName:@"IllegalOperationException" reason:@"MMLibraryViewController.selectedPlaylistContentType: MUST be overriden by subclasses" userInfo: nil];
 }

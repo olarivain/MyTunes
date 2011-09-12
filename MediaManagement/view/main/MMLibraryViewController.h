@@ -24,6 +24,6 @@
 @property (nonatomic, readwrite, retain) MMContentGroup *selectedContentGroup;
 
 - (IBAction) editPressed: (id) sender;
-- (IBAction) selectedPlaylistContentType: (id) sender;
+- (IBAction) didSelectPlaylistContentType: (id) sender;
 
 @end

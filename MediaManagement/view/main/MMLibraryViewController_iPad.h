@@ -26,6 +26,4 @@
 
 }
 
-- (IBAction) editPressed: (id) sender;
-
 @end

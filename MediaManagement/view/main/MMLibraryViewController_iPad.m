@@ -47,7 +47,6 @@
   [super dealloc];
 }
 
-
 @synthesize editButton;
 @synthesize contentController;
 @synthesize contentView;
@@ -58,14 +57,14 @@
 {
   // Releases the view if it doesn't have a superview.
   [super didReceiveMemoryWarning];
-  
-  // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
 - (void) viewDidLoad
 {
   [super viewDidLoad];
+  
+  // update title bar
   [[self navigationItem] setTitle: [server name]];
   
 }
@@ -82,8 +81,12 @@
 - (void) viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear: animated];
+  
+  // udpate right bar button item
   self.navigationItem.rightBarButtonItem = editButton;
-  if(selectedPlaylist == nil && [server.library.systemPlaylists count] > 0) {
+  
+  // auto select first item in system playlist if there is one available
+  if(selectedPlaylist == nil && [server hasSystemPlaylist]) {
     NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
     [playlistTable selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
     [self tableView: playlistTable didSelectRowAtIndexPath: path];
@@ -93,8 +96,8 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-  [super viewWillDisappear:animated];
   self.navigationItem.rightBarButtonItem = nil;
+  [super viewWillDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -107,7 +110,7 @@
 #pragma Convienence accessors
 - (NSArray*) playlistListForIndex: (NSInteger) index
 {
-  return  [self playlistListForIndexPath: [NSIndexPath indexPathForRow: 0 inSection: index]];
+  return [self playlistListForIndexPath: [NSIndexPath indexPathForRow: 0 inSection: index]];
 }
 
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath
@@ -159,39 +162,48 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 { 
+  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
   
   // tapped the same playlist again, give up
-  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
   if(playlist == selectedPlaylist)
   {
     return;
   }
+  
+  // retain current playlist
   self.selectedPlaylist = playlist;
   
+  // display visual feedback
   [contentView setLoading: TRUE];
   
-  [selectedPlaylist loadWithBlock:^(void) {
+  // refresh content on callback
+  MMPlaylistCallback callback = ^(void) {
     subcontentSelector.contentGroups = selectedPlaylist.contentGroups;
     
     [contentController refresh];
     [contentView setLoading: FALSE];
-  }];
+  };
+  
+  // load playlist
+  [selectedPlaylist loadWithBlock: callback];
 }
 
 #pragma mark - Action handlers
 - (IBAction) editPressed: (id) sender
 {
+  // grab a handle on the next view controller
   NSString *nibName = [NibUtils nibName: @"MMEditController"];
   MMEditController_iPad *editController = [[[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]] autorelease];
   editController.currentItem = contentController.selectedItem;
   editController.contentGroup = contentController.selectedContentGroup;
   editController.playlist = selectedPlaylist;
   
+  // and present it in a form sheet
   [editController setModalPresentationStyle: UIModalPresentationFormSheet];
   [self presentModalViewController:editController animated:TRUE];
 }
 
-- (IBAction) selectedPlaylistContentType: (id) sender
+- (IBAction) didSelectPlaylistContentType: (id) sender
 {
   self.selectedContentGroup = [subcontentSelector selectedContentGroup];
   contentController.selectedContentGroup = selectedContentGroup;
