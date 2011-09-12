@@ -40,14 +40,13 @@
 
 - (void) dealloc
 {
-  NSLog(@"releasing server with name: %@ %@ %@", name, self, netService);
-//  self.netService = nil;
+
   self.library = nil;
   self.host = nil;
   self.name = nil;
 //  [self.netService stop];
+//  self.netService = nil;
 
-  
   [super dealloc];
 }
 
