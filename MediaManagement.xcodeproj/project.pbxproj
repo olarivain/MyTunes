@@ -705,6 +705,9 @@
 /* Begin PBXProject section */
 		002A0AD81324549D00320A06 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 002A0ADB1324549D00320A06 /* Build configuration list for PBXProject "MediaManagement" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
