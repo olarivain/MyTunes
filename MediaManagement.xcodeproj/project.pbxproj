@@ -55,7 +55,6 @@
 		004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2D1380872500B9639B /* MMRemotePlaylist.m */; };
 		0051DD911395DA2700F9357C /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0051DD901395DA2700F9357C /* MMEditController_iPad.m */; };
 		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
-		00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */; };
 		00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA91681397215100594D18 /* MMTVShowEditController.m */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
@@ -179,7 +178,6 @@
 		006497A21372776E00F64641 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		006497A31372776E00F64641 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		006497A41372776E00F64641 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libmedia-management-common-arm.a"; sourceTree = SOURCE_ROOT; };
 		00AA91671397215100594D18 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTVShowEditController.h; path = show/MMTVShowEditController.h; sourceTree = "<group>"; };
 		00AA91681397215100594D18 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTVShowEditController.m; path = show/MMTVShowEditController.m; sourceTree = "<group>"; };
 		00AA916A1397218600594D18 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */,
 				002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */,
 				002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */,
-				00655C5413710F8A00E38887 /* libmedia-management-common-arm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				0064977B1372776E00F64641 /* JSONKit */,
-				00655C5313710F8A00E38887 /* libmedia-management-common-arm.a */,
 				002A0AE51324549D00320A06 /* UIKit.framework */,
 				002A0AE71324549D00320A06 /* Foundation.framework */,
 				002A0AE91324549D00320A06 /* CoreGraphics.framework */,
@@ -855,9 +851,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 				OTHER_CFLAGS = "-DDEBUG_NETWORK=1";
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+					"-lMediaManagement-iPhone",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 			};
 			name = Debug;
 		};
@@ -871,27 +874,34 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+					"-lMediaManagement-iPhone",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 			};
 			name = Release;
 		};
 		002A0B191324549D00320A06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				LIBRARY_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/";
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/Users/olarivain/Development/XCode\\ 4/MediaManagementCommon/MediaManagementCommon/**";
+				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -899,16 +909,16 @@
 		002A0B1A1324549D00320A06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				LIBRARY_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/";
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/Users/olarivain/Development/XCode\\ 4/MediaManagementCommon/MediaManagementCommon/**";
+				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
