@@ -9,19 +9,17 @@
 #import "MMRequestQueueItem.h"
 #import "MMRequestQueue.h"
 
-#import "JSONKit.h"
-
 @interface MMRequestQueueItem()
-@property (nonatomic, readwrite, assign) MMRequestQueue *queue;
-@property (nonatomic, readwrite, retain) NSURL *url;
-@property (nonatomic, readwrite, retain) NSURLConnection *connection;
-@property (nonatomic, readwrite, retain) NSURLResponse *response;
-@property (nonatomic, readwrite, retain) NSMutableData *responseData;
+@property (nonatomic, readwrite, weak) MMRequestQueue *queue;
+@property (nonatomic, readwrite, strong) NSURL *url;
+@property (nonatomic, readwrite, strong) NSURLConnection *connection;
+@property (nonatomic, readwrite, strong) NSURLResponse *response;
+@property (nonatomic, readwrite, strong) NSMutableData *responseData;
 @property (nonatomic, readwrite, copy) RequestCallback callback;
 @property (nonatomic, readwrite, assign) BOOL success;
-@property (nonatomic, readwrite, retain) NSError *error;
-@property (nonatomic, readwrite, retain) NSString *method;
-@property (nonatomic, readwrite, retain) NSData *requestData;
+@property (nonatomic, readwrite, strong) NSError *error;
+@property (nonatomic, readwrite, strong) NSString *method;
+@property (nonatomic, readwrite, strong) NSData *requestData;
 
 - (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback;
 - (NSHTTPURLResponse*) httpResponse;
@@ -36,7 +34,7 @@
 
 + (id) requestQueueItemWithQueue: (MMRequestQueue*) queue URL: (NSURL*) url method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback 
 {
-  return [[[MMRequestQueueItem alloc] initWithQueue: queue URL: url method: aMethod data: data andCallback: requestCallback] autorelease];
+  return [[MMRequestQueueItem alloc] initWithQueue: queue URL: url method: aMethod data: data andCallback: requestCallback];
 }
 
 - (id) initWithQueue: (MMRequestQueue*) downloadQueue URL: (NSURL*) downloadURL method: (NSString *) aMethod data: (NSData *) data andCallback:(RequestCallback) requestCallback 
@@ -57,17 +55,7 @@
 
 - (void) dealloc 
 {
-  self.url = nil;
-  self.requestData = nil;
-  self.callback = nil;
   self.queue = nil;
-  self.connection = nil;
-  self.responseData = nil;
-  self.error = nil;
-  self.response = nil;
-  self.method = nil;
-  self.cancellationKey = nil;
-  [super dealloc];
 }
 
 @synthesize url;
@@ -104,8 +92,7 @@
 #pragma mark - JSON converter
 - (NSObject*) jsonObject 
 {
-  JSONDecoder *decoder = [JSONDecoder decoderWithParseOptions: JKParseOptionLooseUnicode];
-  NSObject *object = [decoder objectWithData: responseData];
+  NSObject *object = [NSJSONSerialization JSONObjectWithData: responseData options: NSJSONReadingAllowFragments error: nil];
   return object;
 }
 

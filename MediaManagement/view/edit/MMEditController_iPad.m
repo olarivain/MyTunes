@@ -14,14 +14,14 @@
 #import "MMContentPlacholder.h"
 
 @interface MMEditController_iPad()
-@property (nonatomic, readwrite, retain)  MMContentPlacholder *contentPlaceholder;
-@property (nonatomic, readwrite, retain)  UITextField *nameField;
-@property (nonatomic, readwrite, retain)  UITextView *description;
-@property (nonatomic, readwrite, retain) id<MMContentEditController> showController;
-@property (nonatomic, readwrite, retain) id<MMContentEditController> musicController;
-@property (nonatomic, readwrite, retain) id<MMContentEditController> movieController;
-@property (nonatomic, readwrite, retain) UIButton *typeButton;
-@property (nonatomic, readwrite, retain) UIActionSheet *actionSheet;
+@property (nonatomic, readwrite, strong)  MMContentPlacholder *contentPlaceholder;
+@property (nonatomic, readwrite, strong)  UITextField *nameField;
+@property (nonatomic, readwrite, strong)  UITextView *description;
+@property (nonatomic, readwrite, strong) id<MMContentEditController> showController;
+@property (nonatomic, readwrite, strong) id<MMContentEditController> musicController;
+@property (nonatomic, readwrite, strong) id<MMContentEditController> movieController;
+@property (nonatomic, readwrite, strong) UIButton *typeButton;
+@property (nonatomic, readwrite, strong) UIActionSheet *actionSheet;
 
 - (id<MMContentEditController>) editControllerForCurrentItem;
 - (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind;
@@ -30,18 +30,6 @@
 
 @implementation MMEditController_iPad
 
-- (void) dealloc
-{
-  self.contentPlaceholder = nil;
-  self.nameField = nil;
-  self.description = nil;
-  self.showController = nil;
-  self.musicController = nil;
-  self.movieController = nil;
-  self.actionSheet = nil;
-  self.typeButton = nil;
-  [super dealloc];
-}
 
 @synthesize contentPlaceholder;
 @synthesize nameField;
@@ -175,7 +163,7 @@
   }
   
   // otherwise, create a new one
-  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil] autorelease];
+  self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil];
 
   [actionSheet addButtonWithTitle:@"Music"];
   [actionSheet addButtonWithTitle:@"Movie"];

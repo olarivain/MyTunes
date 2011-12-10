@@ -10,16 +10,11 @@
 #import "NSString+Converteer.h"
 
 @interface MMFieldView()
-@property (nonatomic, readwrite, retain) UITextField *textView;
+@property (nonatomic, readwrite, strong) UITextField *textView;
 @end
 
 @implementation MMFieldView
 
-- (void) dealloc 
-{
-  self.textView = nil;
-  [super dealloc];
-}
 
 @synthesize textView;
 

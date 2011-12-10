@@ -14,20 +14,11 @@
 
 
 @interface MMPlaylistTableViewController()
-@property (nonatomic, readwrite, retain) MMContent *selectedItem;
 @end
 
 @implementation MMPlaylistTableViewController
 
-- (void)dealloc
-{
-  self.selectedContentGroup = nil;
-  self.table = nil;
-  self.selectedItem = nil;
-  [super dealloc];
-}
 
-@synthesize table;
 @synthesize selectedContentGroup;
 @synthesize selectedItem;
 
@@ -67,7 +58,7 @@
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil) {
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
   
   MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];

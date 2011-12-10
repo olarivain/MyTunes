@@ -43,9 +43,7 @@
   self.netServiceBrowser = nil;
   
   self.pendingServers = nil;
-  self.servers = nil;
   self.delegate = nil;
-  [self dealloc];
 }
 
 @synthesize servers;

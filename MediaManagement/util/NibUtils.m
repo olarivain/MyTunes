@@ -25,7 +25,6 @@ static NSString *deviceSuffix;
   if(deviceSuffix == nil)
   {
     deviceSuffix =   UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? @"_iPad"  : @"_iPhone";
-    [deviceSuffix retain];
   }
   
   return deviceSuffix;

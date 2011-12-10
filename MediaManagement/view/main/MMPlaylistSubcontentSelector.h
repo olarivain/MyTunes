@@ -16,8 +16,8 @@
   IBOutlet UISegmentedControl *segmentedControl;
 }
 
-@property (nonatomic, readwrite, retain) NSArray *contentGroups;
-@property (nonatomic, readwrite, retain) UISegmentedControl *segmentedControl;
+@property (nonatomic, readwrite, strong) NSArray *contentGroups;
+@property (nonatomic, readwrite, strong) UISegmentedControl *segmentedControl;
 
 - (MMContentGroup*) selectedContentGroup;
 

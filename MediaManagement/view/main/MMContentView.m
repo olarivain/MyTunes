@@ -12,18 +12,12 @@
 
 
 @interface MMContentView()
-@property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, readwrite, retain) UIView *loadingLayer;
+@property (nonatomic, readwrite, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, readwrite, strong) UIView *loadingLayer;
 @end
 
 @implementation MMContentView
 
-- (void)dealloc
-{
-  self.loadingLayer = nil;
-  self.activityIndicator = nil;
-  [super dealloc];
-}
 
 @synthesize loadingLayer;
 @synthesize activityIndicator;

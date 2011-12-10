@@ -54,7 +54,6 @@
 		004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2A1380872500B9639B /* MMRemoteLibrary.m */; };
 		004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2D1380872500B9639B /* MMRemotePlaylist.m */; };
 		0051DD911395DA2700F9357C /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0051DD901395DA2700F9357C /* MMEditController_iPad.m */; };
-		006497BC1372776E00F64641 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006497A31372776E00F64641 /* JSONKit.m */; };
 		00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA91681397215100594D18 /* MMTVShowEditController.m */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
@@ -152,32 +151,6 @@
 		004BBE2D1380872500B9639B /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
 		0051DD8F1395DA2700F9357C /* MMEditController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController_iPad.h; sourceTree = "<group>"; };
 		0051DD901395DA2700F9357C /* MMEditController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController_iPad.m; sourceTree = "<group>"; };
-		0064977E1372776E00F64641 /* config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config; sourceTree = "<group>"; };
-		0064977F1372776E00F64641 /* description */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description; sourceTree = "<group>"; };
-		006497801372776E00F64641 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		006497821372776E00F64641 /* applypatch-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "applypatch-msg.sample"; sourceTree = "<group>"; };
-		006497831372776E00F64641 /* commit-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "commit-msg.sample"; sourceTree = "<group>"; };
-		006497841372776E00F64641 /* post-commit.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "post-commit.sample"; sourceTree = "<group>"; };
-		006497851372776E00F64641 /* post-receive.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "post-receive.sample"; sourceTree = "<group>"; };
-		006497861372776E00F64641 /* post-update.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "post-update.sample"; sourceTree = "<group>"; };
-		006497871372776E00F64641 /* pre-applypatch.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-applypatch.sample"; sourceTree = "<group>"; };
-		006497881372776E00F64641 /* pre-commit.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-commit.sample"; sourceTree = "<group>"; };
-		006497891372776E00F64641 /* pre-rebase.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-rebase.sample"; sourceTree = "<group>"; };
-		0064978A1372776E00F64641 /* prepare-commit-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "prepare-commit-msg.sample"; sourceTree = "<group>"; };
-		0064978B1372776E00F64641 /* update.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update.sample; sourceTree = "<group>"; };
-		0064978C1372776E00F64641 /* index */ = {isa = PBXFileReference; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
-		0064978E1372776E00F64641 /* exclude */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exclude; sourceTree = "<group>"; };
-		006497901372776E00F64641 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		006497931372776E00F64641 /* master */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = master; sourceTree = "<group>"; };
-		006497971372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.idx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pack-96df0815924ed1af10e09d586561151a14db0564.idx"; sourceTree = "<group>"; };
-		006497981372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.pack */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pack-96df0815924ed1af10e09d586561151a14db0564.pack"; sourceTree = "<group>"; };
-		006497991372776E00F64641 /* packed-refs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "packed-refs"; sourceTree = "<group>"; };
-		0064979C1372776E00F64641 /* master */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = master; sourceTree = "<group>"; };
-		0064979F1372776E00F64641 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		006497A11372776E00F64641 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
-		006497A21372776E00F64641 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		006497A31372776E00F64641 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		006497A41372776E00F64641 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		00AA91671397215100594D18 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTVShowEditController.h; path = show/MMTVShowEditController.h; sourceTree = "<group>"; };
 		00AA91681397215100594D18 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTVShowEditController.m; path = show/MMTVShowEditController.m; sourceTree = "<group>"; };
 		00AA916A1397218600594D18 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
@@ -244,7 +217,6 @@
 		002A0AE41324549D00320A06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0064977B1372776E00F64641 /* JSONKit */,
 				002A0AE51324549D00320A06 /* UIKit.framework */,
 				002A0AE71324549D00320A06 /* Foundation.framework */,
 				002A0AE91324549D00320A06 /* CoreGraphics.framework */,
@@ -480,160 +452,6 @@
 			path = playlist;
 			sourceTree = "<group>";
 		};
-		0064977B1372776E00F64641 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				0064977C1372776E00F64641 /* .git */,
-				006497A11372776E00F64641 /* CHANGELOG.md */,
-				006497A21372776E00F64641 /* JSONKit.h */,
-				006497A31372776E00F64641 /* JSONKit.m */,
-				006497A41372776E00F64641 /* README.md */,
-			);
-			name = JSONKit;
-			path = libraries/JSONKit;
-			sourceTree = "<group>";
-		};
-		0064977C1372776E00F64641 /* .git */ = {
-			isa = PBXGroup;
-			children = (
-				0064977D1372776E00F64641 /* branches */,
-				0064977E1372776E00F64641 /* config */,
-				0064977F1372776E00F64641 /* description */,
-				006497801372776E00F64641 /* HEAD */,
-				006497811372776E00F64641 /* hooks */,
-				0064978C1372776E00F64641 /* index */,
-				0064978D1372776E00F64641 /* info */,
-				0064978F1372776E00F64641 /* logs */,
-				006497941372776E00F64641 /* objects */,
-				006497991372776E00F64641 /* packed-refs */,
-				0064979A1372776E00F64641 /* refs */,
-			);
-			path = .git;
-			sourceTree = "<group>";
-		};
-		0064977D1372776E00F64641 /* branches */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = branches;
-			sourceTree = "<group>";
-		};
-		006497811372776E00F64641 /* hooks */ = {
-			isa = PBXGroup;
-			children = (
-				006497821372776E00F64641 /* applypatch-msg.sample */,
-				006497831372776E00F64641 /* commit-msg.sample */,
-				006497841372776E00F64641 /* post-commit.sample */,
-				006497851372776E00F64641 /* post-receive.sample */,
-				006497861372776E00F64641 /* post-update.sample */,
-				006497871372776E00F64641 /* pre-applypatch.sample */,
-				006497881372776E00F64641 /* pre-commit.sample */,
-				006497891372776E00F64641 /* pre-rebase.sample */,
-				0064978A1372776E00F64641 /* prepare-commit-msg.sample */,
-				0064978B1372776E00F64641 /* update.sample */,
-			);
-			path = hooks;
-			sourceTree = "<group>";
-		};
-		0064978D1372776E00F64641 /* info */ = {
-			isa = PBXGroup;
-			children = (
-				0064978E1372776E00F64641 /* exclude */,
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		0064978F1372776E00F64641 /* logs */ = {
-			isa = PBXGroup;
-			children = (
-				006497901372776E00F64641 /* HEAD */,
-				006497911372776E00F64641 /* refs */,
-			);
-			path = logs;
-			sourceTree = "<group>";
-		};
-		006497911372776E00F64641 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				006497921372776E00F64641 /* heads */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		006497921372776E00F64641 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-				006497931372776E00F64641 /* master */,
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		006497941372776E00F64641 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				006497951372776E00F64641 /* info */,
-				006497961372776E00F64641 /* pack */,
-			);
-			path = objects;
-			sourceTree = "<group>";
-		};
-		006497951372776E00F64641 /* info */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		006497961372776E00F64641 /* pack */ = {
-			isa = PBXGroup;
-			children = (
-				006497971372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.idx */,
-				006497981372776E00F64641 /* pack-96df0815924ed1af10e09d586561151a14db0564.pack */,
-			);
-			path = pack;
-			sourceTree = "<group>";
-		};
-		0064979A1372776E00F64641 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				0064979B1372776E00F64641 /* heads */,
-				0064979D1372776E00F64641 /* remotes */,
-				006497A01372776E00F64641 /* tags */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		0064979B1372776E00F64641 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-				0064979C1372776E00F64641 /* master */,
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		0064979D1372776E00F64641 /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				0064979E1372776E00F64641 /* origin */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		0064979E1372776E00F64641 /* origin */ = {
-			isa = PBXGroup;
-			children = (
-				0064979F1372776E00F64641 /* HEAD */,
-			);
-			path = origin;
-			sourceTree = "<group>";
-		};
-		006497A01372776E00F64641 /* tags */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tags;
-			sourceTree = "<group>";
-		};
 		0085794513C262A500EC007F /* request */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,7 +605,6 @@
 				003CDEEA132BFCDF00D295A2 /* MMLibraryViewController_iPad.m in Sources */,
 				003CDEEC132BFCDF00D295A2 /* MMLibraryViewController_iPhone.m in Sources */,
 				003CDEEF132BFCDF00D295A2 /* MMServerView.m in Sources */,
-				006497BC1372776E00F64641 /* JSONKit.m in Sources */,
 				00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */,
 				00CCAF2A1380790C00762299 /* MMContentView.m in Sources */,
 				00CCAF3C1380805F00762299 /* MMLibraryViewController.m in Sources */,
@@ -841,7 +658,9 @@
 		002A0B161324549D00320A06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -850,7 +669,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 				OTHER_CFLAGS = "-DDEBUG_NETWORK=1";
 				OTHER_LDFLAGS = (
@@ -858,6 +677,7 @@
 					"-all_load",
 					"-lMediaManagement-iPhone",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
@@ -867,13 +687,15 @@
 		002A0B171324549D00320A06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
@@ -881,6 +703,7 @@
 					"-all_load",
 					"-lMediaManagement-iPhone",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
@@ -891,6 +714,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -898,7 +723,7 @@
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
@@ -910,12 +735,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = "MediaManagement/MediaManagement-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
@@ -930,6 +757,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MediaManagement.app/MediaManagement";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -953,6 +781,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MediaManagement.app/MediaManagement";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",

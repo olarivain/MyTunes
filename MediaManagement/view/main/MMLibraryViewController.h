@@ -19,9 +19,9 @@
   MMServer *server;
 }
 
-@property (nonatomic, readwrite, retain) MMServer *server;
-@property (nonatomic, readwrite, retain) MMPlaylist *selectedPlaylist;
-@property (nonatomic, readwrite, retain) MMContentGroup *selectedContentGroup;
+@property (nonatomic, readwrite, strong) MMServer *server;
+@property (nonatomic, readwrite, strong) MMPlaylist *selectedPlaylist;
+@property (nonatomic, readwrite, strong) MMContentGroup *selectedContentGroup;
 
 - (IBAction) editPressed: (id) sender;
 - (IBAction) didSelectPlaylistContentType: (id) sender;

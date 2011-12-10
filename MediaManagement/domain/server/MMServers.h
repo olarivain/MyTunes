@@ -23,12 +23,12 @@
   NSNetServiceBrowser *netServiceBrowser;
   NSMutableArray *servers;
   NSMutableArray *pendingServers;
-  id<MMServersDelegate> delegate;
+  id<MMServersDelegate> __unsafe_unretained delegate;
   BOOL didStartSearch;
 }
 
-@property (nonatomic, readonly, retain) NSArray *servers;
-@property (nonatomic, readwrite, assign) id<MMServersDelegate> delegate;
+@property (nonatomic, readonly, strong) NSArray *servers;
+@property (nonatomic, readwrite, unsafe_unretained) id<MMServersDelegate> delegate;
 
 - (void) startSearch;
 

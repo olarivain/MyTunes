@@ -14,17 +14,14 @@
 #import "MMQuery.h"
 
 @interface MMRemoteLibrary()
-@property (nonatomic, readwrite, retain) MMQuery *query;
 @property (nonatomic, readwrite, assign) MMServer *server;
-@property (nonatomic, readwrite, retain) NSArray *systemPlaylists;
-@property (nonatomic, readwrite, retain) NSArray *userPlaylists;
 @end
 
 @implementation MMRemoteLibrary
 
 + (id) libraryWithServer: (MMServer*) server
 {
-  return  [[[MMRemoteLibrary alloc] initWithServer: server] autorelease];
+  return  [[MMRemoteLibrary alloc] initWithServer: server];
 }
 
 - (id) initWithServer: (MMServer*) parent 
@@ -33,22 +30,18 @@
   if(self)
   {
     self.server = parent;
-    self.query = [MMQuery queryWithName: @"all" andPath:@"/library"];
+    query = [MMQuery queryWithName: @"all" andPath:@"/library"];
     query.server = server;
-    self.systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
-    self.userPlaylists = [NSMutableArray arrayWithCapacity: 10];
+    systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
+    userPlaylists = [NSMutableArray arrayWithCapacity: 10];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  self.query = nil;
   self.server = nil;
-  self.systemPlaylists = nil;
-  self.userPlaylists = nil;
 
-  [super dealloc];
 }
 
 @synthesize server;

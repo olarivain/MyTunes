@@ -15,10 +15,10 @@
 typedef void(^MMEditControllerCallback)(void);
 
 @interface MMEditController()
-@property (nonatomic, readwrite, retain) NSArray *contentList;
-@property (nonatomic, readwrite, retain) UIBarButtonItem *next;
-@property (nonatomic, readwrite, retain) UIBarButtonItem *previous;
-@property (nonatomic, readwrite, retain) MMLoadingView *loadingView;
+@property (nonatomic, readwrite, strong) NSArray *contentList;
+@property (nonatomic, readwrite, strong) UIBarButtonItem *next;
+@property (nonatomic, readwrite, strong) UIBarButtonItem *previous;
+@property (nonatomic, readwrite, strong) MMLoadingView *loadingView;
 
 - (void) saveWithBlock: (MMEditControllerCallback) block;
 
@@ -35,18 +35,6 @@ typedef void(^MMEditControllerCallback)(void);
     return self;
 }
 
-- (void)dealloc
-{
-  self.contentList = nil;
-  self.contentGroup = nil;
-  self.currentItem= nil;
-  self.playlist = nil;
-  self.next = nil;
-  self.previous = nil;
-  self.loadingView = nil;
-  
-  [super dealloc];
-}
 
 @synthesize playlist;
 @synthesize contentGroup;
@@ -55,6 +43,7 @@ typedef void(^MMEditControllerCallback)(void);
 @synthesize next;
 @synthesize previous;
 @synthesize loadingView;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -93,7 +82,7 @@ typedef void(^MMEditControllerCallback)(void);
 #pragma mark - Dismissal
 - (void) dismiss
 {
-  [[self parentViewController] dismissModalViewControllerAnimated:TRUE];
+  [self.presentingViewController dismissModalViewControllerAnimated:TRUE];
 }
 
 - (IBAction) save: (id) sender
@@ -118,6 +107,7 @@ typedef void(^MMEditControllerCallback)(void);
   
   // remove loading view and process callback
   MMPlaylistCallback saveBlock = ^{
+    [delegate didEditContent: currentItem];
     [loadingView setLoading: NO];
     block();
   };

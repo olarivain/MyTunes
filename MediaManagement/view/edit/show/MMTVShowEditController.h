@@ -19,7 +19,7 @@
   IBOutlet MMFieldView *showField;
   IBOutlet MMFieldView *seasonField;
   
-  MMContent *content;
+  MMContent *__strong content;
 }
 
 @end

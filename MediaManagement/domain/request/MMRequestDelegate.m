@@ -6,19 +6,18 @@
 //  Copyright 2011 Kra. All rights reserved.
 //
 
-#import "JSONKit.h"
 #import "MMRequestDelegate.h"
 
 #import "MMRequestQueueItem.h"
 #import "MMServer.h"
 
 @interface MMRequestDelegate()
-@property(nonatomic, readwrite, assign) MMServer *server;
+@property(nonatomic, readwrite, weak) MMServer *server;
 @end
 
 @implementation MMRequestDelegate
 + (id) delegateWithServer: (MMServer *) baseServer {
-  return [[[MMRequestDelegate alloc] initWithServer: baseServer] autorelease];
+  return [[MMRequestDelegate alloc] initWithServer: baseServer];
 }
 
 - (id) initWithServer: (MMServer *) base {
@@ -31,7 +30,6 @@
 
 - (void) dealloc {
   self.server = nil;
-  [super dealloc];
 }
 
 @synthesize server;
@@ -86,7 +84,7 @@
     } 
   }
   else {
-    data = [params JSONData];
+    data = [NSJSONSerialization dataWithJSONObject: params options:NSJSONReadingAllowFragments error: nil];
   }
 
   // and schedule the guy

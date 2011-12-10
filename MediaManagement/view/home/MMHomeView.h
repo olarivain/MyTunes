@@ -16,10 +16,10 @@
   NSArray *servers;
   NSMutableArray *serverViews;
   
-  IBOutlet MMServerView *serverView;
+  IBOutlet MMServerView *__weak serverView;
 }
 
-@property (nonatomic, readwrite, retain) NSArray *servers;
-@property (nonatomic, readonly, retain) NSArray *serverViews;
+@property (nonatomic, readwrite, strong) NSArray *servers;
+@property (nonatomic, readonly, strong) NSArray *serverViews;
 
 @end

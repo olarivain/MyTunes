@@ -11,17 +11,11 @@
 #import "MMServer.h"
 
 @interface MMServerView()
-@property (nonatomic, readwrite, retain) UILabel *label;
+@property (nonatomic, readwrite, strong) UILabel *label;
 @end
 
 @implementation MMServerView
 
-- (void)dealloc
-{
-  self.server = nil;
-  self.label = nil;
-  [super dealloc];
-}
 
 @synthesize server;
 @synthesize label;

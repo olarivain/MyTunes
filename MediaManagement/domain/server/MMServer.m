@@ -14,17 +14,12 @@
 #import "MMQuery.h"
 
 @interface MMServer()
-@property (nonatomic, readwrite, retain) NSNetService *netService;
-@property (nonatomic, readwrite, assign) int port;
-@property (nonatomic, readwrite, retain) NSString *host;
-@property (nonatomic, readwrite, retain) NSString *name;
-@property (nonatomic, readwrite, retain) MMRemoteLibrary *library;
 @end
 
 @implementation MMServer
 + (MMServer *) serverWithNetService: (NSNetService*) netService
 {
-  return [[[MMServer alloc] initWithNetService: netService] autorelease];
+  return [[MMServer alloc] initWithNetService: netService];
 }
 
 - (id) initWithNetService: (NSNetService*) service
@@ -32,23 +27,12 @@
   self = [super init];
   if(self)
   {
-    self.netService = service;
-    self.library = [MMRemoteLibrary libraryWithServer: self];
+    netService = service;
+    library = [MMRemoteLibrary libraryWithServer: self];
   }
   return self;
 }
 
-- (void) dealloc
-{
-
-  self.library = nil;
-  self.host = nil;
-  self.name = nil;
-//  [self.netService stop];
-//  self.netService = nil;
-
-  [super dealloc];
-}
 
 @synthesize name;
 @synthesize port;
@@ -60,17 +44,9 @@
 - (void) didResolve
 {
   port = [netService port];
-  if(host)
-  {
-    [host release];
-  }
   
   host = [netService hostName];
-  if(name)
-  {
-    [name release];
-  }
-  name = [[[host componentsSeparatedByString:@".local"] objectAtIndex:0] retain];
+  name = [[host componentsSeparatedByString:@".local"] objectAtIndex:0];
 
 }
 

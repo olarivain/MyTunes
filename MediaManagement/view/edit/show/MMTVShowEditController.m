@@ -14,10 +14,10 @@
 
 @interface MMTVShowEditController()
 
-@property (nonatomic, readwrite, retain)  UIView *editView;
-@property (nonatomic, readwrite, retain)  MMFieldView *episodeField;
-@property (nonatomic, readwrite, retain)  MMFieldView *showField;
-@property (nonatomic, readwrite, retain)  MMFieldView *seasonField;
+@property (nonatomic, readwrite, strong)  UIView *editView;
+@property (nonatomic, readwrite, strong)  MMFieldView *episodeField;
+@property (nonatomic, readwrite, strong)  MMFieldView *showField;
+@property (nonatomic, readwrite, strong)  MMFieldView *seasonField;
 
 @end
 
@@ -25,12 +25,7 @@
 
 - (void) dealloc
 {
-  self.editView = nil;
-  self.episodeField = nil;
-  self.showField = nil;
-  self.seasonField = nil;
-  self.content = nil;
-  [super dealloc];
+  content = nil;
 }
 
 @synthesize editView;
@@ -44,8 +39,7 @@
     return;
   }
   
-  [content release];
-  content = [newContent retain];
+  content = newContent;
   
   [showField setValue: content.show];
   [episodeField setValue: content.episodeNumber];

@@ -8,6 +8,7 @@
 
 #import "MMLibraryViewController_iPhone.h"
 #import "MMEditController.h"
+#import "MMServer.h"
 
 @implementation MMLibraryViewController_iPhone
 
@@ -20,10 +21,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,9 +73,7 @@
     return;
   }
   
-  [newServer retain];
-  [server release];
-  server = newServer;
+   server = newServer;
   
   [[self navigationItem] setTitle: [server name]];
 }

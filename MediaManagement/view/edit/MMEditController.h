@@ -13,6 +13,12 @@
 @class MMPlaylist;
 @class MMLoadingView;
 
+@protocol MMEditControllerDelegate <NSObject>
+
+- (void) didEditContent: (MMContent *) item;
+
+@end
+
 @interface MMEditController : UIViewController 
 {
   MMPlaylist *playlist;
@@ -24,13 +30,15 @@
   IBOutlet UIBarButtonItem *next;
   IBOutlet UIBarButtonItem *previous;
   IBOutlet MMLoadingView *loadingView;
+  IBOutlet __weak id<MMEditControllerDelegate> delegate;
   
   MMContentKind currentKind;
 }
 
-@property (nonatomic, readwrite, retain) MMPlaylist *playlist;
-@property (nonatomic, readwrite, retain) MMContentGroup *contentGroup;
-@property (nonatomic, readwrite, retain) MMContent *currentItem;
+@property (nonatomic, readwrite, strong) MMPlaylist *playlist;
+@property (nonatomic, readwrite, strong) MMContentGroup *contentGroup;
+@property (nonatomic, readwrite, strong) MMContent *currentItem;
+@property (nonatomic, readwrite, weak) id<MMEditControllerDelegate> delegate;
 
 - (IBAction) save: (id) sender;
 - (IBAction) cancel: (id) sender;

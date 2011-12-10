@@ -10,24 +10,18 @@
 #import "MMFieldView.h"
 
 @interface MMMusicEditController()
-@property (nonatomic, readwrite, retain) UIView *editView;
-@property (nonatomic, readwrite, retain) MMFieldView *artistField;
-@property (nonatomic, readwrite, retain) MMFieldView *albumField;
-@property (nonatomic, readwrite, retain) MMFieldView *trackNumberField;
-@property (nonatomic, readwrite, retain) MMFieldView *genreField;
+@property (nonatomic, readwrite, strong) UIView *editView;
+@property (nonatomic, readwrite, strong) MMFieldView *artistField;
+@property (nonatomic, readwrite, strong) MMFieldView *albumField;
+@property (nonatomic, readwrite, strong) MMFieldView *trackNumberField;
+@property (nonatomic, readwrite, strong) MMFieldView *genreField;
 @end
 
 @implementation MMMusicEditController
 
 - (void) dealloc
 {
-  self.editView = nil;
-  self.artistField = nil;
-  self.albumField = nil;
-  self.trackNumberField = nil;
-  self.genreField = nil;
-  self.content = nil;
-  [super dealloc];
+  content = nil;
 }
 
 @synthesize editView;
@@ -42,8 +36,7 @@
     return;
   }
   
-  [content release];
-  content = [newContent retain];
+  content = newContent;
   
   [albumField setValue: content.album];
   [artistField setValue: content.artist];

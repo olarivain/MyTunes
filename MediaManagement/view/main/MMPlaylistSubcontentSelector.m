@@ -13,9 +13,7 @@
 
 - (void)dealloc
 {
-  self.segmentedControl = nil;
   self.contentGroups = nil;
-  [super dealloc];
 }
 
 @synthesize contentGroups;
@@ -28,8 +26,7 @@
     return;
   }
   
-  [contentGroups release];
-  contentGroups = [contentTypes retain];
+  contentGroups = contentTypes;
   
   [segmentedControl removeAllSegments];
   segmentedControl.hidden = NO;

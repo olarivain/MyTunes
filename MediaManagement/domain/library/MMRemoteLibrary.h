@@ -21,16 +21,16 @@ typedef void(^MMRemoteLibraryCallback)(void);
 @interface MMRemoteLibrary : MMLibrary 
 {
   MMQuery *query;
-  MMServer *server;
+  MMServer *__unsafe_unretained server;
   
   NSMutableArray *systemPlaylists;
   NSMutableArray *userPlaylists;
 }
 
-@property (nonatomic, readonly, retain) MMQuery *query;
-@property (nonatomic, readonly, assign) MMServer *server;
-@property (nonatomic, readonly, retain) NSArray *systemPlaylists;
-@property (nonatomic, readonly, retain) NSArray *userPlaylists;
+@property (nonatomic, readonly, strong) MMQuery *query;
+@property (nonatomic, readonly, unsafe_unretained) MMServer *server;
+@property (nonatomic, readonly, strong) NSArray *systemPlaylists;
+@property (nonatomic, readonly, strong) NSArray *userPlaylists;
 
 + (id) libraryWithServer: (MMServer*) server;
 - (id) initWithServer: (MMServer*) server;

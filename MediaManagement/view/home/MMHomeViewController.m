@@ -22,9 +22,9 @@
 #import "MMLibraryViewController_iPhone.h"
 
 @interface MMHomeViewController()
-@property (nonatomic, readwrite, retain) MMHomeView *homeView;
-@property (nonatomic, readwrite, retain) UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, readwrite, retain) MMServers *servers;
+@property (nonatomic, readwrite, strong) MMHomeView *homeView;
+@property (nonatomic, readwrite, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, readwrite, strong) MMServers *servers;
 - (void) setLoading: (BOOL) loading;
 @end
 
@@ -35,7 +35,7 @@
   self = [super initWithCoder: aDecoder];
   if(self)
   {
-    self.servers = [[[MMServers alloc] init] autorelease];
+    self.servers = [[MMServers alloc] init];
     servers.delegate = self;
   }
   
@@ -47,19 +47,12 @@
   self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
   if(self)
   {
-    self.servers = [[[MMServers alloc] init] autorelease];
+    self.servers = [[MMServers alloc] init];
     servers.delegate = self;
   }
   return self;
 }
 
-- (void)dealloc
-{
-  self.homeView = nil;
-  self.activityIndicator = nil;
-  self.servers = nil;
-  [super dealloc];
-}
 
 @synthesize activityIndicator;
 @synthesize homeView;
@@ -111,10 +104,10 @@
   NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
   if([NibUtils isiPad])
   {
-    return [[[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]] autorelease];
+    return [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
   }
 
-  return [[[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]] autorelease];
+  return [[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
 }
 
 - (IBAction) serverSelected:(id)sender

@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "MMLibraryViewController.h"
 
+#import "MMEditController.h"
+
 @class CategoriesTableViewController;
 @class MMPlaylistTableViewController;
 @class MMContentView;
 @class MMPlaylistSubcontentSelector;
 @class MMPlaylist;
-@interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource>
+
+@interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource, MMEditControllerDelegate>
 {
   IBOutlet UITableView *playlistTable;
   

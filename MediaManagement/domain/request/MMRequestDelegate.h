@@ -18,7 +18,7 @@
  Not sure this class is that useful actually, should most likely remove it in favor of direct calls to RequestQueue API.
  */
 @interface MMRequestDelegate : NSObject {
-    MMServer *server;
+    MMServer *__weak server;
 }
 
 + (id) delegateWithServer: (MMServer *) baseServer;

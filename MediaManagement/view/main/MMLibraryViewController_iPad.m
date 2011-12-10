@@ -23,11 +23,11 @@
 
 @interface MMLibraryViewController_iPad()
 
-@property (nonatomic, readwrite, retain) UIBarButtonItem *editButton;
-@property (nonatomic, readwrite, retain) MMPlaylistTableViewController *contentController;
-@property (nonatomic, readwrite, retain) MMContentView *contentView;
-@property (nonatomic, readwrite, retain) MMPlaylistSubcontentSelector *subcontentSelector;
-@property (nonatomic, readwrite, retain) UITableView *playlistTable;
+@property (nonatomic, readwrite, strong) UIBarButtonItem *editButton;
+@property (nonatomic, readwrite, strong) MMPlaylistTableViewController *contentController;
+@property (nonatomic, readwrite, strong) MMContentView *contentView;
+@property (nonatomic, readwrite, strong) MMPlaylistSubcontentSelector *subcontentSelector;
+@property (nonatomic, readwrite, strong) UITableView *playlistTable;
 
 - (NSArray*) playlistListForIndex: (NSInteger) index;
 - (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
@@ -38,13 +38,7 @@
 
 - (void) dealloc
 {
-  self.editButton = nil;
-  self.contentController = nil;
-  self.contentView = nil;
-  self.subcontentSelector = nil;
   self.selectedPlaylist = nil;
-  self.playlistTable = nil;
-  [super dealloc];
 }
 
 @synthesize editButton;
@@ -148,7 +142,7 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId] autorelease];
+    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
   }
   
   cell.textLabel.text = playlist.name;
@@ -180,6 +174,7 @@
   MMPlaylistCallback callback = ^(void) {
     subcontentSelector.contentGroups = selectedPlaylist.contentGroups;
     
+    contentController.selectedContentGroup = subcontentSelector.selectedContentGroup;
     [contentController refresh];
     [contentView setLoading: FALSE];
   };
@@ -188,15 +183,21 @@
   [selectedPlaylist loadWithBlock: callback];
 }
 
+#pragma mark - edit controller delegate
+- (void) didEditContent:(MMContent *)item {
+  [contentController refresh];
+}
+
 #pragma mark - Action handlers
 - (IBAction) editPressed: (id) sender
 {
   // grab a handle on the next view controller
   NSString *nibName = [NibUtils nibName: @"MMEditController"];
-  MMEditController_iPad *editController = [[[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]] autorelease];
+  MMEditController_iPad *editController = [[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
   editController.currentItem = contentController.selectedItem;
   editController.contentGroup = contentController.selectedContentGroup;
   editController.playlist = selectedPlaylist;
+  editController.delegate = self;
   
   // and present it in a form sheet
   [editController setModalPresentationStyle: UIModalPresentationFormSheet];

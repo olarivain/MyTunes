@@ -9,16 +9,11 @@
 #import "MMContentPlacholder.h"
 
 @interface MMContentPlacholder()
-@property (nonatomic, readwrite, retain) UIView *contentEditView;
+@property (nonatomic, readwrite, strong) UIView *contentEditView;
 @end
 
 @implementation MMContentPlacholder
 
-- (void)dealloc
-{
-  self.contentEditView = nil;
-  [super dealloc];
-}
 
 @synthesize contentEditView;
 
@@ -29,9 +24,8 @@
   }
   
   [contentEditView removeFromSuperview];
-  [contentEditView release];
   
-  contentEditView = [editView retain];
+  contentEditView = editView;
   [self addSubview: contentEditView];
   
   CGRect frame = contentEditView.frame;

@@ -15,8 +15,7 @@
 
 @interface MMHomeView()
 
-@property (nonatomic, readwrite, retain) NSArray *serverViews;
-@property (nonatomic, readwrite, assign) MMServerView *serverView;
+@property (nonatomic, readwrite, weak) MMServerView *serverView;
 
 - (void) removeLastServerIcons: (int) count;
 - (void) addServerView: (int) count;
@@ -31,7 +30,7 @@
   self = [super initWithCoder: aDecoder];
   if(self)
   {
-    self.serverViews = [NSMutableArray array];
+    serverViews = [NSMutableArray array];
   }
   return self;
 }
@@ -41,18 +40,16 @@
     self = [super initWithFrame:frame];
     if (self) 
     {
-      self.serverViews = [NSMutableArray array];
+      serverViews = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)dealloc
 {
-  self.servers = nil;
-  self.serverView = nil;
-  self.serverViews = nil;
+  servers = nil;
+  serverView = nil;
   
-  [super dealloc];
 }
 
 @synthesize serverView;
@@ -152,8 +149,6 @@
 
 - (void) setServers:(NSArray *) newServers
 {
-  [newServers retain];
-  [servers release];
   servers = newServers;
 
   

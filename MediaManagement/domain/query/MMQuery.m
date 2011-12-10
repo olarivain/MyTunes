@@ -14,16 +14,13 @@
 
 @interface MMQuery()
 
-@property (nonatomic, readwrite, retain) NSString *name;
-@property (nonatomic, readwrite, retain) NSString *path;
-@property (nonatomic, readwrite, retain) MMRequestDelegate *requestDelegate;
 @end
 
 @implementation MMQuery
 
 +(id) queryWithName: (NSString *) name andPath: (NSString*) path
 {
-  return [[[MMQuery alloc] initWithName:name andPath:path] autorelease];
+  return [[MMQuery alloc] initWithName:name andPath:path];
 }
 
 -(id) initWithName: (NSString *) queryName andPath: (NSString*) queryPath
@@ -31,26 +28,18 @@
   self = [super init];
   if(self)
   {
-    self.name = queryName;
-    self.path = queryPath;
+    name = queryName;
+    path = queryPath;
   }
   
   return self;
 }
 
-- (void) dealloc
-{
-  self.name = nil;
-  self.path = nil;
-  self.requestDelegate = nil;
-  [super dealloc];
-}
 
 @synthesize name;
 @synthesize path;
 @synthesize server;
 @synthesize library;
-@synthesize requestDelegate;
 
 - (void) setServer:(MMServer *)newServer
 {
@@ -60,7 +49,7 @@
   }
   
   server = newServer;
-  self.requestDelegate = [MMRequestDelegate delegateWithServer: server];
+  requestDelegate = [MMRequestDelegate delegateWithServer: server];
 }
 
 #pragma mark - Read requests

@@ -24,7 +24,7 @@
   // look for a stringValue selector
   SEL selector = @selector(stringValue);
   if([value respondsToSelector: selector]) {
-    return [value performSelector: selector];
+    return [value stringValue];
   }
   
   // attempt a wild guess

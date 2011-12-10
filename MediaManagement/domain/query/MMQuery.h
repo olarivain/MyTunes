@@ -25,17 +25,17 @@ typedef void(^MMQueryCallback)(NSObject*);
 { 
   NSString *name;
   NSString *path;
-  MMServer *server;
+  MMServer *__weak server;
   // this should be a collection...
-  MMPlaylist *library;
+  MMPlaylist *__weak library;
     
   MMRequestDelegate *requestDelegate;
 }
 
-@property (nonatomic, readonly, retain) NSString *name;
-@property (nonatomic, readonly, retain) NSString *path;
-@property (nonatomic, readwrite, assign) MMServer *server;
-@property (nonatomic, readwrite, assign) MMPlaylist *library;
+@property (nonatomic, readonly, strong) NSString *name;
+@property (nonatomic, readonly, strong) NSString *path;
+@property (nonatomic, readwrite, weak) MMServer *server;
+@property (nonatomic, readwrite, weak) MMPlaylist *library;
 
 +(id) queryWithName: (NSString *) name andPath: (NSString*) path;
 -(id) initWithName: (NSString *) name andPath: (NSString*) path;

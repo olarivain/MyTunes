@@ -13,20 +13,13 @@
 #import "MMFieldView.h"
 
 @interface MMMovieEditController()
-@property (nonatomic, readwrite, retain) MMContent *content;
-@property (nonatomic, readwrite, retain) MMFieldView *genreFieldView;
-@property (nonatomic, readwrite, retain) UIView *editView;
+@property (nonatomic, readwrite, strong) MMContent *content;
+@property (nonatomic, readwrite, strong) MMFieldView *genreFieldView;
+@property (nonatomic, readwrite, strong) UIView *editView;
 @end
 
 @implementation MMMovieEditController
 
-- (void) dealloc
-{
-  self.editView = nil;
-  self.genreFieldView = nil;
-  self.content = nil;
-  [super dealloc];
-}
 
 @synthesize content;
 @synthesize genreFieldView;
@@ -38,8 +31,7 @@
     return;
   }
   
-  [content release];
-  content = [newContent retain];
+  content = newContent;
   
   [genreFieldView setValue: content.genre];
 }

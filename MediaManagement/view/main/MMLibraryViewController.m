@@ -15,13 +15,6 @@
 @synthesize selectedPlaylist;
 @synthesize selectedContentGroup;
 
-- (void) dealloc
-{
-  self.server = nil;
-  self.selectedPlaylist = nil;
-  self.selectedContentGroup = nil;
-  [super dealloc];
-}
 
 - (IBAction) editPressed: (id) sender
 {

@@ -13,11 +13,11 @@ static MMRequestQueue *sharedInstance;
 
 @interface MMRequestQueue()
 + (MMRequestQueue*) shardInstance;
-@property (nonatomic, readwrite, retain) NSMutableArray *pending;
-@property (nonatomic, readwrite, retain) NSMutableArray *active;
-@property (nonatomic, readwrite, retain) NSMutableArray *processing;
-@property (nonatomic, readwrite, retain) NSOperationQueue *requestOperationQueue;
-@property (nonatomic, readwrite, retain) NSOperationQueue *callbackOperationQueue;
+@property (nonatomic, readwrite, strong) NSMutableArray *pending;
+@property (nonatomic, readwrite, strong) NSMutableArray *active;
+@property (nonatomic, readwrite, strong) NSMutableArray *processing;
+@property (nonatomic, readwrite, strong) NSOperationQueue *requestOperationQueue;
+@property (nonatomic, readwrite, strong) NSOperationQueue *callbackOperationQueue;
 
 - (MMRequestQueueItem*) addURL: (NSURL*) url callback: (RequestCallback) callback;
 - (MMRequestQueueItem*) addURL: (NSURL*) url withData: (NSData*) data withMethod: (NSString *) method andCallback: (RequestCallback) callback;
@@ -54,14 +54,6 @@ static MMRequestQueue *sharedInstance;
   return self;
 }
 
-- (void) dealloc {
-  self.pending = nil;
-  self.active = nil;
-  self.processing = nil;
-  self.requestOperationQueue = nil;
-  self.callbackOperationQueue = nil;
-  [super dealloc];
-}
 
 // lazy singleton constructor
 + (MMRequestQueue*) shardInstance {
