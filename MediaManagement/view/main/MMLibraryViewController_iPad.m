@@ -185,6 +185,8 @@
 
 #pragma mark - edit controller delegate
 - (void) didEditContent:(MMContent *)item {
+  // ask library to update shit and refresh
+  [server.library updateContent: item];
   [contentController refresh];
 }
 
