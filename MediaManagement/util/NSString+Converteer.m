@@ -18,7 +18,12 @@
   
   // convert number
   if([value isKindOfClass: [NSNumber class]]) {
-    return [(NSNumber *) value stringValue];
+    NSNumber *number = (NSNumber *) value;
+    if([number intValue] == 0) 
+    {
+      return @"";
+    }
+    return [number stringValue];
   }
 
   // look for a stringValue selector
