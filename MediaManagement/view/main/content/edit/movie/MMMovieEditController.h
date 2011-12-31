@@ -20,6 +20,4 @@
   IBOutlet __strong UIView *editView;
 }
 
-@property (nonatomic, readwrite, strong) UIView *editView;
-
 @end

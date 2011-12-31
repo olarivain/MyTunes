@@ -23,6 +23,4 @@
   IBOutlet __strong MMFieldView *genreField;
 }
 
-@property (nonatomic, readwrite, strong) UIView *editView;
-
 @end

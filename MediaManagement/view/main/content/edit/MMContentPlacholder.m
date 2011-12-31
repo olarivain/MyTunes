@@ -30,6 +30,7 @@
   
   CGRect frame = contentEditView.frame;
   frame.origin = CGPointZero;
+  frame.size = self.frame.size;
   
   contentEditView.frame = frame;
 }

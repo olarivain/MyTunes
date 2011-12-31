@@ -20,13 +20,16 @@
   IBOutlet __strong id<MMContentEditController> musicController;
   IBOutlet __strong id<MMContentEditController> movieController;
   
-  __strong id<MMContentEditController> currentEditController;
-  
-  IBOutlet __strong MMContentPlacholder *contentPlaceholder;
   IBOutlet __strong UITextField *nameField;
+  
   IBOutlet __strong UITextView *description;
   
+  IBOutlet __strong UIView *descriptionContainer;
+  IBOutlet __strong UIView *kindContainer;
+  
   IBOutlet __strong UIButton *typeButton;
+  
+  __strong id<MMContentEditController> currentEditController;
   
   __strong UIActionSheet *actionSheet;
 }

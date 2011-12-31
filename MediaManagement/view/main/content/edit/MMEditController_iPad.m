@@ -17,7 +17,7 @@
 
 - (id<MMContentEditController>) editControllerForCurrentItem;
 - (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind;
-
+- (void) replaceEditViewWithContentKind: (MMContentKind) kind;
 @end
 
 @implementation MMEditController_iPad
@@ -37,7 +37,8 @@
 
 - (void) viewDidUnload
 {
-  contentPlaceholder = nil;
+  kindContainer = nil;
+  descriptionContainer = nil;
   nameField = nil;
   description = nil;
   showController = nil;
@@ -75,17 +76,40 @@
 
 }
 
+- (void) replaceEditViewWithContentKind: (MMContentKind) kind
+{
+  // first, remove current edit view
+  UIView *oldEditView = currentEditController.editView;
+  [oldEditView removeFromSuperview];
+  
+  // update content controller with new content
+  currentEditController = [self editControllerForKind: kind];
+  [currentEditController setContent: currentItem];
+  
+  // resize and place content specific view just below kind button
+  UIView *editView = currentEditController.editView;
+  CGRect editFrame = editView.frame;
+  editFrame.origin.y = CGRectGetMaxY(kindContainer.frame);
+  editFrame.origin.x = kindContainer.frame.origin.x;
+  editFrame.size.width = self.view.frame.size.width - 2 * editFrame.origin.x;
+  editView.frame = editFrame;
+  
+  [self.view addSubview: editView];
+  
+  // reposition description container appropriately
+  CGRect descriptionFrame = descriptionContainer.frame;
+  descriptionFrame.origin.y = CGRectGetMaxY(editFrame);
+  descriptionContainer.frame = descriptionFrame;
+
+}
+
 - (void) updateViewsWithCurrentItem
 {
   // don't forget super
   [super updateViewsWithCurrentItem];
-  
-  // update content controller with new content
-  currentEditController = [self editControllerForCurrentItem];
-  [currentEditController setContent: currentItem];
-  
-  // insert content specific view
-  [contentPlaceholder setEditView: [currentEditController editView]];
+
+  // replace edit view
+  [self replaceEditViewWithContentKind: currentItem.kind];
   
   // now start updating ui to reflect changes
   [currentEditController updateContent];
@@ -128,12 +152,8 @@
   typeButton.titleLabel.text = type;
   [typeButton setTitle: type forState: UIControlStateNormal];
   
-  // update content controller with new content
-  currentEditController = [self editControllerForKind: currentKind];
-  [currentEditController setContent: currentItem];
-  
-  // insert content specific view
-  [contentPlaceholder setEditView: [currentEditController editView]];
+  // replace edit view
+  [self replaceEditViewWithContentKind: currentKind];
 }
 
 - (IBAction) typePressed

@@ -10,6 +10,7 @@
 
 @class MMRemoteLibrary;
 @class MMPlaylist;
+@class MMLibraryNavigationCell;
 
 @protocol MMLibraryNavigationTableControllerDelegate <NSObject>
 
@@ -21,6 +22,7 @@
 @interface MMLibraryNavigationTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet __strong UITableView *table;
+  IBOutlet __weak MMLibraryNavigationCell *navigationCell;
   IBOutlet __weak id<MMLibraryNavigationTableControllerDelegate> delegate;
   __strong MMRemoteLibrary *library;
 }

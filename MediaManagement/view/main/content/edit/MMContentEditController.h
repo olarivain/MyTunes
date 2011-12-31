@@ -14,6 +14,7 @@
 
 - (void) setContent: (MMContent*) content;
 - (void) updateContent;
-- (UIView*) editView;
+
+@property(nonatomic, readonly) UIView *editView;
 
 @end

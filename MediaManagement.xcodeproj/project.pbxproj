@@ -17,6 +17,8 @@
 		0028480014AFB4BE003F5818 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F314AFB4BE003F5818 /* MMMovieEditController.m */; };
 		0028480114AFB4BE003F5818 /* MMMusicEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F614AFB4BE003F5818 /* MMMusicEditController.m */; };
 		0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F914AFB4BE003F5818 /* MMTVShowEditController.m */; };
+		0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */; };
+		0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -95,6 +97,9 @@
 		002847F614AFB4BE003F5818 /* MMMusicEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMusicEditController.m; sourceTree = "<group>"; };
 		002847F814AFB4BE003F5818 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTVShowEditController.h; sourceTree = "<group>"; };
 		002847F914AFB4BE003F5818 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowEditController.m; sourceTree = "<group>"; };
+		0028480314AFBDA2003F5818 /* MMLibraryNavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryNavigationCell.h; sourceTree = "<group>"; };
+		0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationCell.m; sourceTree = "<group>"; };
+		0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryNavigationCell.xib; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -466,6 +471,9 @@
 			children = (
 				00823FE914AEBB8600CEDDEB /* MMLibraryNavigationTableController.h */,
 				00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */,
+				0028480314AFBDA2003F5818 /* MMLibraryNavigationCell.h */,
+				0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */,
+				0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -594,6 +602,7 @@
 				0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */,
 				002847FD14AFB4BE003F5818 /* MMEditController_iPad.xib in Resources */,
 				002847FE14AFB4BE003F5818 /* MMEditController_iPhone.xib in Resources */,
+				0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +670,7 @@
 				0028480014AFB4BE003F5818 /* MMMovieEditController.m in Sources */,
 				0028480114AFB4BE003F5818 /* MMMusicEditController.m in Sources */,
 				0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */,
+				0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

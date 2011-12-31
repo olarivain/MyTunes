@@ -23,6 +23,4 @@
   __strong MMContent *content;
 }
 
-@property (nonatomic, readwrite, strong)  UIView *editView;
-
 @end

@@ -13,6 +13,8 @@
 
 #import "MMRemoteLibrary.h"
 
+#import "MMLibraryNavigationCell.h"
+
 @interface MMLibraryNavigationTableController()
 // playlist convenience accessors
 - (NSArray*) playlistListForSection: (NSInteger) section;
@@ -89,30 +91,36 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView playlistCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSString *cellId = @"playlistCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+  MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
+    NSBundle *bundle = [NSBundle mainBundle];
+    [bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
+    cell = navigationCell;
+    navigationCell = nil;
   }
   
   MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-  cell.textLabel.text = playlist.name;
+  [cell setName: playlist.name];
   return cell;
 }
 
 #pragma mark Encoder cells
 - (UITableViewCell *) tableView:(UITableView *)tableView encoderCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *cellId = @"encoderCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+  NSString *cellId = @"playlistCell";
+  MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
+    NSBundle *bundle = [NSBundle mainBundle];
+    [bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
+    cell = navigationCell;
+    navigationCell = nil;
   }
   
-  cell.textLabel.text = indexPath.row == 0 ? @"All" : @"In Progress";
+  NSString *name = indexPath.row == 0 ? @"All" : @"In Progress";
+  [cell setName: name];
   return cell;
-
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
