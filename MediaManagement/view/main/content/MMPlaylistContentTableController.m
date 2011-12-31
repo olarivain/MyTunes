@@ -41,6 +41,8 @@
 - (void) refresh
 {
   selectedItem = nil;
+  editButton.enabled = NO;
+  
   [table reloadData];
   // scroll back to top, take care to avoid stupid exceptions
   if([table numberOfSections] > 0 && [table numberOfRowsInSection: 0] > 0) 
@@ -90,7 +92,7 @@
 {
   MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];  
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
-
+  editButton.enabled = YES;
   selectedItem = content;
 }
 

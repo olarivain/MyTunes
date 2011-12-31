@@ -16,6 +16,7 @@
 {
   IBOutlet __strong UITableView * table;
   IBOutlet __strong MMPlaylistSubcontentSelector *subcontentSelector;
+  IBOutlet __strong UIBarButtonItem *editButton;
   
   __strong MMPlaylist *playlist;
   __strong MMContentGroup *selectedContentGroup;
