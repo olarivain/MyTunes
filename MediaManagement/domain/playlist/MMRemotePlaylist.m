@@ -6,82 +6,40 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <KraCommons/KCBlocks.h>
 #import "MMRemotePlaylist.h"
-#import "MMQuery.h"
+
 #import "MMRemoteLibrary.h"
 #import "MMContentAssembler+Client.h"
 
+#import "MMServer.h"
+
 @interface MMPlaylist()
-- (MMQuery*) readQuery;
-- (MMQuery*) writeQuery;
-- (MMQuery*) writeQueryForContent: (MMContent *) content;
-- (void) reload: (NSObject*) dto;
+- (void) didLoad: (NSObject*) dto;
+
+@property (nonatomic, readonly) MMServer *server;
 @end
 
 @implementation MMPlaylist(MMPlaylist_Remote)
 
-#pragma mark - Query generators
-- (MMQuery*) readQuery
+#pragma mark - Synthetic Getter
+- (MMServer *) server
 {
-  NSString *path = [NSString stringWithFormat:@"/library/%@", uniqueId];
-  MMQuery *query = [MMQuery queryWithName: @"Read" andPath: path];
-  
-  // TODO make this a little bit more fail proof
-  MMRemoteLibrary *remoteLibrary = (MMRemoteLibrary *) library;
-  query.server = remoteLibrary.server;
-  return query;
+  return ((MMRemoteLibrary *) library).server;
 }
-
-- (MMQuery*) writeQuery
-{
-  return [self writeQueryForContent: nil];
-}
-
-- (MMQuery*) writeQueryForContent: (MMContent *) content
-{
-  NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
-  MMQuery *query = [MMQuery queryWithName: @"Write" andPath: path];
-  
-  // TODO make this a little bit more fail proof
-  MMRemoteLibrary *remoteLibrary = (MMRemoteLibrary *) library;
-  query.server = remoteLibrary.server;
-  return query;
-}
-
-#pragma mark - Network calls
+#pragma mark - Reading playlist content
 - (void) loadWithBlock: (MMPlaylistCallback) callback
 {
-  MMQueryCallback reload = ^(NSObject *dto){
-    [self reload: dto];
-    if(callback != nil)
-    {
-      // dispatch on callback on main thread and exit
-      dispatch_queue_t mainQueue = dispatch_get_main_queue();
-      dispatch_async(mainQueue, callback);
-    }
+  MMServerCallback reload = ^(id dto){
+    [self didLoad: dto];
+    DispatchMainThread(callback);
   };
 
-  MMQuery *query = [self readQuery];
-  [query requestWithCallback: reload];
+  NSString *readPath = [NSString stringWithFormat:@"/library/%@", uniqueId];
+  [self.server requestWithPath: readPath andCallback: reload];
 }
 
-- (void) updateContent: (MMContent*) content withBlock: (MMPlaylistCallback) callback
-{
-  NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content];
-  MMQueryCallback updated = ^(NSObject *dto){
-    // dispatch on callback on main thread and exit
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    dispatch_async(mainQueue, callback);
-  };
-  
-  MMQuery *query = [self writeQueryForContent: content];
-  [query updateRequestWithParams: dictionary andCallback: updated];
-
-}
-
-#pragma mark - Network callbacks
-#pragma mark Read
-- (void) reload: (NSObject*) dto
+- (void) didLoad: (NSObject*) dto
 {
   if(![dto isKindOfClass: [NSDictionary class]])
   {
@@ -92,6 +50,20 @@
   NSDictionary *dictionary = (NSDictionary*) dto;
   MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
   [assembler updatePlaylist: self withDto: dictionary];
+}
+
+
+#pragma mark - Updating a playlist item
+- (void) updateContent: (MMContent*) content withBlock: (MMPlaylistCallback) callback
+{
+  MMServerCallback updated = ^(id dto){
+      DispatchMainThread(callback);
+  };
+ 
+  NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
+  NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content]; 
+  
+  [self.server udpateRequestWithPath: path params: dictionary andCallback: updated];
 }
 
 @end

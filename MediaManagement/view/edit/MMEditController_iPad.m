@@ -14,14 +14,6 @@
 #import "MMContentPlacholder.h"
 
 @interface MMEditController_iPad()
-@property (nonatomic, readwrite, strong)  MMContentPlacholder *contentPlaceholder;
-@property (nonatomic, readwrite, strong)  UITextField *nameField;
-@property (nonatomic, readwrite, strong)  UITextView *description;
-@property (nonatomic, readwrite, strong) id<MMContentEditController> showController;
-@property (nonatomic, readwrite, strong) id<MMContentEditController> musicController;
-@property (nonatomic, readwrite, strong) id<MMContentEditController> movieController;
-@property (nonatomic, readwrite, strong) UIButton *typeButton;
-@property (nonatomic, readwrite, strong) UIActionSheet *actionSheet;
 
 - (id<MMContentEditController>) editControllerForCurrentItem;
 - (id<MMContentEditController>) editControllerForKind: (MMContentKind) kind;
@@ -30,21 +22,12 @@
 
 @implementation MMEditController_iPad
 
-
-@synthesize contentPlaceholder;
-@synthesize nameField;
-@synthesize description;
-@synthesize typeButton;
-@synthesize showController;
-@synthesize musicController;
-@synthesize movieController;
-@synthesize actionSheet;
-
 #pragma mark - View Lifecyle
 - (void) viewDidLoad
 {
   [super viewDidLoad];
-
+  nameField.inputAccessoryView = previousNextToolbar;
+  description.inputAccessoryView = previousNextToolbar;
 }
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -54,14 +37,14 @@
 
 - (void) viewDidUnload
 {
-  self.contentPlaceholder = nil;
-  self.nameField = nil;
-  self.description = nil;
-  self.showController = nil;
-  self.musicController = nil;
-  self.movieController = nil;
-  self.actionSheet = nil;
-  self.typeButton = nil;
+  contentPlaceholder = nil;
+  nameField = nil;
+  description = nil;
+  showController = nil;
+  musicController = nil;
+  movieController = nil;
+  actionSheet = nil;
+  typeButton = nil;
   [super viewDidUnload];
 }
 
@@ -130,7 +113,7 @@
 - (void) actionSheet:(UIActionSheet *)anActionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
   // get rid of the action sheet first thing
-  self.actionSheet = nil;
+  actionSheet = nil;
   
   // value is nonsensical, user tapped out of action sheet, bail out.
   if(buttonIndex < 0) {
@@ -163,7 +146,7 @@
   }
   
   // otherwise, create a new one
-  self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil];
+  actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate: self cancelButtonTitle:nil destructiveButtonTitle: nil otherButtonTitles:nil];
 
   [actionSheet addButtonWithTitle:@"Music"];
   [actionSheet addButtonWithTitle:@"Movie"];

@@ -16,4 +16,6 @@
 - (NSString *) stringValue;
 - (NSNumber *) numberValue;
 
+- (void) setInputAccessoryView: (UIView *) view;
+
 @end

@@ -7,38 +7,52 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MediaManagement/MMContent.h>
+
 
 @class MMRemoteLibrary;
+@class KCRequestDelegate;
+
+typedef void(^MMServerCallback)(id dto);
 
 @interface MMServer : NSObject {
   @private  
-  NSNetService *netService;
+  __strong NSNetService *netService;
   
   int port;
-  NSString *host;
-  NSString *name;
+  __strong NSString *host;
+  __strong NSString *name;
   
-  MMRemoteLibrary *library;
+  __strong MMRemoteLibrary *library;
   
-  NSDate *lastUpdate;
+  __strong NSDate *lastUpdate;
+  
+  __strong KCRequestDelegate *requestDelegate;
 }
 
 + (MMServer *) serverWithNetService: (NSNetService*) netService;
 
 - (id) initWithNetService: (NSNetService*) netService;
 
-@property (nonatomic, readonly, strong) NSNetService *netService;
-@property (nonatomic, readonly, assign) int port;
-@property (nonatomic, readonly, strong) NSString *host;
-@property (nonatomic, readonly, strong) NSString *name;
+@property (nonatomic, readonly) NSNetService *netService;
+@property (nonatomic, readonly) int port;
+@property (nonatomic, readonly) NSString *host;
+@property (nonatomic, readonly) NSString *name;
 
 @property (nonatomic, readonly, strong) MMRemoteLibrary *library;
 
 
 - (void) didResolve;
-- (NSString*) serverURL;
 
 - (BOOL) hasSystemPlaylist;
+
+// default, GET request
+- (void) requestWithPath: (NSString *) path andCallback: (MMServerCallback) callback;
+// GET request with params
+- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback:(MMServerCallback)callback;
+// POST request
+- (void) udpateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
+// raw request
+- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback)callback;
+
 
 @end

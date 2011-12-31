@@ -6,15 +6,16 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <KraCommons/KCBlocks.h>
 #import <MediaManagement/MMPlaylist.h>
-#import <MediaManagement/MMPlaylist.h>
+
+#import "MMRemoteLibrary.h"
+#import "MMServer.h"
 
 #import "MMContentAssembler+Client.h"
-#import "MMRemoteLibrary.h"
-#import "MMQuery.h"
 
 @interface MMRemoteLibrary()
-@property (nonatomic, readwrite, assign) MMServer *server;
+- (void) didLoad: (NSObject*) dto;
 @end
 
 @implementation MMRemoteLibrary
@@ -29,23 +30,14 @@
   self = [super init];
   if(self)
   {
-    self.server = parent;
-    query = [MMQuery queryWithName: @"all" andPath:@"/library"];
-    query.server = server;
+    server = parent;
     systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
     userPlaylists = [NSMutableArray arrayWithCapacity: 10];
   }
   return self;
 }
 
-- (void) dealloc
-{
-  self.server = nil;
-
-}
-
 @synthesize server;
-@synthesize query;
 @synthesize systemPlaylists;
 @synthesize userPlaylists;
 
@@ -69,12 +61,24 @@
   [targetList addObject: mediaLibrary];
 }
 
-- (void) reload: (NSObject*) dto
+#pragma mark - Network calls 
+#pragma mark loading library content
+- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback
+{
+  MMServerCallback reload = ^(id dto){
+    [self didLoad: dto];
+    DispatchMainThread(callback);
+  };
+  
+  [server requestWithPath:@"/library" andCallback: reload];
+}
+
+- (void) didLoad: (id) dto
 {
   // sanity check
   if(![dto isKindOfClass: [NSArray class]])
   {
-    NSLog(@"FATAL: unexpected content fetched from %@.", [query path]);
+    NSLog(@"FATAL: unexpected content fetched from load library request");
   }
   
   NSArray *playlistDtos = (NSArray*) dto;
@@ -82,21 +86,6 @@
   // now assemble playlists and add them to self.
   MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
   [assembler updateLibrary: self withDto: playlistDtos];  
-}
-
-- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback
-{
-  MMQueryCallback reload = ^(NSObject *dto){
-    [self reload: dto];
-    if(callback != nil)
-    {
-      // dispatch on callback on main thread and exit
-      dispatch_queue_t mainQueue = dispatch_get_main_queue();
-      dispatch_async(mainQueue, callback);
-    }
-  };
-  
-  [query requestWithCallback: reload];
 }
 
 @end

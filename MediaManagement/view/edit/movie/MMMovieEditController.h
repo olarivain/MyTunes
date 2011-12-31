@@ -14,9 +14,12 @@
 
 @interface MMMovieEditController : NSObject<MMContentEditController>
 {
-  MMContent *content;
-  IBOutlet MMFieldView *genreFieldView;
-  IBOutlet UIView *editView;
+  __strong MMContent *content;
+
+  IBOutlet __strong MMFieldView *genreFieldView;
+  IBOutlet __strong UIView *editView;
 }
+
+@property (nonatomic, readwrite, strong) UIView *editView;
 
 @end

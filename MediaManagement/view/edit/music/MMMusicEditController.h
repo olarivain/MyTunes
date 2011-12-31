@@ -15,11 +15,14 @@
 @interface MMMusicEditController : NSObject<MMContentEditController> 
 {
   MMContent *content;
-  IBOutlet UIView *editView;
-  IBOutlet MMFieldView *trackNumberField;    
-  IBOutlet MMFieldView *artistField;
-  IBOutlet MMFieldView *albumField;
-  IBOutlet MMFieldView *genreField;
+  IBOutlet __strong UIView *previousNextToolbar;
+  IBOutlet __strong UIView *editView;
+  IBOutlet __strong MMFieldView *trackNumberField;    
+  IBOutlet __strong MMFieldView *artistField;
+  IBOutlet __strong MMFieldView *albumField;
+  IBOutlet __strong MMFieldView *genreField;
 }
+
+@property (nonatomic, readwrite, strong) UIView *editView;
 
 @end

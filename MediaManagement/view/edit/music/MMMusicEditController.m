@@ -10,25 +10,23 @@
 #import "MMFieldView.h"
 
 @interface MMMusicEditController()
-@property (nonatomic, readwrite, strong) UIView *editView;
-@property (nonatomic, readwrite, strong) MMFieldView *artistField;
-@property (nonatomic, readwrite, strong) MMFieldView *albumField;
-@property (nonatomic, readwrite, strong) MMFieldView *trackNumberField;
-@property (nonatomic, readwrite, strong) MMFieldView *genreField;
 @end
 
 @implementation MMMusicEditController
+
+- (void) awakeFromNib
+{
+  albumField.inputAccessoryView = previousNextToolbar;
+  artistField.inputAccessoryView = previousNextToolbar;
+  trackNumberField.inputAccessoryView = previousNextToolbar;
+}
+
+@synthesize editView;
 
 - (void) dealloc
 {
   content = nil;
 }
-
-@synthesize editView;
-@synthesize artistField;
-@synthesize albumField;
-@synthesize trackNumberField;
-@synthesize genreField;
 
 - (void) setContent:(MMContent *) newContent
 {

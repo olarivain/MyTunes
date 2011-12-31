@@ -54,4 +54,9 @@
   return [NSNumber numberWithInteger: number];
 }
 
+- (void) setInputAccessoryView: (UIView *) view
+{
+  textView.inputAccessoryView = view;
+}
+
 @end

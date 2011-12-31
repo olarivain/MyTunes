@@ -14,19 +14,21 @@
 
 @interface MMEditController_iPad : MMEditController<UIActionSheetDelegate>
 {
-  IBOutlet id<MMContentEditController> showController;
-  IBOutlet id<MMContentEditController> musicController;
-  IBOutlet id<MMContentEditController> movieController;
+  IBOutlet __strong UIView *previousNextToolbar;
   
-  id<MMContentEditController> currentEditController;
+  IBOutlet __strong  id<MMContentEditController> showController;
+  IBOutlet __strong id<MMContentEditController> musicController;
+  IBOutlet __strong id<MMContentEditController> movieController;
   
-  IBOutlet MMContentPlacholder *contentPlaceholder;
-  IBOutlet UITextField *nameField;
-  IBOutlet UITextView *description;
+  __strong id<MMContentEditController> currentEditController;
   
-  IBOutlet UIButton *typeButton;
+  IBOutlet __strong MMContentPlacholder *contentPlaceholder;
+  IBOutlet __strong UITextField *nameField;
+  IBOutlet __strong UITextView *description;
   
-  UIActionSheet *actionSheet;
+  IBOutlet __strong UIButton *typeButton;
+  
+  __strong UIActionSheet *actionSheet;
 }
 
 - (IBAction) typePressed;

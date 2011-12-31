@@ -11,27 +11,16 @@
 #import "MMTVShowEditController.h"
 #import "MMFieldView.h"
 
-
-@interface MMTVShowEditController()
-
-@property (nonatomic, readwrite, strong)  UIView *editView;
-@property (nonatomic, readwrite, strong)  MMFieldView *episodeField;
-@property (nonatomic, readwrite, strong)  MMFieldView *showField;
-@property (nonatomic, readwrite, strong)  MMFieldView *seasonField;
-
-@end
-
 @implementation MMTVShowEditController
 
-- (void) dealloc
+- (void) awakeFromNib
 {
-  content = nil;
+  showField.inputAccessoryView = previousNextToolbar;
+  episodeField.inputAccessoryView = previousNextToolbar;
+  seasonField.inputAccessoryView = previousNextToolbar;
 }
 
 @synthesize editView;
-@synthesize episodeField;
-@synthesize showField;
-@synthesize seasonField;
 
 - (void) setContent: (MMContent*) newContent
 {

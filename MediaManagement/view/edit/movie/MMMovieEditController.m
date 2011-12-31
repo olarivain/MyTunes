@@ -12,17 +12,8 @@
 
 #import "MMFieldView.h"
 
-@interface MMMovieEditController()
-@property (nonatomic, readwrite, strong) MMContent *content;
-@property (nonatomic, readwrite, strong) MMFieldView *genreFieldView;
-@property (nonatomic, readwrite, strong) UIView *editView;
-@end
-
 @implementation MMMovieEditController
 
-
-@synthesize content;
-@synthesize genreFieldView;
 @synthesize editView;
 
 - (void) setContent:(MMContent *) newContent

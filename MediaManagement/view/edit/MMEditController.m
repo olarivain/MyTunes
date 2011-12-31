@@ -16,9 +16,6 @@ typedef void(^MMEditControllerCallback)(void);
 
 @interface MMEditController()
 @property (nonatomic, readwrite, strong) NSArray *contentList;
-@property (nonatomic, readwrite, strong) UIBarButtonItem *next;
-@property (nonatomic, readwrite, strong) UIBarButtonItem *previous;
-@property (nonatomic, readwrite, strong) MMLoadingView *loadingView;
 
 - (void) saveWithBlock: (MMEditControllerCallback) block;
 
@@ -26,30 +23,11 @@ typedef void(^MMEditControllerCallback)(void);
 
 @implementation MMEditController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
 @synthesize playlist;
 @synthesize contentGroup;
 @synthesize currentItem;
 @synthesize contentList;
-@synthesize next;
-@synthesize previous;
-@synthesize loadingView;
 @synthesize delegate;
-
-- (void)didReceiveMemoryWarning
-{
-  // Releases the view if it doesn't have a superview.
-  [super didReceiveMemoryWarning];
-}
 
 #pragma mark - View lifecycle
 

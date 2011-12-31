@@ -7,11 +7,14 @@
 //
 
 
+#import <KraCommons/KCBlocks.h>
+#import <KraCommons/KCRequestDelegate.h>
+#import <KraCommons/KCRequestQueueItem.h>
+
 #import <MediaManagement/MMContent.h>
 
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
-#import "MMQuery.h"
 
 @interface MMServer()
 @end
@@ -43,23 +46,49 @@
 #pragma mark - Bonjour resolution
 - (void) didResolve
 {
-  port = [netService port];
+  port = netService.port;
   
-  host = [netService hostName];
+  host = netService.hostName;
   name = [[host componentsSeparatedByString:@".local"] objectAtIndex:0];
+  
+  requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
 
-}
-
-#pragma mark - Synthetic getter
-- (NSString*) serverURL
-{
-  return [NSString stringWithFormat:@"http://%@:%i", host, port];
 }
 
 #pragma mark - Playlist convenience
 - (BOOL) hasSystemPlaylist
 {
   return [library.systemPlaylists count] > 0;
+}
+
+#pragma mark - network calls
+- (void) requestWithPath: (NSString *) path andCallback: (MMServerCallback) callback
+{
+  [self requestWithPath: path params: nil method: @"GET" andCallback: callback];
+}
+
+- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback:(MMServerCallback)callback
+{
+  [self requestWithPath: path params: params method: @"GET" andCallback: callback];
+}
+
+- (void) udpateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback
+{
+  [self requestWithPath: path params: params method: @"POST" andCallback: callback];
+}
+
+- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback) callback
+{
+  if(callback == nil)
+  {
+    NSLog(@"FATAL, callback is required for server calls.");
+    return;
+  }
+  
+  KCRequestCallback networkCallback = ^(KCRequestQueueItem *item){
+    callback(item.jsonObject);
+  };
+  [requestDelegate requestWithPath: path params: params method: method andCallback: networkCallback];
 }
 
 @end

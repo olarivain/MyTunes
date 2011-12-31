@@ -14,12 +14,15 @@
 
 @interface MMTVShowEditController : NSObject<MMContentEditController> 
 {
-  IBOutlet UIView *editView;
-  IBOutlet MMFieldView *episodeField;
-  IBOutlet MMFieldView *showField;
-  IBOutlet MMFieldView *seasonField;
+  IBOutlet __strong UIView *previousNextToolbar;
+  IBOutlet __strong UIView *editView;
+  IBOutlet __strong MMFieldView *episodeField;
+  IBOutlet __strong MMFieldView *showField;
+  IBOutlet __strong MMFieldView *seasonField;
   
-  MMContent *__strong content;
+  __strong MMContent *content;
 }
+
+@property (nonatomic, readwrite, strong)  UIView *editView;
 
 @end

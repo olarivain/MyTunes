@@ -21,15 +21,15 @@
 
 @interface MMEditController : UIViewController 
 {
-  MMPlaylist *playlist;
-  MMContentGroup *contentGroup;
-  MMContent *currentItem;
-  NSArray *contentList;
+  __strong MMPlaylist *playlist;
+  __strong MMContentGroup *contentGroup;
+  __strong MMContent *currentItem;
+  __strong NSArray *contentList;
   NSUInteger currentIndex;
   
-  IBOutlet UIBarButtonItem *next;
-  IBOutlet UIBarButtonItem *previous;
-  IBOutlet MMLoadingView *loadingView;
+  IBOutlet __strong UIBarButtonItem *next;
+  IBOutlet __strong UIBarButtonItem *previous;
+  IBOutlet __strong MMLoadingView *loadingView;
   IBOutlet __weak id<MMEditControllerDelegate> delegate;
   
   MMContentKind currentKind;

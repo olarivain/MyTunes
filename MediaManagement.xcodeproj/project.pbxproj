@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2B141C171000476D08 /* MMRequestDelegate.m */; };
-		00087D31141C171000476D08 /* MMRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2D141C171000476D08 /* MMRequestQueue.m */; };
-		00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00087D2F141C171000476D08 /* MMRequestQueueItem.m */; };
 		00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC2141D5CBC00F196D0 /* MMFieldView.m */; };
 		00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC6141D5D8800F196D0 /* NSString+Converteer.m */; };
 		00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CCA141D620700F196D0 /* MMMovieEditController.m */; };
@@ -27,8 +24,6 @@
 		003CDEA0132BFCD200D295A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9C132BFCD200D295A2 /* InfoPlist.strings */; };
 		003CDEA1132BFCD200D295A2 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */; };
 		003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */; };
-		003CDEDA132BFCDF00D295A2 /* MMQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEA9132BFCDF00D295A2 /* MMQuery.m */; };
-		003CDEDC132BFCDF00D295A2 /* MMContentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEAE132BFCDF00D295A2 /* MMContentRepository.m */; };
 		003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB1132BFCDF00D295A2 /* MMServer.m */; };
 		003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB3132BFCDF00D295A2 /* MMServers.m */; };
 		003CDEDF132BFCDF00D295A2 /* NibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB7132BFCDF00D295A2 /* NibUtils.m */; };
@@ -71,12 +66,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00087D2A141C171000476D08 /* MMRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestDelegate.h; path = MediaManagement/domain/request/MMRequestDelegate.h; sourceTree = SOURCE_ROOT; };
-		00087D2B141C171000476D08 /* MMRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestDelegate.m; path = MediaManagement/domain/request/MMRequestDelegate.m; sourceTree = SOURCE_ROOT; };
-		00087D2C141C171000476D08 /* MMRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestQueue.h; path = MediaManagement/domain/request/MMRequestQueue.h; sourceTree = SOURCE_ROOT; };
-		00087D2D141C171000476D08 /* MMRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueue.m; path = MediaManagement/domain/request/MMRequestQueue.m; sourceTree = SOURCE_ROOT; };
-		00087D2E141C171000476D08 /* MMRequestQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMRequestQueueItem.h; path = MediaManagement/domain/request/MMRequestQueueItem.h; sourceTree = SOURCE_ROOT; };
-		00087D2F141C171000476D08 /* MMRequestQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRequestQueueItem.m; path = MediaManagement/domain/request/MMRequestQueueItem.m; sourceTree = SOURCE_ROOT; };
 		00158CC1141D5CBC00F196D0 /* MMFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFieldView.h; sourceTree = "<group>"; };
 		00158CC2141D5CBC00F196D0 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
 		00158CC5141D5D8800F196D0 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
@@ -104,10 +93,6 @@
 		003CDE9D132BFCD200D295A2 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
 		003CDE9E132BFCD200D295A2 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
 		003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaManagementAppDelegate.m; sourceTree = "<group>"; };
-		003CDEA8132BFCDF00D295A2 /* MMQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMQuery.h; sourceTree = "<group>"; };
-		003CDEA9132BFCDF00D295A2 /* MMQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMQuery.m; sourceTree = "<group>"; };
-		003CDEAD132BFCDF00D295A2 /* MMContentRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentRepository.h; sourceTree = "<group>"; };
-		003CDEAE132BFCDF00D295A2 /* MMContentRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentRepository.m; sourceTree = "<group>"; };
 		003CDEB0132BFCDF00D295A2 /* MMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServer.h; sourceTree = "<group>"; };
 		003CDEB1132BFCDF00D295A2 /* MMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServer.m; sourceTree = "<group>"; };
 		003CDEB2132BFCDF00D295A2 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
@@ -276,30 +261,9 @@
 				0043D8CC137F826B00897D4D /* assembler */,
 				004BBE281380872500B9639B /* library */,
 				004BBE2B1380872500B9639B /* playlist */,
-				003CDEA7132BFCDF00D295A2 /* query */,
-				0085794513C262A500EC007F /* request */,
-				003CDEAC132BFCDF00D295A2 /* repositories */,
 				003CDEAF132BFCDF00D295A2 /* server */,
 			);
 			path = domain;
-			sourceTree = "<group>";
-		};
-		003CDEA7132BFCDF00D295A2 /* query */ = {
-			isa = PBXGroup;
-			children = (
-				003CDEA8132BFCDF00D295A2 /* MMQuery.h */,
-				003CDEA9132BFCDF00D295A2 /* MMQuery.m */,
-			);
-			path = query;
-			sourceTree = "<group>";
-		};
-		003CDEAC132BFCDF00D295A2 /* repositories */ = {
-			isa = PBXGroup;
-			children = (
-				003CDEAD132BFCDF00D295A2 /* MMContentRepository.h */,
-				003CDEAE132BFCDF00D295A2 /* MMContentRepository.m */,
-			);
-			path = repositories;
 			sourceTree = "<group>";
 		};
 		003CDEAF132BFCDF00D295A2 /* server */ = {
@@ -452,20 +416,6 @@
 			path = playlist;
 			sourceTree = "<group>";
 		};
-		0085794513C262A500EC007F /* request */ = {
-			isa = PBXGroup;
-			children = (
-				00087D2A141C171000476D08 /* MMRequestDelegate.h */,
-				00087D2B141C171000476D08 /* MMRequestDelegate.m */,
-				00087D2C141C171000476D08 /* MMRequestQueue.h */,
-				00087D2D141C171000476D08 /* MMRequestQueue.m */,
-				00087D2E141C171000476D08 /* MMRequestQueueItem.h */,
-				00087D2F141C171000476D08 /* MMRequestQueueItem.m */,
-			);
-			name = request;
-			path = ../../../mediamanagement/MediaManagement/domain/request;
-			sourceTree = "<group>";
-		};
 		00AA91661397211200594D18 /* show */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,8 +543,6 @@
 			files = (
 				002A0AF31324549D00320A06 /* main.m in Sources */,
 				003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */,
-				003CDEDA132BFCDF00D295A2 /* MMQuery.m in Sources */,
-				003CDEDC132BFCDF00D295A2 /* MMContentRepository.m in Sources */,
 				003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */,
 				003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */,
 				003CDEDF132BFCDF00D295A2 /* NibUtils.m in Sources */,
@@ -616,9 +564,6 @@
 				004A11F21397281100C2D027 /* MMContentPlacholder.m in Sources */,
 				004A11F613972A0500C2D027 /* MMMusicEditController.m in Sources */,
 				004A12041397367000C2D027 /* MMLoadingView.m in Sources */,
-				00087D30141C171000476D08 /* MMRequestDelegate.m in Sources */,
-				00087D31141C171000476D08 /* MMRequestQueue.m in Sources */,
-				00087D32141C171000476D08 /* MMRequestQueueItem.m in Sources */,
 				00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */,
 				00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */,
 				00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */,
@@ -670,17 +615,21 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST",
+					"/usr/local/xcodeproducts/KraCommons-iPhone/LATEST",
+				);
 				OTHER_CFLAGS = "-DDEBUG_NETWORK=1";
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 					"-lMediaManagement-iPhone",
+					"-lKraCommons-iPhone",
 				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
 			};
 			name = Debug;
 		};
@@ -696,17 +645,21 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST",
+					"/usr/local/xcodeproducts/KraCommons-iPhone/LATEST",
+				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-Objc",
 					"-all_load",
 					"-lMediaManagement-iPhone",
+					"-lKraCommons-iPhone",
 				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
 			};
 			name = Release;
 		};
