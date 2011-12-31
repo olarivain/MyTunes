@@ -14,6 +14,8 @@
 #import <MediaManagement/MMContent.h>
 
 #import "MMServer.h"
+
+#import "MMRemoteEncoder.h"
 #import "MMRemoteLibrary.h"
 
 @interface MMServer()
@@ -32,6 +34,7 @@
   {
     netService = service;
     library = [MMRemoteLibrary libraryWithServer: self];
+    encoder = [MMRemoteEncoder encoderWithServer: self];
   }
   return self;
 }
@@ -42,6 +45,7 @@
 @synthesize host;
 @synthesize library;
 @synthesize netService;
+@synthesize encoder;
 
 #pragma mark - Bonjour resolution
 - (void) didResolve

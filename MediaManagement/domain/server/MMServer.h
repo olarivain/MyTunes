@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class KCRequestDelegate;
 
 @class MMRemoteLibrary;
-@class KCRequestDelegate;
+@class MMRemoteEncoder;
 
 typedef void(^MMServerCallback)(id dto);
 
@@ -24,13 +25,12 @@ typedef void(^MMServerCallback)(id dto);
   
   __strong MMRemoteLibrary *library;
   
-  __strong NSDate *lastUpdate;
+  __strong MMRemoteEncoder *encoder;
   
   __strong KCRequestDelegate *requestDelegate;
 }
 
 + (MMServer *) serverWithNetService: (NSNetService*) netService;
-
 - (id) initWithNetService: (NSNetService*) netService;
 
 @property (nonatomic, readonly) NSNetService *netService;
@@ -38,7 +38,8 @@ typedef void(^MMServerCallback)(id dto);
 @property (nonatomic, readonly) NSString *host;
 @property (nonatomic, readonly) NSString *name;
 
-@property (nonatomic, readonly, strong) MMRemoteLibrary *library;
+@property (nonatomic, readonly) MMRemoteLibrary *library;
+@property (nonatomic, readonly) MMRemoteEncoder *encoder;
 
 
 - (void) didResolve;

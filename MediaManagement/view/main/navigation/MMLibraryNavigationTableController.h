@@ -11,16 +11,17 @@
 @class MMRemoteLibrary;
 @class MMPlaylist;
 
-@protocol MMPlaylistTableControllerDelegate <NSObject>
+@protocol MMLibraryNavigationTableControllerDelegate <NSObject>
 
 - (void) didSelectPlaylist: (MMPlaylist *) playlist;
-
+- (void) didSelectEncoderResources;
+- (void) didSelectPendingEncodings;
 @end
 
-@interface MMPlaylistTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
+@interface MMLibraryNavigationTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet __strong UITableView *table;
-  IBOutlet __weak id<MMPlaylistTableControllerDelegate> delegate;
+  IBOutlet __weak id<MMLibraryNavigationTableControllerDelegate> delegate;
   __strong MMRemoteLibrary *library;
 }
 

@@ -12,7 +12,7 @@
 #import "MMEditController.h"
 #import "MMLibraryViewController.h"
 
-#import "MMPlaylistTableController.h"
+#import "MMLibraryNavigationTableController.h"
 
 @class MMPlaylist;
 @class MMContentView;
@@ -20,15 +20,18 @@
 @class CategoriesTableViewController;
 @class MMPlaylistContentTableController;
 @class MMPlaylistSubcontentSelector;
+@class MMEncoderTableController;
 
-
-@interface MMLibraryViewController_iPad : UIViewController<MMEditControllerDelegate, MMLibraryViewController, MMPlaylistTableControllerDelegate>
+@interface MMLibraryViewController_iPad : UIViewController<MMEditControllerDelegate, MMLibraryViewController, MMLibraryNavigationTableControllerDelegate>
 {
-  IBOutlet __strong MMPlaylistTableController *playlistTableController;
-  IBOutlet __strong UIBarButtonItem *editButton;
-  IBOutlet __strong MMPlaylistContentTableController *contentController;
+  IBOutlet __strong MMLibraryNavigationTableController *libraryNavigationTableController;
+  IBOutlet __strong MMPlaylistContentTableController *playlistContentController;
+  IBOutlet __strong  MMEncoderTableController *encoderTableController;
   
-  IBOutlet __strong MMContentView *contentView;
+  IBOutlet __strong UIBarButtonItem *editButton;
+  
+  IBOutlet __strong MMContentView *playlistContentView;
+  IBOutlet __strong MMContentView *encoderView;
   
   __strong MMPlaylist *selectedPlaylist;
   __strong MMContentGroup *selectedContentGroup;
