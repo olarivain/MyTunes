@@ -19,20 +19,26 @@
 #import "MMRemoteLibrary.h"
 
 @interface MMServer()
+- (id) initWithHost: (NSString *) host andPort: (NSInteger) port;
 @end
 
 @implementation MMServer
-+ (MMServer *) serverWithNetService: (NSNetService*) netService
+
++ (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port
 {
-  return [[MMServer alloc] initWithNetService: netService];
+  return [[MMServer alloc] initWithHost: host andPort: port];
 }
 
-- (id) initWithNetService: (NSNetService*) service
+- (id) initWithHost:(NSString *)aHost andPort:(NSInteger)aPort
 {
   self = [super init];
   if(self)
   {
-    netService = service;
+    port = aPort;
+    host = aHost;
+    name = [[host componentsSeparatedByString:@".local"] objectAtIndex:0];
+    requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
+    
     library = [MMRemoteLibrary libraryWithServer: self];
     encoder = [MMRemoteEncoder encoderWithServer: self];
   }
@@ -40,24 +46,12 @@
 }
 
 
+@synthesize key;
 @synthesize name;
 @synthesize port;
 @synthesize host;
 @synthesize library;
-@synthesize netService;
 @synthesize encoder;
-
-#pragma mark - Bonjour resolution
-- (void) didResolve
-{
-  port = netService.port;
-  
-  host = netService.hostName;
-  name = [[host componentsSeparatedByString:@".local"] objectAtIndex:0];
-  
-  requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
-
-}
 
 #pragma mark - Playlist convenience
 - (BOOL) hasSystemPlaylist

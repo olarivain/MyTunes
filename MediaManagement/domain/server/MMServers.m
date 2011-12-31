@@ -9,16 +9,8 @@
 #import "MMServers.h"
 #import "MMServer.h"
 
-@interface MMServers(private)
-
-@property (nonatomic, readwrite, retain) NSNetServiceBrowser *netServiceBrowser;
-@property (nonatomic, readwrite, retain) NSMutableArray *servers;
-@property (nonatomic, readwrite, retain) NSMutableArray *pendingServers;
-@property (nonatomic, readwrite, assign) id<MMServersDelegate> delegate;
-
-- (MMServer*) pendingServerWithNetService: (NSNetService*) netService;
-- (MMServer*) serverWithNetService: (NSNetService*) netService;
-- (MMServer*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList;
+@interface MMServers()
+- (MMServer *) serverWithNetService: (NSNetService *) netService;
 @end
 
 @implementation MMServers
@@ -29,10 +21,11 @@
   if(self)
   {
     netServiceBrowser = [[NSNetServiceBrowser alloc] init];
-    [netServiceBrowser setDelegate: self];
+    netServiceBrowser.delegate = self;
     
-    pendingServers = [[NSMutableArray alloc] init];
-    servers = [[NSMutableArray alloc] init];
+    netServices = [NSMutableArray arrayWithCapacity:5];
+    
+    servers = [NSMutableArray array];
   }
   return self;
 }
@@ -40,10 +33,6 @@
 - (void) dealloc
 {
   [netServiceBrowser stop];
-  self.netServiceBrowser = nil;
-  
-  self.pendingServers = nil;
-  self.delegate = nil;
 }
 
 @synthesize servers;
@@ -57,26 +46,16 @@
   {
     return;
   }
+  
   didStartSearch = YES;
   [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
-- (MMServer*) pendingServerWithNetService: (NSNetService*) netService
+- (MMServer *) serverWithNetService: (NSNetService *) netService
 {
-  return [self serverWithNetService:netService inCollection:pendingServers];
-}
-
-- (MMServer*) serverWithNetService: (NSNetService*) netService
-{
-  return [self serverWithNetService:netService inCollection:servers];  
-}
-
-
-- (MMServer*) serverWithNetService: (NSNetService*) netService inCollection: (NSArray*) serverList
-{
-  for(MMServer *server in serverList)
+  for(MMServer *server in servers)
   {
-    if([[server.netService name] isEqualToString: [netService name]])
+    if([server.key isEqual: netService.name])
     {
       return server;
     }
@@ -84,29 +63,37 @@
   return nil;
 }
 
+
 #pragma mark - NSNetServiceBrowserDelegate methods
 - (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-  if(![[aNetService name] hasPrefix:@"iServe-"])
+  if(![aNetService.name hasPrefix:@"iServe-"])
   {
     return;
   }
-  NSLog(@"Found service.");
-
-  MMServer *server = [MMServer serverWithNetService: aNetService];
-  [pendingServers addObject: server];
   
-  [aNetService setDelegate: self];
+  NSLog(@"Found service %@.", aNetService.name);
+
+  [netServices addObject: aNetService];
+  
+  aNetService.delegate = self;
   [aNetService resolveWithTimeout:5];
 }
 
 - (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-  NSLog(@"Service removed.");
+  NSLog(@"Service %@ removed.", aNetService.name);
   
-  MMServer *server = [self serverWithNetService: aNetService];
-  [servers removeObject: server];
-  [[self delegate] didRefresh:self];
+  // net service disappeared, first remove any server associated
+  MMServer *removed = [self serverWithNetService: aNetService];
+  [servers removeObject: removed];
+  
+  // drop net service
+  aNetService.delegate = nil;
+  [netServices removeObject: aNetService];
+  
+  // notify delegate
+  [delegate didRefresh:self];
 }
 
 - (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
@@ -119,26 +106,24 @@
 }
 
 #pragma mark - NSNetService delegate methods
-- (void) netServiceDidResolveAddress:(NSNetService *)sender
+- (void) netServiceDidResolveAddress:(NSNetService *)aNetService
 {
-  NSLog(@"Did resolve service.");
+  NSLog(@"Resolved service %@:\nhttp://%@:%i", aNetService.name, aNetService.hostName, aNetService.port);
 
-  MMServer *server = [self pendingServerWithNetService: sender];
-  [servers addObject: server];
-  [pendingServers removeObject: server];
+  // service did resolve properly, build server with hostname/port, add to list and notify delegate
+  MMServer *server = [MMServer serverWithHost: aNetService.hostName andPort: aNetService.port];
+  server.key = aNetService.name;
   
-  [server didResolve];
+  [servers addObject: server];
   [delegate didRefresh: self];
 }
 
 - (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
 {
-  NSLog(@"Did not resolve service.");
+  NSLog(@"Could not resolve service:\n%@", errorDict);
   
-  MMServer *server = [self pendingServerWithNetService: sender];
-  [pendingServers removeObject: server];
-  [delegate didRefresh: self];
-    [sender setDelegate: nil];
+  sender.delegate = nil;
+  [netServices removeObject: sender];
 }
 
 

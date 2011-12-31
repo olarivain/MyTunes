@@ -16,10 +16,8 @@
 typedef void(^MMServerCallback)(id dto);
 
 @interface MMServer : NSObject {
-  @private  
-  __strong NSNetService *netService;
-  
   int port;
+  __weak id key;
   __strong NSString *host;
   __strong NSString *name;
   
@@ -30,19 +28,15 @@ typedef void(^MMServerCallback)(id dto);
   __strong KCRequestDelegate *requestDelegate;
 }
 
-+ (MMServer *) serverWithNetService: (NSNetService*) netService;
-- (id) initWithNetService: (NSNetService*) netService;
++ (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port;
 
-@property (nonatomic, readonly) NSNetService *netService;
+@property (nonatomic, readwrite, weak) id key;
 @property (nonatomic, readonly) int port;
 @property (nonatomic, readonly) NSString *host;
 @property (nonatomic, readonly) NSString *name;
 
 @property (nonatomic, readonly) MMRemoteLibrary *library;
 @property (nonatomic, readonly) MMRemoteEncoder *encoder;
-
-
-- (void) didResolve;
 
 - (BOOL) hasSystemPlaylist;
 

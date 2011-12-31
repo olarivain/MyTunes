@@ -6,23 +6,26 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "MMServerView.h"
 
 #import "MMServer.h"
 
 @interface MMServerView()
-@property (nonatomic, readwrite, strong) UILabel *label;
 @end
 
 @implementation MMServerView
 
 
 @synthesize server;
-@synthesize label;
 
+
+- (void) awakeFromNib
+{
+  self.layer.cornerRadius = 20;
+}
 
 #pragma  mark - Server management;
-
 - (void) update
 {
   [label setText: server.name]; 

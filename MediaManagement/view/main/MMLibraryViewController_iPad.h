@@ -28,8 +28,6 @@
   IBOutlet __strong MMPlaylistContentTableController *playlistContentController;
   IBOutlet __strong  MMEncoderTableController *encoderTableController;
   
-  IBOutlet __strong UIBarButtonItem *editButton;
-  
   IBOutlet __strong MMContentView *playlistContentView;
   IBOutlet __strong MMContentView *encoderView;
   

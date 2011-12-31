@@ -12,9 +12,9 @@
 
 @interface MMServerView : UIControl 
 {
-  @private
-  MMServer *server;
-  IBOutlet UILabel *label;
+  IBOutlet __strong UILabel *label;
+  
+  __strong MMServer *server;
 }
 
 @property (nonatomic, readwrite, strong) MMServer* server;

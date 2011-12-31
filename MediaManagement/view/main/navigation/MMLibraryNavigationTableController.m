@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 Edmunds. All rights reserved.
 //
 
+#import <KraCommons/NSArray+BoundSafe.h>
 #import <MediaManagement/MMPlaylist.h>
 
 #import "MMLibraryNavigationTableController.h"
@@ -148,7 +149,7 @@
 - (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath
 {
   NSArray *playlists = [self playlistListForSection: indexPath.section];
-  MMPlaylist *playlist = [playlists objectAtIndex: indexPath.row];
+  MMPlaylist *playlist = [playlists boundSafeObjectAtIndex: indexPath.row];
   return playlist;
 }
 

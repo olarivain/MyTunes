@@ -57,26 +57,11 @@
 
 - (void)viewDidUnload
 {
-  editButton = nil;
   playlistContentView = nil;
   encoderView = nil;
   libraryNavigationTableController = nil;
   playlistContentController = nil;
   [super viewDidUnload];
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear: animated];
-  
-  // udpate right bar button item
-  self.navigationItem.rightBarButtonItem = editButton;
-}
-
-- (void) viewWillDisappear:(BOOL)animated
-{
-  self.navigationItem.rightBarButtonItem = nil;
-  [super viewWillDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -15,8 +15,6 @@
 
 @interface MMHomeView()
 
-@property (nonatomic, readwrite, weak) MMServerView *serverView;
-
 - (void) removeLastServerIcons: (int) count;
 - (void) addServerView: (int) count;
 - (int) computeServerPerRows;
@@ -52,7 +50,6 @@
   
 }
 
-@synthesize serverView;
 @synthesize serverViews;
 
 #pragma mark - Layout
@@ -104,10 +101,10 @@
       line++;
     }
 
-    CGRect frame = [view frame];
+    CGRect frame = view.frame;
     frame.origin.x = xPosition;
     frame.origin.y = yPosition;
-    [view setFrame: frame];
+    view.frame = frame;
     
     xPosition += frame.size.width + padding;
     if(frame.size.height > highestView)
@@ -121,10 +118,10 @@
 
 - (int) computeServerPerRows
 {
-  double actualWidth = [self frame].size.width - 2*MARGIN;
+  double actualWidth = self.frame.size.width - 2*MARGIN;
   
   MMServerView *view = [serverViews objectAtIndex: 0];
-  double viewWidth = [view frame].size.width;
+  double viewWidth = view.frame.size.width;
   
   int numberOfViewPerRow = (actualWidth - PADDING) / (viewWidth + PADDING);
   return numberOfViewPerRow;
@@ -132,10 +129,10 @@
 
 - (int) computePaddingWith: (int) countPerRow
 {
-  double actualWidth = [self frame].size.width - 2*MARGIN;
+  double actualWidth = self.frame.size.width - 2*MARGIN;
   
   MMServerView *view = [serverViews objectAtIndex: 0];
-  double viewWidth = [view frame].size.width;
+  double viewWidth = view.frame.size.width;
 
   double remaining = actualWidth - countPerRow * viewWidth;
   return remaining / (countPerRow - 1);
@@ -190,13 +187,14 @@
   {
     NSString *nibName = [NibUtils nibName:@"MMServerView"];
     [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
-    CGRect rect = [serverView frame];
+    CGRect rect = serverView.frame;
     rect.origin.x = 10;
     rect.origin.y = 10;
-    [serverView setFrame: rect];
+    serverView.frame = rect;
     [self addSubview: serverView];
+    
     [serverViews addObject: serverView];
-    self.serverView = nil;
+    serverView = nil;
   }
 }
 

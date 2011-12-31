@@ -15,11 +15,7 @@
  */
 @protocol MMServersDelegate <NSObject>
 
-@optional
 - (void) didRefresh: (MMServers*) sender;
 - (void) willRefresh: (MMServers*) sender;
-
-- (void) server: (MMServer*) server receivedContent: (NSArray*) content;
-- (void) server: (MMServer*) server loadedContent: (NSArray*) content;
 
 @end

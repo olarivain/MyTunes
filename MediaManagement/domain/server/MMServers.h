@@ -20,15 +20,15 @@
  */
 @interface MMServers : NSObject<NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
-  NSNetServiceBrowser *netServiceBrowser;
-  NSMutableArray *servers;
-  NSMutableArray *pendingServers;
-  id<MMServersDelegate> __unsafe_unretained delegate;
+  __strong NSNetServiceBrowser *netServiceBrowser;
+  __strong NSMutableArray *servers;
+  __strong NSMutableArray *netServices;
+  __weak id<MMServersDelegate> delegate;
   BOOL didStartSearch;
 }
 
-@property (nonatomic, readonly, strong) NSArray *servers;
-@property (nonatomic, readwrite, unsafe_unretained) id<MMServersDelegate> delegate;
+@property (nonatomic, readonly) NSArray *servers;
+@property (nonatomic, readwrite, weak) id<MMServersDelegate> delegate;
 
 - (void) startSearch;
 

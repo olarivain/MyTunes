@@ -128,11 +128,15 @@
 }
 
 #pragma mark - ServersDelegate methods
+- (void) willRefresh:(MMServers *)sender
+{
+  // we don't really care actually.  
+}
+
 - (void) didRefresh:(MMServers *)sender
 {
-  NSLog(@"Did refresh, %i", [[sender servers] count]);
-  [homeView setServers: [sender servers]];
-  for(MMServerView *serverView in [homeView serverViews])
+  homeView.servers = sender.servers;
+  for(MMServerView *serverView in homeView.serverViews)
   {
     // remove and add targets.
     [serverView removeTarget: self action: @selector(serverSelected:) forControlEvents: UIControlEventTouchUpInside];

@@ -13,13 +13,13 @@
 @interface MMHomeView : UIView 
 {    
   @private
-  NSArray *servers;
-  NSMutableArray *serverViews;
+  __strong NSArray *servers;
+  __strong NSMutableArray *serverViews;
   
-  IBOutlet MMServerView *__weak serverView;
+  IBOutlet __weak MMServerView *serverView;
 }
 
 @property (nonatomic, readwrite, strong) NSArray *servers;
-@property (nonatomic, readonly, strong) NSArray *serverViews;
+@property (nonatomic, readonly) NSArray *serverViews;
 
 @end
