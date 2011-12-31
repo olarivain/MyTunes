@@ -7,10 +7,14 @@
 //
 
 #import <KraCommons/NSArray+BoundSafe.h>
+#import <KraCommons/KCNibUtils.h>
 #import <MediaManagement/MMTitleList.h>
+
 #import "MMEncoderTableController.h"
 
 #import "MMRemoteEncoder.h"
+
+#import "MMEncoderResourceCell.h"
 
 @implementation MMEncoderTableController
 
@@ -34,14 +38,18 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSString *cellId = @"encoderResource";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
+  MMEncoderResourceCell *cell = (MMEncoderResourceCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
+    NSString *nibName = [KCNibUtils nibName: @"MMEncoderResourceCell"] ;
+    NSBundle *bundle = [NSBundle mainBundle];
+    [bundle loadNibNamed: nibName owner: self options: nil];
+    cell = resourceCell;
+    resourceCell = nil;
   }
   
   MMTitleList *titleList = [encoder.availableResources boundSafeObjectAtIndex: indexPath.row];
-  cell.textLabel.text = titleList.name;
+  [cell updateWithTitleList: titleList];
   return cell;
 }
 

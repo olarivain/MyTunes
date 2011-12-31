@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @class MMRemoteEncoder;
+@class MMEncoderResourceCell;
 
 @interface MMEncoderTableController : NSObject<UITableViewDataSource, UITableViewDelegate>
 {
   IBOutlet UITableView *table;
+  IBOutlet __weak MMEncoderResourceCell *resourceCell;
   __strong MMRemoteEncoder *encoder;
 }
 

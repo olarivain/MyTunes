@@ -25,7 +25,6 @@
 		003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */; };
 		003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB1132BFCDF00D295A2 /* MMServer.m */; };
 		003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB3132BFCDF00D295A2 /* MMServers.m */; };
-		003CDEDF132BFCDF00D295A2 /* NibUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB7132BFCDF00D295A2 /* NibUtils.m */; };
 		003CDEE0132BFCDF00D295A2 /* MMEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEBB132BFCDF00D295A2 /* MMEditController.m */; };
 		003CDEE1132BFCDF00D295A2 /* MMEditController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */; };
 		003CDEE2132BFCDF00D295A2 /* MMEditController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */; };
@@ -54,6 +53,12 @@
 		0082400B14AF96C300CEDDEB /* MMTitleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400614AF96C300CEDDEB /* MMTitleListViewController.m */; };
 		0082400C14AF96C300CEDDEB /* MMTitleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400714AF96C300CEDDEB /* MMTitleListViewController.xib */; };
 		0082400D14AF96C300CEDDEB /* MMEncoderTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */; };
+		0082400F14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */; };
+		0082401214AF974A00CEDDEB /* MMEncoderResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */; };
+		0082402114AF9B6F00CEDDEB /* MMPlaylistContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */; };
+		0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */; };
+		0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */; };
+		0082402914AFA3BA00CEDDEB /* MMPlaylistContentCellSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */; };
 		00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA91681397215100594D18 /* MMTVShowEditController.m */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
@@ -76,8 +81,6 @@
 		00158CC6141D5D8800F196D0 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
 		00158CC9141D620700F196D0 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
 		00158CCA141D620700F196D0 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
-		00158CCC141D6DCF00F196D0 /* MMBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBlocks.h; sourceTree = "<group>"; };
-		00158CCE141D7F9A00F196D0 /* MMAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAnimation.h; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,8 +103,6 @@
 		003CDEB2132BFCDF00D295A2 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
 		003CDEB3132BFCDF00D295A2 /* MMServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServers.m; sourceTree = "<group>"; };
 		003CDEB4132BFCDF00D295A2 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServersDelegate.h; sourceTree = "<group>"; };
-		003CDEB6132BFCDF00D295A2 /* NibUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibUtils.h; sourceTree = "<group>"; };
-		003CDEB7132BFCDF00D295A2 /* NibUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibUtils.m; sourceTree = "<group>"; };
 		003CDEBA132BFCDF00D295A2 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController.h; sourceTree = "<group>"; };
 		003CDEBB132BFCDF00D295A2 /* MMEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController.m; sourceTree = "<group>"; };
 		003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPad.xib; sourceTree = "<group>"; };
@@ -149,6 +150,16 @@
 		0082400714AF96C300CEDDEB /* MMTitleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListViewController.xib; sourceTree = "<group>"; };
 		0082400914AF96C300CEDDEB /* MMEncoderTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEncoderTableController.h; sourceTree = "<group>"; };
 		0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEncoderTableController.m; sourceTree = "<group>"; };
+		0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEncoderResourceCell_iPad.xib; sourceTree = "<group>"; };
+		0082401014AF974A00CEDDEB /* MMEncoderResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEncoderResourceCell.h; sourceTree = "<group>"; };
+		0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEncoderResourceCell.m; sourceTree = "<group>"; };
+		0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCell.h; sourceTree = "<group>"; };
+		0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCell.m; sourceTree = "<group>"; };
+		0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistContentCell_iPad.xib; sourceTree = "<group>"; };
+		0082402414AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NSNumber_NonZero.h"; sourceTree = "<group>"; };
+		0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NSNumber_NonZero.m"; sourceTree = "<group>"; };
+		0082402714AFA3B700CEDDEB /* MMPlaylistContentCellSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCellSize.h; sourceTree = "<group>"; };
+		0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCellSize.m; sourceTree = "<group>"; };
 		00AA91671397215100594D18 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTVShowEditController.h; path = show/MMTVShowEditController.h; sourceTree = "<group>"; };
 		00AA91681397215100594D18 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTVShowEditController.m; path = show/MMTVShowEditController.m; sourceTree = "<group>"; };
 		00AA916A1397218600594D18 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
@@ -294,12 +305,10 @@
 		003CDEB5132BFCDF00D295A2 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				00158CCE141D7F9A00F196D0 /* MMAnimation.h */,
-				00158CCC141D6DCF00F196D0 /* MMBlocks.h */,
-				003CDEB6132BFCDF00D295A2 /* NibUtils.h */,
-				003CDEB7132BFCDF00D295A2 /* NibUtils.m */,
 				00158CC5141D5D8800F196D0 /* NSString+Converteer.h */,
 				00158CC6141D5D8800F196D0 /* NSString+Converteer.m */,
+				0082402414AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.h */,
+				0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -432,6 +441,11 @@
 			children = (
 				00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */,
 				00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */,
+				0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */,
+				0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */,
+				0082402714AFA3B700CEDDEB /* MMPlaylistContentCellSize.h */,
+				0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */,
+				0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */,
 				00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */,
 				00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */,
 			);
@@ -480,6 +494,9 @@
 			children = (
 				0082400914AF96C300CEDDEB /* MMEncoderTableController.h */,
 				0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */,
+				0082401014AF974A00CEDDEB /* MMEncoderResourceCell.h */,
+				0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */,
+				0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */,
 			);
 			path = summary;
 			sourceTree = "<group>";
@@ -575,6 +592,8 @@
 				003CDEF0132BFCDF00D295A2 /* MMServerView_iPad.xib in Resources */,
 				003CDEF1132BFCDF00D295A2 /* MMServerView_iPhone.xib in Resources */,
 				0082400C14AF96C300CEDDEB /* MMTitleListViewController.xib in Resources */,
+				0082400F14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib in Resources */,
+				0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +633,6 @@
 				003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */,
 				003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */,
 				003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */,
-				003CDEDF132BFCDF00D295A2 /* NibUtils.m in Sources */,
 				003CDEE0132BFCDF00D295A2 /* MMEditController.m in Sources */,
 				003CDEE3132BFCDF00D295A2 /* MMHomeView.m in Sources */,
 				003CDEE6132BFCDF00D295A2 /* MMHomeViewController.m in Sources */,
@@ -639,6 +657,10 @@
 				00823FF314AEC49400CEDDEB /* MMRemoteEncoder.m in Sources */,
 				0082400B14AF96C300CEDDEB /* MMTitleListViewController.m in Sources */,
 				0082400D14AF96C300CEDDEB /* MMEncoderTableController.m in Sources */,
+				0082401214AF974A00CEDDEB /* MMEncoderResourceCell.m in Sources */,
+				0082402114AF9B6F00CEDDEB /* MMPlaylistContentCell.m in Sources */,
+				0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */,
+				0082402914AFA3BA00CEDDEB /* MMPlaylistContentCellSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

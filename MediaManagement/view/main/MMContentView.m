@@ -6,9 +6,8 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <KraCommons/KCAnimation.h>
 #import "MMContentView.h"
-
-#import "MMAnimation.h"
 
 
 @interface MMContentView()
@@ -26,11 +25,11 @@
 - (void) setLoading: (BOOL) loading
 {
   // animation blocks
-  MMAnimationBlock animation = ^{
+  KCAnimationBlock animation = ^{
     loadingLayer.hidden = !loading;
   };
   
-  MMCompletionBlock completion = ^(BOOL finished){
+  KCCompletionBlock completion = ^(BOOL finished){
     if(loading)
     {
       [activityIndicator startAnimating]; 

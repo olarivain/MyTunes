@@ -27,6 +27,6 @@
 
 @property (nonatomic, readwrite, strong) MMRemoteLibrary *library;
 
-- (void) selectFirstPlaylist;
+- (void) selectPlaylist: (MMPlaylist *) playlist;
 
 @end

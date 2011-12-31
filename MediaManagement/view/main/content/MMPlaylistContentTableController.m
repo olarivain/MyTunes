@@ -6,13 +6,23 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <KraCommons/KCNibUtils.h>
+#import <KraCommons/NSArray+BoundSafe.h>
+#import <KraCommons/NSIndexPath+Key.h>
 
 #import <MediaManagement/MMPlaylist.h>
 #import <MediaManagement/MMContentList.h>
 #import <MediaManagement/MMContent.h>
 
+#import "MMRemoteLibrary.h"
+
 #import "MMPlaylistContentTableController.h"
+
 #import "MMPlaylistSubcontentSelector.h"
+#import "MMPlaylistContentCell.h"
+#import "MMPlaylistContentCellSize.h"
+
+#import "MMEditController_iPad.h"
 
 
 @interface MMPlaylistContentTableController()
@@ -20,6 +30,10 @@
 
 @implementation MMPlaylistContentTableController
 
+- (void) awakeFromNib
+{
+  cellSizes = [NSMutableDictionary dictionaryWithCapacity: 2500];
+}
 
 @synthesize selectedContentGroup;
 @synthesize selectedItem;
@@ -40,6 +54,7 @@
 #pragma mark - Table view data source
 - (void) refresh
 {
+  [cellSizes removeAllObjects];
   selectedItem = nil;
   editButton.enabled = NO;
   
@@ -72,28 +87,84 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *CellIdentifier = @"TrackCell";
+  static NSString *cellIdentifier = @"contentCell";
   
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  MMPlaylistContentCell *cell = (MMPlaylistContentCell *) [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
   if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *nibName = [KCNibUtils nibName: @"MMPlaylistContentCell"];
+    [bundle loadNibNamed: nibName owner: self options: nil];
+    cell = contentCell;
+    contentCell = nil;
   }
   
   MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];
-  
-  MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
-  cell.textLabel.text = content.name;
+  MMContent *content = [contentList.content boundSafeObjectAtIndex: indexPath.row];
+  MMPlaylistContentCellSize *size = [cellSizes objectForKey: indexPath.key];
+  [cell updateWithContent: content withCellSize: size];
     
   return cell;
 }
 
 #pragma mark - table delegate
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  MMPlaylistContentCellSize *size = [cellSizes objectForKey: indexPath.key];
+  if(size != nil)
+  {
+    return size.totalHeight;
+  }
+  
+  // loading sizing cell if not already done  
+  if(sizingContentCell == nil)
+  {
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *nibName = [KCNibUtils nibName: @"MMPlaylistContentCell"];
+    [bundle loadNibNamed: nibName owner: self options: nil];
+    sizingContentCell = contentCell;
+    contentCell = nil;
+
+  }
+  
+  [sizingContentCell updateSizeWithWidth: tableView.frame.size.width];
+  
+  // now, size it
+  MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];
+  MMContent *content = [contentList.content boundSafeObjectAtIndex: indexPath.row];
+  size = [sizingContentCell sizeForContent: content];
+  
+  // cache it
+  [cellSizes setObject: size forKey: indexPath.key];
+  return size.totalHeight;
+}
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];  
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
-  editButton.enabled = YES;
   selectedItem = content;
+  
+  [tableView deselectRowAtIndexPath: indexPath animated: YES];
+  
+  // grab a handle on the next view controller
+  NSString *nibName = [KCNibUtils nibName: @"MMEditController"];
+  MMEditController_iPad *editController = [[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
+  editController.currentItem = selectedItem;
+  editController.contentGroup = selectedContentGroup;
+  editController.playlist = playlist;
+  editController.delegate = self;
+  
+  // and present it in a form sheet
+  [editController setModalPresentationStyle: UIModalPresentationFormSheet];
+  [controller presentModalViewController:editController animated:TRUE];
+}
+
+#pragma mark - edit controller delegate
+- (void) didEditContent:(MMContent *)item 
+{
+  // ask library to update shit and refresh
+  [playlist.library updateContent: item];
+  [self refresh];
 }
 
 #pragma mark - Changing Content Group

@@ -17,6 +17,7 @@
 // playlist convenience accessors
 - (NSArray*) playlistListForSection: (NSInteger) section;
 - (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath;
+- (NSIndexPath *) indexPathForPlaylist: (MMPlaylist *) playlist;
 
 // determining if an indexpath/section is for a playlist
 - (BOOL) isPlaylistAtIndexPath: (NSIndexPath *) indexPath;
@@ -31,21 +32,26 @@
 
 @synthesize library;
 
-- (void) selectFirstPlaylist
+- (void) selectPlaylist: (MMPlaylist *) playlist
 {
-  NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
-  MMPlaylist *firstPlaylist = [self playlistForIndexPath: path];
+  if(playlist == nil)
+  {
+    NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
+    playlist = [self playlistForIndexPath: path];
+  }
+  
   // plauylist doesn't exist, get the hell out
-  if(firstPlaylist == nil)
+  if(playlist == nil)
   {
     return;
   }
   
   // select it in the table
-  [table selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
+  NSIndexPath *selectedIndexPath = [self indexPathForPlaylist: playlist];
+  [table selectRowAtIndexPath: selectedIndexPath animated: NO scrollPosition:UITableViewScrollPositionTop];
   
   // and notify delegate it has been selected
-  [delegate didSelectPlaylist: firstPlaylist];
+  [delegate didSelectPlaylist: playlist];
 }
 
 #pragma mark - TableView Data source
@@ -151,6 +157,20 @@
   NSArray *playlists = [self playlistListForSection: indexPath.section];
   MMPlaylist *playlist = [playlists boundSafeObjectAtIndex: indexPath.row];
   return playlist;
+}
+                                    
+- (NSIndexPath *) indexPathForPlaylist: (MMPlaylist *) playlist
+{
+  NSArray *container = library.systemPlaylists;
+  NSInteger section = 0;
+  if([library.userPlaylists containsObject:playlist])
+  {
+    section = 1;
+    container = library.userPlaylists;
+  }
+  
+  NSInteger row = [container indexOfObject: playlist];
+  return [NSIndexPath indexPathForRow: row inSection: section];
 }
 
 #pragma mark - whether an index path represents a playlist or the encoder's sections

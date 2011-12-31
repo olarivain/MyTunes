@@ -5,8 +5,10 @@
 //  Created by Kra on 3/7/11.
 //  Copyright 2011 kra. All rights reserved.
 //
+
+#import <KraCommons/KCNibUtils.h>
+
 #import <MediaManagement/MMPlaylist.h>
-#import <MediaManagement/MMContentGroup.h>
 
 #import "MMLibraryViewController_iPad.h"
 
@@ -20,8 +22,6 @@
 #import "MMContentView.h"
 #import "MMPlaylistSubcontentSelector.h"
 #import "MMEncoderTableController.h"
-
-#import "NibUtils.h"
 
 @interface MMLibraryViewController_iPad()
 @end
@@ -45,10 +45,7 @@
   libraryNavigationTableController.library = server.library;
   
   // auto select first item in system playlist if there is one available
-  if(selectedPlaylist == nil) 
-  {
-    [libraryNavigationTableController selectFirstPlaylist];
-  }
+  [libraryNavigationTableController selectPlaylist: selectedPlaylist];
   
   // update title bar
   [[self navigationItem] setTitle: [server name]];
@@ -126,30 +123,6 @@
 {
   encoderView.hidden = NO;
   playlistContentView.hidden = YES;
-}
-
-#pragma mark - Action handlers
-- (IBAction) editPressed: (id) sender
-{
-  // grab a handle on the next view controller
-  NSString *nibName = [NibUtils nibName: @"MMEditController"];
-  MMEditController_iPad *editController = [[MMEditController_iPad alloc] initWithNibName:nibName bundle:[NSBundle mainBundle]];
-  editController.currentItem = playlistContentController.selectedItem;
-  editController.contentGroup = playlistContentController.selectedContentGroup;
-  editController.playlist = selectedPlaylist;
-  editController.delegate = self;
-  
-  // and present it in a form sheet
-  [editController setModalPresentationStyle: UIModalPresentationFormSheet];
-  [self presentModalViewController:editController animated:TRUE];
-}
-
-#pragma mark - edit controller delegate
-- (void) didEditContent:(MMContent *)item 
-{
-  // ask library to update shit and refresh
-  [server.library updateContent: item];
-  [playlistContentController refresh];
 }
 
 @end

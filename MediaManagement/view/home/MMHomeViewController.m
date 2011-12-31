@@ -5,10 +5,9 @@
 //  Created by Kra on 3/6/11.
 //  Copyright 2011 kra. All rights reserved.
 //
+#import <KraCommons/KCNibUtils.h>
 
 #import "MMHomeViewController.h"
-
-#import "NibUtils.h"
 
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
@@ -101,8 +100,8 @@
 #pragma mark - Moving to next view controller
 - (UIViewController<MMLibraryViewController> *) loadLibraryController
 {
-  NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
-  Class clazz = [NibUtils isiPad] ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
+  NSString *nibName = [KCNibUtils nibName: @"MMLibraryViewController"];
+  Class clazz = [KCNibUtils isiPad] ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
   return [[clazz alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
 }
 

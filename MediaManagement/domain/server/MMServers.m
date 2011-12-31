@@ -128,6 +128,12 @@
 {
   NSLog(@"Resolved service %@:\nhttp://%@:%i", aNetService.name, aNetService.hostName, aNetService.port);
 
+  // this delegate method gets called more than once every once in a while, so make sure this doens't happen
+  if([self serverWithNetService: aNetService] != nil)
+  {
+    return;
+  }
+  
   // service did resolve properly, build server with hostname/port, add to list and notify delegate
   MMServer *server = [MMServer serverWithHost: aNetService.hostName andPort: aNetService.port];
   server.key = aNetService.name;

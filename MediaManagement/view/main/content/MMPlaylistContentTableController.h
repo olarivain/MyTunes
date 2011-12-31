@@ -8,15 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MMEditController.h"
+
 @class MMPlaylist;
 @class MMContentGroup;
 @class MMPlaylistSubcontentSelector;
+@class MMPlaylistContentCell;
 
-@interface MMPlaylistContentTableController : NSObject<UITableViewDelegate, UITableViewDataSource> 
+@interface MMPlaylistContentTableController : NSObject<UITableViewDelegate, UITableViewDataSource, MMEditControllerDelegate> 
 {
   IBOutlet __strong UITableView * table;
   IBOutlet __strong MMPlaylistSubcontentSelector *subcontentSelector;
   IBOutlet __strong UIBarButtonItem *editButton;
+  IBOutlet __weak MMPlaylistContentCell *contentCell;
+  IBOutlet __weak UIViewController *controller;
+  
+  __strong MMPlaylistContentCell *sizingContentCell;
+  
+  __strong NSMutableDictionary *cellSizes;
   
   __strong MMPlaylist *playlist;
   __strong MMContentGroup *selectedContentGroup;

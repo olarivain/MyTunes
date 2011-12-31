@@ -6,9 +6,10 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
+#import <KraCommons/KCNibUtils.h>
+
 #import "MMHomeView.h"
 #import "MMServerView.h"
-#import "NibUtils.h"
 
 #define MARGIN 40
 #define PADDING 20
@@ -185,7 +186,7 @@
 {
   for(int i = 0; i < count; i++)
   {
-    NSString *nibName = [NibUtils nibName:@"MMServerView"];
+    NSString *nibName = [KCNibUtils nibName:@"MMServerView"];
     [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
     CGRect rect = serverView.frame;
     rect.origin.x = 10;
