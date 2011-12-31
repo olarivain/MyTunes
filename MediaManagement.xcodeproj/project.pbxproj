@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC2141D5CBC00F196D0 /* MMFieldView.m */; };
 		00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC6141D5D8800F196D0 /* NSString+Converteer.m */; };
-		00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CCA141D620700F196D0 /* MMMovieEditController.m */; };
+		002847FA14AFB4BE003F5818 /* MMContentPlacholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847E714AFB4BE003F5818 /* MMContentPlacholder.m */; };
+		002847FB14AFB4BE003F5818 /* MMEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847E914AFB4BE003F5818 /* MMEditController.m */; };
+		002847FC14AFB4BE003F5818 /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847EB14AFB4BE003F5818 /* MMEditController_iPad.m */; };
+		002847FD14AFB4BE003F5818 /* MMEditController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002847EC14AFB4BE003F5818 /* MMEditController_iPad.xib */; };
+		002847FE14AFB4BE003F5818 /* MMEditController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002847ED14AFB4BE003F5818 /* MMEditController_iPhone.xib */; };
+		002847FF14AFB4BE003F5818 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F014AFB4BE003F5818 /* MMFieldView.m */; };
+		0028480014AFB4BE003F5818 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F314AFB4BE003F5818 /* MMMovieEditController.m */; };
+		0028480114AFB4BE003F5818 /* MMMusicEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F614AFB4BE003F5818 /* MMMusicEditController.m */; };
+		0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F914AFB4BE003F5818 /* MMTVShowEditController.m */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -25,9 +32,6 @@
 		003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDE9F132BFCD200D295A2 /* MediaManagementAppDelegate.m */; };
 		003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB1132BFCDF00D295A2 /* MMServer.m */; };
 		003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEB3132BFCDF00D295A2 /* MMServers.m */; };
-		003CDEE0132BFCDF00D295A2 /* MMEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEBB132BFCDF00D295A2 /* MMEditController.m */; };
-		003CDEE1132BFCDF00D295A2 /* MMEditController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */; };
-		003CDEE2132BFCDF00D295A2 /* MMEditController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */; };
 		003CDEE3132BFCDF00D295A2 /* MMHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDEC0132BFCDF00D295A2 /* MMHomeView.m */; };
 		003CDEE4132BFCDF00D295A2 /* MMHomeView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEC1132BFCDF00D295A2 /* MMHomeView_iPad.xib */; };
 		003CDEE5132BFCDF00D295A2 /* MMHomeView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDEC2132BFCDF00D295A2 /* MMHomeView_iPhone.xib */; };
@@ -40,12 +44,9 @@
 		003CDEEF132BFCDF00D295A2 /* MMServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CDED6132BFCDF00D295A2 /* MMServerView.m */; };
 		003CDEF0132BFCDF00D295A2 /* MMServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED7132BFCDF00D295A2 /* MMServerView_iPad.xib */; };
 		003CDEF1132BFCDF00D295A2 /* MMServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CDED8132BFCDF00D295A2 /* MMServerView_iPhone.xib */; };
-		004A11F21397281100C2D027 /* MMContentPlacholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A11F11397281100C2D027 /* MMContentPlacholder.m */; };
-		004A11F613972A0500C2D027 /* MMMusicEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A11F513972A0500C2D027 /* MMMusicEditController.m */; };
 		004A12041397367000C2D027 /* MMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A12031397367000C2D027 /* MMLoadingView.m */; };
 		004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2A1380872500B9639B /* MMRemoteLibrary.m */; };
 		004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2D1380872500B9639B /* MMRemotePlaylist.m */; };
-		0051DD911395DA2700F9357C /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0051DD901395DA2700F9357C /* MMEditController_iPad.m */; };
 		00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */; };
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
@@ -59,7 +60,6 @@
 		0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */; };
 		0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */; };
 		0082402914AFA3BA00CEDDEB /* MMPlaylistContentCellSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */; };
-		00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA91681397215100594D18 /* MMTVShowEditController.m */; };
 		00CCAF2613806E7800762299 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */; };
 		00CCAF2A1380790C00762299 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCAF291380790B00762299 /* MMContentView.m */; };
 /* End PBXBuildFile section */
@@ -75,12 +75,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00158CC1141D5CBC00F196D0 /* MMFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFieldView.h; sourceTree = "<group>"; };
-		00158CC2141D5CBC00F196D0 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
 		00158CC5141D5D8800F196D0 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
 		00158CC6141D5D8800F196D0 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
-		00158CC9141D620700F196D0 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
-		00158CCA141D620700F196D0 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
+		002847E514AFB4BE003F5818 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
+		002847E614AFB4BE003F5818 /* MMContentPlacholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentPlacholder.h; sourceTree = "<group>"; };
+		002847E714AFB4BE003F5818 /* MMContentPlacholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentPlacholder.m; sourceTree = "<group>"; };
+		002847E814AFB4BE003F5818 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController.h; sourceTree = "<group>"; };
+		002847E914AFB4BE003F5818 /* MMEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController.m; sourceTree = "<group>"; };
+		002847EA14AFB4BE003F5818 /* MMEditController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController_iPad.h; sourceTree = "<group>"; };
+		002847EB14AFB4BE003F5818 /* MMEditController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController_iPad.m; sourceTree = "<group>"; };
+		002847EC14AFB4BE003F5818 /* MMEditController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPad.xib; sourceTree = "<group>"; };
+		002847ED14AFB4BE003F5818 /* MMEditController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPhone.xib; sourceTree = "<group>"; };
+		002847EE14AFB4BE003F5818 /* MMEditControllerProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditControllerProtected.h; sourceTree = "<group>"; };
+		002847EF14AFB4BE003F5818 /* MMFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFieldView.h; sourceTree = "<group>"; };
+		002847F014AFB4BE003F5818 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
+		002847F214AFB4BE003F5818 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
+		002847F314AFB4BE003F5818 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
+		002847F514AFB4BE003F5818 /* MMMusicEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMusicEditController.h; sourceTree = "<group>"; };
+		002847F614AFB4BE003F5818 /* MMMusicEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMusicEditController.m; sourceTree = "<group>"; };
+		002847F814AFB4BE003F5818 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTVShowEditController.h; sourceTree = "<group>"; };
+		002847F914AFB4BE003F5818 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowEditController.m; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,10 +117,6 @@
 		003CDEB2132BFCDF00D295A2 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
 		003CDEB3132BFCDF00D295A2 /* MMServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServers.m; sourceTree = "<group>"; };
 		003CDEB4132BFCDF00D295A2 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServersDelegate.h; sourceTree = "<group>"; };
-		003CDEBA132BFCDF00D295A2 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController.h; sourceTree = "<group>"; };
-		003CDEBB132BFCDF00D295A2 /* MMEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController.m; sourceTree = "<group>"; };
-		003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPad.xib; sourceTree = "<group>"; };
-		003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPhone.xib; sourceTree = "<group>"; };
 		003CDEBF132BFCDF00D295A2 /* MMHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeView.h; sourceTree = "<group>"; };
 		003CDEC0132BFCDF00D295A2 /* MMHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeView.m; sourceTree = "<group>"; };
 		003CDEC1132BFCDF00D295A2 /* MMHomeView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeView_iPad.xib; sourceTree = "<group>"; };
@@ -124,19 +134,12 @@
 		003CDED6132BFCDF00D295A2 /* MMServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServerView.m; sourceTree = "<group>"; };
 		003CDED7132BFCDF00D295A2 /* MMServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPad.xib; sourceTree = "<group>"; };
 		003CDED8132BFCDF00D295A2 /* MMServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPhone.xib; sourceTree = "<group>"; };
-		004A11F01397281100C2D027 /* MMContentPlacholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentPlacholder.h; sourceTree = "<group>"; };
-		004A11F11397281100C2D027 /* MMContentPlacholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentPlacholder.m; sourceTree = "<group>"; };
-		004A11F413972A0500C2D027 /* MMMusicEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMusicEditController.h; path = music/MMMusicEditController.h; sourceTree = "<group>"; };
-		004A11F513972A0500C2D027 /* MMMusicEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMusicEditController.m; path = music/MMMusicEditController.m; sourceTree = "<group>"; };
-		004A11FF1397331D00C2D027 /* MMEditControllerProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditControllerProtected.h; sourceTree = "<group>"; };
 		004A12021397367000C2D027 /* MMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMLoadingView.h; path = loading/MMLoadingView.h; sourceTree = "<group>"; };
 		004A12031397367000C2D027 /* MMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLoadingView.m; path = loading/MMLoadingView.m; sourceTree = "<group>"; };
 		004BBE291380872500B9639B /* MMRemoteLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteLibrary.h; sourceTree = "<group>"; };
 		004BBE2A1380872500B9639B /* MMRemoteLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteLibrary.m; sourceTree = "<group>"; };
 		004BBE2C1380872500B9639B /* MMRemotePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemotePlaylist.h; sourceTree = "<group>"; };
 		004BBE2D1380872500B9639B /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
-		0051DD8F1395DA2700F9357C /* MMEditController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController_iPad.h; sourceTree = "<group>"; };
-		0051DD901395DA2700F9357C /* MMEditController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController_iPad.m; sourceTree = "<group>"; };
 		00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
 		00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
@@ -160,9 +163,6 @@
 		0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NSNumber_NonZero.m"; sourceTree = "<group>"; };
 		0082402714AFA3B700CEDDEB /* MMPlaylistContentCellSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCellSize.h; sourceTree = "<group>"; };
 		0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCellSize.m; sourceTree = "<group>"; };
-		00AA91671397215100594D18 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTVShowEditController.h; path = show/MMTVShowEditController.h; sourceTree = "<group>"; };
-		00AA91681397215100594D18 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTVShowEditController.m; path = show/MMTVShowEditController.m; sourceTree = "<group>"; };
-		00AA916A1397218600594D18 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
 		00CCAF2413806E7800762299 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
 		00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		00CCAF281380790B00762299 /* MMContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentView.h; sourceTree = "<group>"; };
@@ -194,13 +194,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00158CC8141D61F200F196D0 /* movie */ = {
+		002847E414AFB4BE003F5818 /* edit */ = {
 			isa = PBXGroup;
 			children = (
-				00158CC9141D620700F196D0 /* MMMovieEditController.h */,
-				00158CCA141D620700F196D0 /* MMMovieEditController.m */,
+				002847E514AFB4BE003F5818 /* MMContentEditController.h */,
+				002847E614AFB4BE003F5818 /* MMContentPlacholder.h */,
+				002847E714AFB4BE003F5818 /* MMContentPlacholder.m */,
+				002847E814AFB4BE003F5818 /* MMEditController.h */,
+				002847E914AFB4BE003F5818 /* MMEditController.m */,
+				002847EA14AFB4BE003F5818 /* MMEditController_iPad.h */,
+				002847EB14AFB4BE003F5818 /* MMEditController_iPad.m */,
+				002847EC14AFB4BE003F5818 /* MMEditController_iPad.xib */,
+				002847ED14AFB4BE003F5818 /* MMEditController_iPhone.xib */,
+				002847EE14AFB4BE003F5818 /* MMEditControllerProtected.h */,
+				002847EF14AFB4BE003F5818 /* MMFieldView.h */,
+				002847F014AFB4BE003F5818 /* MMFieldView.m */,
+				002847F114AFB4BE003F5818 /* movie */,
+				002847F414AFB4BE003F5818 /* music */,
+				002847F714AFB4BE003F5818 /* show */,
+			);
+			path = edit;
+			sourceTree = "<group>";
+		};
+		002847F114AFB4BE003F5818 /* movie */ = {
+			isa = PBXGroup;
+			children = (
+				002847F214AFB4BE003F5818 /* MMMovieEditController.h */,
+				002847F314AFB4BE003F5818 /* MMMovieEditController.m */,
 			);
 			path = movie;
+			sourceTree = "<group>";
+		};
+		002847F414AFB4BE003F5818 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				002847F514AFB4BE003F5818 /* MMMusicEditController.h */,
+				002847F614AFB4BE003F5818 /* MMMusicEditController.m */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
+		002847F714AFB4BE003F5818 /* show */ = {
+			isa = PBXGroup;
+			children = (
+				002847F814AFB4BE003F5818 /* MMTVShowEditController.h */,
+				002847F914AFB4BE003F5818 /* MMTVShowEditController.m */,
+			);
+			path = show;
 			sourceTree = "<group>";
 		};
 		002A0AD61324549D00320A06 = {
@@ -317,34 +357,11 @@
 			isa = PBXGroup;
 			children = (
 				004A12011397365B00C2D027 /* loading */,
-				003CDEB9132BFCDF00D295A2 /* edit */,
 				003CDEBE132BFCDF00D295A2 /* home */,
 				003CDEC5132BFCDF00D295A2 /* library */,
 				003CDED4132BFCDF00D295A2 /* server */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		003CDEB9132BFCDF00D295A2 /* edit */ = {
-			isa = PBXGroup;
-			children = (
-				00158CC8141D61F200F196D0 /* movie */,
-				004A11F3139729F400C2D027 /* music */,
-				00AA91661397211200594D18 /* show */,
-				00AA916A1397218600594D18 /* MMContentEditController.h */,
-				003CDEBA132BFCDF00D295A2 /* MMEditController.h */,
-				004A11FF1397331D00C2D027 /* MMEditControllerProtected.h */,
-				003CDEBB132BFCDF00D295A2 /* MMEditController.m */,
-				0051DD8F1395DA2700F9357C /* MMEditController_iPad.h */,
-				0051DD901395DA2700F9357C /* MMEditController_iPad.m */,
-				003CDEBC132BFCDF00D295A2 /* MMEditController_iPad.xib */,
-				003CDEBD132BFCDF00D295A2 /* MMEditController_iPhone.xib */,
-				004A11F01397281100C2D027 /* MMContentPlacholder.h */,
-				004A11F11397281100C2D027 /* MMContentPlacholder.m */,
-				00158CC1141D5CBC00F196D0 /* MMFieldView.h */,
-				00158CC2141D5CBC00F196D0 /* MMFieldView.m */,
-			);
-			path = edit;
 			sourceTree = "<group>";
 		};
 		003CDEBE132BFCDF00D295A2 /* home */ = {
@@ -400,15 +417,6 @@
 			path = assembler;
 			sourceTree = "<group>";
 		};
-		004A11F3139729F400C2D027 /* music */ = {
-			isa = PBXGroup;
-			children = (
-				004A11F413972A0500C2D027 /* MMMusicEditController.h */,
-				004A11F513972A0500C2D027 /* MMMusicEditController.m */,
-			);
-			name = music;
-			sourceTree = "<group>";
-		};
 		004A12011397365B00C2D027 /* loading */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +447,7 @@
 		00823FDE14AEB18300CEDDEB /* content */ = {
 			isa = PBXGroup;
 			children = (
+				002847E414AFB4BE003F5818 /* edit */,
 				00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */,
 				00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */,
 				0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */,
@@ -499,15 +508,6 @@
 				0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */,
 			);
 			path = summary;
-			sourceTree = "<group>";
-		};
-		00AA91661397211200594D18 /* show */ = {
-			isa = PBXGroup;
-			children = (
-				00AA91671397215100594D18 /* MMTVShowEditController.h */,
-				00AA91681397215100594D18 /* MMTVShowEditController.m */,
-			);
-			name = show;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,8 +582,6 @@
 			files = (
 				003CDEA0132BFCD200D295A2 /* InfoPlist.strings in Resources */,
 				003CDEA1132BFCD200D295A2 /* MainWindow_iPad.xib in Resources */,
-				003CDEE1132BFCDF00D295A2 /* MMEditController_iPad.xib in Resources */,
-				003CDEE2132BFCDF00D295A2 /* MMEditController_iPhone.xib in Resources */,
 				003CDEE4132BFCDF00D295A2 /* MMHomeView_iPad.xib in Resources */,
 				003CDEE5132BFCDF00D295A2 /* MMHomeView_iPhone.xib in Resources */,
 				003CDEEB132BFCDF00D295A2 /* MMLibraryViewController_iPad.xib in Resources */,
@@ -594,6 +592,8 @@
 				0082400C14AF96C300CEDDEB /* MMTitleListViewController.xib in Resources */,
 				0082400F14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib in Resources */,
 				0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */,
+				002847FD14AFB4BE003F5818 /* MMEditController_iPad.xib in Resources */,
+				002847FE14AFB4BE003F5818 /* MMEditController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +633,6 @@
 				003CDEA2132BFCD200D295A2 /* MediaManagementAppDelegate.m in Sources */,
 				003CDEDD132BFCDF00D295A2 /* MMServer.m in Sources */,
 				003CDEDE132BFCDF00D295A2 /* MMServers.m in Sources */,
-				003CDEE0132BFCDF00D295A2 /* MMEditController.m in Sources */,
 				003CDEE3132BFCDF00D295A2 /* MMHomeView.m in Sources */,
 				003CDEE6132BFCDF00D295A2 /* MMHomeViewController.m in Sources */,
 				003CDEEA132BFCDF00D295A2 /* MMLibraryViewController_iPad.m in Sources */,
@@ -643,14 +642,8 @@
 				00CCAF2A1380790C00762299 /* MMContentView.m in Sources */,
 				004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */,
 				004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */,
-				0051DD911395DA2700F9357C /* MMEditController_iPad.m in Sources */,
-				00AA91691397215100594D18 /* MMTVShowEditController.m in Sources */,
-				004A11F21397281100C2D027 /* MMContentPlacholder.m in Sources */,
-				004A11F613972A0500C2D027 /* MMMusicEditController.m in Sources */,
 				004A12041397367000C2D027 /* MMLoadingView.m in Sources */,
-				00158CC3141D5CBC00F196D0 /* MMFieldView.m in Sources */,
 				00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */,
-				00158CCB141D620700F196D0 /* MMMovieEditController.m in Sources */,
 				00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */,
 				00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */,
 				00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */,
@@ -661,6 +654,13 @@
 				0082402114AF9B6F00CEDDEB /* MMPlaylistContentCell.m in Sources */,
 				0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */,
 				0082402914AFA3BA00CEDDEB /* MMPlaylistContentCellSize.m in Sources */,
+				002847FA14AFB4BE003F5818 /* MMContentPlacholder.m in Sources */,
+				002847FB14AFB4BE003F5818 /* MMEditController.m in Sources */,
+				002847FC14AFB4BE003F5818 /* MMEditController_iPad.m in Sources */,
+				002847FF14AFB4BE003F5818 /* MMFieldView.m in Sources */,
+				0028480014AFB4BE003F5818 /* MMMovieEditController.m in Sources */,
+				0028480114AFB4BE003F5818 /* MMMusicEditController.m in Sources */,
+				0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
