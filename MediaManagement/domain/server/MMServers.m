@@ -11,6 +11,7 @@
 
 @interface MMServers()
 - (MMServer *) serverWithNetService: (NSNetService *) netService;
+- (void) removeNetService: (NSNetService *) netService;
 @end
 
 @implementation MMServers
@@ -51,6 +52,12 @@
   [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
+- (void) stopSearch
+{
+  [netServiceBrowser stop];
+  [netServices removeAllObjects];
+}
+
 - (MMServer *) serverWithNetService: (NSNetService *) netService
 {
   for(MMServer *server in servers)
@@ -63,8 +70,29 @@
   return nil;
 }
 
+- (void) removeNetService: (NSNetService *) netService
+{
+  NSNetService *toRemove = nil;
+  for(NSNetService *service in netServices)
+  {
+    if([service.name isEqual: netService.name])
+    {
+      toRemove = service;
+      break;
+    }
+  }
+  
+  toRemove.delegate = nil;
+  [netServices removeObject: toRemove];
+}
+
 
 #pragma mark - NSNetServiceBrowserDelegate methods
+- (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
+{
+  [delegate willRefresh:self];
+}
+
 - (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
   if(![aNetService.name hasPrefix:@"iServe-"])
@@ -89,20 +117,10 @@
   [servers removeObject: removed];
   
   // drop net service
-  aNetService.delegate = nil;
-  [netServices removeObject: aNetService];
+  [self removeNetService: aNetService];
   
   // notify delegate
   [delegate didRefresh:self];
-}
-
-- (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
-{
-  if([[delegate class] respondsToSelector: @selector(willRefresh:)])
-  {
-    [delegate willRefresh:self];
-  }
-
 }
 
 #pragma mark - NSNetService delegate methods
@@ -118,12 +136,11 @@
   [delegate didRefresh: self];
 }
 
-- (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+- (void) netService:(NSNetService *)aNetService didNotResolve:(NSDictionary *)errorDict
 {
   NSLog(@"Could not resolve service:\n%@", errorDict);
   
-  sender.delegate = nil;
-  [netServices removeObject: sender];
+  [self removeNetService: aNetService];
 }
 
 
