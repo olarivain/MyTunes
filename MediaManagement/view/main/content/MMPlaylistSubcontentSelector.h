@@ -12,8 +12,8 @@
 
 @interface MMPlaylistSubcontentSelector : UIToolbar 
 {
-  NSArray *contentGroups;
-  IBOutlet UISegmentedControl *segmentedControl;
+  IBOutlet __strong UISegmentedControl *segmentedControl;
+  __strong NSArray *contentGroups;
 }
 
 @property (nonatomic, readwrite, strong) NSArray *contentGroups;

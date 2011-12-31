@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MMLibraryViewController.h"
-@class MMServer;
 
-@interface MMLibraryViewController_iPhone : MMLibraryViewController 
+@interface MMLibraryViewController_iPhone : UIViewController<MMLibraryViewController>
 {
+  __strong MMServer *server;
 }
 
-
+@property (nonatomic, readwrite, strong) MMServer *server;
 
 
 @end

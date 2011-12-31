@@ -15,37 +15,18 @@
 #import "MMRemotePlaylist.h"
 
 #import "MMEditController_iPad.h"
-#import "MMPlaylistTableViewController.h"
+#import "MMPlaylistContentTableController.h"
 #import "MMContentView.h"
 #import "MMPlaylistSubcontentSelector.h"
 
 #import "NibUtils.h"
 
 @interface MMLibraryViewController_iPad()
-
-@property (nonatomic, readwrite, strong) UIBarButtonItem *editButton;
-@property (nonatomic, readwrite, strong) MMPlaylistTableViewController *contentController;
-@property (nonatomic, readwrite, strong) MMContentView *contentView;
-@property (nonatomic, readwrite, strong) MMPlaylistSubcontentSelector *subcontentSelector;
-@property (nonatomic, readwrite, strong) UITableView *playlistTable;
-
-- (NSArray*) playlistListForIndex: (NSInteger) index;
-- (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath;
-- (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath;
 @end
 
 @implementation MMLibraryViewController_iPad
 
-- (void) dealloc
-{
-  self.selectedPlaylist = nil;
-}
-
-@synthesize editButton;
-@synthesize contentController;
-@synthesize contentView;
-@synthesize subcontentSelector;
-@synthesize playlistTable;
+@synthesize server;
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,6 +39,15 @@
 {
   [super viewDidLoad];
   
+  // initialize playlist table controller
+  playlistTableController.library = server.library;
+  
+  // auto select first item in system playlist if there is one available
+  if(selectedPlaylist == nil) 
+  {
+    [playlistTableController selectFirstPlaylist];
+  }
+  
   // update title bar
   [[self navigationItem] setTitle: [server name]];
   
@@ -65,10 +55,10 @@
 
 - (void)viewDidUnload
 {
-  self.editButton = nil;
-  self.contentView = nil;
-  self.subcontentSelector = nil;
-  self.playlistTable = nil;
+  editButton = nil;
+  contentView = nil;
+  playlistTableController = nil;
+  contentController = nil;
   [super viewDidUnload];
 }
 
@@ -78,14 +68,6 @@
   
   // udpate right bar button item
   self.navigationItem.rightBarButtonItem = editButton;
-  
-  // auto select first item in system playlist if there is one available
-  if(selectedPlaylist == nil && [server hasSystemPlaylist]) {
-    NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
-    [playlistTable selectRowAtIndexPath: path animated: NO scrollPosition:UITableViewScrollPositionTop];
-    [self tableView: playlistTable didSelectRowAtIndexPath: path];
-  }
-
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -100,64 +82,9 @@
   return YES;
 }
 
-#pragma mark - TableView Data source
-#pragma Convienence accessors
-- (NSArray*) playlistListForIndex: (NSInteger) index
-{
-  return [self playlistListForIndexPath: [NSIndexPath indexPathForRow: 0 inSection: index]];
-}
-
-- (NSArray*) playlistListForIndexPath: (NSIndexPath*) indexPath
-{
-  MMRemoteLibrary *library = server.library;
-  
-  NSArray *playlists = indexPath.section == 0 ? library.systemPlaylists : library.userPlaylists;
-  return playlists;
-}
-
-- (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath
-{
-  NSArray *playlists = [self playlistListForIndexPath: indexPath];
-  MMPlaylist *playlist = [playlists objectAtIndex: indexPath.row];
-  return playlist;
-}
-
-#pragma mark Data Source methods
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
-{
-  return 2;
-}
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-  NSArray *playlists = [self playlistListForIndex: section];
-  return [playlists count];
-}
-
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-  
-  NSString *cellId = @"playlistCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
-  if(cell == nil)
-  {
-    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellId];
-  }
-  
-  cell.textLabel.text = playlist.name;
-  return cell;
-}
-
-- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-  return section == 0 ? @"Library" : @"Playlists";
-}
-
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{ 
-  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-  
+#pragma mark - Playlist table controller delegate
+- (void) didSelectPlaylist:(MMPlaylist *)playlist
+{   
   // tapped the same playlist again, give up
   if(playlist == selectedPlaylist)
   {
@@ -165,29 +92,24 @@
   }
   
   // retain current playlist
-  self.selectedPlaylist = playlist;
+  selectedPlaylist = playlist;
   
   // display visual feedback
   [contentView setLoading: TRUE];
   
+  // clear content view
+  contentController.playlist = nil;
+  [contentController refresh];
+  
   // refresh content on callback
   MMPlaylistCallback callback = ^(void) {
-    subcontentSelector.contentGroups = selectedPlaylist.contentGroups;
-    
-    contentController.selectedContentGroup = subcontentSelector.selectedContentGroup;
+    contentController.playlist = selectedPlaylist;
     [contentController refresh];
     [contentView setLoading: FALSE];
   };
   
   // load playlist
   [selectedPlaylist loadWithBlock: callback];
-}
-
-#pragma mark - edit controller delegate
-- (void) didEditContent:(MMContent *)item {
-  // ask library to update shit and refresh
-  [server.library updateContent: item];
-  [contentController refresh];
 }
 
 #pragma mark - Action handlers
@@ -206,10 +128,11 @@
   [self presentModalViewController:editController animated:TRUE];
 }
 
-- (IBAction) didSelectPlaylistContentType: (id) sender
+#pragma mark - edit controller delegate
+- (void) didEditContent:(MMContent *)item 
 {
-  self.selectedContentGroup = [subcontentSelector selectedContentGroup];
-  contentController.selectedContentGroup = selectedContentGroup;
+  // ask library to update shit and refresh
+  [server.library updateContent: item];
   [contentController refresh];
 }
 

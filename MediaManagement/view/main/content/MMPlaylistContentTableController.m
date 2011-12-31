@@ -7,20 +7,35 @@
 //
 
 
+#import <MediaManagement/MMPlaylist.h>
 #import <MediaManagement/MMContentList.h>
 #import <MediaManagement/MMContent.h>
 
-#import "MMPlaylistTableViewController.h"
+#import "MMPlaylistContentTableController.h"
+#import "MMPlaylistSubcontentSelector.h"
 
 
-@interface MMPlaylistTableViewController()
+@interface MMPlaylistContentTableController()
 @end
 
-@implementation MMPlaylistTableViewController
+@implementation MMPlaylistContentTableController
 
 
 @synthesize selectedContentGroup;
 @synthesize selectedItem;
+@synthesize playlist;
+
+- (void) setPlaylist:(MMPlaylist *) aPlaylist
+{
+  if(playlist == aPlaylist)
+  {
+    return;
+  }
+  
+  playlist = aPlaylist;
+  subcontentSelector.contentGroups = playlist.contentGroups;
+  selectedContentGroup = subcontentSelector.selectedContentGroup;
+}
 
 #pragma mark - Table view data source
 - (void) refresh
@@ -35,6 +50,7 @@
   }
 }
 
+#pragma mark - TableData source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   return [selectedContentGroup contentListCount];
@@ -69,12 +85,20 @@
   return cell;
 }
 
+#pragma mark - table delegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   MMContentList *contentList = [selectedContentGroup contentListForFlatIndex: indexPath.section];  
   MMContent *content = [[contentList content] objectAtIndex: indexPath.row];
 
   selectedItem = content;
+}
+
+#pragma mark - Changing Content Group
+- (IBAction) didSelectPlaylistContentType: (id) sender
+{
+  selectedContentGroup = [subcontentSelector selectedContentGroup];
+  [self refresh];
 }
 
 @end

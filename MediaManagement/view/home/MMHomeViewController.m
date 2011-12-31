@@ -99,15 +99,11 @@
 }
 
 #pragma mark - Moving to next view controller
-- (MMLibraryViewController*) loadLibraryController
+- (UIViewController<MMLibraryViewController> *) loadLibraryController
 {
   NSString *nibName = [NibUtils nibName: @"MMLibraryViewController"];
-  if([NibUtils isiPad])
-  {
-    return [[MMLibraryViewController_iPad alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
-  }
-
-  return [[MMLibraryViewController_iPhone alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+  Class clazz = [NibUtils isiPad] ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
+  return [[clazz alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
 }
 
 - (IBAction) serverSelected:(id)sender
@@ -115,7 +111,7 @@
   [self setLoading: TRUE];
   
   // load next view controller
-  MMLibraryViewController *libraryViewController = [self loadLibraryController];
+  UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
   
   // grab server and wire it in
   MMServerView *view = (MMServerView*) sender;

@@ -35,4 +35,5 @@ static NSString *deviceSuffix;
 {
   return [NSString stringWithFormat:@"%@%@", name, [NibUtils deviceSuffix]];
 }
+
 @end

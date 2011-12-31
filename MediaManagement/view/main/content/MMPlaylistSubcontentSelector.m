@@ -11,11 +11,6 @@
 
 @implementation MMPlaylistSubcontentSelector
 
-- (void)dealloc
-{
-  self.contentGroups = nil;
-}
-
 @synthesize contentGroups;
 @synthesize segmentedControl;
 

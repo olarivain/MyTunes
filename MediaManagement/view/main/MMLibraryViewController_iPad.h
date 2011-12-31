@@ -10,23 +10,34 @@
 #import "MMLibraryViewController.h"
 
 #import "MMEditController.h"
+#import "MMLibraryViewController.h"
+
+#import "MMPlaylistTableController.h"
+
+@class MMPlaylist;
+@class MMContentView;
 
 @class CategoriesTableViewController;
-@class MMPlaylistTableViewController;
-@class MMContentView;
+@class MMPlaylistContentTableController;
 @class MMPlaylistSubcontentSelector;
-@class MMPlaylist;
 
-@interface MMLibraryViewController_iPad : MMLibraryViewController<UITableViewDelegate, UITableViewDataSource, MMEditControllerDelegate>
+
+@interface MMLibraryViewController_iPad : UIViewController<MMEditControllerDelegate, MMLibraryViewController, MMPlaylistTableControllerDelegate>
 {
-  IBOutlet UITableView *playlistTable;
+  IBOutlet __strong MMPlaylistTableController *playlistTableController;
+  IBOutlet __strong UIBarButtonItem *editButton;
+  IBOutlet __strong MMPlaylistContentTableController *contentController;
   
-  IBOutlet UIBarButtonItem *editButton;
-  IBOutlet MMPlaylistTableViewController *contentController;
+  IBOutlet __strong MMContentView *contentView;
   
-  IBOutlet MMContentView *contentView;
-  IBOutlet MMPlaylistSubcontentSelector *subcontentSelector;
+  __strong MMPlaylist *selectedPlaylist;
+  __strong MMContentGroup *selectedContentGroup;
+  __strong MMServer *server;
 
 }
+
+@property (nonatomic, readwrite, strong) MMServer *server;
+
+- (IBAction) editPressed: (id) sender;
 
 @end

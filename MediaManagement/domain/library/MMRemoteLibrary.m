@@ -41,6 +41,7 @@
 @synthesize systemPlaylists;
 @synthesize userPlaylists;
 
+#pragma mark - playlist management
 - (void) clear
 {
   [super clear];
@@ -59,6 +60,11 @@
   
   NSMutableArray *targetList = [mediaLibrary isSystem] ? systemPlaylists : userPlaylists;
   [targetList addObject: mediaLibrary];
+}
+
+- (BOOL) hasUserPlaylist
+{
+  return [userPlaylists count] > 0;
 }
 
 #pragma mark - Network calls 

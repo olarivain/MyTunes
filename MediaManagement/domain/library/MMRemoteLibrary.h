@@ -35,4 +35,6 @@ typedef void(^MMRemoteLibraryCallback)(void);
 
 - (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback;
 
+- (BOOL) hasUserPlaylist;
+
 @end
