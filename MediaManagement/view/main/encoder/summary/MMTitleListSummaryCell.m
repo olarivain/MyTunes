@@ -8,9 +8,9 @@
 
 #import <MediaManagement/MMTitleList.h>
 
-#import "MMEncoderResourceCell.h"
+#import "MMTitleListSummaryCell.h"
 
-@implementation MMEncoderResourceCell
+@implementation MMTitleListSummaryCell
 
 - (void) updateWithTitleList: (MMTitleList *) titleList
 {

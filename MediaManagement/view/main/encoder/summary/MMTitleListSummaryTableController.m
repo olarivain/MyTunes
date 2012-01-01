@@ -10,13 +10,14 @@
 #import <KraCommons/KCNibUtils.h>
 #import <MediaManagement/MMTitleList.h>
 
-#import "MMEncoderTableController.h"
+#import "MMTitleListSummaryTableController.h"
 
 #import "MMRemoteEncoder.h"
 
-#import "MMEncoderResourceCell.h"
+#import "MMTitleListDetailViewController.h"
+#import "MMTitleListSummaryCell.h"
 
-@implementation MMEncoderTableController
+@implementation MMTitleListSummaryTableController
 
 @synthesize encoder;
 
@@ -38,10 +39,10 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSString *cellId = @"encoderResource";
-  MMEncoderResourceCell *cell = (MMEncoderResourceCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
+  MMTitleListSummaryCell *cell = (MMTitleListSummaryCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
   if(cell == nil)
   {
-    NSString *nibName = [KCNibUtils nibName: @"MMEncoderResourceCell"] ;
+    NSString *nibName = [KCNibUtils nibName: @"MMTitleListSummaryCell"] ;
     NSBundle *bundle = [NSBundle mainBundle];
     [bundle loadNibNamed: nibName owner: self options: nil];
     cell = resourceCell;
@@ -51,6 +52,20 @@
   MMTitleList *titleList = [encoder.availableResources boundSafeObjectAtIndex: indexPath.row];
   [cell updateWithTitleList: titleList];
   return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // load nib for edit view
+  MMTitleListDetailViewController *detailController = [[MMTitleListDetailViewController alloc] initWithNibName:@"MMTitleListDetailViewController" bundle: [NSBundle mainBundle]];
+  detailController.encoder = encoder;
+  detailController.titleList = [encoder.availableResources boundSafeObjectAtIndex: indexPath.row];
+  [detailController setModalPresentationStyle: UIModalPresentationFormSheet];
+  
+  [controller presentModalViewController: detailController animated: YES];
+  
+  // and deselect row
+  [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
 @end

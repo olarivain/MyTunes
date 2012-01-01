@@ -10,7 +10,7 @@
 
 @class MMTitleList;
 
-@interface MMEncoderResourceCell : UITableViewCell
+@interface MMTitleListSummaryCell : UITableViewCell
 {
   IBOutlet __strong UILabel *name;
 }

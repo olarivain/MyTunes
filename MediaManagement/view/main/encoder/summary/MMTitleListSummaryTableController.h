@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class MMRemoteEncoder;
-@class MMEncoderResourceCell;
+@class MMTitleListSummaryCell;
 
-@interface MMEncoderTableController : NSObject<UITableViewDataSource, UITableViewDelegate>
+@interface MMTitleListSummaryTableController : NSObject<UITableViewDataSource, UITableViewDelegate>
 {
-  IBOutlet UITableView *table;
-  IBOutlet __weak MMEncoderResourceCell *resourceCell;
+  IBOutlet __strong UITableView *table;
+  IBOutlet __weak MMTitleListSummaryCell *resourceCell;
+  IBOutlet __weak UIViewController *controller;
+  
   __strong MMRemoteEncoder *encoder;
 }
 

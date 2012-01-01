@@ -21,6 +21,12 @@
 		0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */; };
 		0028481114AFCA95003F5818 /* MMTitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028481014AFCA95003F5818 /* MMTitleDetailCell.m */; };
 		0028481414AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */; };
+		0028483F14AFE32A003F5818 /* MMAudioTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028483E14AFE32A003F5818 /* MMAudioTrackCell.m */; };
+		0028484114AFE596003F5818 /* MMAudioTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028484014AFE595003F5818 /* MMAudioTrackCell.xib */; };
+		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
+		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
+		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
+		0028484B14AFF2CD003F5818 /* IconCheckMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484714AFF2CD003F5818 /* IconCheckMark@2x.png */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -51,6 +57,9 @@
 		004A12041397367000C2D027 /* MMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A12031397367000C2D027 /* MMLoadingView.m */; };
 		004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2A1380872500B9639B /* MMRemoteLibrary.m */; };
 		004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2D1380872500B9639B /* MMRemotePlaylist.m */; };
+		0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */; };
+		0062FA9214AFFCB900C2C984 /* MMSubtitleTrackListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */; };
+		0062FA9714AFFF5400C2C984 /* MMAudioTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */; };
 		00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */; };
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
@@ -102,9 +111,16 @@
 		0028480314AFBDA2003F5818 /* MMLibraryNavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryNavigationCell.h; sourceTree = "<group>"; };
 		0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationCell.m; sourceTree = "<group>"; };
 		0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryNavigationCell.xib; sourceTree = "<group>"; };
-		0028480F14AFCA94003F5818 /* MMTitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMTitleDetailCell.h; sourceTree = "<group>"; };
+		0028480F14AFCA94003F5818 /* MMTitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleDetailCell.h; sourceTree = "<group>"; };
 		0028481014AFCA95003F5818 /* MMTitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleDetailCell.m; sourceTree = "<group>"; };
 		0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleDetailCell_iPad.xib; sourceTree = "<group>"; };
+		0028483D14AFE329003F5818 /* MMAudioTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAudioTrackCell.h; sourceTree = "<group>"; };
+		0028483E14AFE32A003F5818 /* MMAudioTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAudioTrackCell.m; sourceTree = "<group>"; };
+		0028484014AFE595003F5818 /* MMAudioTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAudioTrackCell.xib; sourceTree = "<group>"; };
+		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
+		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
+		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
+		0028484714AFF2CD003F5818 /* IconCheckMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconCheckMark@2x.png"; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +166,12 @@
 		004BBE2A1380872500B9639B /* MMRemoteLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteLibrary.m; sourceTree = "<group>"; };
 		004BBE2C1380872500B9639B /* MMRemotePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemotePlaylist.h; sourceTree = "<group>"; };
 		004BBE2D1380872500B9639B /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
+		0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackView.h; sourceTree = "<group>"; };
+		0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackView.m; sourceTree = "<group>"; };
+		0062FA9014AFFCB900C2C984 /* MMSubtitleTrackListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackListView.h; sourceTree = "<group>"; };
+		0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackListView.m; sourceTree = "<group>"; };
+		0062FA9514AFFF5400C2C984 /* MMAudioTrackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAudioTrackTableController.h; sourceTree = "<group>"; };
+		0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAudioTrackTableController.m; sourceTree = "<group>"; };
 		00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
 		00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
@@ -253,6 +275,25 @@
 			path = show;
 			sourceTree = "<group>";
 		};
+		0028484214AFF295003F5818 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0028484314AFF2CD003F5818 /* encoder */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0028484314AFF2CD003F5818 /* encoder */ = {
+			isa = PBXGroup;
+			children = (
+				0028484414AFF2CD003F5818 /* CircleCheckBox.png */,
+				0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */,
+				0028484614AFF2CD003F5818 /* IconCheckMark.png */,
+				0028484714AFF2CD003F5818 /* IconCheckMark@2x.png */,
+			);
+			path = encoder;
+			sourceTree = "<group>";
+		};
 		002A0AD61324549D00320A06 = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +301,7 @@
 				002A0B0B1324549D00320A06 /* MediaManagementTests */,
 				002A0AE41324549D00320A06 /* Frameworks */,
 				002A0AE21324549D00320A06 /* Products */,
+				0028484214AFF295003F5818 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,6 +496,29 @@
 			path = playlist;
 			sourceTree = "<group>";
 		};
+		0062FA9314AFFCC900C2C984 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				0062FA9514AFFF5400C2C984 /* MMAudioTrackTableController.h */,
+				0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */,
+				0028483D14AFE329003F5818 /* MMAudioTrackCell.h */,
+				0028483E14AFE32A003F5818 /* MMAudioTrackCell.m */,
+				0028484014AFE595003F5818 /* MMAudioTrackCell.xib */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		0062FA9414AFFCD500C2C984 /* subtitle */ = {
+			isa = PBXGroup;
+			children = (
+				0062FA9014AFFCB900C2C984 /* MMSubtitleTrackListView.h */,
+				0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */,
+				0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackView.h */,
+				0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */,
+			);
+			name = subtitle;
+			sourceTree = "<group>";
+		};
 		00823FDE14AEB18300CEDDEB /* content */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +569,8 @@
 		0082400414AF96C300CEDDEB /* detail */ = {
 			isa = PBXGroup;
 			children = (
+				0062FA9314AFFCC900C2C984 /* audio */,
+				0062FA9414AFFCD500C2C984 /* subtitle */,
 				0082400514AF96C300CEDDEB /* MMTitleListDetailViewController.h */,
 				0082400614AF96C300CEDDEB /* MMTitleListDetailViewController.m */,
 				0082400714AF96C300CEDDEB /* MMTitleListDetailViewController.xib */,
@@ -612,6 +679,11 @@
 				002847FE14AFB4BE003F5818 /* MMEditController_iPhone.xib in Resources */,
 				0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */,
 				0028481414AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib in Resources */,
+				0028484114AFE596003F5818 /* MMAudioTrackCell.xib in Resources */,
+				0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */,
+				0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */,
+				0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */,
+				0028484B14AFF2CD003F5818 /* IconCheckMark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +753,10 @@
 				0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */,
 				0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */,
 				0028481114AFCA95003F5818 /* MMTitleDetailCell.m in Sources */,
+				0028483F14AFE32A003F5818 /* MMAudioTrackCell.m in Sources */,
+				0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackView.m in Sources */,
+				0062FA9214AFFCB900C2C984 /* MMSubtitleTrackListView.m in Sources */,
+				0062FA9714AFFF5400C2C984 /* MMAudioTrackTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
