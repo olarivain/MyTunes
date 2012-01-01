@@ -9,8 +9,9 @@
 #import <MediaManagement/MMTitle.h>
 
 #import "MMTitleDetailCell.h"
+
 #import "MMTitleDetailCellSize.h"
-#import "MMAudioTrackTableController.h"
+#import "MMTitleTrackTableController.h"
 
 @implementation MMTitleDetailCell
 
@@ -33,14 +34,15 @@
     durationLabel.text = [NSString stringWithFormat: @"%02i:%02i", min, sec];    
   }
   
-  // size audio tracks to a perfect match
-  CGRect audioTracksFrame = audioTracksTable.frame;
-  audioTracksFrame.size.height = size.audioTracksHeight;
-  audioTracksTable.frame = audioTracksFrame;
+  // size title tracks table to a perfect match
+  CGRect titleTracksFrame = titleTracksTable.frame;
+  titleTracksFrame.size.height = size.titleTracksHeight;
+  titleTracksTable.frame = titleTracksFrame;
   
-  // and update the audio table controller
-  audioTableController.audioTracks = title.audioTracks;
-  [audioTableController refresh];
+  // and update the tracks table controller
+  titleTableController.audioTracks = title.audioTracks;
+  titleTableController.subtitleTracks = title.subtitleTracks;
+  [titleTableController refresh];
 }
 
 - (void) updateSizeWithWidth: (CGFloat) width
@@ -54,9 +56,8 @@
 {
   MMTitleDetailCellSize *size = [MMTitleDetailCellSize titleDetailCellSize];
   
-  size.audioTracksHeight = [audioTableController totalHeightForTracks: title.audioTracks];
-  
-  size.totalHeight = CGRectGetMaxY(durationLabel.frame) + size.audioTracksHeight + size.subtitleTracksHeight + CGRectGetMinY(nameLabel.frame);
+  size.titleTracksHeight = [titleTableController totalHeightForAudioTracks: title.audioTracks andSubtitleTracks: title.subtitleTracks];
+  size.totalHeight = CGRectGetMaxY(durationLabel.frame) + size.titleTracksHeight + CGRectGetMinY(nameLabel.frame);
   return size;
 }
 

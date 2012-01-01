@@ -10,13 +10,11 @@
 
 @interface MMTitleDetailCellSize : NSObject
 {
-  CGFloat audioTracksHeight;
-  CGFloat subtitleTracksHeight;
+  CGFloat titleTracksHeight;
   CGFloat totalHeight;
 }
 
-@property (nonatomic, readwrite, assign) CGFloat audioTracksHeight;
-@property (nonatomic, readwrite, assign) CGFloat subtitleTracksHeight;
+@property (nonatomic, readwrite, assign) CGFloat titleTracksHeight;
 @property (nonatomic, readwrite, assign) CGFloat totalHeight;
 
 + (MMTitleDetailCellSize *) titleDetailCellSize;

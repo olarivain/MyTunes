@@ -58,9 +58,10 @@
 		004A12041397367000C2D027 /* MMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A12031397367000C2D027 /* MMLoadingView.m */; };
 		004BBE2E1380872500B9639B /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2A1380872500B9639B /* MMRemoteLibrary.m */; };
 		004BBE2F1380872500B9639B /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BBE2D1380872500B9639B /* MMRemotePlaylist.m */; };
-		0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */; };
-		0062FA9214AFFCB900C2C984 /* MMSubtitleTrackListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */; };
-		0062FA9714AFFF5400C2C984 /* MMAudioTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */; };
+		00503CA314B0DEC7001EEF02 /* MMSubtitleTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00503CA214B0DEC6001EEF02 /* MMSubtitleTrackCell.xib */; };
+		00503CA614B0E00E001EEF02 /* MMTitleTrackSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 00503CA514B0E00E001EEF02 /* MMTitleTrackSectionHeader.m */; };
+		0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */; };
+		0062FA9714AFFF5400C2C984 /* MMTitleTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */; };
 		00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */; };
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
@@ -169,12 +170,13 @@
 		004BBE2A1380872500B9639B /* MMRemoteLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteLibrary.m; sourceTree = "<group>"; };
 		004BBE2C1380872500B9639B /* MMRemotePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemotePlaylist.h; sourceTree = "<group>"; };
 		004BBE2D1380872500B9639B /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
-		0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackView.h; sourceTree = "<group>"; };
-		0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackView.m; sourceTree = "<group>"; };
-		0062FA9014AFFCB900C2C984 /* MMSubtitleTrackListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackListView.h; sourceTree = "<group>"; };
-		0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackListView.m; sourceTree = "<group>"; };
-		0062FA9514AFFF5400C2C984 /* MMAudioTrackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAudioTrackTableController.h; sourceTree = "<group>"; };
-		0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAudioTrackTableController.m; sourceTree = "<group>"; };
+		00503CA214B0DEC6001EEF02 /* MMSubtitleTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMSubtitleTrackCell.xib; sourceTree = "<group>"; };
+		00503CA414B0E00D001EEF02 /* MMTitleTrackSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleTrackSectionHeader.h; sourceTree = "<group>"; };
+		00503CA514B0E00E001EEF02 /* MMTitleTrackSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackSectionHeader.m; sourceTree = "<group>"; };
+		0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackCell.h; sourceTree = "<group>"; };
+		0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackCell.m; sourceTree = "<group>"; };
+		0062FA9514AFFF5400C2C984 /* MMTitleTrackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleTrackTableController.h; sourceTree = "<group>"; };
+		0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackTableController.m; sourceTree = "<group>"; };
 		00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
 		00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
@@ -499,27 +501,21 @@
 			path = playlist;
 			sourceTree = "<group>";
 		};
-		0062FA9314AFFCC900C2C984 /* audio */ = {
+		0062FA9314AFFCC900C2C984 /* tracks */ = {
 			isa = PBXGroup;
 			children = (
-				0062FA9514AFFF5400C2C984 /* MMAudioTrackTableController.h */,
-				0062FA9614AFFF5400C2C984 /* MMAudioTrackTableController.m */,
+				0062FA9514AFFF5400C2C984 /* MMTitleTrackTableController.h */,
+				0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */,
 				0028483D14AFE329003F5818 /* MMAudioTrackCell.h */,
 				0028483E14AFE32A003F5818 /* MMAudioTrackCell.m */,
 				0028484014AFE595003F5818 /* MMAudioTrackCell.xib */,
+				0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackCell.h */,
+				0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */,
+				00503CA214B0DEC6001EEF02 /* MMSubtitleTrackCell.xib */,
+				00503CA414B0E00D001EEF02 /* MMTitleTrackSectionHeader.h */,
+				00503CA514B0E00E001EEF02 /* MMTitleTrackSectionHeader.m */,
 			);
-			name = audio;
-			sourceTree = "<group>";
-		};
-		0062FA9414AFFCD500C2C984 /* subtitle */ = {
-			isa = PBXGroup;
-			children = (
-				0062FA9014AFFCB900C2C984 /* MMSubtitleTrackListView.h */,
-				0062FA9114AFFCB900C2C984 /* MMSubtitleTrackListView.m */,
-				0062FA8C14AFFC9A00C2C984 /* MMSubtitleTrackView.h */,
-				0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackView.m */,
-			);
-			name = subtitle;
+			name = tracks;
 			sourceTree = "<group>";
 		};
 		00823FDE14AEB18300CEDDEB /* content */ = {
@@ -572,8 +568,7 @@
 		0082400414AF96C300CEDDEB /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				0062FA9314AFFCC900C2C984 /* audio */,
-				0062FA9414AFFCD500C2C984 /* subtitle */,
+				0062FA9314AFFCC900C2C984 /* tracks */,
 				0082400514AF96C300CEDDEB /* MMTitleListDetailViewController.h */,
 				0082400614AF96C300CEDDEB /* MMTitleListDetailViewController.m */,
 				0082400714AF96C300CEDDEB /* MMTitleListDetailViewController.xib */,
@@ -689,6 +684,7 @@
 				0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */,
 				0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */,
 				0028484B14AFF2CD003F5818 /* IconCheckMark@2x.png in Resources */,
+				00503CA314B0DEC7001EEF02 /* MMSubtitleTrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,10 +755,10 @@
 				0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */,
 				0028481114AFCA95003F5818 /* MMTitleDetailCell.m in Sources */,
 				0028483F14AFE32A003F5818 /* MMAudioTrackCell.m in Sources */,
-				0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackView.m in Sources */,
-				0062FA9214AFFCB900C2C984 /* MMSubtitleTrackListView.m in Sources */,
-				0062FA9714AFFF5400C2C984 /* MMAudioTrackTableController.m in Sources */,
+				0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackCell.m in Sources */,
+				0062FA9714AFFF5400C2C984 /* MMTitleTrackTableController.m in Sources */,
 				0012CB4514B0D0C600A2F4F5 /* MMTitleDetailCellSize.m in Sources */,
+				00503CA614B0E00E001EEF02 /* MMTitleTrackSectionHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

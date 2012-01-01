@@ -53,7 +53,7 @@
   }
   
   NSString *language = [[NSLocale currentLocale] displayNameForKey: NSLocaleIdentifier value: track.language];
-  NSString *label = [NSString stringWithFormat: @"%@ (%@, %i.%i)", language, codec, track.channelCount, track.hasLFE];
+  NSString *label = [NSString stringWithFormat: @"%@ - %@, %i.%i", language, codec, track.channelCount, track.hasLFE];
   return label;
 }
 

@@ -9,18 +9,24 @@
 #import <UIKit/UIKit.h>
 
 @class MMAudioTrackCell;
+@class MMSubtitleTrackCell;
 
-@interface MMAudioTrackTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
+@interface MMTitleTrackTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet __strong UITableView *table;
   IBOutlet __weak MMAudioTrackCell *audioCell;
+  IBOutlet __weak MMSubtitleTrackCell *subtitleCell;
   
   __strong MMAudioTrackCell *sizingAudioCell;
   __strong NSArray *audioTracks;
+  
+  __strong MMSubtitleTrackCell *sizingSubtitleCell;
+  __strong NSArray *subtitleTracks;
 }
 
 @property (nonatomic, readwrite, strong) NSArray *audioTracks;
+@property (nonatomic, readwrite, strong) NSArray *subtitleTracks;
 
 - (void) refresh;
-- (CGFloat) totalHeightForTracks: (NSArray *) tracks;
+- (CGFloat) totalHeightForAudioTracks: (NSArray *) audios andSubtitleTracks: (NSArray *) subtitles;
 @end

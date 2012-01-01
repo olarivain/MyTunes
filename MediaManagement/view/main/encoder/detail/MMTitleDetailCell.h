@@ -11,7 +11,8 @@
 @class MMTitle;
 @class MMAudioTrackListView;
 
-@class MMAudioTrackTableController;
+@class MMTitleTrackTableController;
+@class MMSubtitleTrackTableController;
 @class MMTitleDetailCellSize;
 
 @interface MMTitleDetailCell : UITableViewCell
@@ -19,8 +20,8 @@
   IBOutlet __strong UILabel *nameLabel;
   IBOutlet __strong UILabel *durationLabel;
   
-  IBOutlet __strong UITableView *audioTracksTable;
-  IBOutlet __strong MMAudioTrackTableController *audioTableController;
+  IBOutlet __strong UITableView *titleTracksTable;
+  IBOutlet __strong MMTitleTrackTableController *titleTableController;
 }
 
 - (void) updateWithTitle: (MMTitle *) title andSize: (MMTitleDetailCellSize *) size;

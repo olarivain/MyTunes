@@ -1,5 +1,5 @@
 //
-//  MMAudioTrackView.h
+//  MMSubtitleTrackView.h
 //  MediaManagement
 //
 //  Created by Larivain, Olivier on 12/31/11.
@@ -8,17 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class MMAudioTrack;
-@class MMAudioTrackListView;
+@class MMSubtitleTrack;
 
-@interface MMAudioTrackCell : UITableViewCell
+@interface MMSubtitleTrackCell : UITableViewCell
 {
   IBOutlet __strong UILabel *trackLabel;
   IBOutlet __strong UIImageView *checkmarkView;
   IBOutlet __strong UIView *separator;
 }
 
-- (void) updateWithAudioTrack: (MMAudioTrack *) track;
+- (void) updateWithSubtitleTrack: (MMSubtitleTrack *) track;
 - (void) hidesSeparator: (BOOL) hide;
 
 @end
