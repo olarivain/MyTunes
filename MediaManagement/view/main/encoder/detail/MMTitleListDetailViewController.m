@@ -60,6 +60,7 @@
 {
   [super viewDidLoad];
 
+  titleLabel.text = titleList.name;
   [self updateContent];
   // Do any additional setup after loading the view from its nib.
 }
