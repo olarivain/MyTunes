@@ -63,7 +63,7 @@
   NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
   NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content]; 
   
-  [self.server udpateRequestWithPath: path params: dictionary andCallback: updated];
+  [self.server updateRequestWithPath: path params: dictionary andCallback: updated];
 }
 
 @end

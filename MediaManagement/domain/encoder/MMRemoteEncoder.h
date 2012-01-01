@@ -28,5 +28,6 @@ typedef void(^MMRemoteEncoderCallback)(void);
 
 - (void) loadAvailableResources: (MMRemoteEncoderCallback) callback;
 - (void) scanResource: (MMTitleList *) titleList andCallback: (MMRemoteEncoderCallback) callback;
+- (void) scheduleTitleList: (MMTitleList *) title withCallback: (MMRemoteEncoderCallback) callback;
 
 @end

@@ -18,6 +18,7 @@
 - (id) initWithServer: (MMServer *) server;
 - (void) didLoadAvailableResources: (NSArray *) dto;
 - (void) didScanResource: (MMTitleList *) titleList withDto:(NSDictionary *)dto;
+- (void) didScheduleTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto;
 @end
 
 @implementation MMRemoteEncoder
@@ -92,6 +93,34 @@
 {
   MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
   [assembler updateTitleList: titleList withDto: dto];
+}
+
+#pragma mark - Scheduling a title for encoding
+- (void) scheduleTitleList: (MMTitleList *) titleList withCallback: (MMRemoteEncoderCallback) callback
+{
+  // make sure we have something here...
+  if(titleList == nil)
+  {
+    DispatchMainThread(callback);
+    return;
+  }
+  
+  NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
+  
+  MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+  NSDictionary *dto = [assembler writeTitleList: titleList];
+  
+  MMServerCallback serverCallback = ^(NSDictionary *dto){
+    [self didScheduleTitleList: titleList withDto: dto];
+    DispatchMainThread(callback);
+  };
+  
+  [server updateRequestWithPath: path params: dto andCallback: serverCallback];
+}
+
+- (void) didScheduleTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto
+{
+  NSLog(@"did schedule");
 }
 
 @end

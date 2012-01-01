@@ -11,21 +11,32 @@
 @class MMAudioTrackCell;
 @class MMSubtitleTrackCell;
 
+@class MMAudioTrack;
+@class MMSubtitleTrack;
+
+@class MMTitle;
+
+@protocol MMTitleTrackTableDelegate <NSObject>
+
+- (void) title: (MMTitle *) title didSelectAudioTrack:(MMAudioTrack *)track;
+- (void) title: (MMTitle *) title didSelectSubtitleTrack: (MMSubtitleTrack *) track;
+
+@end
+
 @interface MMTitleTrackTableController : NSObject<UITableViewDelegate, UITableViewDataSource>
 {
   IBOutlet __strong UITableView *table;
   IBOutlet __weak MMAudioTrackCell *audioCell;
   IBOutlet __weak MMSubtitleTrackCell *subtitleCell;
+  IBOutlet __weak id<MMTitleTrackTableDelegate> delegate;
   
   __strong MMAudioTrackCell *sizingAudioCell;
-  __strong NSArray *audioTracks;
-  
   __strong MMSubtitleTrackCell *sizingSubtitleCell;
-  __strong NSArray *subtitleTracks;
+  
+  __strong MMTitle *title;
 }
 
-@property (nonatomic, readwrite, strong) NSArray *audioTracks;
-@property (nonatomic, readwrite, strong) NSArray *subtitleTracks;
+@property (nonatomic, readwrite, strong) MMTitle *title;
 
 - (void) refresh;
 - (CGFloat) totalHeightForAudioTracks: (NSArray *) audios andSubtitleTracks: (NSArray *) subtitles;

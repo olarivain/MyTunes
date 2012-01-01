@@ -20,6 +20,8 @@
 {
   NSString *title = [self audioLabelFromTrack: track];
   trackLabel.text = title;
+  
+  checkmarkView.hidden = !track.selected;
 }
 
 - (NSString *) audioLabelFromTrack:(MMAudioTrack *)track

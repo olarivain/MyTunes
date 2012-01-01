@@ -10,6 +10,9 @@
 #import <KraCommons/NSIndexPath+Key.h>
 #import <KraCommons/NSArray+BoundSafe.h>
 #import <MediaManagement/MMTitleList.h>
+#import <MediaManagement/MMTitle.h>
+#import <MediaManagement/MMAudioTrack.h>
+#import <MediaManagement/MMSubtitleTrack.h>
 
 #import "MMTitleListDetailViewController.h"
 
@@ -156,6 +159,27 @@
   return size.totalHeight;
 }
 
+#pragma mark - Title Track Table Controller delegate
+- (void) title: (MMTitle *) title didSelectAudioTrack:(MMAudioTrack *) track
+{
+  [title selectAudioTrack: track];
+  
+  NSInteger row = [titleList.titles indexOfObject: title];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow: row inSection: 0];
+  NSArray *indexPaths = [NSArray arrayWithObject: indexPath];
+  [table reloadRowsAtIndexPaths: indexPaths withRowAnimation: UITableViewRowAnimationNone];
+}
+
+- (void) title: (MMTitle *) title didSelectSubtitleTrack:(MMSubtitleTrack *) track
+{
+  [title selectSubtitleTrack: track];
+  
+  NSInteger row = [titleList.titles indexOfObject: title];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow: row inSection: 0];
+  NSArray *indexPaths = [NSArray arrayWithObject: indexPath];
+  [table reloadRowsAtIndexPaths: indexPaths withRowAnimation: UITableViewRowAnimationNone];
+}
+
 #pragma mark - User Actions
 - (IBAction) cancel:(id)sender
 {
@@ -164,6 +188,12 @@
 
 - (IBAction) schedule:(id)sender
 {
-  [self.presentingViewController dismissModalViewControllerAnimated: YES];
+  MMRemoteEncoderCallback callback = ^{
+    [self.presentingViewController dismissModalViewControllerAnimated: YES];    
+  };
+  
+  [loadingView setLoading: YES];
+  [encoder scheduleTitleList: titleList withCallback: callback];
+
 }
 @end

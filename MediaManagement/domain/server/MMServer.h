@@ -45,7 +45,7 @@ typedef void(^MMServerCallback)(id dto);
 // GET request with params
 - (void) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback:(MMServerCallback)callback;
 // POST request
-- (void) udpateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
+- (void) updateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
 // raw request
 - (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback)callback;
 

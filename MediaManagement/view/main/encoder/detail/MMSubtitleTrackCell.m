@@ -20,6 +20,8 @@
 {
   NSString *title = [self subtitleLabelFromTrack: track];
   trackLabel.text = title;
+  
+  checkmarkView.hidden = !track.selected;
 }
 
 - (NSString *) subtitleLabelFromTrack:(MMSubtitleTrack *)track

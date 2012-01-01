@@ -40,8 +40,7 @@
   titleTracksTable.frame = titleTracksFrame;
   
   // and update the tracks table controller
-  titleTableController.audioTracks = title.audioTracks;
-  titleTableController.subtitleTracks = title.subtitleTracks;
+  titleTableController.title = title;
   [titleTableController refresh];
 }
 

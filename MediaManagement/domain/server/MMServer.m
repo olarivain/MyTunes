@@ -70,7 +70,7 @@
   [self requestWithPath: path params: params method: @"GET" andCallback: callback];
 }
 
-- (void) udpateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback
+- (void) updateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback
 {
   [self requestWithPath: path params: params method: @"POST" andCallback: callback];
 }

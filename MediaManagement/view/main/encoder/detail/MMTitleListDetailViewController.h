@@ -6,12 +6,16 @@
 //  Copyright (c) 2011 Edmunds. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
+#import "MMTitleTrackTableController.h"
+
 @class MMRemoteEncoder;
 @class MMLoadingView;
 @class MMTitleList;
 @class MMTitleDetailCell;
 
-@interface MMTitleListDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MMTitleListDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MMTitleTrackTableDelegate>
 {
   IBOutlet __strong MMLoadingView *loadingView;
   IBOutlet __strong UITableView *table;

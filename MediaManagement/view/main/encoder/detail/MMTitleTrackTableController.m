@@ -7,6 +7,7 @@
 //
 
 #import <KraCommons/NSArray+BoundSafe.h>
+#import <MediaManagement/MMTitle.h>
 
 #import "MMTitleTrackTableController.h"
 
@@ -24,8 +25,7 @@
 
 @implementation MMTitleTrackTableController
 
-@synthesize audioTracks;
-@synthesize subtitleTracks;
+@synthesize title;
 
 - (void) refresh
 {
@@ -43,9 +43,9 @@
 {
   if(section == 0)
   {
-    return [audioTracks count];
+    return [title.audioTracks count];
   }
-  return [subtitleTracks count];
+  return [title.subtitleTracks count];
 }
 
 #pragma mark section header creation
@@ -54,13 +54,13 @@
   // audio first
   if(section == 0)
   {
-    NSInteger count = [audioTracks count];
+    NSInteger count = [title.audioTracks count];
     NSString *tracks = count > 1 ? @"Tracks" : @"Track";
     NSString *countString = count == 0 ? @"No Audio Track" : [NSString stringWithFormat: @"%i Audio %@", count, tracks];
     return countString;
   }
   // then subtitles
-  NSInteger count = [subtitleTracks count];
+  NSInteger count = [title.subtitleTracks count];
   NSString *tracks = count > 1 ? @"Tracks" : @"Track";
   NSString *countString = count == 0 ? @"No Subtitle Track" : [NSString stringWithFormat: @"%i Subtitle %@", count, tracks];
   return countString;
@@ -73,8 +73,8 @@
   MMTitleTrackSectionHeader *header = [[MMTitleTrackSectionHeader alloc] initWithFrame: headerFrame];
 
   // inject title and return
-  NSString *title = [self tableView: tableView titleForHeaderInSection: section];
-  [header setTitle: title];
+  NSString *theTitle = [self tableView: tableView titleForHeaderInSection: section];
+  [header setTitle: theTitle];
   return header;
 }
 
@@ -103,10 +103,10 @@
     audioCell = nil;
   }
   
-  MMAudioTrack *track = [audioTracks boundSafeObjectAtIndex: indexPath.row];
+  MMAudioTrack *track = [title.audioTracks boundSafeObjectAtIndex: indexPath.row];
   [cell updateWithAudioTrack: track];
   
-  BOOL hidesSeparator = (indexPath.row + 1) == [audioTracks count];
+  BOOL hidesSeparator = (indexPath.row + 1) == [title.audioTracks count];
   [cell hidesSeparator: hidesSeparator];
   return cell;
 }
@@ -125,10 +125,10 @@
     subtitleCell = nil;
   }
   
-  MMSubtitleTrack *track = [subtitleTracks boundSafeObjectAtIndex: indexPath.row];
+  MMSubtitleTrack *track = [title.subtitleTracks boundSafeObjectAtIndex: indexPath.row];
   [cell updateWithSubtitleTrack: track];
   
-  BOOL hidesSeparator = (indexPath.row + 1) == [subtitleTracks count];
+  BOOL hidesSeparator = (indexPath.row + 1) == [title.subtitleTracks count];
   [cell hidesSeparator: hidesSeparator];
   
   return cell;
@@ -139,6 +139,17 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath: indexPath animated: YES];
+  
+  if(indexPath.section == 0)
+  {
+    MMAudioTrack *track = [title.audioTracks boundSafeObjectAtIndex: indexPath.row];
+    [delegate title:title didSelectAudioTrack: track];
+  }
+  else
+  {
+    MMSubtitleTrack *track = [title.subtitleTracks boundSafeObjectAtIndex: indexPath.row];
+    [delegate title:title didSelectSubtitleTrack: track];
+  }
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
