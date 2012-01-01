@@ -21,7 +21,7 @@
 #import "MMPlaylistContentTableController.h"
 #import "MMContentView.h"
 #import "MMPlaylistSubcontentSelector.h"
-#import "MMEncoderTableController.h"
+#import "MMTitleListSummaryTableController.h"
 
 @interface MMLibraryViewController_iPad()
 @end
@@ -88,7 +88,7 @@
   // clear content view
   playlistContentController.playlist = nil;
   [playlistContentController refresh];
-  
+#warning actually, sub controllers should take care of load content themselves...
   // refresh content on callback
   MMPlaylistCallback callback = ^{
     playlistContentController.playlist = selectedPlaylist;
@@ -109,7 +109,7 @@
   [encoderView setLoading: TRUE];
   encoderTableController.encoder = nil;
   [encoderTableController refresh];
-  
+#warning actually, sub controllers should take care of load content themselves...
   MMRemoteEncoderCallback callback = ^{
     [encoderView setLoading: NO];
     encoderTableController.encoder = server.encoder;

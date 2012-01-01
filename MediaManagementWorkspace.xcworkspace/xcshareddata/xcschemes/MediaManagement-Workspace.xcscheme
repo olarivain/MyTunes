@@ -13,6 +13,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0028483414AFD6A8003F5818"
+               BuildableName = "KraCommons"
+               BlueprintName = "KraCommons"
+               ReferencedContainer = "container:../KraCommons/KraCommons.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E0111A1490ACD500E3C4F0"
                BuildableName = "MediaManagementCommon-Workspace"
                BlueprintName = "MediaManagementCommon-Workspace"

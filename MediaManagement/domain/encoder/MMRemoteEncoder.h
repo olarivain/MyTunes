@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MMPendingList;
+@class MMTitleList;
 @class MMServer;
 
 typedef void(^MMRemoteEncoderCallback)(void);
@@ -26,5 +27,6 @@ typedef void(^MMRemoteEncoderCallback)(void);
 @property (nonatomic, readonly) MMPendingList *pendingList;
 
 - (void) loadAvailableResources: (MMRemoteEncoderCallback) callback;
+- (void) scanResource: (MMTitleList *) titleList andCallback: (MMRemoteEncoderCallback) callback;
 
 @end

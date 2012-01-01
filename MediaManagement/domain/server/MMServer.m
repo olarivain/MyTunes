@@ -84,6 +84,13 @@
   }
   
   KCRequestCallback networkCallback = ^(KCRequestQueueItem *item){
+#if DEBUG_NETWORK == 1
+    NSLog(@"Request %@: %@", item.success ? @"succeeded" : @"failed", item.url.absoluteString);
+    if(!item.success)
+    {
+      NSLog(@"HTTP Code for failure: %i", item.status);
+    }
+#endif
     callback(item.jsonObject);
   };
   [requestDelegate requestWithPath: path params: params method: method andCallback: networkCallback];

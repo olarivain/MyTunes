@@ -18,13 +18,13 @@
 @class MMContentView;
 @class MMPlaylistContentTableController;
 @class MMPlaylistSubcontentSelector;
-@class MMEncoderTableController;
+@class MMTitleListSummaryTableController;
 
 @interface MMLibraryViewController_iPad : UIViewController<MMLibraryViewController, MMLibraryNavigationTableControllerDelegate>
 {
   IBOutlet __strong MMLibraryNavigationTableController *libraryNavigationTableController;
   IBOutlet __strong MMPlaylistContentTableController *playlistContentController;
-  IBOutlet __strong  MMEncoderTableController *encoderTableController;
+  IBOutlet __strong  MMTitleListSummaryTableController *encoderTableController;
   
   IBOutlet __strong MMContentView *playlistContentView;
   IBOutlet __strong MMContentView *encoderView;

@@ -19,6 +19,8 @@
 		0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847F914AFB4BE003F5818 /* MMTVShowEditController.m */; };
 		0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */; };
 		0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */; };
+		0028481114AFCA95003F5818 /* MMTitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028481014AFCA95003F5818 /* MMTitleDetailCell.m */; };
+		0028481414AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -53,11 +55,11 @@
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
 		00823FF314AEC49400CEDDEB /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FF214AEC49400CEDDEB /* MMRemoteEncoder.m */; };
-		0082400B14AF96C300CEDDEB /* MMTitleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400614AF96C300CEDDEB /* MMTitleListViewController.m */; };
-		0082400C14AF96C300CEDDEB /* MMTitleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400714AF96C300CEDDEB /* MMTitleListViewController.xib */; };
-		0082400D14AF96C300CEDDEB /* MMEncoderTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */; };
-		0082400F14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */; };
-		0082401214AF974A00CEDDEB /* MMEncoderResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */; };
+		0082400B14AF96C300CEDDEB /* MMTitleListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400614AF96C300CEDDEB /* MMTitleListDetailViewController.m */; };
+		0082400C14AF96C300CEDDEB /* MMTitleListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400714AF96C300CEDDEB /* MMTitleListDetailViewController.xib */; };
+		0082400D14AF96C300CEDDEB /* MMTitleListSummaryTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082400A14AF96C300CEDDEB /* MMTitleListSummaryTableController.m */; };
+		0082400F14AF971A00CEDDEB /* MMTitleListSummaryCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082400E14AF971A00CEDDEB /* MMTitleListSummaryCell_iPad.xib */; };
+		0082401214AF974A00CEDDEB /* MMTitleListSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082401114AF974A00CEDDEB /* MMTitleListSummaryCell.m */; };
 		0082402114AF9B6F00CEDDEB /* MMPlaylistContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */; };
 		0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */; };
 		0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082402514AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m */; };
@@ -100,6 +102,9 @@
 		0028480314AFBDA2003F5818 /* MMLibraryNavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryNavigationCell.h; sourceTree = "<group>"; };
 		0028480414AFBDA2003F5818 /* MMLibraryNavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationCell.m; sourceTree = "<group>"; };
 		0028480614AFBDDC003F5818 /* MMLibraryNavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryNavigationCell.xib; sourceTree = "<group>"; };
+		0028480F14AFCA94003F5818 /* MMTitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMTitleDetailCell.h; sourceTree = "<group>"; };
+		0028481014AFCA95003F5818 /* MMTitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleDetailCell.m; sourceTree = "<group>"; };
+		0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleDetailCell_iPad.xib; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MediaManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,14 +158,14 @@
 		00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationTableController.m; sourceTree = "<group>"; };
 		00823FF114AEC49400CEDDEB /* MMRemoteEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteEncoder.h; sourceTree = "<group>"; };
 		00823FF214AEC49400CEDDEB /* MMRemoteEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteEncoder.m; sourceTree = "<group>"; };
-		0082400514AF96C300CEDDEB /* MMTitleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListViewController.h; sourceTree = "<group>"; };
-		0082400614AF96C300CEDDEB /* MMTitleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListViewController.m; sourceTree = "<group>"; };
-		0082400714AF96C300CEDDEB /* MMTitleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListViewController.xib; sourceTree = "<group>"; };
-		0082400914AF96C300CEDDEB /* MMEncoderTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEncoderTableController.h; sourceTree = "<group>"; };
-		0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEncoderTableController.m; sourceTree = "<group>"; };
-		0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEncoderResourceCell_iPad.xib; sourceTree = "<group>"; };
-		0082401014AF974A00CEDDEB /* MMEncoderResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEncoderResourceCell.h; sourceTree = "<group>"; };
-		0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEncoderResourceCell.m; sourceTree = "<group>"; };
+		0082400514AF96C300CEDDEB /* MMTitleListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListDetailViewController.h; sourceTree = "<group>"; };
+		0082400614AF96C300CEDDEB /* MMTitleListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListDetailViewController.m; sourceTree = "<group>"; };
+		0082400714AF96C300CEDDEB /* MMTitleListDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListDetailViewController.xib; sourceTree = "<group>"; };
+		0082400914AF96C300CEDDEB /* MMTitleListSummaryTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListSummaryTableController.h; sourceTree = "<group>"; };
+		0082400A14AF96C300CEDDEB /* MMTitleListSummaryTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListSummaryTableController.m; sourceTree = "<group>"; };
+		0082400E14AF971A00CEDDEB /* MMTitleListSummaryCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListSummaryCell_iPad.xib; sourceTree = "<group>"; };
+		0082401014AF974A00CEDDEB /* MMTitleListSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListSummaryCell.h; sourceTree = "<group>"; };
+		0082401114AF974A00CEDDEB /* MMTitleListSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListSummaryCell.m; sourceTree = "<group>"; };
 		0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCell.h; sourceTree = "<group>"; };
 		0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCell.m; sourceTree = "<group>"; };
 		0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistContentCell_iPad.xib; sourceTree = "<group>"; };
@@ -499,9 +504,12 @@
 		0082400414AF96C300CEDDEB /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				0082400514AF96C300CEDDEB /* MMTitleListViewController.h */,
-				0082400614AF96C300CEDDEB /* MMTitleListViewController.m */,
-				0082400714AF96C300CEDDEB /* MMTitleListViewController.xib */,
+				0082400514AF96C300CEDDEB /* MMTitleListDetailViewController.h */,
+				0082400614AF96C300CEDDEB /* MMTitleListDetailViewController.m */,
+				0082400714AF96C300CEDDEB /* MMTitleListDetailViewController.xib */,
+				0028480F14AFCA94003F5818 /* MMTitleDetailCell.h */,
+				0028481014AFCA95003F5818 /* MMTitleDetailCell.m */,
+				0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -509,11 +517,11 @@
 		0082400814AF96C300CEDDEB /* summary */ = {
 			isa = PBXGroup;
 			children = (
-				0082400914AF96C300CEDDEB /* MMEncoderTableController.h */,
-				0082400A14AF96C300CEDDEB /* MMEncoderTableController.m */,
-				0082401014AF974A00CEDDEB /* MMEncoderResourceCell.h */,
-				0082401114AF974A00CEDDEB /* MMEncoderResourceCell.m */,
-				0082400E14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib */,
+				0082400914AF96C300CEDDEB /* MMTitleListSummaryTableController.h */,
+				0082400A14AF96C300CEDDEB /* MMTitleListSummaryTableController.m */,
+				0082401014AF974A00CEDDEB /* MMTitleListSummaryCell.h */,
+				0082401114AF974A00CEDDEB /* MMTitleListSummaryCell.m */,
+				0082400E14AF971A00CEDDEB /* MMTitleListSummaryCell_iPad.xib */,
 			);
 			path = summary;
 			sourceTree = "<group>";
@@ -597,12 +605,13 @@
 				003CDEEE132BFCDF00D295A2 /* MainWindow_iPhone.xib in Resources */,
 				003CDEF0132BFCDF00D295A2 /* MMServerView_iPad.xib in Resources */,
 				003CDEF1132BFCDF00D295A2 /* MMServerView_iPhone.xib in Resources */,
-				0082400C14AF96C300CEDDEB /* MMTitleListViewController.xib in Resources */,
-				0082400F14AF971A00CEDDEB /* MMEncoderResourceCell_iPad.xib in Resources */,
+				0082400C14AF96C300CEDDEB /* MMTitleListDetailViewController.xib in Resources */,
+				0082400F14AF971A00CEDDEB /* MMTitleListSummaryCell_iPad.xib in Resources */,
 				0082402314AF9B8800CEDDEB /* MMPlaylistContentCell_iPad.xib in Resources */,
 				002847FD14AFB4BE003F5818 /* MMEditController_iPad.xib in Resources */,
 				002847FE14AFB4BE003F5818 /* MMEditController_iPhone.xib in Resources */,
 				0028480714AFBDDC003F5818 /* MMLibraryNavigationCell.xib in Resources */,
+				0028481414AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,9 +666,9 @@
 				00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */,
 				00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */,
 				00823FF314AEC49400CEDDEB /* MMRemoteEncoder.m in Sources */,
-				0082400B14AF96C300CEDDEB /* MMTitleListViewController.m in Sources */,
-				0082400D14AF96C300CEDDEB /* MMEncoderTableController.m in Sources */,
-				0082401214AF974A00CEDDEB /* MMEncoderResourceCell.m in Sources */,
+				0082400B14AF96C300CEDDEB /* MMTitleListDetailViewController.m in Sources */,
+				0082400D14AF96C300CEDDEB /* MMTitleListSummaryTableController.m in Sources */,
+				0082401214AF974A00CEDDEB /* MMTitleListSummaryCell.m in Sources */,
 				0082402114AF9B6F00CEDDEB /* MMPlaylistContentCell.m in Sources */,
 				0082402614AF9F9C00CEDDEB /* NSNumber+NSNumber_NonZero.m in Sources */,
 				0082402914AFA3BA00CEDDEB /* MMPlaylistContentCellSize.m in Sources */,
@@ -671,6 +680,7 @@
 				0028480114AFB4BE003F5818 /* MMMusicEditController.m in Sources */,
 				0028480214AFB4BE003F5818 /* MMTVShowEditController.m in Sources */,
 				0028480514AFBDA2003F5818 /* MMLibraryNavigationCell.m in Sources */,
+				0028481114AFCA95003F5818 /* MMTitleDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
