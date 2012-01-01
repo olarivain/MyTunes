@@ -16,6 +16,9 @@
   IBOutlet __strong MMLoadingView *loadingView;
   IBOutlet __strong UITableView *table;
   IBOutlet __weak MMTitleDetailCell *titleCell;
+  __strong MMTitleDetailCell *sizingTitleCell;
+  
+  __strong NSMutableDictionary *cellSizes;
   
   __strong MMRemoteEncoder *encoder;
   __strong NSString *resourceId;

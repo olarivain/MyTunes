@@ -14,10 +14,13 @@
 {
   IBOutlet __strong UITableView *table;
   IBOutlet __weak MMAudioTrackCell *audioCell;
+  
+  __strong MMAudioTrackCell *sizingAudioCell;
   __strong NSArray *audioTracks;
 }
 
 @property (nonatomic, readwrite, strong) NSArray *audioTracks;
 
 - (void) refresh;
+- (CGFloat) totalHeightForTracks: (NSArray *) tracks;
 @end

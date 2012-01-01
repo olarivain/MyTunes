@@ -12,14 +12,11 @@
 
 #import "MMAudioTrackCell.h"
 
+#define HEADER_HEIGHT 22
+
 @implementation MMAudioTrackTableController
 
 @synthesize audioTracks;
-
-- (void) awakeFromNib
-{
-  table.rowHeight = 32;
-}
 
 - (void) refresh
 {
@@ -53,6 +50,7 @@
     NSBundle *bundle = [NSBundle mainBundle];
     [bundle loadNibNamed: @"MMAudioTrackCell" owner: self options: nil];
     cell = audioCell;
+    audioCell = nil;
   }
   
   MMAudioTrack *track = [audioTracks boundSafeObjectAtIndex: indexPath.row];
@@ -69,5 +67,30 @@
   [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if(sizingAudioCell == nil)
+  {
+    NSBundle *bundle = [NSBundle mainBundle];
+    [bundle loadNibNamed: @"MMAudioTrackCell" owner: self options: nil];
+    sizingAudioCell = audioCell;
+    audioCell = nil;
+  }
+  return sizingAudioCell.frame.size.height;
+}
+
+
+- (CGFloat) totalHeightForTracks: (NSArray *) tracks
+{
+  if(sizingAudioCell == nil)
+  {
+    NSBundle *bundle = [NSBundle mainBundle];
+    [bundle loadNibNamed: @"MMAudioTrackCell" owner: self options: nil];
+    sizingAudioCell = audioCell;
+    audioCell = nil;
+  }
+  
+  return sizingAudioCell.frame.size.height * [tracks count] + HEADER_HEIGHT;
+}
 
 @end

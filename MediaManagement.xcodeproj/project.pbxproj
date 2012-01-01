@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0012CB4514B0D0C600A2F4F5 /* MMTitleDetailCellSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0012CB4414B0D0C600A2F4F5 /* MMTitleDetailCellSize.m */; };
 		00158CC7141D5D8800F196D0 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00158CC6141D5D8800F196D0 /* NSString+Converteer.m */; };
 		002847FA14AFB4BE003F5818 /* MMContentPlacholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847E714AFB4BE003F5818 /* MMContentPlacholder.m */; };
 		002847FB14AFB4BE003F5818 /* MMEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002847E914AFB4BE003F5818 /* MMEditController.m */; };
@@ -88,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0012CB4314B0D0C500A2F4F5 /* MMTitleDetailCellSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleDetailCellSize.h; sourceTree = "<group>"; };
+		0012CB4414B0D0C600A2F4F5 /* MMTitleDetailCellSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleDetailCellSize.m; sourceTree = "<group>"; };
 		00158CC5141D5D8800F196D0 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
 		00158CC6141D5D8800F196D0 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
 		002847E514AFB4BE003F5818 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
@@ -577,6 +580,8 @@
 				0028480F14AFCA94003F5818 /* MMTitleDetailCell.h */,
 				0028481014AFCA95003F5818 /* MMTitleDetailCell.m */,
 				0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */,
+				0012CB4314B0D0C500A2F4F5 /* MMTitleDetailCellSize.h */,
+				0012CB4414B0D0C600A2F4F5 /* MMTitleDetailCellSize.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -757,6 +762,7 @@
 				0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackView.m in Sources */,
 				0062FA9214AFFCB900C2C984 /* MMSubtitleTrackListView.m in Sources */,
 				0062FA9714AFFF5400C2C984 /* MMAudioTrackTableController.m in Sources */,
+				0012CB4514B0D0C600A2F4F5 /* MMTitleDetailCellSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

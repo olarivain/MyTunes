@@ -7,6 +7,7 @@
 //
 
 #import <KraCommons/KCNibUtils.h>
+#import <KraCommons/NSIndexPath+Key.h>
 #import <KraCommons/NSArray+BoundSafe.h>
 #import <MediaManagement/MMTitleList.h>
 
@@ -16,10 +17,12 @@
 
 #import "MMLoadingView.h"
 #import "MMTitleDetailCell.h"
+#import "MMTitleDetailCellSize.h"
 
 @interface MMTitleListDetailViewController()
 - (void) updateContent;
 - (void) didScanResource;
+- (void) sharedInit;
 @end
 
 @implementation MMTitleListDetailViewController
@@ -27,13 +30,36 @@
 @synthesize encoder;
 @synthesize titleList;
 
-#pragma mark - View lifecycle
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+  self = [super initWithCoder: aDecoder];
+  if(self)
+  {
+    [self sharedInit];
+  }
+  return self;
+}
 
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+  self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
+  if(self)
+  {
+    [self sharedInit];
+  }
+  return self;
+}
+
+- (void) sharedInit
+{
+  cellSizes = [NSMutableDictionary dictionaryWithCapacity: 15];
+}
+
+#pragma mark - View lifecycle
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  table.rowHeight = 159;
+
   [self updateContent];
   // Do any additional setup after loading the view from its nib.
 }
@@ -91,9 +117,42 @@
   }
   
   MMTitle *title = [titleList.titles boundSafeObjectAtIndex: indexPath.row];
-  [cell updateWithTitle: title];
+  MMTitleDetailCellSize *size = [cellSizes objectForKey: indexPath.key];
+  [cell updateWithTitle: title andSize: size];
   
   return cell;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // we have a cached value, return it
+  MMTitleDetailCellSize *size = [cellSizes objectForKey: indexPath.key];
+  if(size != nil)
+  {
+    return size.totalHeight;
+  }
+  
+  // loading sizing cell
+  if(sizingTitleCell == nil)
+  {
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *nibName = [KCNibUtils nibName: @"MMTitleDetailCell"];
+    
+    [bundle loadNibNamed: nibName owner: self options: nil];
+    sizingTitleCell = titleCell;
+    titleCell = nil;
+  }
+  
+  // update cell to match the table's width
+  [titleCell updateSizeWithWidth: tableView.frame.size.width];
+  
+  // ask cell to compute it's preferred size
+  MMTitle *title = [titleList.titles boundSafeObjectAtIndex: indexPath.row];
+  size = [sizingTitleCell sizeForTitle: title];
+  
+  // cache and return
+  [cellSizes setObject: size forKey: indexPath.key];
+  return size.totalHeight;
 }
 
 #pragma mark - User Actions
