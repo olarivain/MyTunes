@@ -52,7 +52,7 @@ else
     exit 1
 end
 puts "Cloning KraCommons."
-cmd = "hg clone https://krakas@bitbucket.org/krakas/kracommons \"../KraCommons\""
+cmd = "hg clone https://bitbucket.org/krakas/kracommons \"../KraCommons\""
 puts cmd
 if system cmd then
     puts "\n\nKraCommons successfully cloned."
@@ -61,7 +61,7 @@ else
 end
 
 puts "\n\nCloning HTTPServe."
-cmd = "hg clone https://krakas@bitbucket.org/krakas/httpserve \"../HTTPServe\""
+cmd = "hg clone https://bitbucket.org/krakas/httpserve \"../HTTPServe\""
 puts cmd
 if system cmd then
     puts "\n\nHTTPServe successfully cloned."
@@ -70,12 +70,21 @@ if system cmd then
 end
 
 puts "Cloning MediaManagement Common Library."
-cmd = "hg clone https://krakas@bitbucket.org/krakas/mediamanagement-common \"../MediaManagementCommon\""
+cmd = "hg clone https://bitbucket.org/krakas/mediamanagement-common \"../MediaManagementCommon\""
 puts cmd
 if system cmd then
     puts "\n\nHTTPServe successfully cloned."
     else
     puts "\n\nHTTPServe failed to clone."
+end
+
+puts "\n\nCloning CLIServer."
+cmd = "hg clone https://bitbucket.org/krakas/itunes-server \"../CLIServer\""
+puts cmd
+if system cmd then
+    puts "\n\nCLIServer successfully cloned."
+    else
+    puts "\n\nCLIServer failed to clone."
 end
 
 puts "Now building..."
@@ -107,9 +116,9 @@ if !built then
 end
 
 if built then
-    puts "Y'all setup. Opening iTunes Server project"
+    puts "Y'all setup. Opening MediaManagement workspace"
     Dir.chdir initialWorkingDirectory
-    cmd = "open ./iTunesServer.xcodeproj"
+    cmd = "open ./MediaManagementWorkspace.xcworkspace"
     puts cmd
     system cmd
 else
