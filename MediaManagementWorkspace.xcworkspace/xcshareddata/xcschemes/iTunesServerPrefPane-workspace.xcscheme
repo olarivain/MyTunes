@@ -3,7 +3,7 @@
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "NO"
-      buildImplicitDependencies = "NO">
+      buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -27,24 +27,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E0111A1490ACD500E3C4F0"
-               BuildableName = "MediaManagementCommon-Workspace"
-               BlueprintName = "MediaManagementCommon"
-               ReferencedContainer = "container:../MediaManagementCommon/MediaManagementCommon.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "002A0AE01324549D00320A06"
-               BuildableName = "MediaManagement.app"
-               BlueprintName = "MediaManagement"
-               ReferencedContainer = "container:MediaManagement.xcodeproj">
+               BlueprintIdentifier = "000CE8F114945F32003002C3"
+               BuildableName = "iTunes Server.prefPane"
+               BlueprintName = "iTunesServerPrefPane"
+               ReferencedContainer = "container:../CLIServer/iTunesServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -56,15 +42,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
@@ -74,15 +51,9 @@
       buildConfiguration = "Debug"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Applications/System Preferences.app">
+      </PathRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -92,15 +63,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

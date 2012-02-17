@@ -41,10 +41,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "002A0AE01324549D00320A06"
-               BuildableName = "MediaManagement.app"
-               BlueprintName = "MediaManagement"
-               ReferencedContainer = "container:MediaManagement.xcodeproj">
+               BlueprintIdentifier = "000CE8651494536E003002C3"
+               BuildableName = "iTunesServer.app"
+               BlueprintName = "iTunesServer"
+               ReferencedContainer = "container:../CLIServer/iTunesServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -59,10 +59,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
+            BlueprintIdentifier = "000CE8651494536E003002C3"
+            BuildableName = "iTunesServer.app"
+            BlueprintName = "iTunesServer"
+            ReferencedContainer = "container:../CLIServer/iTunesServer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,10 +77,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
+            BlueprintIdentifier = "000CE8651494536E003002C3"
+            BuildableName = "iTunesServer.app"
+            BlueprintName = "iTunesServer"
+            ReferencedContainer = "container:../CLIServer/iTunesServer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,10 +95,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "002A0AE01324549D00320A06"
-            BuildableName = "MediaManagement.app"
-            BlueprintName = "MediaManagement"
-            ReferencedContainer = "container:MediaManagement.xcodeproj">
+            BlueprintIdentifier = "000CE8651494536E003002C3"
+            BuildableName = "iTunesServer.app"
+            BlueprintName = "iTunesServer"
+            ReferencedContainer = "container:../CLIServer/iTunesServer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
