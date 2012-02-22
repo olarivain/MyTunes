@@ -28,7 +28,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E0111A1490ACD500E3C4F0"
-               BuildableName = "MediaManagementCommon-Workspace"
+               BuildableName = "MediaManagementCommon"
                BlueprintName = "MediaManagementCommon"
                ReferencedContainer = "container:../MediaManagementCommon/MediaManagementCommon.xcodeproj">
             </BuildableReference>
@@ -72,6 +72,7 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
