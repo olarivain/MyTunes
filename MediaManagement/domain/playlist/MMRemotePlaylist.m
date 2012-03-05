@@ -14,7 +14,7 @@
 
 #import "MMServer.h"
 
-@interface MMPlaylist()
+@interface MMPlaylist(MMPlaylist_Remote_Private)
 - (void) didLoad: (NSObject*) dto;
 
 @property (nonatomic, readonly) MMServer *server;

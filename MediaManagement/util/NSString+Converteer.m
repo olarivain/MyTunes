@@ -3,7 +3,7 @@
 //  MediaManagement
 //
 //  Created by Larivain, Olivier on 9/11/11.
-//  Copyright 2011 Edmunds. All rights reserved.
+//  Copyright 2011 kra. All rights reserved.
 //
 
 #import "NSString+Converteer.h"

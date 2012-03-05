@@ -3,7 +3,7 @@
 //  MediaManagement
 //
 //  Created by Larivain, Olivier on 1/1/12.
-//  Copyright (c) 2012 Edmunds. All rights reserved.
+//  Copyright (c) 2012 kra. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
