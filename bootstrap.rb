@@ -91,28 +91,28 @@ puts "Now building..."
 puts "KraCommons"
 initialWorkingDirectory = Dir.getwd
 Dir.chdir "../KraCommons"
-cmd = "rake clean build deploy"
+cmd = "rake clean build install"
 built = true
 
 built &= system cmd
 if !built then
-    puts "Build and deploy of KraCommons failed. Proceeding."
+    puts "Build and install of KraCommons failed. Proceeding."
 end
 
 puts "\n\nYARES"
 Dir.chdir "../YARES"
-cmd = "rake clean build deploy"
+cmd = "rake clean build install"
 built &= system cmd
 if !built then
-    puts "Build and deploy of YARES failed. Proceeding."
+    puts "Build and install of YARES failed. Proceeding."
 end
 
 puts "\n\nMedia Management Common"
 Dir.chdir "../MediaManagementCommon"
-cmd = "rake clean build deploy"
+cmd = "rake clean build install"
 built &= system cmd
 if !built then
-    puts "Build and deploy of Media Management Common failed. Proceeding."
+    puts "Build and install of Media Management Common failed. Proceeding."
 end
 
 if built then
