@@ -4,9 +4,9 @@ def command?(command)
     system("which #{ command} > /dev/null 2>&1")
 end
 
-if !command?("hg") 
-then
-    puts "You need HG to run this script.\nSee http://"
+if !command?("git") 
+    then
+    puts "You need git to run this script."
     exit 1
 end
 
@@ -21,13 +21,13 @@ if "y".eql? answer then
     puts "Updating ruby gem:\n#{cmd}"
     if system cmd then
         puts "\n\nRuby gems updated. Proceeding."
-    else
+        else
         puts "\n\nRuby gems NOT updated. Proceeding."
-        end
-else
+    end
+    else
     puts "Skipping ruby gem update."
 end
-    
+
 begin
     puts "\n\nDo you want to Rake gem? In doubt, you must. (y/n)"
     answer = gets.chomp
@@ -47,44 +47,44 @@ cmd = "sudo gem install gem/xcode-deployer.gem"
 puts "Installing custom gem:\n#{cmd}"
 if system cmd then
     puts "\n\nBase tools are installed, now checking out required projects."
-else
+    else
     puts "\n\nBase tools not installed, aborting."
     exit 1
 end
 puts "Cloning KraCommons."
-cmd = "hg clone https://bitbucket.org/krakas/kracommons \"../KraCommons\""
+cmd = "git clone git://github.com/krakas/KraCommons.git \"../KraCommons\""
 puts cmd
 if system cmd then
     puts "\n\nKraCommons successfully cloned."
-else
+    else
     puts "\n\nKraCommons failed to clone."
 end
 
-puts "\n\nCloning HTTPServe."
-cmd = "hg clone https://bitbucket.org/krakas/httpserve \"../HTTPServe\""
+puts "\n\nCloning YARES."
+cmd = "git clone git://github.com/krakas/YARES.git \"../YARES\""
 puts cmd
 if system cmd then
-    puts "\n\nHTTPServe successfully cloned."
+    puts "\n\nYARES successfully cloned."
     else
-    puts "\n\nHTTPServe failed to clone."
+    puts "\n\nYARES failed to clone."
 end
 
 puts "Cloning MediaManagement Common Library."
-cmd = "hg clone https://bitbucket.org/krakas/mediamanagement-common \"../MediaManagementCommon\""
+cmd = "git clone git://github.com/krakas/MediaManagementCommon.git \"../MediaManagementCommon\""
 puts cmd
 if system cmd then
-    puts "\n\nHTTPServe successfully cloned."
+    puts "\n\nMediaManagement Common successfully cloned."
     else
-    puts "\n\nHTTPServe failed to clone."
+    puts "\n\nMediaManagement Common failed to clone."
 end
 
-puts "\n\nCloning CLIServer."
-cmd = "hg clone https://bitbucket.org/krakas/itunes-server \"../CLIServer\""
+puts "\n\nCloning iTunesServer."
+cmd = "git clone git://github.com/krakas/iTunesServer.git \"../iTunesServer\""
 puts cmd
 if system cmd then
-    puts "\n\nCLIServer successfully cloned."
+    puts "\n\niTunesServer successfully cloned."
     else
-    puts "\n\nCLIServer failed to clone."
+    puts "\n\niTunesServer failed to clone."
 end
 
 puts "Now building..."
@@ -99,12 +99,12 @@ if !built then
     puts "Build and deploy of KraCommons failed. Proceeding."
 end
 
-puts "\n\nHTTPServe"
-Dir.chdir "../HTTPServe"
+puts "\n\nYARES"
+Dir.chdir "../YARES"
 cmd = "rake clean build deploy"
 built &= system cmd
 if !built then
-    puts "Build and deploy of KraCommons failed. Proceeding."
+    puts "Build and deploy of YARES failed. Proceeding."
 end
 
 puts "\n\nMedia Management Common"
@@ -112,7 +112,7 @@ Dir.chdir "../MediaManagementCommon"
 cmd = "rake clean build deploy"
 built &= system cmd
 if !built then
-    puts "Build and deploy of KraCommons failed. Proceeding."
+    puts "Build and deploy of Media Management Common failed. Proceeding."
 end
 
 if built then
@@ -121,6 +121,6 @@ if built then
     cmd = "open ./MediaManagementWorkspace.xcworkspace"
     puts cmd
     system cmd
-else
+    else
     puts "Looks like the build is broken. Sorry about that."
 end
