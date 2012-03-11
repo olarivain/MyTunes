@@ -16,7 +16,6 @@
 
 - (void) didSelectPlaylist: (MMPlaylist *) playlist;
 - (void) didSelectEncoderResources;
-- (void) didSelectPendingEncodings;
 @end
 
 @interface MMLibraryNavigationTableController : NSObject<UITableViewDelegate, UITableViewDataSource>

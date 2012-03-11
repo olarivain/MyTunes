@@ -16,16 +16,51 @@
 
 #import "MMTitleListDetailViewController.h"
 #import "MMTitleListSummaryCell.h"
+#import "MMContentView.h"
+
+@interface MMTitleListSummaryTableController()
+
+- (void) reload;
+- (void) didLoadEncoder;
+
+@end
 
 @implementation MMTitleListSummaryTableController
 
 @synthesize encoder;
 
+#pragma mark - Reloading content
 - (void) refresh
 {
-  [table reloadData];
+  [contentView setLoading: TRUE];
+
+  MMRemoteEncoderCallback callback = ^{
+    [self didLoadEncoder];
+  };
+  
+  [encoder loadAvailableResources: callback];
 }
 
+- (void) didLoadEncoder
+{
+  [contentView setLoading: NO];
+  [self reload];
+}
+
+- (void) reload
+{
+  [table reloadData];
+  [table setContentOffset: CGPointZero animated: YES];
+}
+
+#pragma mark - User Action
+- (IBAction) refreshAction:(id)sender
+{
+  [self refresh];
+}
+
+
+#pragma mark - Table Data Source
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
   return 1;
@@ -54,6 +89,7 @@
   return cell;
 }
 
+#pragma mark - Table delegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   // load nib for edit view

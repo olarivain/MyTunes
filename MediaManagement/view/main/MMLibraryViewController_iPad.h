@@ -27,7 +27,7 @@
   IBOutlet __strong  MMTitleListSummaryTableController *encoderTableController;
   
   IBOutlet __weak UIView *playlistContentView;
-  IBOutlet __weak MMContentView *encoderView;
+  IBOutlet __weak UIView *encoderView;
   
   __strong MMServer *server;
 

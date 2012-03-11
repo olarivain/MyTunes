@@ -90,23 +90,8 @@
   playlistContentView.hidden = YES;
   
   // display visual feedback
-  [encoderView setLoading: TRUE];
-  encoderTableController.encoder = nil;
+  encoderTableController.encoder = server.encoder;
   [encoderTableController refresh];
-#warning actually, sub controllers should take care of load content themselves...
-  MMRemoteEncoderCallback callback = ^{
-    [encoderView setLoading: NO];
-    encoderTableController.encoder = server.encoder;
-    [encoderTableController refresh];
-  };
-  
-  [server.encoder loadAvailableResources: callback];
-}
-
-- (void) didSelectPendingEncodings
-{
-  encoderView.hidden = NO;
-  playlistContentView.hidden = YES;
 }
 
 @end

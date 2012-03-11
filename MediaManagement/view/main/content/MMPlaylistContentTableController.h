@@ -20,7 +20,6 @@
 {
   IBOutlet __strong UITableView * table;
   IBOutlet __strong MMPlaylistSubcontentSelector *subcontentSelector;
-  IBOutlet __strong UIBarButtonItem *editButton;
   IBOutlet __strong MMContentView *contentView;
   IBOutlet __weak MMPlaylistContentCell *contentCell;
   IBOutlet __weak UIViewController *controller;

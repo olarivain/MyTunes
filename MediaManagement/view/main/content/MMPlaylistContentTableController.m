@@ -88,16 +88,11 @@
 {
   [cellSizes removeAllObjects];
   selectedItem = nil;
-  editButton.enabled = NO;
   
   [table reloadData];
+  
   // scroll back to top, take care to avoid stupid exceptions
-  if([table numberOfSections] > 0 && [table numberOfRowsInSection: 0] > 0) 
-  {
-    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
-    [table scrollToRowAtIndexPath:path atScrollPosition: UITableViewScrollPositionTop animated: NO];
-  }
-
+  [table setContentOffset: CGPointZero animated: YES];
 }
 
 #pragma mark - User Interaction

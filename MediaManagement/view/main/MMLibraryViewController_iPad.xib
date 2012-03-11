@@ -244,7 +244,7 @@
 										<reference key="IBUIToolbar" ref="814890291"/>
 										<int key="IBUISystemItemIdentifier">5</int>
 									</object>
-									<object class="IBUIBarButtonItem" id="196509441">
+									<object class="IBUIBarButtonItem" id="262725129">
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIStyle">1</int>
 										<reference key="IBUIToolbar" ref="814890291"/>
@@ -329,7 +329,7 @@
 								<string key="NSFrameSize">{787, 704}</string>
 								<reference key="NSSuperview" ref="454893157"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="611509956"/>
+								<reference key="NSNextKeyView" ref="65132607"/>
 								<string key="NSReuseIdentifierKey">_NS:408</string>
 								<reference key="IBUIBackgroundColor" ref="807622806"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -342,7 +342,7 @@
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
-							<object class="IBUIToolbar" id="611509956">
+							<object class="IBUIToolbar" id="65132607">
 								<reference key="NSNextResponder" ref="454893157"/>
 								<int key="NSvFlags">266</int>
 								<string key="NSFrame">{{0, 704}, {787, 44}}</string>
@@ -355,15 +355,15 @@
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<object class="NSMutableArray" key="IBUIItems">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUIBarButtonItem" id="800362872">
+									<object class="IBUIBarButtonItem" id="370696983">
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<reference key="IBUIToolbar" ref="611509956"/>
+										<reference key="IBUIToolbar" ref="65132607"/>
 										<int key="IBUISystemItemIdentifier">5</int>
 									</object>
-									<object class="IBUIBarButtonItem" id="253509584">
+									<object class="IBUIBarButtonItem" id="55821397">
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIStyle">1</int>
-										<reference key="IBUIToolbar" ref="611509956"/>
+										<reference key="IBUIToolbar" ref="65132607"/>
 										<int key="IBUISystemItemIdentifier">13</int>
 									</object>
 								</object>
@@ -614,9 +614,17 @@
 					<int key="connectionID">89</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">contentView</string>
+						<reference key="source" ref="714950335"/>
+						<reference key="destination" ref="454893157"/>
+					</object>
+					<int key="connectionID">107</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">refresh</string>
-						<reference key="source" ref="253509584"/>
+						<reference key="source" ref="55821397"/>
 						<reference key="destination" ref="714950335"/>
 					</object>
 					<int key="connectionID">102</int>
@@ -624,7 +632,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">refreshAction:</string>
-						<reference key="source" ref="196509441"/>
+						<reference key="source" ref="262725129"/>
 						<reference key="destination" ref="256959381"/>
 					</object>
 					<int key="connectionID">106</int>
@@ -732,7 +740,7 @@
 							<reference ref="613585293"/>
 							<reference ref="724074403"/>
 							<reference ref="60122337"/>
-							<reference ref="196509441"/>
+							<reference ref="262725129"/>
 						</object>
 						<reference key="parent" ref="591695803"/>
 					</object>
@@ -777,25 +785,25 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1018507774"/>
 							<reference ref="99268705"/>
-							<reference ref="611509956"/>
+							<reference ref="65132607"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Encoder</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">99</int>
-						<reference key="object" ref="611509956"/>
+						<reference key="object" ref="65132607"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="253509584"/>
-							<reference ref="800362872"/>
+							<reference ref="55821397"/>
+							<reference ref="370696983"/>
 						</object>
 						<reference key="parent" ref="454893157"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100</int>
-						<reference key="object" ref="253509584"/>
-						<reference key="parent" ref="611509956"/>
+						<reference key="object" ref="55821397"/>
+						<reference key="parent" ref="65132607"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">90</int>
@@ -825,12 +833,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">101</int>
-						<reference key="object" ref="800362872"/>
-						<reference key="parent" ref="611509956"/>
+						<reference key="object" ref="370696983"/>
+						<reference key="parent" ref="65132607"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">103</int>
-						<reference key="object" ref="196509441"/>
+						<reference key="object" ref="262725129"/>
 						<reference key="parent" ref="814890291"/>
 					</object>
 				</object>
@@ -926,7 +934,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">106</int>
+			<int key="maxID">107</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1031,7 +1039,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>MMContentView</string>
+							<string>UIView</string>
 							<string>UIView</string>
 						</object>
 					</object>
@@ -1046,7 +1054,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">encoderView</string>
-								<string key="candidateClassName">MMContentView</string>
+								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">playlistContentView</string>

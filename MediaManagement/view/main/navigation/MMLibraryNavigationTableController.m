@@ -73,7 +73,8 @@
     return [playlists count];
   }
   
-  return 2;
+  // only one cell in encoder section: resource list
+  return 1;
 }
 
 #pragma mark Build Cells
@@ -118,8 +119,7 @@
     navigationCell = nil;
   }
   
-  NSString *name = indexPath.row == 0 ? @"All" : @"In Progress";
-  [cell setName: name];
+  [cell setName: @"Resources"];
   return cell;
 }
 
@@ -145,12 +145,9 @@
     return;
   }
   
-  if(indexPath.row == 0)
-  {
-    [delegate didSelectEncoderResources];
-    return;
-  }
-  [delegate didSelectPendingEncodings];
+
+  [delegate didSelectEncoderResources];
+  return;
 }
 
 #pragma - Plaulist from index paths/sections

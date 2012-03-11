@@ -26,5 +26,6 @@
 @property (nonatomic, readwrite, strong) MMRemoteEncoder *encoder;
 
 - (void) refresh;
+- (IBAction) refreshAction:(id)sender;
 
 @end
