@@ -23,6 +23,11 @@
 
 @implementation MMPlaylistContentCell
 
+- (void) prepareForReuse
+{
+  duration.text = nil;
+}
+
 #pragma mark - Updating Content
 - (void) updateWithContent: (MMContent *) content withCellSize: (MMPlaylistContentCellSize *) size
 {
@@ -36,7 +41,10 @@
   number.text = [self trackNumberForContent: content];
   
   // and duration
-  duration.text = [self trackDuration: content];
+  if([content.duration intValue] > 0)
+  {
+    duration.text = [self trackDuration: content];
+  }
 }
 
 #pragma mark Convenience getter for type specific track content
