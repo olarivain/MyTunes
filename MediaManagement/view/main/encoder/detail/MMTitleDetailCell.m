@@ -12,6 +12,7 @@
 
 #import "MMTitleDetailCellSize.h"
 #import "MMTitleTrackTableController.h"
+#import "MMTitleStatusView.h"
 
 @implementation MMTitleDetailCell
 
@@ -34,9 +35,12 @@
     durationLabel.text = [NSString stringWithFormat: @"%02i:%02i", min, sec];    
   }
   
+  [statusView updateWithTitle: title];
+  
   // size title tracks table to a perfect match
   CGRect titleTracksFrame = titleTracksTable.frame;
   titleTracksFrame.size.height = size.titleTracksHeight;
+  titleTracksFrame.origin.y =   title.selected ? CGRectGetMaxY(statusView.frame) : CGRectGetMaxY(durationLabel.frame);
   titleTracksTable.frame = titleTracksFrame;
   
   // and update the tracks table controller
@@ -56,7 +60,8 @@
   MMTitleDetailCellSize *size = [MMTitleDetailCellSize titleDetailCellSize];
   
   size.titleTracksHeight = [titleTableController totalHeightForAudioTracks: title.audioTracks andSubtitleTracks: title.subtitleTracks];
-  size.totalHeight = CGRectGetMaxY(durationLabel.frame) + size.titleTracksHeight + CGRectGetMinY(nameLabel.frame);
+  CGFloat startPoint = title.selected ? CGRectGetMaxY(statusView.frame) : CGRectGetMaxY(durationLabel.frame);
+  size.totalHeight = 2 * CGRectGetMinY(nameLabel.frame) + startPoint + size.titleTracksHeight;
   return size;
 }
 
