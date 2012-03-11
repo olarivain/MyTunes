@@ -15,6 +15,7 @@
 
 @interface MMPlaylistContentCell()
 - (NSString *) trackNumberForContent: (MMContent *) content;
+- (NSString *) trackDuration: (MMContent *) content;
 
 - (void) updateResizeMask;
 - (CGSize) nameSizeForContent: (MMContent *) content;
@@ -32,11 +33,13 @@
   name.text = content.name;
   
   // set track number
-  NSString *trackNumber = [self trackNumberForContent: content];
-  number.text = trackNumber;
+  number.text = [self trackNumberForContent: content];
+  
+  // and duration
+  duration.text = [self trackDuration: content];
 }
 
-#pragma mark Convenience getter for track number
+#pragma mark Convenience getter for type specific track content
 - (NSString *) trackNumberForContent: (MMContent *) content
 {
   if([content isTvShow])
@@ -50,6 +53,16 @@
   }
 
   return @"";
+}
+
+- (NSString *) trackDuration:(MMContent *)content
+{
+  if(content.isMusic)
+  {
+    return nil;
+  }
+  
+  return [content durationHumanReadable];
 }
 
 #pragma mark - Sizing 

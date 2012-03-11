@@ -15,6 +15,7 @@
 {
   IBOutlet __strong UILabel *name;
   IBOutlet __strong UILabel *number;
+  IBOutlet __strong UILabel *duration;
 }
 
 - (void) updateWithContent: (MMContent *) content withCellSize: (MMPlaylistContentCellSize *) size;
