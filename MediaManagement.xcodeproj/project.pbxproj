@@ -62,6 +62,7 @@
 		00503CA614B0E00E001EEF02 /* MMTitleTrackSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 00503CA514B0E00E001EEF02 /* MMTitleTrackSectionHeader.m */; };
 		0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */; };
 		0062FA9714AFFF5400C2C984 /* MMTitleTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */; };
+		00776EA9150C3A21002D96F5 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00776EA8150C3A21002D96F5 /* MMTitleAssembler+Client.m */; };
 		00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */; };
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
@@ -177,6 +178,8 @@
 		0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackCell.m; sourceTree = "<group>"; };
 		0062FA9514AFFF5400C2C984 /* MMTitleTrackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleTrackTableController.h; sourceTree = "<group>"; };
 		0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackTableController.m; sourceTree = "<group>"; };
+		00776EA7150C3A21002D96F5 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
+		00776EA8150C3A21002D96F5 /* MMTitleAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMTitleAssembler+Client.m"; sourceTree = "<group>"; };
 		00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
 		00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 			children = (
 				00CCAF2413806E7800762299 /* MMContentAssembler+Client.h */,
 				00CCAF2513806E7800762299 /* MMContentAssembler+Client.m */,
+				00776EA7150C3A21002D96F5 /* MMTitleAssembler+Client.h */,
+				00776EA8150C3A21002D96F5 /* MMTitleAssembler+Client.m */,
 			);
 			path = assembler;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 				0062FA9714AFFF5400C2C984 /* MMTitleTrackTableController.m in Sources */,
 				0012CB4514B0D0C600A2F4F5 /* MMTitleDetailCellSize.m in Sources */,
 				00503CA614B0E00E001EEF02 /* MMTitleTrackSectionHeader.m in Sources */,
+				00776EA9150C3A21002D96F5 /* MMTitleAssembler+Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

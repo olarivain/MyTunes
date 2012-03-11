@@ -14,12 +14,14 @@
 @class MMContentGroup;
 @class MMPlaylistSubcontentSelector;
 @class MMPlaylistContentCell;
+@class MMContentView;
 
 @interface MMPlaylistContentTableController : NSObject<UITableViewDelegate, UITableViewDataSource, MMEditControllerDelegate> 
 {
   IBOutlet __strong UITableView * table;
   IBOutlet __strong MMPlaylistSubcontentSelector *subcontentSelector;
   IBOutlet __strong UIBarButtonItem *editButton;
+  IBOutlet __strong MMContentView *contentView;
   IBOutlet __weak MMPlaylistContentCell *contentCell;
   IBOutlet __weak UIViewController *controller;
   
@@ -31,6 +33,8 @@
   __strong MMContentGroup *selectedContentGroup;
   __strong MMContent *selectedItem;
   
+  BOOL loading;
+  
 }
 
 @property (nonatomic, readwrite, strong) MMPlaylist *playlist;
@@ -38,5 +42,6 @@
 @property (nonatomic, readonly) MMContent *selectedItem;
 
 - (void) refresh;
+- (IBAction) refreshAction:(id)sender;
 
 @end

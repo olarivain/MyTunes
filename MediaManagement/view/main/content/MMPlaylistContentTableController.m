@@ -15,17 +15,21 @@
 #import <MediaManagement/MMContent.h>
 
 #import "MMRemoteLibrary.h"
+#import "MMRemotePlaylist.h"
 
 #import "MMPlaylistContentTableController.h"
 
 #import "MMPlaylistSubcontentSelector.h"
 #import "MMPlaylistContentCell.h"
 #import "MMPlaylistContentCellSize.h"
+#import "MMContentView.h"
 
 #import "MMEditController_iPad.h"
 
 
 @interface MMPlaylistContentTableController()
+- (void) reload;
+- (void) playlistDidLoad;
 @end
 
 @implementation MMPlaylistContentTableController
@@ -51,8 +55,36 @@
   selectedContentGroup = subcontentSelector.selectedContentGroup;
 }
 
-#pragma mark - Table view data source
+#pragma mark - Loading content
 - (void) refresh
+{
+  // update UI
+  loading = YES;
+  [contentView setLoading: YES];
+  
+  // clear table
+  [self reload];
+  
+  // refresh content on callback
+  MMPlaylistCallback callback = ^{
+    [self playlistDidLoad];
+  };
+  
+  // load playlist
+  [playlist loadWithBlock: callback];
+}
+
+- (void) playlistDidLoad
+{
+  // update UI
+  loading = NO;
+  [contentView setLoading: NO];
+  
+  // and reload table
+  [self reload];
+}
+
+- (void) reload
 {
   [cellSizes removeAllObjects];
   selectedItem = nil;
@@ -65,11 +97,23 @@
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     [table scrollToRowAtIndexPath:path atScrollPosition: UITableViewScrollPositionTop animated: NO];
   }
+
+}
+
+#pragma mark - User Interaction
+- (IBAction) refreshAction:(id)sender
+{
+  [self refresh];
 }
 
 #pragma mark - TableData source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+  if(loading)
+  {
+    return 0;
+  }
+  
   return [selectedContentGroup contentListCount];
 }
 
@@ -81,6 +125,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+  if(loading)
+  {
+    return 0;
+  }
+  
   MMContentList *list = [selectedContentGroup contentListForFlatIndex: section];
   return [[list content] count];
 }

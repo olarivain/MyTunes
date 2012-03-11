@@ -7,9 +7,9 @@
 //
 
 #import <KraCommons/KCBlocks.h>
-#import <MediaManagement/MMTitleAssembler.h>
 #import <MediaManagement/MMTitleList.h>
 
+#import "MMTitleAssembler+Client.h"
 #import "MMRemoteEncoder.h"
 
 #import "MMServer.h"
@@ -63,16 +63,10 @@
 #pragma mark - Scanning a specific resource
 - (void) scanResource: (MMTitleList *) titleList andCallback: (MMRemoteEncoderCallback) callback
 {
+  
   // update only content that belongs to us
   if(![availableResources containsObject: titleList])
   {
-    return;
-  }
-  
-  // don't reload if we already have the content
-  if([titleList.titles count] > 0)
-  {
-    DispatchMainThread(callback);
     return;
   }
   
@@ -92,7 +86,14 @@
 - (void) didScanResource: (MMTitleList *) titleList withDto:(NSDictionary *)dto 
 {
   MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
-  [assembler updateTitleList: titleList withDto: dto];
+  if([titleList.titles count] == 0)
+  {
+    [assembler updateTitleList: titleList withDto: dto];
+  }
+  else 
+  {
+    [assembler updateTitleStatus: titleList withDto: dto];
+  }
 }
 
 #pragma mark - Scheduling a title for encoding

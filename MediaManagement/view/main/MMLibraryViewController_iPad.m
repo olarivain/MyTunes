@@ -45,7 +45,7 @@
   libraryNavigationTableController.library = server.library;
   
   // auto select first item in system playlist if there is one available
-  [libraryNavigationTableController selectPlaylist: selectedPlaylist];
+  [libraryNavigationTableController selectPlaylist: playlistContentController.playlist];
   
   // update title bar
   [[self navigationItem] setTitle: [server name]];
@@ -54,8 +54,6 @@
 
 - (void)viewDidUnload
 {
-  playlistContentView = nil;
-  encoderView = nil;
   libraryNavigationTableController = nil;
   playlistContentController = nil;
   [super viewDidUnload];
@@ -74,30 +72,16 @@
   playlistContentView.hidden = NO;
   
   // tapped the same playlist again, give up
-  if(playlist == selectedPlaylist)
+  if(playlistContentController.playlist == playlist)
   {
     return;
   }
   
   // retain current playlist
-  selectedPlaylist = playlist;
+  playlistContentController.playlist = playlist;
   
-  // display visual feedback
-  [playlistContentView setLoading: TRUE];
-  
-  // clear content view
-  playlistContentController.playlist = nil;
+  // tell controller to refresh its content
   [playlistContentController refresh];
-#warning actually, sub controllers should take care of load content themselves...
-  // refresh content on callback
-  MMPlaylistCallback callback = ^{
-    playlistContentController.playlist = selectedPlaylist;
-    [playlistContentController refresh];
-    [playlistContentView setLoading: FALSE];
-  };
-  
-  // load playlist
-  [selectedPlaylist loadWithBlock: callback];
 }
 
 - (void) didSelectEncoderResources

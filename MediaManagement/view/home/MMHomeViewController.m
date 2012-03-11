@@ -89,12 +89,12 @@
   if(loading)
   {
     [activityIndicator startAnimating]; 
+    activityIndicator.hidden = !loading;
   }
   else 
   {
     [activityIndicator stopAnimating];
   }
-  activityIndicator.hidden = !loading;
 }
 
 #pragma mark - Moving to next view controller

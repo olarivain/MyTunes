@@ -26,10 +26,9 @@
   IBOutlet __strong MMPlaylistContentTableController *playlistContentController;
   IBOutlet __strong  MMTitleListSummaryTableController *encoderTableController;
   
-  IBOutlet __strong MMContentView *playlistContentView;
-  IBOutlet __strong MMContentView *encoderView;
+  IBOutlet __weak UIView *playlistContentView;
+  IBOutlet __weak MMContentView *encoderView;
   
-  __strong MMPlaylist *selectedPlaylist;
   __strong MMServer *server;
 
 }
