@@ -63,7 +63,6 @@
 		0062FA8E14AFFC9A00C2C984 /* MMSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA8D14AFFC9A00C2C984 /* MMSubtitleTrackCell.m */; };
 		0062FA9714AFFF5400C2C984 /* MMTitleTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */; };
 		00776EA9150C3A21002D96F5 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 00776EA8150C3A21002D96F5 /* MMTitleAssembler+Client.m */; };
-		00776EAF150C4F77002D96F5 /* MMTitleStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00776EAE150C4F76002D96F5 /* MMTitleStatusView.m */; };
 		00823FE114AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */; };
 		00823FE414AEB21000CEDDEB /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */; };
 		00823FEB14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00823FEA14AEBB8600CEDDEB /* MMLibraryNavigationTableController.m */; };
@@ -181,8 +180,6 @@
 		0062FA9614AFFF5400C2C984 /* MMTitleTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackTableController.m; sourceTree = "<group>"; };
 		00776EA7150C3A21002D96F5 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
 		00776EA8150C3A21002D96F5 /* MMTitleAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMTitleAssembler+Client.m"; sourceTree = "<group>"; };
-		00776EAD150C4F76002D96F5 /* MMTitleStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MMTitleStatusView.h; sourceTree = "<group>"; };
-		00776EAE150C4F76002D96F5 /* MMTitleStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleStatusView.m; sourceTree = "<group>"; };
 		00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
 		00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
 		00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
@@ -593,8 +590,6 @@
 				0028481314AFCAEB003F5818 /* MMTitleDetailCell_iPad.xib */,
 				0012CB4314B0D0C500A2F4F5 /* MMTitleDetailCellSize.h */,
 				0012CB4414B0D0C600A2F4F5 /* MMTitleDetailCellSize.m */,
-				00776EAD150C4F76002D96F5 /* MMTitleStatusView.h */,
-				00776EAE150C4F76002D96F5 /* MMTitleStatusView.m */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -778,7 +773,6 @@
 				0012CB4514B0D0C600A2F4F5 /* MMTitleDetailCellSize.m in Sources */,
 				00503CA614B0E00E001EEF02 /* MMTitleTrackSectionHeader.m in Sources */,
 				00776EA9150C3A21002D96F5 /* MMTitleAssembler+Client.m in Sources */,
-				00776EAF150C4F77002D96F5 /* MMTitleStatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +875,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Olivier Larivain (85J58RY55F)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -891,6 +886,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2425A73-4139-4087-9ABB-BB95FDAD58F0";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				WRAPPER_EXTENSION = app;
 			};
@@ -902,6 +898,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Olivier Larivain (85J58RY55F)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MediaManagement/MediaManagement-Prefix.pch";
@@ -910,6 +907,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2425A73-4139-4087-9ABB-BB95FDAD58F0";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

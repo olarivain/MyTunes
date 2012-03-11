@@ -22,6 +22,7 @@
     title.eta = [titleDto integerForKey: @"eta"];
     title.progress = [titleDto integerForKey: @"progress"];
     title.completed = [titleDto booleanForKey: @"completed"];
+    title.encoding =[titleDto booleanForKey: @"encoding"];
   }
 }
 

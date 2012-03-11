@@ -14,13 +14,13 @@
 @class MMTitleTrackTableController;
 @class MMSubtitleTrackTableController;
 @class MMTitleDetailCellSize;
-@class MMTitleStatusView;
 
 @interface MMTitleDetailCell : UITableViewCell
 {
-  IBOutlet __strong UILabel *nameLabel;
-  IBOutlet __strong UILabel *durationLabel;
-  IBOutlet __strong MMTitleStatusView *statusView;
+  IBOutlet __weak UILabel *nameLabel;
+  IBOutlet __weak UILabel *durationLabel;
+  IBOutlet __weak UILabel *statusLabel;
+  IBOutlet __weak UILabel *progressLabel;
   
   IBOutlet __weak UITableView *titleTracksTable;
   IBOutlet __strong MMTitleTrackTableController *titleTableController;
