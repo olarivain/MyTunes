@@ -10,6 +10,7 @@
 
 @interface MMTitleAssembler (Client)
 
-- (void) updateTitleStatus: (MMTitleList *) titleList withDto: (NSDictionary *) dto;
+- (NSArray *) createTitleLists: (NSArray *) dtos;
+- (void) updateTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto;
 
 @end
