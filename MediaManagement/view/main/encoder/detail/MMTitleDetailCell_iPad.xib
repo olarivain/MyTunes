@@ -74,7 +74,7 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
-							<object class="IBUILabel" id="229445474">
+							<object class="IBUILabel" id="152070085">
 								<reference key="NSNextResponder" ref="297545227"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{78, 12}, {63, 19}}</string>
@@ -95,13 +95,13 @@
 								<reference key="IBUIFontDescription" ref="850447948"/>
 								<reference key="IBUIFont" ref="356148104"/>
 							</object>
-							<object class="IBUILabel" id="945691738">
+							<object class="IBUILabel" id="501276690">
 								<reference key="NSNextResponder" ref="297545227"/>
 								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{148, 12}, {93, 19}}</string>
 								<reference key="NSSuperview" ref="297545227"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="229445474"/>
+								<reference key="NSNextKeyView" ref="152070085"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -120,7 +120,7 @@
 							<object class="IBUILabel" id="395135964">
 								<reference key="NSNextResponder" ref="297545227"/>
 								<int key="NSvFlags">289</int>
-								<string key="NSFrame">{{249, 12}, {51, 19}}</string>
+								<string key="NSFrame">{{217, 12}, {83, 19}}</string>
 								<reference key="NSSuperview" ref="297545227"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="290954291"/>
@@ -145,7 +145,7 @@
 								<string key="NSFrame">{{25, 39}, {270, 120}}</string>
 								<reference key="NSSuperview" ref="297545227"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="945691738"/>
+								<reference key="NSNextKeyView" ref="501276690"/>
 								<string key="NSReuseIdentifierKey">_NS:408</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -241,7 +241,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">statusLabel</string>
 						<reference key="source" ref="63882556"/>
-						<reference key="destination" ref="229445474"/>
+						<reference key="destination" ref="152070085"/>
 					</object>
 					<int key="connectionID">38</int>
 				</object>
@@ -249,7 +249,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressLabel</string>
 						<reference key="source" ref="63882556"/>
-						<reference key="destination" ref="945691738"/>
+						<reference key="destination" ref="501276690"/>
 					</object>
 					<int key="connectionID">39</int>
 				</object>
@@ -311,8 +311,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="852165881"/>
 							<reference ref="395135964"/>
-							<reference ref="229445474"/>
-							<reference ref="945691738"/>
+							<reference ref="152070085"/>
+							<reference ref="501276690"/>
 							<reference ref="290954291"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -342,13 +342,13 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">32</int>
-						<reference key="object" ref="229445474"/>
+						<reference key="object" ref="152070085"/>
 						<reference key="parent" ref="63882556"/>
 						<string key="objectName">Status Label</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">33</int>
-						<reference key="object" ref="945691738"/>
+						<reference key="object" ref="501276690"/>
 						<reference key="parent" ref="63882556"/>
 						<string key="objectName">Progress Label</string>
 					</object>
@@ -401,7 +401,6 @@
 						<string key="nameLabel">UILabel</string>
 						<string key="progressLabel">UILabel</string>
 						<string key="statusLabel">UILabel</string>
-						<string key="titleTableController">MMTitleTrackTableController</string>
 						<string key="titleTracksTable">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -420,10 +419,6 @@
 						<object class="IBToOneOutletInfo" key="statusLabel">
 							<string key="name">statusLabel</string>
 							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="titleTableController">
-							<string key="name">titleTableController</string>
-							<string key="candidateClassName">MMTitleTrackTableController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleTracksTable">
 							<string key="name">titleTracksTable</string>
