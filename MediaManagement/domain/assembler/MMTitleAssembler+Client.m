@@ -179,18 +179,18 @@
   NSArray *audioTrackDtos = [dto nullSafeForKey: @"audioTracks"];
   for(NSDictionary *audioTrackDto in audioTrackDtos)
   {
-    NSInteger audioIndex = [dto integerForKey: @"index"];
+    NSInteger audioIndex = [audioTrackDto integerForKey: @"index"];
     MMAudioTrack *audioTrack = [title audioTrackWithIndex: audioIndex];
-    audioTrack.selected = [dto booleanForKey: @"selected"];  
+    audioTrack.selected = [audioTrackDto booleanForKey: @"selected"];  
   }
   
   // update all subtitle tracks
   NSArray *subtitleTrackDtos = [dto nullSafeForKey: @"subtitleTracks"];
   for(NSDictionary *subtitleTrackDto in subtitleTrackDtos)
   {
-    NSInteger subtitleIndex = [dto integerForKey: @"index"];
+    NSInteger subtitleIndex = [subtitleTrackDto integerForKey: @"index"];
     MMSubtitleTrack *subtitleTrack = [title subtitleTrackWithIndex: subtitleIndex];
-    subtitleTrack.selected = [dto booleanForKey: @"selected"];  
+    subtitleTrack.selected = [subtitleTrackDto booleanForKey: @"selected"];  
   } 
 }
 
