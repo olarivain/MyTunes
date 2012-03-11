@@ -518,17 +518,25 @@
 			name = tracks;
 			sourceTree = "<group>";
 		};
+		00776EA5150C2C73002D96F5 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */,
+				0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */,
+				0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */,
+				0082402714AFA3B700CEDDEB /* MMPlaylistContentCellSize.h */,
+				0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		00823FDE14AEB18300CEDDEB /* content */ = {
 			isa = PBXGroup;
 			children = (
+				00776EA5150C2C73002D96F5 /* cells */,
 				002847E414AFB4BE003F5818 /* edit */,
 				00823FE214AEB21000CEDDEB /* MMPlaylistContentTableController.h */,
 				00823FE314AEB21000CEDDEB /* MMPlaylistContentTableController.m */,
-				0082401F14AF9B6E00CEDDEB /* MMPlaylistContentCell.h */,
-				0082402014AF9B6E00CEDDEB /* MMPlaylistContentCell.m */,
-				0082402714AFA3B700CEDDEB /* MMPlaylistContentCellSize.h */,
-				0082402814AFA3B800CEDDEB /* MMPlaylistContentCellSize.m */,
-				0082402214AF9B8700CEDDEB /* MMPlaylistContentCell_iPad.xib */,
 				00823FDF14AEB18400CEDDEB /* MMPlaylistSubcontentSelector.h */,
 				00823FE014AEB18400CEDDEB /* MMPlaylistSubcontentSelector.m */,
 			);
@@ -797,7 +805,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Olivier Larivain (85J58RY55F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -830,7 +838,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Olivier Larivain (85J58RY55F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
