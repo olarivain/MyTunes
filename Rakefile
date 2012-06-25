@@ -4,6 +4,10 @@ require 'RavenArtifact.rb'
 
 include Rake::DSL
 
+task :setup do
+	Raven::setup
+end
+
 raven = Raven.new()
 
 task :clean do
@@ -24,8 +28,4 @@ end
 
 task :release do
 	raven.release
-end
-
-task :setup do
-	Raven::setup
 end
