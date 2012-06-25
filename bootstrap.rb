@@ -28,16 +28,6 @@ if "y".eql? answer then
     puts "Skipping ruby gem update."
 end
 
-if "y".eql? answer then
-    cmd = "sudo gem install rake"
-    puts "Installing rake:\n#{cmd}"
-    if system cmd then
-        puts "\n\nRake successfully installed. Proceeding"
-        else
-        puts "\n\nRake failed to install. Proceeding."
-    end
-end
-
 cmd = "sudo gem install gem/raven-xcode-0.0.8.gem"
 puts "Installing custom gem:\n#{cmd}"
 if system cmd then
