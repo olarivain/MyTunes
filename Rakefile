@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'Raven.rb'
 require 'RavenArtifact.rb'
 
@@ -23,4 +24,8 @@ end
 
 task :release do
 	raven.release
+end
+
+task :setup
+	Raven::setup
 end
