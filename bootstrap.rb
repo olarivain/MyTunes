@@ -54,7 +54,7 @@ Raven::setup
 
 if !File.exists? "~/.raven/config.json"
   puts "Creating default empty raven config in ~/.raven/config.json"
-  cmd = "echo \"{\"nexusHost\": \"\",\"repository\":{}}\" > ~/.raven/config.json"
+  cmd = "echo '{\"nexusHost\": \"\",\"repository\":{}}' > ~/.raven/config.json"
   system cmd
 end
 
