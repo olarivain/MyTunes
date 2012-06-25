@@ -51,6 +51,16 @@ if system cmd then
     puts "\n\nBase tools not installed, aborting."
     exit 1
 end
+
+cmd = "rake setup"
+puts "Setting up raven"
+if system cmd then
+  puts "raven is now setup."
+else
+  puts "raven couldn't setup."
+  exit 1
+end
+
 puts "Cloning KraCommons."
 cmd = "git clone git://github.com/krakas/KraCommons.git \"../KraCommons\""
 puts cmd
