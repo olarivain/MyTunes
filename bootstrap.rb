@@ -52,14 +52,9 @@ if system cmd then
     exit 1
 end
 
-cmd = "rake setup"
 puts "Setting up raven"
-if system cmd then
-  puts "raven is now setup."
-else
-  puts "raven couldn't setup."
-  exit 1
-end
+require 'Raven.rb'
+Raven::setup
 
 puts "Cloning KraCommons."
 cmd = "git clone git://github.com/krakas/KraCommons.git \"../KraCommons\""
