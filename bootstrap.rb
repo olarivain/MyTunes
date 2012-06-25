@@ -42,7 +42,7 @@ require 'rubygems'
 require 'Raven'
 Raven::setup
 
-if !File.exists? "~/.raven/config.json"
+if !File.exists? File.expand_path("~/.raven/config.json")
   puts "Creating default empty raven config in ~/.raven/config.json"
   cmd = "echo '{\"nexusHost\": \"\",\"repository\":{}}' > ~/.raven/config.json"
   system cmd
