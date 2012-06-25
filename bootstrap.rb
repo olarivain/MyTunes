@@ -28,11 +28,6 @@ if "y".eql? answer then
     puts "Skipping ruby gem update."
 end
 
-begin
-    puts "\n\nDo you want to Rake gem? In doubt, you must. (y/n)"
-    answer = gets.chomp
-end while (!("y".eql? answer) && !("n".eql? answer))
-
 if "y".eql? answer then
     cmd = "sudo gem install rake"
     puts "Installing rake:\n#{cmd}"
