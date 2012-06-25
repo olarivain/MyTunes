@@ -651,7 +651,7 @@
 		002A0AD81324549D00320A06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 002A0ADB1324549D00320A06 /* Build configuration list for PBXProject "MediaManagement" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -832,7 +832,6 @@
 					"-lMediaManagement-iPhone",
 					"-lKraCommons-iPhone",
 				);
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
@@ -862,7 +861,6 @@
 					"-lMediaManagement-iPhone",
 					"-lKraCommons-iPhone",
 				);
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
