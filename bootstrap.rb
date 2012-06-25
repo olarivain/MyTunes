@@ -57,6 +57,11 @@ require 'rubygems'
 require 'Raven'
 Raven::setup
 
+if !File.exists? "~/.raven/config.json"
+  cmd = "echo \"{\"nexusHost\": \"\",\"repository\":{}}\" > ~/.raven/config.json"
+  system cmd
+end
+
 puts "Cloning KraCommons."
 cmd = "git clone git://github.com/krakas/KraCommons.git \"../KraCommons\""
 puts cmd
