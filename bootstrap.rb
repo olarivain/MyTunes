@@ -53,7 +53,7 @@ if system cmd then
 end
 
 puts "Setting up raven"
-require 'rubygem'
+require 'rubygems'
 require 'Raven'
 Raven::setup
 
