@@ -208,6 +208,8 @@
 		00CCAF281380790B00762299 /* MMContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentView.h; sourceTree = "<group>"; };
 		00CCAF291380790B00762299 /* MMContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentView.m; sourceTree = "<group>"; };
 		00CCAF3A1380805E00762299 /* MMLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController.h; sourceTree = "<group>"; };
+		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
+		00DC022F1597EB4E00F891C9 /* rpom.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rpom.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,8 @@
 				002A0AE41324549D00320A06 /* Frameworks */,
 				002A0AE21324549D00320A06 /* Products */,
 				0028484214AFF295003F5818 /* Resources */,
+				00DC022E1597EB4E00F891C9 /* Rakefile */,
+				00DC022F1597EB4E00F891C9 /* rpom.xml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -822,8 +826,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST",
-					"/usr/local/xcodeproducts/KraCommons-iPhone/LATEST",
+					"/usr/local/raven/MediaManagementCommon-iOS/1.0-LATEST",
+					"/usr/local/raven/KraCommons-iOS/1.0-LATEST",
 				);
 				OTHER_CFLAGS = "-DDEBUG_NETWORK=1";
 				OTHER_LDFLAGS = (
@@ -834,7 +838,7 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/raven/MediaManagementCommon-iOS/1.0-LATEST /usr/local/raven/KraCommons-iOS/1.0-LATEST";
 			};
 			name = Debug;
 		};
@@ -851,8 +855,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST",
-					"/usr/local/xcodeproducts/KraCommons-iPhone/LATEST",
+					"/usr/local/raven/MediaManagementCommon-iOS/1.0-LATEST",
+					"/usr/local/raven/KraCommons-iOS/1.0-LATEST",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
@@ -863,7 +867,7 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/usr/local/xcodeproducts/MediaManagement-iPhone/LATEST /usr/local/xcodeproducts/KraCommons-iPhone/LATEST";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/raven/MediaManagementCommon-iOS/1.0-LATEST /usr/local/raven/KraCommons-iOS/1.0-LATEST";
 			};
 			name = Release;
 		};
@@ -884,7 +888,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2425A73-4139-4087-9ABB-BB95FDAD58F0";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				WRAPPER_EXTENSION = app;
 			};
@@ -905,7 +908,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B2425A73-4139-4087-9ABB-BB95FDAD58F0";
 				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

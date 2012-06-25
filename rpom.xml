@@ -1,0 +1,21 @@
+<project>
+	<name>MediaManagement</name>
+	<groupId>org.kra.mediamanagement</groupId>
+	<version>1.0.20</version>
+	<scm>git</scm>
+	
+	<artifacts>
+		<artifact>
+			<artifactId>mediamanagement</artifactId>
+			<name>MediaManagement</name>
+			<silenceXcode>true</silenceXcode>
+			<target>
+				<name>MediaManagement</name>
+        <appName>MediaManagement</appName>
+				<configuration>Release</configuration>
+				<buildFolder>Release-iphoneos</buildFolder>
+			</target>
+		</artifact>
+  </artifacts>
+     
+</project>
