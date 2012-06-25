@@ -26,6 +26,6 @@ task :release do
 	raven.release
 end
 
-task :setup
+task :setup do
 	Raven::setup
 end
