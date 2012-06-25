@@ -53,7 +53,8 @@ if system cmd then
 end
 
 puts "Setting up raven"
-require 'Raven.rb'
+require 'rubygem'
+require 'Raven'
 Raven::setup
 
 puts "Cloning KraCommons."
