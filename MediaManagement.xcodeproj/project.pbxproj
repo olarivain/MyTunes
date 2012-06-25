@@ -210,6 +210,7 @@
 		00CCAF3A1380805E00762299 /* MMLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController.h; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		00DC022F1597EB4E00F891C9 /* rpom.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = rpom.xml; sourceTree = "<group>"; };
+		00DC02631597EF8300F891C9 /* bootstrap.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = bootstrap.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +315,7 @@
 				0028484214AFF295003F5818 /* Resources */,
 				00DC022E1597EB4E00F891C9 /* Rakefile */,
 				00DC022F1597EB4E00F891C9 /* rpom.xml */,
+				00DC02631597EF8300F891C9 /* bootstrap.rb */,
 			);
 			sourceTree = "<group>";
 		};

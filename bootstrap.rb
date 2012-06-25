@@ -43,7 +43,7 @@ if "y".eql? answer then
     end
 end
 
-cmd = "sudo gem install gem/xcode-deployer.gem"
+cmd = "sudo gem install gem/raven-xcode-0.0.8.gem"
 puts "Installing custom gem:\n#{cmd}"
 if system cmd then
     puts "\n\nBase tools are installed, now checking out required projects."
