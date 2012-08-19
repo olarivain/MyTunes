@@ -1,7 +1,7 @@
 <project>
 	<name>MediaManagement</name>
 	<groupId>org.kra.mediamanagement</groupId>
-	<version>1.0.22</version>
+	<version>1.0.23</version>
 	<scm>git</scm>
   <testFlight>
     <teamToken>b9b9fd0ca57d7ee013ee2e4dda001faa_NzAzNjEyMDEyLTAzLTExIDE4OjI3OjIxLjEyNzY5Mg</teamToken>
