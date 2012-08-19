@@ -23,3 +23,7 @@ end
 task :release do
 	raven.release
 end
+
+task :testFlight do
+	raven.testFlight_deploy
+end
