@@ -104,4 +104,65 @@
   [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  // Return YES if you want the specified item to be editable.
+  return YES;
+}
+
+#pragma mark - deleting titles
+- (void) tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+ forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // we don't support anything else than delete
+  if(editingStyle != UITableViewCellEditingStyleDelete)
+  {
+    return;
+  }
+  
+  // prompt for confirmation first, this will just DELETE, no recovery.
+  titlePendingDelete = [encoder.availableResources boundSafeObjectAtIndex: indexPath.row];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [NSString stringWithFormat: @"Delete %@", titlePendingDelete.name]
+                                                  message: @"Once deleted, this resource won't be accessible anymore"
+                                                 delegate: self
+                                        cancelButtonTitle: @"Cancel"
+                                        otherButtonTitles: @"Delete", nil];
+  [alert show];
+}
+
+- (void) didDeleteTitleList: (NSError *) error {
+  // update UI
+  loadingView.hidden = YES;
+  [self refresh];
+  
+  // no error, we're done here
+  if(!error) {
+    return;
+  }
+  
+  // otherwise, prompt the user with the error
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error"
+                                                  message: error.localizedDescription
+                                                 delegate: nil
+                                        cancelButtonTitle: @"OK"
+                                        otherButtonTitles: nil];
+  [alert show];
+}
+
+#pragma mark - alert view delegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if(buttonIndex == alertView.cancelButtonIndex) {
+    titlePendingDelete = nil;
+    return;
+  }
+  
+  loadingView.hidden = NO;
+  MMRemoteEncoderErrorCallback callback = ^(NSError * error) {
+    [self didDeleteTitleList: error];
+  };
+  [encoder deleteTitleList: titlePendingDelete
+              withCallback: callback];
+  titlePendingDelete = nil;
+}
+
 @end

@@ -12,13 +12,15 @@
 @class MMTitleListSummaryCell;
 @class MMContentView;
 
-@interface MMTitleListSummaryTableController : NSObject<UITableViewDataSource, UITableViewDelegate>
+@interface MMTitleListSummaryTableController : NSObject<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 {
   IBOutlet __strong UITableView *table;
   IBOutlet __weak MMTitleListSummaryCell *resourceCell;
   IBOutlet __weak UIViewController *controller;
   IBOutlet __strong MMContentView *contentView;
+  IBOutlet __strong UIView *loadingView;
   
+  __strong MMTitleList *titlePendingDelete;
   __strong MMRemoteEncoder *encoder;
 
 }

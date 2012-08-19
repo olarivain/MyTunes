@@ -117,4 +117,30 @@
   NSLog(@"did schedule");
 }
 
+#pragma mark - delete a title list
+- (void) deleteTitleList: (MMTitleList *) titleList withCallback: (MMRemoteEncoderErrorCallback) callback
+{
+  // make sure we have something here...
+  if(titleList == nil)
+  {
+    DispatchMainThread(callback, nil);
+    return;
+  }
+  
+  MMServerCallback serverCallback = ^(NSDictionary *dto){
+    // extract error and dispatch main thread
+    NSError *error = nil;
+    if([dto count] > 0) {
+    error = [NSError errorWithDomain: @"ITS"
+                                code: 0
+                            userInfo: dto];
+    }
+    
+    DispatchMainThread(callback, error);
+  };
+  
+  NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
+  [server deleteRequestWithPath: path params: nil andCallback: serverCallback];
+}
+
 @end

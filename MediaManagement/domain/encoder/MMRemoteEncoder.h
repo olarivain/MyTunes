@@ -13,6 +13,7 @@
 @class MMServer;
 
 typedef void(^MMRemoteEncoderCallback)(void);
+typedef void(^MMRemoteEncoderErrorCallback)(NSError *);
 
 @interface MMRemoteEncoder : NSObject
 {
@@ -29,5 +30,7 @@ typedef void(^MMRemoteEncoderCallback)(void);
 - (void) loadAvailableResources: (MMRemoteEncoderCallback) callback;
 - (void) scanResource: (MMTitleList *) titleList andCallback: (MMRemoteEncoderCallback) callback;
 - (void) scheduleTitleList: (MMTitleList *) title withCallback: (MMRemoteEncoderCallback) callback;
+
+- (void) deleteTitleList: (MMTitleList *) title withCallback: (MMRemoteEncoderErrorCallback) callback;
 
 @end

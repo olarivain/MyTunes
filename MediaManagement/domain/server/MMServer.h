@@ -49,5 +49,8 @@ typedef void(^MMServerCallback)(id dto);
 // raw request
 - (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback)callback;
 
+// delete request
+// POST request
+- (void) deleteRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
 
 @end

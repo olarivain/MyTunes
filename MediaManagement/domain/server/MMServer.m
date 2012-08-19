@@ -75,6 +75,10 @@
   [self requestWithPath: path params: params method: @"POST" andCallback: callback];
 }
 
+- (void) deleteRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback {
+  [self requestWithPath: path params: params method: @"DELETE" andCallback: callback];  
+}
+
 - (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback) callback
 {
   if(callback == nil)
