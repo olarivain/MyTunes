@@ -338,6 +338,8 @@
 								<bool key="IBUIAlwaysBounceVertical">YES</bool>
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+								<bool key="IBUIAllowsSelectionDuringEditing">YES</bool>
+								<bool key="IBUIAllowsMultipleSelectionDuringEditing">YES</bool>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 								<float key="IBUIRowHeight">44</float>
 								<float key="IBUISectionHeaderHeight">22</float>
@@ -355,6 +357,19 @@
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<object class="NSMutableArray" key="IBUIItems">
 									<bool key="EncodedWithXMLCoder">YES</bool>
+									<object class="IBUIBarButtonItem" id="870026576">
+										<string key="IBUITitle">Edit</string>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="65132607"/>
+									</object>
+									<object class="IBUIBarButtonItem" id="321650136">
+										<bool key="IBUIEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="65132607"/>
+										<int key="IBUISystemItemIdentifier">1</int>
+									</object>
 									<object class="IBUIBarButtonItem" id="370696983">
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<reference key="IBUIToolbar" ref="65132607"/>
@@ -623,19 +638,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">loadingView</string>
+						<string key="label">cancelEditButton</string>
 						<reference key="source" ref="714950335"/>
-						<reference key="destination" ref="99268705"/>
+						<reference key="destination" ref="321650136"/>
 					</object>
-					<int key="connectionID">108</int>
+					<int key="connectionID">113</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">editButton</string>
+						<reference key="source" ref="714950335"/>
+						<reference key="destination" ref="870026576"/>
+					</object>
+					<int key="connectionID">114</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">refresh</string>
+						<string key="label">refreshAction:</string>
 						<reference key="source" ref="55821397"/>
 						<reference key="destination" ref="714950335"/>
 					</object>
-					<int key="connectionID">102</int>
+					<int key="connectionID">111</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -644,6 +667,22 @@
 						<reference key="destination" ref="256959381"/>
 					</object>
 					<int key="connectionID">106</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">editAction:</string>
+						<reference key="source" ref="870026576"/>
+						<reference key="destination" ref="714950335"/>
+					</object>
+					<int key="connectionID">110</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">cancelEditAction:</string>
+						<reference key="source" ref="321650136"/>
+						<reference key="destination" ref="714950335"/>
+					</object>
+					<int key="connectionID">115</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -805,6 +844,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="55821397"/>
 							<reference ref="370696983"/>
+							<reference ref="870026576"/>
+							<reference ref="321650136"/>
 						</object>
 						<reference key="parent" ref="454893157"/>
 					</object>
@@ -849,6 +890,16 @@
 						<reference key="object" ref="262725129"/>
 						<reference key="parent" ref="814890291"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">109</int>
+						<reference key="object" ref="870026576"/>
+						<reference key="parent" ref="65132607"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">112</int>
+						<reference key="object" ref="321650136"/>
+						<reference key="parent" ref="65132607"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -863,7 +914,9 @@
 					<string>100.IBPluginDependency</string>
 					<string>101.IBPluginDependency</string>
 					<string>103.IBPluginDependency</string>
+					<string>109.IBPluginDependency</string>
 					<string>11.IBPluginDependency</string>
+					<string>112.IBPluginDependency</string>
 					<string>39.CustomClassName</string>
 					<string>39.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
@@ -896,6 +949,8 @@
 					<string>MMLibraryViewController_iPad</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -942,7 +997,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">108</int>
+			<int key="maxID">115</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1154,14 +1209,35 @@
 					<string key="className">MMTitleListSummaryTableController</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">refreshAction:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>editAction:</string>
+							<string>refreshAction:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">refreshAction:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">refreshAction:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>editAction:</string>
+							<string>refreshAction:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">editAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">refreshAction:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">

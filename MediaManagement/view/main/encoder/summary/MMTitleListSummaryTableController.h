@@ -18,8 +18,11 @@
   IBOutlet __weak MMTitleListSummaryCell *resourceCell;
   IBOutlet __weak UIViewController *controller;
   IBOutlet __strong MMContentView *contentView;
-  IBOutlet __strong UIView *loadingView;
   
+  IBOutlet __strong UIBarButtonItem *editButton;
+  IBOutlet __strong UIBarButtonItem *cancelEditButton;
+  
+  __strong NSMutableArray *titlesPendingBatchDelete;
   __strong MMTitleList *titlePendingDelete;
   __strong MMRemoteEncoder *encoder;
 
@@ -28,6 +31,8 @@
 @property (nonatomic, readwrite, strong) MMRemoteEncoder *encoder;
 
 - (void) refresh;
-- (IBAction) refreshAction:(id)sender;
+
+- (IBAction) refreshAction: (id)sender;
+- (IBAction) editAction: (id)sender;
 
 @end
