@@ -7,7 +7,7 @@ Just follow these steps:
 The bootstrap script will perform the following:
 - update ruby gem (unless you opt out). This is needed on older version of MacOSX, say Snow Leopard.
 - install my own custom build gem (raven), which is provided in this project
-- checkout needed dependencies (KraCommons, YARES, MediaManagementCommon and iTunesServer)
+- checkout needed dependencies (KraCommons, YARES, MediaManagementCommon and iTunesServer) as siblings of the MediaManagement folder
 - build these dependencies
 - open the convenience Xcode workspace.
 
