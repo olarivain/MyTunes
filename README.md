@@ -14,3 +14,4 @@ The bootstrap script will perform the following:
 If all goes well, you'll be facing an Xcode workspace with all dependencies.
 Just fire iTunesServer target to start the server locally and MediaManagement to start the client in the simulator.
 Note that the iPhone is still in its very early stages, use the iPad simulator to give the app a test drive.
+Use the "ProjectName-Install" targets if you wish to modify dependent libraries, then just restart the app/server with the usual target.
