@@ -5,11 +5,11 @@ Just follow these steps:
 - ruby ./bootstrap.rb
 
 The bootstrap script will perform the following:
-1) update ruby gem (unless you opt out). This is needed on older version of MacOSX, say Snow Leopard.
-2) install my own custom build gem (raven), which is provided in this project
-3) checkout needed dependencies (KraCommons, YARES, MediaManagementCommon and iTunesServer)
-4) build these dependencies
-5) open the convenience Xcode workspace.
+- update ruby gem (unless you opt out). This is needed on older version of MacOSX, say Snow Leopard.
+- install my own custom build gem (raven), which is provided in this project
+- checkout needed dependencies (KraCommons, YARES, MediaManagementCommon and iTunesServer)
+- build these dependencies
+- open the convenience Xcode workspace.
 
 If all goes well, you'll be facing an Xcode workspace with all dependencies.
 Just fire iTunesServer target to start the server locally and MediaManagement to start the client in the simulator.
