@@ -1,17 +1,4 @@
-Even though this project depends on a fair amount of projects, initial setup is pretty easy, thanks to a bootstrap ruby script.
-Just follow these steps:
-- git clone https://github.com/olarivain/MediaManagement.git
-- cd MediaManagement
-- ruby ./bootstrap.rb
+Project has been moved over to CocoaPods for dependency management, you don't need any of my former bullshit.
+Just git clone, rake pod (or pod install) and open MyTunes.xcworkspace.
 
-The bootstrap script will perform the following:
-- update ruby gem (unless you opt out). This is needed on older version of MacOSX, say Snow Leopard.
-- install my own custom build gem (raven), which is provided in this project
-- checkout needed dependencies (KraCommons, YARES, MediaManagementCommon and iTunesServer) as siblings of the MediaManagement folder
-- build these dependencies
-- open the convenience Xcode workspace.
-
-If all goes well, you'll be facing an Xcode workspace with all dependencies.
-Just fire iTunesServer target to start the server locally and MediaManagement to start the client in the simulator.
-Note that the iPhone is still in its very early stages, use the iPad simulator to give the app a test drive.
-Use the "ProjectName-Install" targets if you wish to modify dependent libraries, then just restart the app/server with the usual target.
+More doc coming later.
