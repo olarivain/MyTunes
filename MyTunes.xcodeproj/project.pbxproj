@@ -21,11 +21,6 @@
 		0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */; };
 		0072341D16AC0FE9008C1623 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MMServer.m */; };
 		0072341E16AC0FE9008C1623 /* MMServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AD16AC0FE9008C1623 /* MMServers.m */; };
-		0072341F16AC0FE9008C1623 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 007233B016AC0FE9008C1623 /* InfoPlist.strings */; };
-		0072342016AC0FE9008C1623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233B116AC0FE9008C1623 /* main.m */; };
-		0072342116AC0FE9008C1623 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233B216AC0FE9008C1623 /* MainWindow_iPad.xib */; };
-		0072342216AC0FE9008C1623 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233B316AC0FE9008C1623 /* MainWindow_iPhone.xib */; };
-		0072342316AC0FE9008C1623 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233B516AC0FE9008C1623 /* MediaManagementAppDelegate.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */; };
 		0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BC16AC0FE9008C1623 /* NSString+Converteer.m */; };
 		0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MMHomeView.m */; };
@@ -72,6 +67,11 @@
 		0072345016AC0FE9008C1623 /* MMServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072341416AC0FE9008C1623 /* MMServerView.m */; };
 		0072345116AC0FE9008C1623 /* MMServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072341516AC0FE9008C1623 /* MMServerView_iPad.xib */; };
 		0072345216AC0FE9008C1623 /* MMServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072341616AC0FE9008C1623 /* MMServerView_iPhone.xib */; };
+		0072349716AC19D3008C1623 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0072348F16AC19D3008C1623 /* InfoPlist.strings */; };
+		0072349816AC19D3008C1623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349016AC19D3008C1623 /* main.m */; };
+		0072349916AC19D3008C1623 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072349116AC19D3008C1623 /* MainWindow_iPad.xib */; };
+		0072349A16AC19D3008C1623 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */; };
+		0072349B16AC19D3008C1623 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,14 +99,6 @@
 		007233AC16AC0FE9008C1623 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
 		007233AD16AC0FE9008C1623 /* MMServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServers.m; sourceTree = "<group>"; };
 		007233AE16AC0FE9008C1623 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServersDelegate.h; sourceTree = "<group>"; };
-		007233B016AC0FE9008C1623 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
-		007233B116AC0FE9008C1623 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		007233B216AC0FE9008C1623 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
-		007233B316AC0FE9008C1623 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		007233B416AC0FE9008C1623 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
-		007233B516AC0FE9008C1623 /* MediaManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaManagementAppDelegate.m; sourceTree = "<group>"; };
-		007233B616AC0FE9008C1623 /* MyTunes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MyTunes-Info.plist"; sourceTree = "<group>"; };
-		007233B716AC0FE9008C1623 /* MyTunes-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyTunes-Prefix.pch"; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NSNumber_NonZero.h"; sourceTree = "<group>"; };
 		007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NSNumber_NonZero.m"; sourceTree = "<group>"; };
 		007233BB16AC0FE9008C1623 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
@@ -187,6 +179,14 @@
 		0072341416AC0FE9008C1623 /* MMServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServerView.m; sourceTree = "<group>"; };
 		0072341516AC0FE9008C1623 /* MMServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPad.xib; sourceTree = "<group>"; };
 		0072341616AC0FE9008C1623 /* MMServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPhone.xib; sourceTree = "<group>"; };
+		0072348F16AC19D3008C1623 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		0072349016AC19D3008C1623 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0072349116AC19D3008C1623 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
+		0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		0072349316AC19D3008C1623 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
+		0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaManagementAppDelegate.m; sourceTree = "<group>"; };
+		0072349516AC19D3008C1623 /* MyTunes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MyTunes-Info.plist"; sourceTree = "<group>"; };
+		0072349616AC19D3008C1623 /* MyTunes-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyTunes-Prefix.pch"; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -263,7 +263,7 @@
 				0072339716AC0FE9008C1623 /* domain */,
 				007233B816AC0FE9008C1623 /* util */,
 				007233BD16AC0FE9008C1623 /* view */,
-				007233AF16AC0FE9008C1623 /* Supporting Files */,
+				0072348E16AC19D3008C1623 /* Supporting Files */,
 			);
 			path = MyTunes;
 			sourceTree = "<group>";
@@ -328,21 +328,6 @@
 				007233AE16AC0FE9008C1623 /* MMServersDelegate.h */,
 			);
 			path = server;
-			sourceTree = "<group>";
-		};
-		007233AF16AC0FE9008C1623 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				007233B016AC0FE9008C1623 /* InfoPlist.strings */,
-				007233B116AC0FE9008C1623 /* main.m */,
-				007233B216AC0FE9008C1623 /* MainWindow_iPad.xib */,
-				007233B316AC0FE9008C1623 /* MainWindow_iPhone.xib */,
-				007233B416AC0FE9008C1623 /* MediaManagementAppDelegate.h */,
-				007233B516AC0FE9008C1623 /* MediaManagementAppDelegate.m */,
-				007233B616AC0FE9008C1623 /* MyTunes-Info.plist */,
-				007233B716AC0FE9008C1623 /* MyTunes-Prefix.pch */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		007233B816AC0FE9008C1623 /* util */ = {
@@ -543,6 +528,22 @@
 			path = server;
 			sourceTree = "<group>";
 		};
+		0072348E16AC19D3008C1623 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0072348F16AC19D3008C1623 /* InfoPlist.strings */,
+				0072349016AC19D3008C1623 /* main.m */,
+				0072349116AC19D3008C1623 /* MainWindow_iPad.xib */,
+				0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */,
+				0072349316AC19D3008C1623 /* MediaManagementAppDelegate.h */,
+				0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */,
+				0072349516AC19D3008C1623 /* MyTunes-Info.plist */,
+				0072349616AC19D3008C1623 /* MyTunes-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,9 +599,6 @@
 				0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */,
 				0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */,
 				0028484B14AFF2CD003F5818 /* IconCheckMark@2x.png in Resources */,
-				0072341F16AC0FE9008C1623 /* InfoPlist.strings in Resources */,
-				0072342116AC0FE9008C1623 /* MainWindow_iPad.xib in Resources */,
-				0072342216AC0FE9008C1623 /* MainWindow_iPhone.xib in Resources */,
 				0072342816AC0FE9008C1623 /* MMHomeView_iPad.xib in Resources */,
 				0072342916AC0FE9008C1623 /* MMHomeView_iPhone.xib in Resources */,
 				0072342F16AC0FE9008C1623 /* MMEditController_iPad.xib in Resources */,
@@ -616,6 +614,9 @@
 				0072344E16AC0FE9008C1623 /* MMLibraryNavigationCell.xib in Resources */,
 				0072345116AC0FE9008C1623 /* MMServerView_iPad.xib in Resources */,
 				0072345216AC0FE9008C1623 /* MMServerView_iPhone.xib in Resources */,
+				0072349716AC19D3008C1623 /* InfoPlist.strings in Resources */,
+				0072349916AC19D3008C1623 /* MainWindow_iPad.xib in Resources */,
+				0072349A16AC19D3008C1623 /* MainWindow_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,8 +651,6 @@
 				0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */,
 				0072341D16AC0FE9008C1623 /* MMServer.m in Sources */,
 				0072341E16AC0FE9008C1623 /* MMServers.m in Sources */,
-				0072342016AC0FE9008C1623 /* main.m in Sources */,
-				0072342316AC0FE9008C1623 /* MediaManagementAppDelegate.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */,
 				0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */,
 				0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */,
@@ -683,6 +682,8 @@
 				0072344D16AC0FE9008C1623 /* MMLibraryNavigationCell.m in Sources */,
 				0072344F16AC0FE9008C1623 /* MMLibraryNavigationTableController.m in Sources */,
 				0072345016AC0FE9008C1623 /* MMServerView.m in Sources */,
+				0072349816AC19D3008C1623 /* main.m in Sources */,
+				0072349B16AC19D3008C1623 /* MediaManagementAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,8 +739,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MyTunes/Supporting Files/MyTunes-Prefix.pch";
-				INFOPLIST_FILE = "MyTunes/Supporting Files/MyTunes-Info.plist";
+				GCC_PREFIX_HEADER = "MyTunes/SupportingFiles/MyTunes-Prefix.pch";
+				INFOPLIST_FILE = "MyTunes/SupportingFiles/MyTunes-Info.plist";
 				PRODUCT_NAME = MyTunes;
 				WRAPPER_EXTENSION = app;
 			};
@@ -751,8 +752,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MyTunes/Supporting Files/MyTunes-Prefix.pch";
-				INFOPLIST_FILE = "MyTunes/Supporting Files/MyTunes-Info.plist";
+				GCC_PREFIX_HEADER = "MyTunes/SupportingFiles/MyTunes-Prefix.pch";
+				INFOPLIST_FILE = "MyTunes/SupportingFiles/MyTunes-Info.plist";
 				PRODUCT_NAME = MyTunes;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
