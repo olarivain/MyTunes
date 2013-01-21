@@ -12,13 +12,8 @@
 
 @interface MMServerView : UIControl 
 {
-  IBOutlet __strong UILabel *label;
-  
-  __strong MMServer *server;
 }
 
-@property (nonatomic, readwrite, strong) MMServer* server;
-
-- (void) update;
+- (void) updateWithServer: (MMServer *) server;
 
 @end

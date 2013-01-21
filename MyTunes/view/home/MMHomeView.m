@@ -6,52 +6,13 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import <KraCommons/KCNibUtils.h>
-
 #import "MMHomeView.h"
-#import "MMServerView.h"
 
-#define MARGIN 40
-#define PADDING 20
 
 @interface MMHomeView()
-
-- (void) removeLastServerIcons: (int) count;
-- (void) addServerView: (int) count;
-- (int) computeServerPerRows;
-- (int) computePaddingWith: (int) countPerRow;
 @end
 
 @implementation MMHomeView
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-	self = [super initWithCoder: aDecoder];
-	if(self)
-	{
-		serverViews = [NSMutableArray array];
-	}
-	return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-		serverViews = [NSMutableArray array];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-	servers = nil;
-	serverView = nil;
-	
-}
-
-@synthesize serverViews;
 
 #pragma mark - Layout
 - (void)drawRect:(CGRect)rect
@@ -71,132 +32,6 @@
 	
 	CFRelease(gradient);
 	CFRelease(colorSpace);
-}
-
-
-- (void) layoutSubviews
-{
-	[super layoutSubviews];
-	if([serverViews count] == 0)
-	{
-		return;
-	}
-	
-	int numberOfViewsPerRow = [self computeServerPerRows];
-	int count = 0;
-	int line = 0;
-	int xPosition = MARGIN;
-	int yPosition = MARGIN;
-	int highestView = -1;
-	
-	int padding = [self computePaddingWith: numberOfViewsPerRow];
-	
-	for(MMServerView *view in serverViews)
-	{
-		if(count == numberOfViewsPerRow)
-		{
-			xPosition = MARGIN;
-			yPosition += highestView + MARGIN;
-			highestView = 0;
-			count = 0;
-			line++;
-		}
-		
-		CGRect frame = view.frame;
-		frame.origin.x = xPosition;
-		frame.origin.y = yPosition;
-		view.frame = frame;
-		
-		xPosition += frame.size.width + padding;
-		if(frame.size.height > highestView)
-		{
-			highestView = frame.size.height;
-		}
-		
-		count++;
-	}
-}
-
-- (int) computeServerPerRows
-{
-	double actualWidth = self.frame.size.width - 2*MARGIN;
-	
-	MMServerView *view = [serverViews objectAtIndex: 0];
-	double viewWidth = view.frame.size.width;
-	
-	int numberOfViewPerRow = (actualWidth - PADDING) / (viewWidth + PADDING);
-	return numberOfViewPerRow;
-}
-
-- (int) computePaddingWith: (int) countPerRow
-{
-	double actualWidth = self.frame.size.width - 2*MARGIN;
-	
-	MMServerView *view = [serverViews objectAtIndex: 0];
-	double viewWidth = view.frame.size.width;
-	
-	double remaining = actualWidth - countPerRow * viewWidth;
-	return remaining / (countPerRow - 1);
-}
-
-#pragma mark - Server views management
-- (NSArray*) servers
-{
-	return servers;
-}
-
-- (void) setServers:(NSArray *) newServers
-{
-	servers = newServers;
-	
-	
-	int diff = [servers count] - [serverViews count];
-	if(diff < 0)
-	{
-		[self removeLastServerIcons: -diff];
-	}
-	if(diff > 0)
-	{
-		[self addServerView:diff];
-	}
-	
-	for(int i = 0; i < [servers count]; i++)
-	{
-		MMServer *server = [servers objectAtIndex:i];
-		MMServerView *icon = [serverViews objectAtIndex: i];
-		icon.server = server;
-		[icon update];
-	}
-	
-	[self setNeedsLayout];
-}
-
-#pragma mark Subview Add/Removal
-- (void) removeLastServerIcons: (int) count
-{
-	for(int i = 0; i < count; i++)
-	{
-		MMServerView *icon = [serverViews lastObject];
-		[icon removeFromSuperview];
-		[serverViews removeLastObject];
-	}
-	
-}
-- (void) addServerView: (int) count
-{
-	for(int i = 0; i < count; i++)
-	{
-		NSString *nibName = [KCNibUtils nibName:@"MMServerView"];
-		[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
-		CGRect rect = serverView.frame;
-		rect.origin.x = 10;
-		rect.origin.y = 10;
-		serverView.frame = rect;
-		[self addSubview: serverView];
-		
-		[serverViews addObject: serverView];
-		serverView = nil;
-	}
 }
 
 @end

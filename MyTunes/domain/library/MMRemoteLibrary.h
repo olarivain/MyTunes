@@ -30,8 +30,6 @@ typedef void(^MMRemoteLibraryCallback)(void);
 + (id) libraryWithServer: (MMServer*) server;
 - (id) initWithServer: (MMServer*) server;
 
-- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback;
-
 - (BOOL) hasUserPlaylist;
 
 @end

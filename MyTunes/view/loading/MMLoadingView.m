@@ -10,7 +10,7 @@
 #import "MMLoadingView.h"
 
 @interface MMLoadingView()
-- (void) sharedInit;
+@property (nonatomic, strong, readwrite) UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation MMLoadingView
@@ -37,13 +37,13 @@
 
 - (void) sharedInit
 {
-	activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
-	[self addSubview: activityIndicator];
+	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
+	[self addSubview: self.activityIndicator];
 	
 	CGSize frameSize = self.frame.size;
 	CGPoint center = CGPointMake(frameSize.width / 2, frameSize.height / 2);
-	activityIndicator.center = center;
-	activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+	self.activityIndicator.center = center;
+	self.activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 }
 
 - (void) setLoading:(BOOL)loading
@@ -56,11 +56,11 @@
 	if(loading)
 	{
 		[self.superview bringSubviewToFront: self];
-		[activityIndicator startAnimating];
+		[self.activityIndicator startAnimating];
 	}
 	else
 	{
-		[activityIndicator stopAnimating];
+		[self.activityIndicator stopAnimating];
 		[self.superview sendSubviewToBack: self];
 	}
 	

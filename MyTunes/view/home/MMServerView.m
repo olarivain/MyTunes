@@ -12,12 +12,10 @@
 #import "MMServer.h"
 
 @interface MMServerView()
+@property (nonatomic, readwrite, weak) IBOutlet UILabel *label;
 @end
 
 @implementation MMServerView
-
-
-@synthesize server;
 
 
 - (void) awakeFromNib
@@ -26,9 +24,9 @@
 }
 
 #pragma  mark - Server management;
-- (void) update
+- (void) updateWithServer:(MMServer *)server
 {
-	[label setText: server.name];
+	self.label.text = server.name;
 }
 
 @end

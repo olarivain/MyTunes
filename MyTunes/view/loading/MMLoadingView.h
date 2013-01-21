@@ -11,7 +11,6 @@
 
 @interface MMLoadingView : UIView 
 {
-  __strong UIActivityIndicatorView *activityIndicator;
 }
 
 - (void) setLoading: (BOOL) loading;

@@ -10,6 +10,7 @@
 #import <MediaManagement/MMContentAssembler.h>
 
 @class MMPlaylist;
+@class MMLibrary;
 
 
 @interface MMContentAssembler (MMContentAssembler_Client)

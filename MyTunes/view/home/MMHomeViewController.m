@@ -6,8 +6,12 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 #import <KraCommons/KCNibUtils.h>
+#import <KraCommons/KCCarouselView.h>
 
 #import "MMHomeViewController.h"
+
+#import "MYTServerStore.h"
+#import "MYTServerStoreDelegate.h"
 
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
@@ -20,42 +24,16 @@
 #import "MMLibraryViewController_iPad.h"
 #import "MMLibraryViewController_iPhone.h"
 
-@interface MMHomeViewController()
-@property (nonatomic, readwrite, strong) MMHomeView *homeView;
-@property (nonatomic, readwrite, strong) UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, readwrite, strong) MMServers *servers;
-- (void) setLoading: (BOOL) loading;
+@interface MMHomeViewController()<MYTServerStoreDelegate, KCCarouselViewDelegate, KCCarouselViewDataSource> {
+	dispatch_once_t tileDispatchToken;
+}
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet KCCarouselView *serverCarousel;
+@property (weak, nonatomic, readwrite) IBOutlet MMServerView *serverTile;
+@property (assign, nonatomic) CGSize tileSize;
 @end
 
 @implementation MMHomeViewController
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-	self = [super initWithCoder: aDecoder];
-	if(self)
-	{
-		self.servers = [[MMServers alloc] init];
-		servers.delegate = self;
-	}
-	
-	return self;
-}
-
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
-	if(self)
-	{
-		self.servers = [[MMServers alloc] init];
-		servers.delegate = self;
-	}
-	return self;
-}
-
-
-@synthesize activityIndicator;
-@synthesize homeView;
-@synthesize servers;
 
 - (void)didReceiveMemoryWarning
 {
@@ -67,14 +45,18 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	homeView.servers = [servers servers];
-	[servers startSearch];
+
+	// setup the carousel
+	self.serverCarousel.style = KCCarouselViewStyleGrid;
+	self.serverCarousel.contentPadding = 20.0f;
+	
+	// and fire the search. This is safe to do multiple times
+	MYTServerStore *store = [MYTServerStore sharedInstance];
+	[store startSearching];
 }
 
 - (void)viewDidUnload
 {
-	self.homeView = nil;
-	self.activityIndicator = nil;
 	[super viewDidUnload];
 }
 
@@ -83,18 +65,87 @@
 	return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
-#pragma mark - Loading activity
-- (void) setLoading: (BOOL) loading
-{
-	if(loading)
-	{
-		[activityIndicator startAnimating];
-		activityIndicator.hidden = !loading;
+#pragma mark - ServerStore Delegate
+- (void) didAddServer:(MMServer *)server {
+	// we have a new server, so stop the activity indicator
+	[self.activityIndicator stopAnimating];
+	
+	[self.serverCarousel reload];
+	
+}
+
+- (void) didRemoveServer:(MMServer *)server {
+	NSArray *servers = [MYTServerStore sharedInstance].servers;
+	if(servers.count == 0) {
+		[self.activityIndicator startAnimating];
 	}
-	else
-	{
-		[activityIndicator stopAnimating];
+	
+	[self.serverCarousel reload];
+}
+
+#pragma mark - Carousel data source
+- (NSUInteger) numberOfTilesInCarousel:(KCCarouselView *)carousel {
+	return [MYTServerStore sharedInstance].servers.count;
+}
+
+- (CGSize) carousel:(KCCarouselView *)carousel sizeForTileAtIndex:(NSUInteger)index {
+	dispatch_once(&tileDispatchToken, ^{
+		NSBundle *bundle = [NSBundle mainBundle];
+		NSString *nibName = [KCNibUtils nibName: @"MMServerView"];
+		[bundle loadNibNamed: nibName
+					   owner: self
+					 options: nil];
+		self.tileSize = self.serverTile.frame.size;
+	});
+	return self.tileSize;
+}
+
+- (UIView *) carousel:(KCCarouselView *)carousel tileForIndex:(NSUInteger)index {
+	MMServerView *tile = [carousel dequeueResuableTile];
+	if(tile == nil) {
+		NSBundle *bundle = [NSBundle mainBundle];
+		NSString *nibName = [KCNibUtils nibName: @"MMServerView"];
+		[bundle loadNibNamed: nibName
+					   owner: self
+					 options: nil];
+		tile = self.serverTile;
+		self.serverTile = nil;
 	}
+	
+	NSArray *servers = [MYTServerStore sharedInstance].servers;
+	MMServer *server = [servers boundSafeObjectAtIndex: index];
+	[tile updateWithServer: server];
+	return tile;
+}
+
+#pragma mark - carousel delegate
+- (void) carousel:(KCCarouselView *)carousel didSelectIndex:(NSUInteger)index {
+	MYTServerStore *store = [MYTServerStore sharedInstance];
+	NSArray *servers = store.servers;
+	MMServer *server = [servers boundSafeObjectAtIndex: index];
+	// the server just died below us, abort
+	if(server == nil) {
+		return;
+	}
+	
+	[self.activityIndicator startAnimating];
+	KCErrorBlock callback = ^(NSError *error) {
+		[self didSelectServer: error];
+	};
+	[store selectServer: server callback: callback];
+}
+
+- (void) didSelectServer: (NSError *) error {
+	[self.activityIndicator stopAnimating];
+	if([error present]) {
+		return ;
+	}
+	
+	UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
+	libraryViewController.server = [MYTServerStore sharedInstance].currentServer;
+	[self.navigationController pushViewController: libraryViewController
+										 animated: TRUE];
+
 }
 
 #pragma mark - Moving to next view controller
@@ -107,40 +158,22 @@
 
 - (IBAction) serverSelected:(id)sender
 {
-	[self setLoading: TRUE];
-	
-	// load next view controller
-	UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
-	
-	// grab server and wire it in
-	MMServerView *view = (MMServerView*) sender;
-	MMServer *server = view.server;
-	libraryViewController.server = server;
-	
+//	
+//	// load next view controller
+//	UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
+//	
+//	// grab server and wire it in
+//	MMServerView *view = (MMServerView*) sender;
+//	MMServer *server = view.server;
+//	libraryViewController.server = server;
+//	
 	// and load content.
-	MMRemoteLibraryCallback callback = ^(void) {
-		[self setLoading: FALSE];
-		[[self navigationController] pushViewController:libraryViewController animated:TRUE];
-	};
-	[server.library loadHeadersWithBlock: callback];
+//	MMRemoteLibraryCallback callback = ^(void) {
+//		[self setLoading: FALSE];
+//		[[self navigationController] pushViewController:libraryViewController animated:TRUE];
+//	};
+//	[server.library loadHeadersWithBlock: callback];
 	
-}
-
-#pragma mark - ServersDelegate methods
-- (void) willRefresh:(MMServers *)sender
-{
-	// we don't really care actually.
-}
-
-- (void) didRefresh:(MMServers *)sender
-{
-	homeView.servers = sender.servers;
-	for(MMServerView *serverView in homeView.serverViews)
-	{
-		// remove and add targets.
-		[serverView removeTarget: self action: @selector(serverSelected:) forControlEvents: UIControlEventTouchUpInside];
-		[serverView addTarget: self action:@selector(serverSelected:) forControlEvents:UIControlEventTouchUpInside];
-	}
 }
 
 @end

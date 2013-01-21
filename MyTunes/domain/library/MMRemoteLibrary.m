@@ -66,35 +66,4 @@
 	return [self.userPlaylists count] > 0;
 }
 
-#pragma mark - Network calls
-#pragma mark loading library content
-- (void) loadHeadersWithBlock: (MMRemoteLibraryCallback) callback
-{
-	[self.server.httpClient getPath: @"/library"
-						 parameters: nil
-							success:^(AFHTTPRequestOperation *operation, id responseObject) {
-								[self didLoad: responseObject
-									 callback: callback];
-								
-							}
-							failure: nil];
-}
-
-- (void) didLoad: (id) dto callback: (MMRemoteLibraryCallback) callback
-{
-	// sanity check
-	if(![dto isKindOfClass: [NSArray class]])
-	{
-		NSLog(@"FATAL: unexpected content fetched from load library request");
-	}
-	
-	NSArray *playlistDtos = (NSArray*) dto;
-	
-	// now assemble playlists and add them to self.
-	MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
-	[assembler updateLibrary: self withDto: playlistDtos];
-	
-	DispatchMainThread(callback);
-}
-
 @end

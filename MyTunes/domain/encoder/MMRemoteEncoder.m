@@ -17,6 +17,8 @@
 
 @interface MMRemoteEncoder()
 @property (nonatomic, readwrite, weak) MMServer *server;
+@property (nonatomic, readwrite) NSArray *availableResources;
+@property (nonatomic, readwrite) MMPendingList *pendingList;
 @end
 
 @implementation MMRemoteEncoder
@@ -36,9 +38,6 @@
 	return self;
 }
 
-@synthesize availableResources;
-@synthesize pendingList;
-
 #pragma mark - Listing available resources
 - (void) loadAvailableResources: (MMRemoteEncoderCallback) callback
 {
@@ -55,7 +54,7 @@
 						  callback: (MMRemoteEncoderCallback) callback
 {
 	MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
-	availableResources = [assembler createTitleLists: dto];
+	self.availableResources = [assembler createTitleLists: dto];
 	DispatchMainThread(callback);
 }
 
@@ -65,7 +64,7 @@
 {
 	
 	// update only content that belongs to us
-	if(![availableResources containsObject: titleList])
+	if(![self.availableResources containsObject: titleList])
 	{
 		return;
 	}

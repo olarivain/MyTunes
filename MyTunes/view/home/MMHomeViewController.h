@@ -13,12 +13,8 @@
 @class MMHomeView;
 @class MMServers;
 
-@interface MMHomeViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate, MMServersDelegate>
+@interface MMHomeViewController : UIViewController
 {
-  @private
-  IBOutlet MMHomeView *homeView;
-  IBOutlet UIActivityIndicatorView *activityIndicator;
-  MMServers *servers;
 }
 
 - (IBAction) serverSelected: (id) sender;
