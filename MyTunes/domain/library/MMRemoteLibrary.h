@@ -19,10 +19,7 @@ typedef void(^MMRemoteLibraryCallback)(void);
  Its "headers" (i.e. the playlists descriptions) can be loaded.
  */
 @interface MMRemoteLibrary : MMLibrary 
-{
-	__strong NSMutableArray *_systemPlaylists;
-	__strong NSMutableArray *_userPlaylists;
-}
+
 @property (nonatomic, readonly, weak) MMServer *server;
 @property (nonatomic, readonly, strong) NSArray *systemPlaylists;
 @property (nonatomic, readonly, strong) NSArray *userPlaylists;

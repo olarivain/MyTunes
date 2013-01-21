@@ -16,9 +16,12 @@
 #import "MMContentAssembler+Client.h"
 
 @interface MMRemoteLibrary()
+{
+	__strong NSMutableArray *_systemPlaylists;
+	__strong NSMutableArray *_userPlaylists;
+}
+
 @property (nonatomic, readwrite, weak) MMServer *server;
-@property (nonatomic, readwrite, strong) NSMutableArray *systemPlaylists;
-@property (nonatomic, readwrite, strong) NSMutableArray *userPlaylists;
 @end
 
 @implementation MMRemoteLibrary
@@ -34,8 +37,8 @@
 	if(self)
 	{
 		self.server = parent;
-		self.systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
-		self.userPlaylists = [NSMutableArray arrayWithCapacity: 10];
+		_systemPlaylists = [NSMutableArray arrayWithCapacity: 6] ;
+		_userPlaylists = [NSMutableArray arrayWithCapacity: 10];
 	}
 	return self;
 }

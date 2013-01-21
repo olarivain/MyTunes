@@ -20,7 +20,6 @@
 		0072341B16AC0FE9008C1623 /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A516AC0FE9008C1623 /* MMRemoteLibrary.m */; };
 		0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */; };
 		0072341D16AC0FE9008C1623 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MMServer.m */; };
-		0072341E16AC0FE9008C1623 /* MMServers.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AD16AC0FE9008C1623 /* MMServers.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */; };
 		0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BC16AC0FE9008C1623 /* NSString+Converteer.m */; };
 		0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MMHomeView.m */; };
@@ -97,9 +96,6 @@
 		007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
 		007233AA16AC0FE9008C1623 /* MMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServer.h; sourceTree = "<group>"; };
 		007233AB16AC0FE9008C1623 /* MMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServer.m; sourceTree = "<group>"; };
-		007233AC16AC0FE9008C1623 /* MMServers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServers.h; sourceTree = "<group>"; };
-		007233AD16AC0FE9008C1623 /* MMServers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServers.m; sourceTree = "<group>"; };
-		007233AE16AC0FE9008C1623 /* MMServersDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServersDelegate.h; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NSNumber_NonZero.h"; sourceTree = "<group>"; };
 		007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NSNumber_NonZero.m"; sourceTree = "<group>"; };
 		007233BB16AC0FE9008C1623 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
@@ -266,8 +262,8 @@
 			children = (
 				0072339716AC0FE9008C1623 /* Domain */,
 				007235FC16ACCB33008C1623 /* Store */,
-				007233B816AC0FE9008C1623 /* util */,
 				007233BD16AC0FE9008C1623 /* view */,
+				007233B816AC0FE9008C1623 /* util */,
 				0072348E16AC19D3008C1623 /* Supporting Files */,
 			);
 			path = MyTunes;
@@ -329,9 +325,6 @@
 			children = (
 				007233AA16AC0FE9008C1623 /* MMServer.h */,
 				007233AB16AC0FE9008C1623 /* MMServer.m */,
-				007233AC16AC0FE9008C1623 /* MMServers.h */,
-				007233AD16AC0FE9008C1623 /* MMServers.m */,
-				007233AE16AC0FE9008C1623 /* MMServersDelegate.h */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -666,7 +659,6 @@
 				0072341B16AC0FE9008C1623 /* MMRemoteLibrary.m in Sources */,
 				0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */,
 				0072341D16AC0FE9008C1623 /* MMServer.m in Sources */,
-				0072341E16AC0FE9008C1623 /* MMServers.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */,
 				0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */,
 				0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */,

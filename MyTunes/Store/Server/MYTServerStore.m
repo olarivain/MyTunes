@@ -57,7 +57,7 @@ static MYTServerStore *sharedInstance;
 }
 
 
-#pragma mark - Synthetic getter
+#pragma mark - Synthetic getters
 - (NSArray *) servers {
 	__block NSArray *theServers = nil;
 	dispatch_sync(self.serversQueue, ^{
@@ -66,16 +66,23 @@ static MYTServerStore *sharedInstance;
 	return theServers;
 }
 
-#pragma mark - starting the server search
-- (void) startSearching {
-	// for now, start the search and never end it. We'll see the battery impact later.
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		// schedule on the main thread to avoid concurrency issues, for now
-		[self.netServiceBrowser scheduleInRunLoop: [NSRunLoop mainRunLoop]
-										  forMode: NSDefaultRunLoopMode];
-		[self.netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
-	});
+- (id<MYTServerStoreDelegate>) currentDelegate {
+	UIViewController *rootController = [UIApplication sharedApplication].keyWindow.rootViewController;
+	
+	if ([rootController conformsToProtocol: @protocol(MYTServerStoreDelegate)]) {
+		return (id<MYTServerStoreDelegate>) rootController;
+	}
+	
+	if(![rootController isKindOfClass: UINavigationController.class]) {
+		return nil;
+	}
+	
+	UIViewController *topController = [(UINavigationController *) rootController topViewController];
+	if([topController conformsToProtocol: @protocol(MYTServerStoreDelegate)]) {
+		return (id<MYTServerStoreDelegate>) topController;
+	}
+	
+	return nil;
 }
 
 #pragma mark - selecting a server
@@ -91,9 +98,9 @@ static MYTServerStore *sharedInstance;
 	[server.httpClient getPath: @"/library"
 					parameters: nil
 					   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-						   [self didLoadHeaders: responseObject
-									  forServer: server
-									   callback: callback];
+						   [self didSelectServer: server
+											 dto: responseObject
+										callback: callback];
 						   
 					   }
 					   failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -102,9 +109,9 @@ static MYTServerStore *sharedInstance;
 					   }];
 }
 
-- (void) didLoadHeaders: (id) dto
-			  forServer: (MMServer *) server
-			   callback: (KCErrorBlock) callback
+- (void) didSelectServer: (MMServer *) server
+					 dto: (id) dto
+				callback: (KCErrorBlock) callback
 {
 	// sanity check
 	if(![dto isKindOfClass: [NSArray class]]) {
@@ -121,6 +128,17 @@ static MYTServerStore *sharedInstance;
 	DispatchMainThread(callback, nil);
 }
 
+#pragma mark - starting the server search
+- (void) startSearching {
+	// for now, start the search and never end it. We'll see the battery impact later.
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		// schedule on the main thread to avoid concurrency issues, for now
+		[self.netServiceBrowser scheduleInRunLoop: [NSRunLoop mainRunLoop]
+										  forMode: NSDefaultRunLoopMode];
+		[self.netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
+	});
+}
 
 #pragma mark - NetService Browser delegate
 - (void) netServiceBrowser: (NSNetServiceBrowser *)aNetServiceBrowser
@@ -202,27 +220,6 @@ static MYTServerStore *sharedInstance;
 		
 		[self.serversByName removeObjectForKey: name];
 	});
-}
-
-
-#pragma mark - Delegate synthetic getter
-- (id<MYTServerStoreDelegate>) currentDelegate {
-	UIViewController *rootController = [UIApplication sharedApplication].keyWindow.rootViewController;
-	
-	if ([rootController conformsToProtocol: @protocol(MYTServerStoreDelegate)]) {
-		return (id<MYTServerStoreDelegate>) rootController;
-	}
-	
-	if(![rootController isKindOfClass: UINavigationController.class]) {
-		return nil;
-	}
-	
-	UIViewController *topController = [(UINavigationController *) rootController topViewController];
-	if([topController conformsToProtocol: @protocol(MYTServerStoreDelegate)]) {
-		return (id<MYTServerStoreDelegate>) topController;
-	}
-	
-	return nil;
 }
 
 @end

@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MMServersDelegate.h"
 
-
-@class MMHomeView;
-@class MMServers;
 
 @interface MMHomeViewController : UIViewController
 {
 }
-
-- (IBAction) serverSelected: (id) sender;
 
 @end

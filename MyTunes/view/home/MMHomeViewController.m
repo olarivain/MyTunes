@@ -16,7 +16,6 @@
 #import "MMServer.h"
 #import "MMRemoteLibrary.h"
 
-#import "MMServers.h"
 #import "MMHomeView.h"
 #import "MMServerView.h"
 
@@ -140,40 +139,22 @@
 	if([error present]) {
 		return ;
 	}
-	
-	UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
-	libraryViewController.server = [MYTServerStore sharedInstance].currentServer;
-	[self.navigationController pushViewController: libraryViewController
-										 animated: TRUE];
 
-}
-
-#pragma mark - Moving to next view controller
-- (UIViewController<MMLibraryViewController> *) loadLibraryController
-{
+	// create the right view controller for the platform and configure it
 	NSString *nibName = [KCNibUtils nibName: @"MMLibraryViewController"];
 	Class clazz = isiPad ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
-	return [[clazz alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
+	UIViewController<MMLibraryViewController> *libraryViewController = [[clazz alloc] initWithNibName: nibName
+																							   bundle: nil];
+	libraryViewController.server = [MYTServerStore sharedInstance].currentServer;
+	
+	[self.navigationController pushViewController: libraryViewController
+										 animated: YES];
+
 }
 
-- (IBAction) serverSelected:(id)sender
+- (UIViewController<MMLibraryViewController> *) loadLibraryController
 {
-//	
-//	// load next view controller
-//	UIViewController<MMLibraryViewController> *libraryViewController = [self loadLibraryController];
-//	
-//	// grab server and wire it in
-//	MMServerView *view = (MMServerView*) sender;
-//	MMServer *server = view.server;
-//	libraryViewController.server = server;
-//	
-	// and load content.
-//	MMRemoteLibraryCallback callback = ^(void) {
-//		[self setLoading: FALSE];
-//		[[self navigationController] pushViewController:libraryViewController animated:TRUE];
-//	};
-//	[server.library loadHeadersWithBlock: callback];
-	
+
 }
 
 @end
