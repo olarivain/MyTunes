@@ -8,7 +8,7 @@
 
 #import "MMLibraryViewController_iPhone.h"
 #import "MMEditController.h"
-#import "MMServer.h"
+#import "MYTServer.h"
 
 @implementation MMLibraryViewController_iPhone
 
@@ -45,12 +45,12 @@
 }
 
 #pragma mark - Server get/set
-- (MMServer*) server
+- (MYTServer*) server
 {
 	return server;
 }
 
-- (void) setServer:(MMServer *)newServer
+- (void) setServer:(MYTServer *)newServer
 {
 	if(server == newServer)
 	{

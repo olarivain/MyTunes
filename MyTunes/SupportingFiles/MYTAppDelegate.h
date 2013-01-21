@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MMHomeViewController;
+@class MYTHomeViewController;
 
-@interface MediaManagementAppDelegate : NSObject <UIApplicationDelegate> {
+@interface MYTAppDelegate : NSObject <UIApplicationDelegate> {
 
 }
 

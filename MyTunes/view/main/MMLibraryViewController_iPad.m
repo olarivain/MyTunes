@@ -12,7 +12,7 @@
 
 #import "MMLibraryViewController_iPad.h"
 
-#import "MMServer.h"
+#import "MYTServer.h"
 #import "MMRemoteLibrary.h"
 #import "MMRemotePlaylist.h"
 #import "MMRemoteEncoder.h"

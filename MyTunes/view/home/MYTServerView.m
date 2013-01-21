@@ -7,15 +7,15 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "MMServerView.h"
+#import "MYTServerView.h"
 
-#import "MMServer.h"
+#import "MYTServer.h"
 
-@interface MMServerView()
+@interface MYTServerView()
 @property (nonatomic, readwrite, weak) IBOutlet UILabel *label;
 @end
 
-@implementation MMServerView
+@implementation MYTServerView
 
 
 - (void) awakeFromNib
@@ -24,7 +24,7 @@
 }
 
 #pragma  mark - Server management;
-- (void) updateWithServer:(MMServer *)server
+- (void) updateWithServer:(MYTServer *)server
 {
 	self.label.text = server.name;
 }

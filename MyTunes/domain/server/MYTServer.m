@@ -9,30 +9,28 @@
 
 #import <KraCommons/KCBlocks.h>
 #import <KraCommons/KCHTTPClient.h>
+#import <MediaManagement/MMLibrary.h>
 
 #import <MediaManagement/MMContent.h>
 
-#import "MMServer.h"
+#import "MYTServer.h"
 
 #import "MMRemoteEncoder.h"
-#import "MMRemoteLibrary.h"
 
 
-@interface MMServer()
+@interface MYTServer()
 @property (nonatomic, readwrite) int port;
 @property (nonatomic, readwrite) NSString *host;
 @property (nonatomic, readwrite) NSString *name;
 
-@property (nonatomic, readwrite) MMRemoteLibrary *library;
-@property (nonatomic, readwrite) MMRemoteEncoder *encoder;
 @property (nonatomic, readwrite) KCHTTPClient *httpClient;
 @end
 
-@implementation MMServer
+@implementation MYTServer
 
-+ (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port
++ (MYTServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port
 {
-	return [[MMServer alloc] initWithHost: host andPort: port];
+	return [[MYTServer alloc] initWithHost: host andPort: port];
 }
 
 - (id) initWithHost:(NSString *)aHost andPort:(NSInteger)aPort
@@ -47,18 +45,7 @@
 		
 		NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"http://%@:%i", self.host, self.port]];
 		self.httpClient = [[KCHTTPClient alloc] initWithBaseURL: url];
-		//    requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
-		
-		self.library = [MMRemoteLibrary libraryWithServer: self];
-		self.encoder = [MMRemoteEncoder encoderWithServer: self];
 	}
 	return self;
 }
-
-#pragma mark - Playlist convenience
-- (BOOL) hasSystemPlaylist
-{
-	return [self.library.systemPlaylists count] > 0;
-}
-
 @end

@@ -10,7 +10,7 @@
 
 @class MMPendingList;
 @class MMTitleList;
-@class MMServer;
+@class MYTServer;
 
 typedef void(^MMRemoteEncoderCallback)(void);
 typedef void(^MMRemoteEncoderErrorCallback)(NSError *);
@@ -19,7 +19,7 @@ typedef void(^MMRemoteEncoderErrorCallback)(NSError *);
 {
 }
 
-+ (MMRemoteEncoder *) encoderWithServer: (MMServer *) server;
++ (MMRemoteEncoder *) encoderWithServer: (MYTServer *) server;
 
 @property (nonatomic, readonly) NSArray *availableResources;
 @property (nonatomic, readonly) MMPendingList *pendingList;

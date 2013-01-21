@@ -1,5 +1,5 @@
 //
-//  HomeBackground.h
+//  ServerIcon.h
 //  MediaManagement
 //
 //  Created by Kra on 3/6/11.
@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class MYTServer;
 
-@interface MMHomeView : UIView
+@interface MYTServerView : UIControl
 {
 }
+
+- (void) updateWithServer: (MYTServer *) server;
 
 @end

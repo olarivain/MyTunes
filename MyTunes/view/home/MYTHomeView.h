@@ -1,5 +1,5 @@
 //
-//  MediaManagementViewController.h
+//  HomeBackground.h
 //  MediaManagement
 //
 //  Created by Kra on 3/6/11.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MMHomeViewController : UIViewController
+@interface MYTHomeView : UIView
 {
 }
 

@@ -24,7 +24,7 @@ end
 
 puts
 
-platform :ios, "5.0"
+platform :ios, "6.0"
 
 dev_pod_or_released("KraCommons", "0.0.1", custom_paths[:KraCommons])
 dev_pod_or_released("MediaManagement", "0.0.1", custom_paths[:MediaManagement])

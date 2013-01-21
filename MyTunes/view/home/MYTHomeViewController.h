@@ -1,5 +1,5 @@
 //
-//  ServerIcon.h
+//  MediaManagementViewController.h
 //  MediaManagement
 //
 //  Created by Kra on 3/6/11.
@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MMServer;
 
-@interface MMServerView : UIControl
+@interface MYTHomeViewController : UIViewController
 {
 }
-
-- (void) updateWithServer: (MMServer *) server;
 
 @end

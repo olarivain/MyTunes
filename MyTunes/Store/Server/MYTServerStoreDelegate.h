@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMServer;
+@class MYTServer;
 
 @protocol MYTServerStoreDelegate <NSObject>
 
 @optional
-- (void) didAddServer: (MMServer *) server;
-- (void) didRemoveServer: (MMServer *) server;
-- (void) didUpdateServer: (MMServer *) server;
+- (void) didAddServer: (MYTServer *) server;
+- (void) didRemoveServer: (MYTServer *) server;
+- (void) didUpdateServer: (MYTServer *) server;
 
 @end

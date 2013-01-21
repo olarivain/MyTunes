@@ -11,26 +11,24 @@
 @class KCHTTPClient;
 @class KCRequestDelegate;
 
-@class MMRemoteLibrary;
+@class MMLibrary;
 @class MMRemoteEncoder;
 
 typedef void(^MMServerCallback)(id dto);
 
-@interface MMServer : NSObject {
+@interface MYTServer : NSObject {
 }
 
-+ (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port;
++ (MYTServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port;
 
 @property (nonatomic, readwrite, weak) id key;
 @property (nonatomic, readonly) int port;
 @property (nonatomic, readonly) NSString *host;
 @property (nonatomic, readonly) NSString *name;
 
-@property (nonatomic, readonly) MMRemoteLibrary *library;
+@property (nonatomic, readonly) MMLibrary *library;
 @property (nonatomic, readonly) MMRemoteEncoder *encoder;
 
 @property (nonatomic, readonly) KCHTTPClient *httpClient;
-
-- (BOOL) hasSystemPlaylist;
 
 @end

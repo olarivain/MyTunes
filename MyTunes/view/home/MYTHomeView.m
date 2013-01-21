@@ -6,13 +6,13 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 
-#import "MMHomeView.h"
+#import "MYTHomeView.h"
 
 
-@interface MMHomeView()
+@interface MYTHomeView()
 @end
 
-@implementation MMHomeView
+@implementation MYTHomeView
 
 #pragma mark - Layout
 - (void)drawRect:(CGRect)rect

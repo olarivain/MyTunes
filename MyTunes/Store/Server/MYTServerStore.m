@@ -11,8 +11,7 @@
 #import "MYTServerStore.h"
 
 #import "MYTServerStoreDelegate.h"
-#import "MMServer.h"
-#import "MMRemoteLibrary.h"
+#import "MYTServer.h"
 
 #import "MMContentAssembler+Client.h"
 
@@ -26,9 +25,9 @@ static MYTServerStore *sharedInstance;
 
 @property (nonatomic, readwrite) NSMutableDictionary *serversByName;
 @property (nonatomic, copy) NSMutableArray *servers;
-@property (nonatomic, readwrite, strong) MMServer *currentServer;
 
-@property (nonatomic, assign) dispatch_queue_t serversQueue;
+
+@property (nonatomic, retain) dispatch_queue_t serversQueue;
 @end
 
 @implementation MYTServerStore
@@ -85,49 +84,6 @@ static MYTServerStore *sharedInstance;
 	return nil;
 }
 
-#pragma mark - selecting a server
-- (void) selectServer: (MMServer *) server
-			 callback: (KCErrorBlock) callback {
-	if(![self.servers containsObject: server]) {
-		NSString *errorMessage = [NSString stringWithFormat: @"Server %@ could not be found", server.name];
-		NSError *error = [NSError errorWithCode: -1 andMessage: errorMessage];
-		DispatchMainThread(callback, error);
-		return;
-	}
-	
-	[server.httpClient getPath: @"/library"
-					parameters: nil
-					   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-						   [self didSelectServer: server
-											 dto: responseObject
-										callback: callback];
-						   
-					   }
-					   failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-						   self.currentServer = nil;
-						   DispatchMainThread(callback, error);
-					   }];
-}
-
-- (void) didSelectServer: (MMServer *) server
-					 dto: (id) dto
-				callback: (KCErrorBlock) callback
-{
-	// sanity check
-	if(![dto isKindOfClass: [NSArray class]]) {
-		NSLog(@"FATAL: unexpected content fetched from load library request");
-	}
-	
-	NSArray *playlistDtos = (NSArray*) dto;
-	
-	// now assemble playlists and add them to self.
-	MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
-	[assembler updateLibrary: server.library withDto: playlistDtos];
-	self.currentServer = server;
-	
-	DispatchMainThread(callback, nil);
-}
-
 #pragma mark - starting the server search
 - (void) startSearching {
 	// for now, start the search and never end it. We'll see the battery impact later.
@@ -164,7 +120,7 @@ static MYTServerStore *sharedInstance;
 	DDLogInfo(@"Service %@ removed.", aNetService.name);
 	
 	// get a hold on the server. remove it and notify delegate
-	MMServer *server = [self serverNamed: aNetService.name];
+	MYTServer *server = [self serverNamed: aNetService.name];
 	[self removeServerNamed: aNetService.name];
 	[self.netServices removeObject: aNetService];
 	
@@ -179,7 +135,7 @@ static MYTServerStore *sharedInstance;
 - (void) netServiceDidResolveAddress:(NSNetService *)aNetService
 {
 	DDLogInfo(@"Resolved service %@:\nhttp://%@:%i", aNetService.name, aNetService.hostName, aNetService.port);
-	MMServer *server = [MMServer serverWithHost:aNetService.hostName
+	MYTServer *server = [MYTServer serverWithHost:aNetService.hostName
 										andPort: aNetService.port];
 	
 	[self addServer: server withName: aNetService.name];
@@ -198,15 +154,15 @@ static MYTServerStore *sharedInstance;
 }
 
 #pragma mark - Synchronizing access to servers
-- (void) addServer: (MMServer *) server withName: (NSString *) name{
+- (void) addServer: (MYTServer *) server withName: (NSString *) name{
 	dispatch_sync(self.serversQueue, ^{
 		[_servers addObjectNilSafe: server];
 		[self.serversByName setObjectNilSafe: server forKey: name];
 	});
 }
 
-- (MMServer *) serverNamed: (NSString *) name{
-	__block MMServer *server = nil;
+- (MYTServer *) serverNamed: (NSString *) name{
+	__block MYTServer *server = nil;
 	dispatch_sync(self.serversQueue, ^{
 		server = [self.serversByName objectForKey: name];
 	});
@@ -215,7 +171,7 @@ static MYTServerStore *sharedInstance;
 
 - (void) removeServerNamed: (NSString *) name{
 	dispatch_sync(self.serversQueue, ^{
-		MMServer *server = [self.serversByName objectForKey: name];
+		MYTServer *server = [self.serversByName objectForKey: name];
 		[_servers removeObject: server];
 		
 		[self.serversByName removeObjectForKey: name];

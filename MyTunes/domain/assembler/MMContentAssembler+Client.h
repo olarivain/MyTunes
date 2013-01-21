@@ -15,6 +15,6 @@
 
 @interface MMContentAssembler (MMContentAssembler_Client)
 
-- (void) updateLibrary: (MMLibrary*) library withDto: (NSArray*) dto;
+- (MMLibrary *) createLibrary: (NSArray*) dto;
 - (void) updatePlaylist: (MMPlaylist*) playlist withDto: (NSDictionary*) dto;
 @end

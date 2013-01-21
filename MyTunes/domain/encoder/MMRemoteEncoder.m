@@ -13,22 +13,22 @@
 #import "MMTitleAssembler+Client.h"
 #import "MMRemoteEncoder.h"
 
-#import "MMServer.h"
+#import "MYTServer.h"
 
 @interface MMRemoteEncoder()
-@property (nonatomic, readwrite, weak) MMServer *server;
+@property (nonatomic, readwrite, weak) MYTServer *server;
 @property (nonatomic, readwrite) NSArray *availableResources;
 @property (nonatomic, readwrite) MMPendingList *pendingList;
 @end
 
 @implementation MMRemoteEncoder
 
-+ (MMRemoteEncoder *) encoderWithServer: (MMServer *) server
++ (MMRemoteEncoder *) encoderWithServer: (MYTServer *) server
 {
 	return [[MMRemoteEncoder alloc] initWithServer: server];
 }
 
-- (id) initWithServer: (MMServer *) aServer
+- (id) initWithServer: (MYTServer *) aServer
 {
 	self = [super init];
 	if(self)

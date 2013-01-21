@@ -8,31 +8,31 @@
 #import <KraCommons/KCNibUtils.h>
 #import <KraCommons/KCCarouselView.h>
 
-#import "MMHomeViewController.h"
+#import "MYTHomeViewController.h"
 
 #import "MYTServerStore.h"
 #import "MYTServerStoreDelegate.h"
+#import "MYTLibraryStore.h"
 
-#import "MMServer.h"
-#import "MMRemoteLibrary.h"
+#import "MYTServer.h"
 
-#import "MMHomeView.h"
-#import "MMServerView.h"
+#import "MYTHomeView.h"
+#import "MYTServerView.h"
 
-#import "MMLibraryViewController.h"
-#import "MMLibraryViewController_iPad.h"
-#import "MMLibraryViewController_iPhone.h"
+#import "MYTLibrarySplitViewController.h"
 
-@interface MMHomeViewController()<MYTServerStoreDelegate, KCCarouselViewDelegate, KCCarouselViewDataSource> {
+@interface MYTHomeViewController()<MYTServerStoreDelegate, KCCarouselViewDelegate, KCCarouselViewDataSource> {
 	dispatch_once_t tileDispatchToken;
 }
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet KCCarouselView *serverCarousel;
-@property (weak, nonatomic, readwrite) IBOutlet MMServerView *serverTile;
+@property (weak, nonatomic, readwrite) IBOutlet MYTServerView *serverTile;
+
 @property (assign, nonatomic) CGSize tileSize;
+
 @end
 
-@implementation MMHomeViewController
+@implementation MYTHomeViewController
 
 - (void)didReceiveMemoryWarning
 {
@@ -65,7 +65,7 @@
 }
 
 #pragma mark - ServerStore Delegate
-- (void) didAddServer:(MMServer *)server {
+- (void) didAddServer:(MYTServer *)server {
 	// we have a new server, so stop the activity indicator
 	[self.activityIndicator stopAnimating];
 	
@@ -73,7 +73,7 @@
 	
 }
 
-- (void) didRemoveServer:(MMServer *)server {
+- (void) didRemoveServer:(MYTServer *)server {
 	NSArray *servers = [MYTServerStore sharedInstance].servers;
 	if(servers.count == 0) {
 		[self.activityIndicator startAnimating];
@@ -90,7 +90,7 @@
 - (CGSize) carousel:(KCCarouselView *)carousel sizeForTileAtIndex:(NSUInteger)index {
 	dispatch_once(&tileDispatchToken, ^{
 		NSBundle *bundle = [NSBundle mainBundle];
-		NSString *nibName = [KCNibUtils nibName: @"MMServerView"];
+		NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
 		[bundle loadNibNamed: nibName
 					   owner: self
 					 options: nil];
@@ -100,10 +100,10 @@
 }
 
 - (UIView *) carousel:(KCCarouselView *)carousel tileForIndex:(NSUInteger)index {
-	MMServerView *tile = [carousel dequeueResuableTile];
+	MYTServerView *tile = [carousel dequeueResuableTile];
 	if(tile == nil) {
 		NSBundle *bundle = [NSBundle mainBundle];
-		NSString *nibName = [KCNibUtils nibName: @"MMServerView"];
+		NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
 		[bundle loadNibNamed: nibName
 					   owner: self
 					 options: nil];
@@ -112,7 +112,7 @@
 	}
 	
 	NSArray *servers = [MYTServerStore sharedInstance].servers;
-	MMServer *server = [servers boundSafeObjectAtIndex: index];
+	MYTServer *server = [servers boundSafeObjectAtIndex: index];
 	[tile updateWithServer: server];
 	return tile;
 }
@@ -121,39 +121,40 @@
 - (void) carousel:(KCCarouselView *)carousel didSelectIndex:(NSUInteger)index {
 	MYTServerStore *store = [MYTServerStore sharedInstance];
 	NSArray *servers = store.servers;
-	MMServer *server = [servers boundSafeObjectAtIndex: index];
+	MYTServer *server = [servers boundSafeObjectAtIndex: index];
 	// the server just died below us, abort
 	if(server == nil) {
 		return;
 	}
 	
 	[self.activityIndicator startAnimating];
-	KCErrorBlock callback = ^(NSError *error) {
-		[self didSelectServer: error];
-	};
-	[store selectServer: server callback: callback];
+    store.currentServer = server;
+    
+    MYTLibraryStore *libraryStore = [MYTLibraryStore sharedInstance];
+    [libraryStore loadCurrentLibraryListing:^(NSError *error) {
+        [self didLoadLibraryListing: error];
+    }];
 }
 
-- (void) didSelectServer: (NSError *) error {
+- (void) didLoadLibraryListing: (NSError *) error {
 	[self.activityIndicator stopAnimating];
 	if([error present]) {
+        MYTServerStore *store = [MYTServerStore sharedInstance];
+        store.currentServer = nil;
 		return ;
 	}
     
 	// create the right view controller for the platform and configure it
-	NSString *nibName = [KCNibUtils nibName: @"MMLibraryViewController"];
-	Class clazz = isiPad ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
-	UIViewController<MMLibraryViewController> *libraryViewController = [[clazz alloc] initWithNibName: nibName
-																							   bundle: nil];
-	libraryViewController.server = [MYTServerStore sharedInstance].currentServer;
+    UIViewController *controller = nil;
+    if(isiPad) {
+        controller = [[MYTLibrarySplitViewController alloc] initWithNibName: @"MYTLibrarySplitViewController"
+                                                                     bundle: nil];
+    } else {
+        return;
+    }
 	
-	[self.navigationController pushViewController: libraryViewController
+	[self.navigationController pushViewController: controller
 										 animated: YES];
-    
-}
-
-- (UIViewController<MMLibraryViewController> *) loadLibraryController
-{
     
 }
 

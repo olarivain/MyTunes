@@ -11,10 +11,10 @@
 
 @interface MMLibraryViewController_iPhone : UIViewController<MMLibraryViewController>
 {
-  __strong MMServer *server;
+  __strong MYTServer *server;
 }
 
-@property (nonatomic, readwrite, strong) MMServer *server;
+@property (nonatomic, readwrite, strong) MYTServer *server;
 
 
 @end

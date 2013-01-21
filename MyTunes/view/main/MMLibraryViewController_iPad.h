@@ -29,10 +29,10 @@
   IBOutlet __weak UIView *playlistContentView;
   IBOutlet __weak UIView *encoderView;
   
-  __strong MMServer *server;
+  __strong MYTServer *server;
 
 }
 
-@property (nonatomic, readwrite, strong) MMServer *server;
+@property (nonatomic, readwrite, strong) MYTServer *server;
 
 @end

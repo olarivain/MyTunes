@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMServer;
+@class MYTServer;
 
 @protocol MMLibraryViewController <NSObject>
 
-@property (nonatomic, readwrite, strong) MMServer *server;
+@property (nonatomic, readwrite, strong) MYTServer *server;
 
 @end

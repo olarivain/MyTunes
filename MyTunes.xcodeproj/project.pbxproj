@@ -17,62 +17,30 @@
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
 		0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */; };
-		0072341B16AC0FE9008C1623 /* MMRemoteLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A516AC0FE9008C1623 /* MMRemoteLibrary.m */; };
-		0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */; };
-		0072341D16AC0FE9008C1623 /* MMServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MMServer.m */; };
+		0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MYTServer.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */; };
 		0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BC16AC0FE9008C1623 /* NSString+Converteer.m */; };
-		0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MMHomeView.m */; };
-		0072342816AC0FE9008C1623 /* MMHomeView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C116AC0FE9008C1623 /* MMHomeView_iPad.xib */; };
-		0072342916AC0FE9008C1623 /* MMHomeView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C216AC0FE9008C1623 /* MMHomeView_iPhone.xib */; };
-		0072342A16AC0FE9008C1623 /* MMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C416AC0FE9008C1623 /* MMHomeViewController.m */; };
+		0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MYTHomeView.m */; };
+		0072342816AC0FE9008C1623 /* MYTHomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */; };
+		0072342916AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */; };
+		0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C416AC0FE9008C1623 /* MYTHomeViewController.m */; };
 		0072342B16AC0FE9008C1623 /* MMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C716AC0FE9008C1623 /* MMLoadingView.m */; };
-		0072342C16AC0FE9008C1623 /* MMContentPlacholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233CD16AC0FE9008C1623 /* MMContentPlacholder.m */; };
-		0072342D16AC0FE9008C1623 /* MMEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233CF16AC0FE9008C1623 /* MMEditController.m */; };
-		0072342E16AC0FE9008C1623 /* MMEditController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233D116AC0FE9008C1623 /* MMEditController_iPad.m */; };
-		0072342F16AC0FE9008C1623 /* MMEditController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233D216AC0FE9008C1623 /* MMEditController_iPad.xib */; };
-		0072343016AC0FE9008C1623 /* MMEditController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233D316AC0FE9008C1623 /* MMEditController_iPhone.xib */; };
-		0072343116AC0FE9008C1623 /* MMFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233D616AC0FE9008C1623 /* MMFieldView.m */; };
-		0072343216AC0FE9008C1623 /* MMMovieEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233D916AC0FE9008C1623 /* MMMovieEditController.m */; };
-		0072343316AC0FE9008C1623 /* MMMusicEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233DC16AC0FE9008C1623 /* MMMusicEditController.m */; };
-		0072343416AC0FE9008C1623 /* MMTVShowEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233DF16AC0FE9008C1623 /* MMTVShowEditController.m */; };
-		0072343516AC0FE9008C1623 /* MMPlaylistContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233E116AC0FE9008C1623 /* MMPlaylistContentCell.m */; };
-		0072343616AC0FE9008C1623 /* MMPlaylistContentCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233E216AC0FE9008C1623 /* MMPlaylistContentCell_iPad.xib */; };
-		0072343716AC0FE9008C1623 /* MMPlaylistContentCellSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233E416AC0FE9008C1623 /* MMPlaylistContentCellSize.m */; };
-		0072343816AC0FE9008C1623 /* MMPlaylistContentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233E616AC0FE9008C1623 /* MMPlaylistContentTableController.m */; };
-		0072343916AC0FE9008C1623 /* MMPlaylistSubcontentSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233E816AC0FE9008C1623 /* MMPlaylistSubcontentSelector.m */; };
-		0072343A16AC0FE9008C1623 /* MMAudioTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233EC16AC0FE9008C1623 /* MMAudioTrackCell.m */; };
-		0072343B16AC0FE9008C1623 /* MMAudioTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233ED16AC0FE9008C1623 /* MMAudioTrackCell.xib */; };
-		0072343C16AC0FE9008C1623 /* MMSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233EF16AC0FE9008C1623 /* MMSubtitleTrackCell.m */; };
-		0072343D16AC0FE9008C1623 /* MMSubtitleTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233F016AC0FE9008C1623 /* MMSubtitleTrackCell.xib */; };
-		0072343E16AC0FE9008C1623 /* MMTitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233F216AC0FE9008C1623 /* MMTitleDetailCell.m */; };
-		0072343F16AC0FE9008C1623 /* MMTitleDetailCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233F316AC0FE9008C1623 /* MMTitleDetailCell_iPad.xib */; };
-		0072344016AC0FE9008C1623 /* MMTitleDetailCellSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233F516AC0FE9008C1623 /* MMTitleDetailCellSize.m */; };
-		0072344116AC0FE9008C1623 /* MMTitleListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233F716AC0FE9008C1623 /* MMTitleListDetailViewController.m */; };
-		0072344216AC0FE9008C1623 /* MMTitleListDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233F816AC0FE9008C1623 /* MMTitleListDetailViewController.xib */; };
-		0072344316AC0FE9008C1623 /* MMTitleTrackSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233FA16AC0FE9008C1623 /* MMTitleTrackSectionHeader.m */; };
-		0072344416AC0FE9008C1623 /* MMTitleTrackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233FC16AC0FE9008C1623 /* MMTitleTrackTableController.m */; };
-		0072344516AC0FE9008C1623 /* MMTitleListSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233FF16AC0FE9008C1623 /* MMTitleListSummaryCell.m */; };
-		0072344616AC0FE9008C1623 /* MMTitleListSummaryCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072340016AC0FE9008C1623 /* MMTitleListSummaryCell_iPad.xib */; };
-		0072344716AC0FE9008C1623 /* MMTitleListSummaryTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072340216AC0FE9008C1623 /* MMTitleListSummaryTableController.m */; };
-		0072344816AC0FE9008C1623 /* MMContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072340416AC0FE9008C1623 /* MMContentView.m */; };
-		0072344916AC0FE9008C1623 /* MMLibraryViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072340716AC0FE9008C1623 /* MMLibraryViewController_iPad.m */; };
-		0072344A16AC0FE9008C1623 /* MMLibraryViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072340816AC0FE9008C1623 /* MMLibraryViewController_iPad.xib */; };
-		0072344B16AC0FE9008C1623 /* MMLibraryViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072340A16AC0FE9008C1623 /* MMLibraryViewController_iPhone.m */; };
-		0072344C16AC0FE9008C1623 /* MMLibraryViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072340B16AC0FE9008C1623 /* MMLibraryViewController_iPhone.xib */; };
-		0072344D16AC0FE9008C1623 /* MMLibraryNavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072340E16AC0FE9008C1623 /* MMLibraryNavigationCell.m */; };
-		0072344E16AC0FE9008C1623 /* MMLibraryNavigationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072340F16AC0FE9008C1623 /* MMLibraryNavigationCell.xib */; };
-		0072344F16AC0FE9008C1623 /* MMLibraryNavigationTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072341116AC0FE9008C1623 /* MMLibraryNavigationTableController.m */; };
 		0072349716AC19D3008C1623 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0072348F16AC19D3008C1623 /* InfoPlist.strings */; };
 		0072349816AC19D3008C1623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349016AC19D3008C1623 /* main.m */; };
 		0072349916AC19D3008C1623 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072349116AC19D3008C1623 /* MainWindow_iPad.xib */; };
 		0072349A16AC19D3008C1623 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */; };
-		0072349B16AC19D3008C1623 /* MediaManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */; };
+		0072349B16AC19D3008C1623 /* MYTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349416AC19D3008C1623 /* MYTAppDelegate.m */; };
 		0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072361916ACF82B008C1623 /* MYTServerStore.m */; };
-		0072365A16AD0818008C1623 /* MMServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365616AD0815008C1623 /* MMServerView_iPad.xib */; };
-		0072365B16AD0818008C1623 /* MMServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365716AD0816008C1623 /* MMServerView_iPhone.xib */; };
-		0072365C16AD0818008C1623 /* MMServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072365916AD0817008C1623 /* MMServerView.m */; };
-		0072367616AD133D008C1623 /* MYTLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072367516AD133D008C1623 /* MYTLibraryViewController.m */; };
+		0072365A16AD0818008C1623 /* MYTServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365616AD0815008C1623 /* MYTServerView_iPad.xib */; };
+		0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */; };
+		0072365C16AD0818008C1623 /* MYTServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072365916AD0817008C1623 /* MYTServerView.m */; };
+		0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */; };
+		0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */; };
+		0072369216AD17BA008C1623 /* MYTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */; };
+		0072369316AD17BA008C1623 /* MYTPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */; };
+		007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236EA16AD444A008C1623 /* MYTLibraryStore.m */; };
+		007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236ED16AD4744008C1623 /* MYTPlaylistCell.m */; };
+		007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -91,105 +59,47 @@
 		0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMTitleAssembler+Client.m"; sourceTree = "<group>"; };
 		007233A116AC0FE9008C1623 /* MMRemoteEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteEncoder.h; sourceTree = "<group>"; };
 		007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteEncoder.m; sourceTree = "<group>"; };
-		007233A416AC0FE9008C1623 /* MMRemoteLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteLibrary.h; sourceTree = "<group>"; };
-		007233A516AC0FE9008C1623 /* MMRemoteLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteLibrary.m; sourceTree = "<group>"; };
-		007233A716AC0FE9008C1623 /* MMRemotePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemotePlaylist.h; sourceTree = "<group>"; };
-		007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemotePlaylist.m; sourceTree = "<group>"; };
-		007233AA16AC0FE9008C1623 /* MMServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServer.h; sourceTree = "<group>"; };
-		007233AB16AC0FE9008C1623 /* MMServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServer.m; sourceTree = "<group>"; };
+		007233AA16AC0FE9008C1623 /* MYTServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServer.h; sourceTree = "<group>"; };
+		007233AB16AC0FE9008C1623 /* MYTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServer.m; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NSNumber_NonZero.h"; sourceTree = "<group>"; };
 		007233BA16AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NSNumber_NonZero.m"; sourceTree = "<group>"; };
 		007233BB16AC0FE9008C1623 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
 		007233BC16AC0FE9008C1623 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
-		007233BF16AC0FE9008C1623 /* MMHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeView.h; sourceTree = "<group>"; };
-		007233C016AC0FE9008C1623 /* MMHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeView.m; sourceTree = "<group>"; };
-		007233C116AC0FE9008C1623 /* MMHomeView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeView_iPad.xib; sourceTree = "<group>"; };
-		007233C216AC0FE9008C1623 /* MMHomeView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeView_iPhone.xib; sourceTree = "<group>"; };
-		007233C316AC0FE9008C1623 /* MMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeViewController.h; sourceTree = "<group>"; };
-		007233C416AC0FE9008C1623 /* MMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeViewController.m; sourceTree = "<group>"; };
+		007233BF16AC0FE9008C1623 /* MYTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeView.h; sourceTree = "<group>"; };
+		007233C016AC0FE9008C1623 /* MYTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTHomeView.m; sourceTree = "<group>"; };
+		007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPad.xib; sourceTree = "<group>"; };
+		007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPhone.xib; sourceTree = "<group>"; };
+		007233C316AC0FE9008C1623 /* MYTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeViewController.h; sourceTree = "<group>"; };
+		007233C416AC0FE9008C1623 /* MYTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTHomeViewController.m; sourceTree = "<group>"; };
 		007233C616AC0FE9008C1623 /* MMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoadingView.h; sourceTree = "<group>"; };
 		007233C716AC0FE9008C1623 /* MMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoadingView.m; sourceTree = "<group>"; };
-		007233CB16AC0FE9008C1623 /* MMContentEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentEditController.h; sourceTree = "<group>"; };
-		007233CC16AC0FE9008C1623 /* MMContentPlacholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentPlacholder.h; sourceTree = "<group>"; };
-		007233CD16AC0FE9008C1623 /* MMContentPlacholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentPlacholder.m; sourceTree = "<group>"; };
-		007233CE16AC0FE9008C1623 /* MMEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController.h; sourceTree = "<group>"; };
-		007233CF16AC0FE9008C1623 /* MMEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController.m; sourceTree = "<group>"; };
-		007233D016AC0FE9008C1623 /* MMEditController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditController_iPad.h; sourceTree = "<group>"; };
-		007233D116AC0FE9008C1623 /* MMEditController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEditController_iPad.m; sourceTree = "<group>"; };
-		007233D216AC0FE9008C1623 /* MMEditController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPad.xib; sourceTree = "<group>"; };
-		007233D316AC0FE9008C1623 /* MMEditController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMEditController_iPhone.xib; sourceTree = "<group>"; };
-		007233D416AC0FE9008C1623 /* MMEditControllerProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEditControllerProtected.h; sourceTree = "<group>"; };
-		007233D516AC0FE9008C1623 /* MMFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFieldView.h; sourceTree = "<group>"; };
-		007233D616AC0FE9008C1623 /* MMFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFieldView.m; sourceTree = "<group>"; };
-		007233D816AC0FE9008C1623 /* MMMovieEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMovieEditController.h; sourceTree = "<group>"; };
-		007233D916AC0FE9008C1623 /* MMMovieEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMovieEditController.m; sourceTree = "<group>"; };
-		007233DB16AC0FE9008C1623 /* MMMusicEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMusicEditController.h; sourceTree = "<group>"; };
-		007233DC16AC0FE9008C1623 /* MMMusicEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMusicEditController.m; sourceTree = "<group>"; };
-		007233DE16AC0FE9008C1623 /* MMTVShowEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTVShowEditController.h; sourceTree = "<group>"; };
-		007233DF16AC0FE9008C1623 /* MMTVShowEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowEditController.m; sourceTree = "<group>"; };
-		007233E016AC0FE9008C1623 /* MMPlaylistContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCell.h; sourceTree = "<group>"; };
-		007233E116AC0FE9008C1623 /* MMPlaylistContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCell.m; sourceTree = "<group>"; };
-		007233E216AC0FE9008C1623 /* MMPlaylistContentCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistContentCell_iPad.xib; sourceTree = "<group>"; };
-		007233E316AC0FE9008C1623 /* MMPlaylistContentCellSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentCellSize.h; sourceTree = "<group>"; };
-		007233E416AC0FE9008C1623 /* MMPlaylistContentCellSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentCellSize.m; sourceTree = "<group>"; };
-		007233E516AC0FE9008C1623 /* MMPlaylistContentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistContentTableController.h; sourceTree = "<group>"; };
-		007233E616AC0FE9008C1623 /* MMPlaylistContentTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistContentTableController.m; sourceTree = "<group>"; };
-		007233E716AC0FE9008C1623 /* MMPlaylistSubcontentSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPlaylistSubcontentSelector.h; sourceTree = "<group>"; };
-		007233E816AC0FE9008C1623 /* MMPlaylistSubcontentSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPlaylistSubcontentSelector.m; sourceTree = "<group>"; };
-		007233EB16AC0FE9008C1623 /* MMAudioTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAudioTrackCell.h; sourceTree = "<group>"; };
-		007233EC16AC0FE9008C1623 /* MMAudioTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAudioTrackCell.m; sourceTree = "<group>"; };
-		007233ED16AC0FE9008C1623 /* MMAudioTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAudioTrackCell.xib; sourceTree = "<group>"; };
-		007233EE16AC0FE9008C1623 /* MMSubtitleTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSubtitleTrackCell.h; sourceTree = "<group>"; };
-		007233EF16AC0FE9008C1623 /* MMSubtitleTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSubtitleTrackCell.m; sourceTree = "<group>"; };
-		007233F016AC0FE9008C1623 /* MMSubtitleTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMSubtitleTrackCell.xib; sourceTree = "<group>"; };
-		007233F116AC0FE9008C1623 /* MMTitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleDetailCell.h; sourceTree = "<group>"; };
-		007233F216AC0FE9008C1623 /* MMTitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleDetailCell.m; sourceTree = "<group>"; };
-		007233F316AC0FE9008C1623 /* MMTitleDetailCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleDetailCell_iPad.xib; sourceTree = "<group>"; };
-		007233F416AC0FE9008C1623 /* MMTitleDetailCellSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleDetailCellSize.h; sourceTree = "<group>"; };
-		007233F516AC0FE9008C1623 /* MMTitleDetailCellSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleDetailCellSize.m; sourceTree = "<group>"; };
-		007233F616AC0FE9008C1623 /* MMTitleListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListDetailViewController.h; sourceTree = "<group>"; };
-		007233F716AC0FE9008C1623 /* MMTitleListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListDetailViewController.m; sourceTree = "<group>"; };
-		007233F816AC0FE9008C1623 /* MMTitleListDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListDetailViewController.xib; sourceTree = "<group>"; };
-		007233F916AC0FE9008C1623 /* MMTitleTrackSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleTrackSectionHeader.h; sourceTree = "<group>"; };
-		007233FA16AC0FE9008C1623 /* MMTitleTrackSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackSectionHeader.m; sourceTree = "<group>"; };
-		007233FB16AC0FE9008C1623 /* MMTitleTrackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleTrackTableController.h; sourceTree = "<group>"; };
-		007233FC16AC0FE9008C1623 /* MMTitleTrackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleTrackTableController.m; sourceTree = "<group>"; };
-		007233FE16AC0FE9008C1623 /* MMTitleListSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListSummaryCell.h; sourceTree = "<group>"; };
-		007233FF16AC0FE9008C1623 /* MMTitleListSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListSummaryCell.m; sourceTree = "<group>"; };
-		0072340016AC0FE9008C1623 /* MMTitleListSummaryCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTitleListSummaryCell_iPad.xib; sourceTree = "<group>"; };
-		0072340116AC0FE9008C1623 /* MMTitleListSummaryTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTitleListSummaryTableController.h; sourceTree = "<group>"; };
-		0072340216AC0FE9008C1623 /* MMTitleListSummaryTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTitleListSummaryTableController.m; sourceTree = "<group>"; };
-		0072340316AC0FE9008C1623 /* MMContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContentView.h; sourceTree = "<group>"; };
-		0072340416AC0FE9008C1623 /* MMContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContentView.m; sourceTree = "<group>"; };
-		0072340516AC0FE9008C1623 /* MMLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController.h; sourceTree = "<group>"; };
-		0072340616AC0FE9008C1623 /* MMLibraryViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController_iPad.h; sourceTree = "<group>"; };
-		0072340716AC0FE9008C1623 /* MMLibraryViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryViewController_iPad.m; sourceTree = "<group>"; };
-		0072340816AC0FE9008C1623 /* MMLibraryViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryViewController_iPad.xib; sourceTree = "<group>"; };
-		0072340916AC0FE9008C1623 /* MMLibraryViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryViewController_iPhone.h; sourceTree = "<group>"; };
-		0072340A16AC0FE9008C1623 /* MMLibraryViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryViewController_iPhone.m; sourceTree = "<group>"; };
-		0072340B16AC0FE9008C1623 /* MMLibraryViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryViewController_iPhone.xib; sourceTree = "<group>"; };
-		0072340D16AC0FE9008C1623 /* MMLibraryNavigationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryNavigationCell.h; sourceTree = "<group>"; };
-		0072340E16AC0FE9008C1623 /* MMLibraryNavigationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationCell.m; sourceTree = "<group>"; };
-		0072340F16AC0FE9008C1623 /* MMLibraryNavigationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMLibraryNavigationCell.xib; sourceTree = "<group>"; };
-		0072341016AC0FE9008C1623 /* MMLibraryNavigationTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLibraryNavigationTableController.h; sourceTree = "<group>"; };
-		0072341116AC0FE9008C1623 /* MMLibraryNavigationTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLibraryNavigationTableController.m; sourceTree = "<group>"; };
 		0072348F16AC19D3008C1623 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		0072349016AC19D3008C1623 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0072349116AC19D3008C1623 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
 		0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		0072349316AC19D3008C1623 /* MediaManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManagementAppDelegate.h; sourceTree = "<group>"; };
-		0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaManagementAppDelegate.m; sourceTree = "<group>"; };
+		0072349316AC19D3008C1623 /* MYTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTAppDelegate.h; sourceTree = "<group>"; };
+		0072349416AC19D3008C1623 /* MYTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTAppDelegate.m; sourceTree = "<group>"; };
 		0072349516AC19D3008C1623 /* MyTunes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MyTunes-Info.plist"; sourceTree = "<group>"; };
 		0072349616AC19D3008C1623 /* MyTunes-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyTunes-Prefix.pch"; sourceTree = "<group>"; };
 		0072361816ACF82B008C1623 /* MYTServerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServerStore.h; sourceTree = "<group>"; };
 		0072361916ACF82B008C1623 /* MYTServerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServerStore.m; sourceTree = "<group>"; };
 		0072361B16ACF921008C1623 /* MYTServerStoreDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServerStoreDelegate.h; sourceTree = "<group>"; };
-		0072365616AD0815008C1623 /* MMServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPad.xib; sourceTree = "<group>"; };
-		0072365716AD0816008C1623 /* MMServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPhone.xib; sourceTree = "<group>"; };
-		0072365816AD0817008C1623 /* MMServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServerView.h; sourceTree = "<group>"; };
-		0072365916AD0817008C1623 /* MMServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServerView.m; sourceTree = "<group>"; };
-		0072367416AD133D008C1623 /* MYTLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryViewController.h; sourceTree = "<group>"; };
-		0072367516AD133D008C1623 /* MYTLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryViewController.m; sourceTree = "<group>"; };
+		0072365616AD0815008C1623 /* MYTServerView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTServerView_iPad.xib; sourceTree = "<group>"; };
+		0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTServerView_iPhone.xib; sourceTree = "<group>"; };
+		0072365816AD0817008C1623 /* MYTServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServerView.h; sourceTree = "<group>"; };
+		0072365916AD0817008C1623 /* MYTServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServerView.m; sourceTree = "<group>"; };
+		0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibrarySplitViewController.h; sourceTree = "<group>"; };
+		0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibrarySplitViewController.m; sourceTree = "<group>"; };
+		0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibrarySplitViewController.xib; sourceTree = "<group>"; };
+		0072368F16AD17B9008C1623 /* MYTPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistViewController.h; sourceTree = "<group>"; };
+		0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistViewController.m; sourceTree = "<group>"; };
+		0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTPlaylistViewController.xib; sourceTree = "<group>"; };
+		007236E916AD444A008C1623 /* MYTLibraryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryStore.h; sourceTree = "<group>"; };
+		007236EA16AD444A008C1623 /* MYTLibraryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryStore.m; sourceTree = "<group>"; };
+		007236EC16AD4744008C1623 /* MYTPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistCell.h; sourceTree = "<group>"; };
+		007236ED16AD4744008C1623 /* MYTPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistCell.m; sourceTree = "<group>"; };
+		007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistCell.xib; sourceTree = "<group>"; };
+		007236F116AD47E7008C1623 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -237,6 +147,7 @@
 				002A0AE21324549D00320A06 /* Products */,
 				0028484214AFF295003F5818 /* Resources */,
 				00DC022E1597EB4E00F891C9 /* Rakefile */,
+				007236F116AD47E7008C1623 /* Podfile */,
 				DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -278,8 +189,6 @@
 			children = (
 				0072339816AC0FE9008C1623 /* assembler */,
 				007233A016AC0FE9008C1623 /* encoder */,
-				007233A316AC0FE9008C1623 /* library */,
-				007233A616AC0FE9008C1623 /* playlist */,
 				007233A916AC0FE9008C1623 /* server */,
 			);
 			name = Domain;
@@ -306,29 +215,11 @@
 			path = encoder;
 			sourceTree = "<group>";
 		};
-		007233A316AC0FE9008C1623 /* library */ = {
-			isa = PBXGroup;
-			children = (
-				007233A416AC0FE9008C1623 /* MMRemoteLibrary.h */,
-				007233A516AC0FE9008C1623 /* MMRemoteLibrary.m */,
-			);
-			path = library;
-			sourceTree = "<group>";
-		};
-		007233A616AC0FE9008C1623 /* playlist */ = {
-			isa = PBXGroup;
-			children = (
-				007233A716AC0FE9008C1623 /* MMRemotePlaylist.h */,
-				007233A816AC0FE9008C1623 /* MMRemotePlaylist.m */,
-			);
-			path = playlist;
-			sourceTree = "<group>";
-		};
 		007233A916AC0FE9008C1623 /* server */ = {
 			isa = PBXGroup;
 			children = (
-				007233AA16AC0FE9008C1623 /* MMServer.h */,
-				007233AB16AC0FE9008C1623 /* MMServer.m */,
+				007233AA16AC0FE9008C1623 /* MYTServer.h */,
+				007233AB16AC0FE9008C1623 /* MYTServer.m */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -350,7 +241,6 @@
 				007233BE16AC0FE9008C1623 /* home */,
 				0072367316AD1318008C1623 /* Library */,
 				007233C516AC0FE9008C1623 /* loading */,
-				007233C816AC0FE9008C1623 /* main */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -358,16 +248,16 @@
 		007233BE16AC0FE9008C1623 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				007233C316AC0FE9008C1623 /* MMHomeViewController.h */,
-				007233C416AC0FE9008C1623 /* MMHomeViewController.m */,
-				007233C116AC0FE9008C1623 /* MMHomeView_iPad.xib */,
-				007233C216AC0FE9008C1623 /* MMHomeView_iPhone.xib */,
-				007233BF16AC0FE9008C1623 /* MMHomeView.h */,
-				007233C016AC0FE9008C1623 /* MMHomeView.m */,
-				0072365816AD0817008C1623 /* MMServerView.h */,
-				0072365916AD0817008C1623 /* MMServerView.m */,
-				0072365616AD0815008C1623 /* MMServerView_iPad.xib */,
-				0072365716AD0816008C1623 /* MMServerView_iPhone.xib */,
+				007233C316AC0FE9008C1623 /* MYTHomeViewController.h */,
+				007233C416AC0FE9008C1623 /* MYTHomeViewController.m */,
+				007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */,
+				007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */,
+				007233BF16AC0FE9008C1623 /* MYTHomeView.h */,
+				007233C016AC0FE9008C1623 /* MYTHomeView.m */,
+				0072365816AD0817008C1623 /* MYTServerView.h */,
+				0072365916AD0817008C1623 /* MYTServerView.m */,
+				0072365616AD0815008C1623 /* MYTServerView_iPad.xib */,
+				0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -381,149 +271,6 @@
 			path = loading;
 			sourceTree = "<group>";
 		};
-		007233C816AC0FE9008C1623 /* main */ = {
-			isa = PBXGroup;
-			children = (
-				007233C916AC0FE9008C1623 /* content */,
-				007233E916AC0FE9008C1623 /* encoder */,
-				0072340316AC0FE9008C1623 /* MMContentView.h */,
-				0072340416AC0FE9008C1623 /* MMContentView.m */,
-				0072340516AC0FE9008C1623 /* MMLibraryViewController.h */,
-				0072340616AC0FE9008C1623 /* MMLibraryViewController_iPad.h */,
-				0072340716AC0FE9008C1623 /* MMLibraryViewController_iPad.m */,
-				0072340816AC0FE9008C1623 /* MMLibraryViewController_iPad.xib */,
-				0072340916AC0FE9008C1623 /* MMLibraryViewController_iPhone.h */,
-				0072340A16AC0FE9008C1623 /* MMLibraryViewController_iPhone.m */,
-				0072340B16AC0FE9008C1623 /* MMLibraryViewController_iPhone.xib */,
-				0072340C16AC0FE9008C1623 /* navigation */,
-			);
-			path = main;
-			sourceTree = "<group>";
-		};
-		007233C916AC0FE9008C1623 /* content */ = {
-			isa = PBXGroup;
-			children = (
-				007233CA16AC0FE9008C1623 /* edit */,
-				007233E016AC0FE9008C1623 /* MMPlaylistContentCell.h */,
-				007233E116AC0FE9008C1623 /* MMPlaylistContentCell.m */,
-				007233E216AC0FE9008C1623 /* MMPlaylistContentCell_iPad.xib */,
-				007233E316AC0FE9008C1623 /* MMPlaylistContentCellSize.h */,
-				007233E416AC0FE9008C1623 /* MMPlaylistContentCellSize.m */,
-				007233E516AC0FE9008C1623 /* MMPlaylistContentTableController.h */,
-				007233E616AC0FE9008C1623 /* MMPlaylistContentTableController.m */,
-				007233E716AC0FE9008C1623 /* MMPlaylistSubcontentSelector.h */,
-				007233E816AC0FE9008C1623 /* MMPlaylistSubcontentSelector.m */,
-			);
-			path = content;
-			sourceTree = "<group>";
-		};
-		007233CA16AC0FE9008C1623 /* edit */ = {
-			isa = PBXGroup;
-			children = (
-				007233CB16AC0FE9008C1623 /* MMContentEditController.h */,
-				007233CC16AC0FE9008C1623 /* MMContentPlacholder.h */,
-				007233CD16AC0FE9008C1623 /* MMContentPlacholder.m */,
-				007233CE16AC0FE9008C1623 /* MMEditController.h */,
-				007233CF16AC0FE9008C1623 /* MMEditController.m */,
-				007233D016AC0FE9008C1623 /* MMEditController_iPad.h */,
-				007233D116AC0FE9008C1623 /* MMEditController_iPad.m */,
-				007233D216AC0FE9008C1623 /* MMEditController_iPad.xib */,
-				007233D316AC0FE9008C1623 /* MMEditController_iPhone.xib */,
-				007233D416AC0FE9008C1623 /* MMEditControllerProtected.h */,
-				007233D516AC0FE9008C1623 /* MMFieldView.h */,
-				007233D616AC0FE9008C1623 /* MMFieldView.m */,
-				007233D716AC0FE9008C1623 /* movie */,
-				007233DA16AC0FE9008C1623 /* music */,
-				007233DD16AC0FE9008C1623 /* show */,
-			);
-			path = edit;
-			sourceTree = "<group>";
-		};
-		007233D716AC0FE9008C1623 /* movie */ = {
-			isa = PBXGroup;
-			children = (
-				007233D816AC0FE9008C1623 /* MMMovieEditController.h */,
-				007233D916AC0FE9008C1623 /* MMMovieEditController.m */,
-			);
-			path = movie;
-			sourceTree = "<group>";
-		};
-		007233DA16AC0FE9008C1623 /* music */ = {
-			isa = PBXGroup;
-			children = (
-				007233DB16AC0FE9008C1623 /* MMMusicEditController.h */,
-				007233DC16AC0FE9008C1623 /* MMMusicEditController.m */,
-			);
-			path = music;
-			sourceTree = "<group>";
-		};
-		007233DD16AC0FE9008C1623 /* show */ = {
-			isa = PBXGroup;
-			children = (
-				007233DE16AC0FE9008C1623 /* MMTVShowEditController.h */,
-				007233DF16AC0FE9008C1623 /* MMTVShowEditController.m */,
-			);
-			path = show;
-			sourceTree = "<group>";
-		};
-		007233E916AC0FE9008C1623 /* encoder */ = {
-			isa = PBXGroup;
-			children = (
-				007233EA16AC0FE9008C1623 /* detail */,
-				007233FD16AC0FE9008C1623 /* summary */,
-			);
-			path = encoder;
-			sourceTree = "<group>";
-		};
-		007233EA16AC0FE9008C1623 /* detail */ = {
-			isa = PBXGroup;
-			children = (
-				007233EB16AC0FE9008C1623 /* MMAudioTrackCell.h */,
-				007233EC16AC0FE9008C1623 /* MMAudioTrackCell.m */,
-				007233ED16AC0FE9008C1623 /* MMAudioTrackCell.xib */,
-				007233EE16AC0FE9008C1623 /* MMSubtitleTrackCell.h */,
-				007233EF16AC0FE9008C1623 /* MMSubtitleTrackCell.m */,
-				007233F016AC0FE9008C1623 /* MMSubtitleTrackCell.xib */,
-				007233F116AC0FE9008C1623 /* MMTitleDetailCell.h */,
-				007233F216AC0FE9008C1623 /* MMTitleDetailCell.m */,
-				007233F316AC0FE9008C1623 /* MMTitleDetailCell_iPad.xib */,
-				007233F416AC0FE9008C1623 /* MMTitleDetailCellSize.h */,
-				007233F516AC0FE9008C1623 /* MMTitleDetailCellSize.m */,
-				007233F616AC0FE9008C1623 /* MMTitleListDetailViewController.h */,
-				007233F716AC0FE9008C1623 /* MMTitleListDetailViewController.m */,
-				007233F816AC0FE9008C1623 /* MMTitleListDetailViewController.xib */,
-				007233F916AC0FE9008C1623 /* MMTitleTrackSectionHeader.h */,
-				007233FA16AC0FE9008C1623 /* MMTitleTrackSectionHeader.m */,
-				007233FB16AC0FE9008C1623 /* MMTitleTrackTableController.h */,
-				007233FC16AC0FE9008C1623 /* MMTitleTrackTableController.m */,
-			);
-			path = detail;
-			sourceTree = "<group>";
-		};
-		007233FD16AC0FE9008C1623 /* summary */ = {
-			isa = PBXGroup;
-			children = (
-				007233FE16AC0FE9008C1623 /* MMTitleListSummaryCell.h */,
-				007233FF16AC0FE9008C1623 /* MMTitleListSummaryCell.m */,
-				0072340016AC0FE9008C1623 /* MMTitleListSummaryCell_iPad.xib */,
-				0072340116AC0FE9008C1623 /* MMTitleListSummaryTableController.h */,
-				0072340216AC0FE9008C1623 /* MMTitleListSummaryTableController.m */,
-			);
-			path = summary;
-			sourceTree = "<group>";
-		};
-		0072340C16AC0FE9008C1623 /* navigation */ = {
-			isa = PBXGroup;
-			children = (
-				0072340D16AC0FE9008C1623 /* MMLibraryNavigationCell.h */,
-				0072340E16AC0FE9008C1623 /* MMLibraryNavigationCell.m */,
-				0072340F16AC0FE9008C1623 /* MMLibraryNavigationCell.xib */,
-				0072341016AC0FE9008C1623 /* MMLibraryNavigationTableController.h */,
-				0072341116AC0FE9008C1623 /* MMLibraryNavigationTableController.m */,
-			);
-			path = navigation;
-			sourceTree = "<group>";
-		};
 		0072348E16AC19D3008C1623 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,8 +278,8 @@
 				0072349016AC19D3008C1623 /* main.m */,
 				0072349116AC19D3008C1623 /* MainWindow_iPad.xib */,
 				0072349216AC19D3008C1623 /* MainWindow_iPhone.xib */,
-				0072349316AC19D3008C1623 /* MediaManagementAppDelegate.h */,
-				0072349416AC19D3008C1623 /* MediaManagementAppDelegate.m */,
+				0072349316AC19D3008C1623 /* MYTAppDelegate.h */,
+				0072349416AC19D3008C1623 /* MYTAppDelegate.m */,
 				0072349516AC19D3008C1623 /* MyTunes-Info.plist */,
 				0072349616AC19D3008C1623 /* MyTunes-Prefix.pch */,
 			);
@@ -543,6 +290,7 @@
 		007235FC16ACCB33008C1623 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				007236E816AD443B008C1623 /* Library */,
 				0072361616ACF80B008C1623 /* Server */,
 			);
 			path = Store;
@@ -561,13 +309,62 @@
 		0072367316AD1318008C1623 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0072367416AD133D008C1623 /* MYTLibraryViewController.h */,
-				0072367516AD133D008C1623 /* MYTLibraryViewController.m */,
+				0072367716AD14C1008C1623 /* iPad */,
+				0072367D16AD151D008C1623 /* iPhone */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		0072367716AD14C1008C1623 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */,
+				0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */,
+				0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */,
+				0072368F16AD17B9008C1623 /* MYTPlaylistViewController.h */,
+				0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */,
+				0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */,
+				007236EC16AD4744008C1623 /* MYTPlaylistCell.h */,
+				007236ED16AD4744008C1623 /* MYTPlaylistCell.m */,
+				007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		0072367D16AD151D008C1623 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		007236E816AD443B008C1623 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				007236E916AD444A008C1623 /* MYTLibraryStore.h */,
+				007236EA16AD444A008C1623 /* MYTLibraryStore.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		007236DB16AD424A008C1623 /* Pod Update */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = update;
+			buildConfigurationList = 007236DE16AD424A008C1623 /* Build configuration list for PBXLegacyTarget "Pod Update" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/pod;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Pod Update";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Pod Update";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		002A0AE01324549D00320A06 /* MyTunes */ = {
@@ -610,6 +407,7 @@
 			projectRoot = "";
 			targets = (
 				002A0AE01324549D00320A06 /* MyTunes */,
+				007236DB16AD424A008C1623 /* Pod Update */,
 			);
 		};
 /* End PBXProject section */
@@ -623,24 +421,16 @@
 				0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */,
 				0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */,
 				0028484B14AFF2CD003F5818 /* IconCheckMark@2x.png in Resources */,
-				0072342816AC0FE9008C1623 /* MMHomeView_iPad.xib in Resources */,
-				0072342916AC0FE9008C1623 /* MMHomeView_iPhone.xib in Resources */,
-				0072342F16AC0FE9008C1623 /* MMEditController_iPad.xib in Resources */,
-				0072343016AC0FE9008C1623 /* MMEditController_iPhone.xib in Resources */,
-				0072343616AC0FE9008C1623 /* MMPlaylistContentCell_iPad.xib in Resources */,
-				0072343B16AC0FE9008C1623 /* MMAudioTrackCell.xib in Resources */,
-				0072343D16AC0FE9008C1623 /* MMSubtitleTrackCell.xib in Resources */,
-				0072343F16AC0FE9008C1623 /* MMTitleDetailCell_iPad.xib in Resources */,
-				0072344216AC0FE9008C1623 /* MMTitleListDetailViewController.xib in Resources */,
-				0072344616AC0FE9008C1623 /* MMTitleListSummaryCell_iPad.xib in Resources */,
-				0072344A16AC0FE9008C1623 /* MMLibraryViewController_iPad.xib in Resources */,
-				0072344C16AC0FE9008C1623 /* MMLibraryViewController_iPhone.xib in Resources */,
-				0072344E16AC0FE9008C1623 /* MMLibraryNavigationCell.xib in Resources */,
+				0072342816AC0FE9008C1623 /* MYTHomeViewController_iPad.xib in Resources */,
+				0072342916AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib in Resources */,
 				0072349716AC19D3008C1623 /* InfoPlist.strings in Resources */,
 				0072349916AC19D3008C1623 /* MainWindow_iPad.xib in Resources */,
 				0072349A16AC19D3008C1623 /* MainWindow_iPhone.xib in Resources */,
-				0072365A16AD0818008C1623 /* MMServerView_iPad.xib in Resources */,
-				0072365B16AD0818008C1623 /* MMServerView_iPhone.xib in Resources */,
+				0072365A16AD0818008C1623 /* MYTServerView_iPad.xib in Resources */,
+				0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */,
+				0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */,
+				0072369316AD17BA008C1623 /* MYTPlaylistViewController.xib in Resources */,
+				007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,44 +461,20 @@
 				0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */,
 				0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */,
 				0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */,
-				0072341B16AC0FE9008C1623 /* MMRemoteLibrary.m in Sources */,
-				0072341C16AC0FE9008C1623 /* MMRemotePlaylist.m in Sources */,
-				0072341D16AC0FE9008C1623 /* MMServer.m in Sources */,
+				0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NSNumber_NonZero.m in Sources */,
 				0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */,
-				0072342716AC0FE9008C1623 /* MMHomeView.m in Sources */,
-				0072342A16AC0FE9008C1623 /* MMHomeViewController.m in Sources */,
+				0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */,
+				0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */,
 				0072342B16AC0FE9008C1623 /* MMLoadingView.m in Sources */,
-				0072342C16AC0FE9008C1623 /* MMContentPlacholder.m in Sources */,
-				0072342D16AC0FE9008C1623 /* MMEditController.m in Sources */,
-				0072342E16AC0FE9008C1623 /* MMEditController_iPad.m in Sources */,
-				0072343116AC0FE9008C1623 /* MMFieldView.m in Sources */,
-				0072343216AC0FE9008C1623 /* MMMovieEditController.m in Sources */,
-				0072343316AC0FE9008C1623 /* MMMusicEditController.m in Sources */,
-				0072343416AC0FE9008C1623 /* MMTVShowEditController.m in Sources */,
-				0072343516AC0FE9008C1623 /* MMPlaylistContentCell.m in Sources */,
-				0072343716AC0FE9008C1623 /* MMPlaylistContentCellSize.m in Sources */,
-				0072343816AC0FE9008C1623 /* MMPlaylistContentTableController.m in Sources */,
-				0072343916AC0FE9008C1623 /* MMPlaylistSubcontentSelector.m in Sources */,
-				0072343A16AC0FE9008C1623 /* MMAudioTrackCell.m in Sources */,
-				0072343C16AC0FE9008C1623 /* MMSubtitleTrackCell.m in Sources */,
-				0072343E16AC0FE9008C1623 /* MMTitleDetailCell.m in Sources */,
-				0072344016AC0FE9008C1623 /* MMTitleDetailCellSize.m in Sources */,
-				0072344116AC0FE9008C1623 /* MMTitleListDetailViewController.m in Sources */,
-				0072344316AC0FE9008C1623 /* MMTitleTrackSectionHeader.m in Sources */,
-				0072344416AC0FE9008C1623 /* MMTitleTrackTableController.m in Sources */,
-				0072344516AC0FE9008C1623 /* MMTitleListSummaryCell.m in Sources */,
-				0072344716AC0FE9008C1623 /* MMTitleListSummaryTableController.m in Sources */,
-				0072344816AC0FE9008C1623 /* MMContentView.m in Sources */,
-				0072344916AC0FE9008C1623 /* MMLibraryViewController_iPad.m in Sources */,
-				0072344B16AC0FE9008C1623 /* MMLibraryViewController_iPhone.m in Sources */,
-				0072344D16AC0FE9008C1623 /* MMLibraryNavigationCell.m in Sources */,
-				0072344F16AC0FE9008C1623 /* MMLibraryNavigationTableController.m in Sources */,
 				0072349816AC19D3008C1623 /* main.m in Sources */,
-				0072349B16AC19D3008C1623 /* MediaManagementAppDelegate.m in Sources */,
+				0072349B16AC19D3008C1623 /* MYTAppDelegate.m in Sources */,
 				0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */,
-				0072365C16AD0818008C1623 /* MMServerView.m in Sources */,
-				0072367616AD133D008C1623 /* MYTLibraryViewController.m in Sources */,
+				0072365C16AD0818008C1623 /* MYTServerView.m in Sources */,
+				0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */,
+				0072369216AD17BA008C1623 /* MYTPlaylistViewController.m in Sources */,
+				007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */,
+				007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,7 +493,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"${inherited}",
 					"-ObjC",
@@ -746,7 +512,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"${inherited}",
@@ -785,6 +551,57 @@
 			};
 			name = Release;
 		};
+		007236DC16AD424A008C1623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		007236DD16AD424A008C1623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -802,6 +619,15 @@
 			buildConfigurations = (
 				002A0B191324549D00320A06 /* Debug */,
 				002A0B1A1324549D00320A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		007236DE16AD424A008C1623 /* Build configuration list for PBXLegacyTarget "Pod Update" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				007236DC16AD424A008C1623 /* Debug */,
+				007236DD16AD424A008C1623 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

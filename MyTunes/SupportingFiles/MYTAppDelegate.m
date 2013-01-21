@@ -7,13 +7,13 @@
 //
 
 #import <CocoaLumberjack/DDTTYLogger.h>
-#import "MediaManagementAppDelegate.h"
+#import "MYTAppDelegate.h"
 
-#import "MMHomeViewController.h"
+#import "MYTHomeViewController.h"
 
 const int ddLogLevel = LOG_LEVEL_INFO;
 
-@implementation MediaManagementAppDelegate
+@implementation MYTAppDelegate
 
 
 @synthesize window=_window;

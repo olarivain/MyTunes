@@ -8,19 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMServer;
+@class MYTServer;
 
 @interface MYTServerStore : NSObject {
 	__strong NSMutableArray *_servers;
 }
 
 @property (nonatomic, readonly, copy) NSArray *servers;
-@property (nonatomic, readonly, strong) MMServer *currentServer;
+@property (nonatomic, readwrite, strong) MYTServer *currentServer;
 
 + (MYTServerStore *) sharedInstance;
 
 - (void) startSearching;
-
-- (void) selectServer: (MMServer *) server callback: (KCErrorBlock) callback;
 
 @end
