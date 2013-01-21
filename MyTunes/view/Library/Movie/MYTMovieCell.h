@@ -14,4 +14,7 @@
 
 - (void) updateWithContent: (MMContent *) content;
 
+- (void) resizeTo: (CGSize) newSize;
+- (CGFloat) idealHeightForContent: (MMContent *) content;
+
 @end

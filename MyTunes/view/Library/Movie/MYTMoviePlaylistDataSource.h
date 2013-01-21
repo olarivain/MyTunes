@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class MMPlaylist;
+#import "MYTPlaylistContentDataSource.h"
 
-@interface MYTMoviePlaylistDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
+@interface MYTMoviePlaylistDataSource : NSObject<UITableViewDataSource, UITableViewDelegate, MYTPlaylistContentDataSource>
 
 @property (nonatomic, strong, readwrite) MMPlaylist *playlist;
 

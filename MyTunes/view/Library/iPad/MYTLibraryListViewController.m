@@ -71,9 +71,18 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return section == 0 ? @"Playlists" : @"Encoder";
+}
+
+
+#pragma mark - Table view delegate
+- (NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // cancel selection if the row is already selected
+    if([indexPath isEqual: [tableView indexPathForSelectedRow]]) {
+        return nil;
+    }
+    return indexPath;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,5 +103,7 @@
 - (void) selectEncodingPlaylistAtIndexPath: (NSIndexPath *) indexPath {
     
 }
+
+
 
 @end

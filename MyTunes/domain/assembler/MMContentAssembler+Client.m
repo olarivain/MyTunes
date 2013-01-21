@@ -54,6 +54,7 @@
         MMContent *content = [self createContent: contentDictionary];
         [playlist addContent: content];
     }
+    [playlist sortContent];
     
     return playlist;
 }

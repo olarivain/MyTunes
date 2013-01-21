@@ -13,6 +13,8 @@
 		0000C05416ADEAB10009BE81 /* MMTVShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C04E16ADEAB10009BE81 /* MMTVShow.m */; };
 		0000C05516ADEAB10009BE81 /* MMTVShowPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C05016ADEAB10009BE81 /* MMTVShowPlaylist.m */; };
 		0000C05616ADEAB10009BE81 /* MMTVShowSeason.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C05216ADEAB10009BE81 /* MMTVShowSeason.m */; };
+		0000C07416ADF0430009BE81 /* Unplayed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C07016ADF0430009BE81 /* Unplayed.png */; };
+		0000C07516ADF0430009BE81 /* Unplayed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C07116ADF0430009BE81 /* Unplayed@2x.png */; };
 		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
 		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
 		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
@@ -65,6 +67,9 @@
 		0000C05016ADEAB10009BE81 /* MMTVShowPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowPlaylist.m; sourceTree = "<group>"; };
 		0000C05116ADEAB10009BE81 /* MMTVShowSeason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTVShowSeason.h; sourceTree = "<group>"; };
 		0000C05216ADEAB10009BE81 /* MMTVShowSeason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowSeason.m; sourceTree = "<group>"; };
+		0000C07016ADF0430009BE81 /* Unplayed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unplayed.png; sourceTree = "<group>"; };
+		0000C07116ADF0430009BE81 /* Unplayed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unplayed@2x.png"; sourceTree = "<group>"; };
+		0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistContentDataSource.h; sourceTree = "<group>"; };
 		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
 		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
 		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
@@ -183,10 +188,20 @@
 			path = shows;
 			sourceTree = "<group>";
 		};
+		0000C06D16ADF0430009BE81 /* playlists */ = {
+			isa = PBXGroup;
+			children = (
+				0000C07016ADF0430009BE81 /* Unplayed.png */,
+				0000C07116ADF0430009BE81 /* Unplayed@2x.png */,
+			);
+			path = playlists;
+			sourceTree = "<group>";
+		};
 		0028484214AFF295003F5818 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				0028484314AFF2CD003F5818 /* encoder */,
+				0000C06D16ADF0430009BE81 /* playlists */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -377,6 +392,7 @@
 				0072367D16AD151D008C1623 /* iPhone */,
 				0072373616AD573B008C1623 /* Movie */,
 				0000C03216AD59C20009BE81 /* TVShow */,
+				0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */,
 				0072372E16AD54CD008C1623 /* MYTPlaylistViewController.h */,
 				0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */,
 				0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */,
@@ -514,6 +530,8 @@
 				007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */,
 				0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */,
 				0000C03116AD577D0009BE81 /* MYTMovieCell.xib in Resources */,
+				0000C07416ADF0430009BE81 /* Unplayed.png in Resources */,
+				0000C07516ADF0430009BE81 /* Unplayed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
