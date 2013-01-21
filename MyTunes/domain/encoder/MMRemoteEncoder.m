@@ -7,6 +7,7 @@
 //
 
 #import <KraCommons/KCBlocks.h>
+#import <KraCommons/KCHTTPClient.h>
 #import <MediaManagement/MMTitleList.h>
 
 #import "MMTitleAssembler+Client.h"
@@ -15,27 +16,24 @@
 #import "MMServer.h"
 
 @interface MMRemoteEncoder()
-- (id) initWithServer: (MMServer *) server;
-- (void) didLoadAvailableResources: (NSArray *) dto;
-- (void) didScanResource: (MMTitleList *) titleList withDto:(NSDictionary *)dto;
-- (void) didScheduleTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto;
+@property (nonatomic, readwrite, weak) MMServer *server;
 @end
 
 @implementation MMRemoteEncoder
 
 + (MMRemoteEncoder *) encoderWithServer: (MMServer *) server
 {
-  return [[MMRemoteEncoder alloc] initWithServer: server];
+	return [[MMRemoteEncoder alloc] initWithServer: server];
 }
 
 - (id) initWithServer: (MMServer *) aServer
 {
-  self = [super init];
-  if(self)
-  {
-    server = aServer;
-  }
-  return self;
+	self = [super init];
+	if(self)
+	{
+		self.server = aServer;
+	}
+	return self;
 }
 
 @synthesize availableResources;
@@ -44,103 +42,109 @@
 #pragma mark - Listing available resources
 - (void) loadAvailableResources: (MMRemoteEncoderCallback) callback
 {
-  // always load this content, since it's highly variable
-  MMServerCallback serverCallback = ^(NSArray *dto){
-    [self didLoadAvailableResources: dto];
-    DispatchMainThread(callback);
-  };
-  
-  [server requestWithPath:@"/encoder" andCallback: serverCallback];
+	// always load this content, since it's highly variable
+	[self.server.httpClient getPath: @"/encoder"
+						 parameters: nil
+							success:^(AFHTTPRequestOperation *operation, id responseObject) {
+								[self didLoadAvailableResources: responseObject callback: callback];
+							}
+							failure: nil];
 }
 
 - (void) didLoadAvailableResources: (NSArray *) dto
+						  callback: (MMRemoteEncoderCallback) callback
 {
-  MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
-  availableResources = [assembler createTitleLists: dto];
+	MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+	availableResources = [assembler createTitleLists: dto];
+	DispatchMainThread(callback);
 }
 
 
 #pragma mark - Scanning a specific resource
 - (void) scanResource: (MMTitleList *) titleList andCallback: (MMRemoteEncoderCallback) callback
 {
-  
-  // update only content that belongs to us
-  if(![availableResources containsObject: titleList])
-  {
-    return;
-  }
-  
-  MMServerCallback serverCallback = ^(NSDictionary *dto){
-    // local callback 
-    [self didScanResource: titleList withDto: dto];
-    
-    // and then proceed to UI callback, on main thread
-    DispatchMainThread(callback);
-  };
-  
-  // go out to server for content
-  NSString *resourcePath = [NSString stringWithFormat: @"/encoder/%@", titleList.encodedTitleListId];
-  [server requestWithPath: resourcePath andCallback: serverCallback];
+	
+	// update only content that belongs to us
+	if(![availableResources containsObject: titleList])
+	{
+		return;
+	}
+	
+	// go out to server for content
+	NSString *resourcePath = [NSString stringWithFormat: @"/encoder/%@", titleList.encodedTitleListId];
+	
+	[self.server.httpClient getPath: resourcePath
+						 parameters: nil
+							success:^(AFHTTPRequestOperation *operation, id responseObject) {
+								[self didScanResource: titleList withDto: responseObject callback: callback];
+							}
+							failure: nil];
 }
 
-- (void) didScanResource: (MMTitleList *) titleList withDto:(NSDictionary *)dto 
+- (void) didScanResource: (MMTitleList *) titleList withDto:(NSDictionary *)dto callback: (MMRemoteEncoderCallback) callback
 {
-  MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
-  [assembler updateTitleList: titleList withDto: dto];
+	MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+	[assembler updateTitleList: titleList withDto: dto];
+	DispatchMainThread(callback);
 }
 
 #pragma mark - Scheduling a title for encoding
 - (void) scheduleTitleList: (MMTitleList *) titleList withCallback: (MMRemoteEncoderCallback) callback
 {
-  // make sure we have something here...
-  if(titleList == nil)
-  {
-    DispatchMainThread(callback);
-    return;
-  }
-  
-  NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
-  
-  MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
-  NSDictionary *dto = [assembler writeTitleList: titleList];
-  
-  MMServerCallback serverCallback = ^(NSDictionary *dto){
-    [self didScheduleTitleList: titleList withDto: dto];
-    DispatchMainThread(callback);
-  };
-  
-  [server updateRequestWithPath: path params: dto andCallback: serverCallback];
+	// make sure we have something here...
+	if(titleList == nil)
+	{
+		DispatchMainThread(callback);
+		return;
+	}
+	
+	NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
+	
+	MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+	NSDictionary *dto = [assembler writeTitleList: titleList];
+	
+	[self.server.httpClient postPath: path
+						  parameters: dto
+							 success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+								 [self didScheduleTitleList: titleList withDto: responseObject callback: callback];
+							 }
+							 failure: nil];
 }
 
-- (void) didScheduleTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto
+- (void) didScheduleTitleList: (MMTitleList *) titleList withDto: (NSDictionary *) dto callback: (MMRemoteEncoderCallback) callback
 {
-  NSLog(@"did schedule");
+	DDLogInfo(@"did schedule");
+	DispatchMainThread(callback);
 }
 
 #pragma mark - delete a title list
 - (void) deleteTitleList: (MMTitleList *) titleList withCallback: (MMRemoteEncoderErrorCallback) callback
 {
-  // make sure we have something here...
-  if(titleList == nil)
-  {
-    DispatchMainThread(callback, nil);
-    return;
-  }
-  
-  MMServerCallback serverCallback = ^(NSDictionary *dto){
-    // extract error and dispatch main thread
-    NSError *error = nil;
-    if([dto count] > 0) {
-    error = [NSError errorWithDomain: @"ITS"
-                                code: 0
-                            userInfo: dto];
-    }
-    
-    DispatchMainThread(callback, error);
-  };
-  
-  NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
-  [server deleteRequestWithPath: path params: nil andCallback: serverCallback];
+	// make sure we have something here...
+	if(titleList == nil)
+	{
+		DispatchMainThread(callback, nil);
+		return;
+	}
+	
+	
+#warning AFNetworking SHOULD take care of the error, double check
+	NSString *path = [NSString stringWithFormat:@"/encoder/%@", titleList.encodedTitleListId];
+	[self.server.httpClient deletePath: path
+							parameters: nil
+							   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+								   // extract error and dispatch main thread
+								   NSError *error = nil;
+								   if([responseObject count] > 0) {
+									   error = [NSError errorWithDomain: @"ITS"
+																   code: 0
+															   userInfo: responseObject];
+								   }
+								   
+								   DispatchMainThread(callback, error);
+							   }
+							   failure: nil];
 }
+
 
 @end

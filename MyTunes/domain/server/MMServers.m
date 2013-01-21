@@ -10,8 +10,11 @@
 #import "MMServer.h"
 
 @interface MMServers()
-- (MMServer *) serverWithNetService: (NSNetService *) netService;
-- (void) removeNetService: (NSNetService *) netService;
+@property (nonatomic, readwrite) NSArray *servers;
+//@property (nonatomic, readwrite, weak) id<MMServersDelegate> delegate;
+@property (nonatomic, readwrite) NSNetServiceBrowser *netServiceBrowser;
+@property (nonatomic, readwrite) NSMutableArray *netServices;
+@property (nonatomic, readwrite, assign) BOOL didStartSearch;
 @end
 
 @implementation MMServers
@@ -21,46 +24,43 @@
   self = [super init];
   if(self)
   {
-    netServiceBrowser = [[NSNetServiceBrowser alloc] init];
-    netServiceBrowser.delegate = self;
+    self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
+    self.netServiceBrowser.delegate = self;
     
-    netServices = [NSMutableArray arrayWithCapacity:5];
+    self.netServices = [NSMutableArray arrayWithCapacity:5];
     
-    servers = [NSMutableArray array];
+    self.servers = [NSMutableArray array];
   }
   return self;
 }
 
 - (void) dealloc
 {
-  [netServiceBrowser stop];
+  [self.netServiceBrowser stop];
 }
-
-@synthesize servers;
-@synthesize delegate;
 
 #pragma mark - Server access methods
 
 - (void) startSearch
 {
-  if(didStartSearch)
+  if(self.didStartSearch)
   {
     return;
   }
   
-  didStartSearch = YES;
-  [netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
+  self.didStartSearch = YES;
+  [self.netServiceBrowser searchForServicesOfType:@"_http._tcp" inDomain:@"local."];
 }
 
 - (void) stopSearch
 {
-  [netServiceBrowser stop];
-  [netServices removeAllObjects];
+  [self.netServiceBrowser stop];
+  [self.netServices removeAllObjects];
 }
 
 - (MMServer *) serverWithNetService: (NSNetService *) netService
 {
-  for(MMServer *server in servers)
+  for(MMServer *server in self.servers)
   {
     if([server.key isEqual: netService.name])
     {
@@ -73,7 +73,7 @@
 - (void) removeNetService: (NSNetService *) netService
 {
   NSNetService *toRemove = nil;
-  for(NSNetService *service in netServices)
+  for(NSNetService *service in self.netServices)
   {
     if([service.name isEqual: netService.name])
     {
@@ -83,14 +83,14 @@
   }
   
   toRemove.delegate = nil;
-  [netServices removeObject: toRemove];
+  [self.netServices removeObject: toRemove];
 }
 
 
 #pragma mark - NSNetServiceBrowserDelegate methods
 - (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
-  [delegate willRefresh:self];
+  [self.delegate willRefresh:self];
 }
 
 - (void) netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
@@ -102,7 +102,7 @@
   
   NSLog(@"Found service %@.", aNetService.name);
 
-  [netServices addObject: aNetService];
+  [self.netServices addObject: aNetService];
   
   aNetService.delegate = self;
   [aNetService resolveWithTimeout:5];
@@ -114,13 +114,13 @@
   
   // net service disappeared, first remove any server associated
   MMServer *removed = [self serverWithNetService: aNetService];
-  [servers removeObject: removed];
+  [_servers removeObject: removed];
   
   // drop net service
   [self removeNetService: aNetService];
   
   // notify delegate
-  [delegate didRefresh:self];
+  [self.delegate didRefresh:self];
 }
 
 #pragma mark - NSNetService delegate methods
@@ -138,8 +138,8 @@
   MMServer *server = [MMServer serverWithHost: aNetService.hostName andPort: aNetService.port];
   server.key = aNetService.name;
   
-  [servers addObject: server];
-  [delegate didRefresh: self];
+  [_servers addObjectNilSafe: server];
+  [self.delegate didRefresh: self];
 }
 
 - (void) netService:(NSNetService *)aNetService didNotResolve:(NSDictionary *)errorDict

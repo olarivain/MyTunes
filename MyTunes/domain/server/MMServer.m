@@ -8,8 +8,7 @@
 
 
 #import <KraCommons/KCBlocks.h>
-#import <KraCommons/KCRequestDelegate.h>
-#import <KraCommons/KCRequestQueueItem.h>
+#import <KraCommons/KCHTTPClient.h>
 
 #import <MediaManagement/MMContent.h>
 
@@ -18,86 +17,48 @@
 #import "MMRemoteEncoder.h"
 #import "MMRemoteLibrary.h"
 
+
 @interface MMServer()
-- (id) initWithHost: (NSString *) host andPort: (NSInteger) port;
+@property (nonatomic, readwrite) int port;
+@property (nonatomic, readwrite) NSString *host;
+@property (nonatomic, readwrite) NSString *name;
+
+@property (nonatomic, readwrite) MMRemoteLibrary *library;
+@property (nonatomic, readwrite) MMRemoteEncoder *encoder;
+@property (nonatomic, readwrite) KCHTTPClient *httpClient;
 @end
 
 @implementation MMServer
 
 + (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port
 {
-  return [[MMServer alloc] initWithHost: host andPort: port];
+	return [[MMServer alloc] initWithHost: host andPort: port];
 }
 
 - (id) initWithHost:(NSString *)aHost andPort:(NSInteger)aPort
 {
-  self = [super init];
-  if(self)
-  {
-    port = aPort;
-    host = aHost;
-    name = [[host componentsSeparatedByString:@".local"] objectAtIndex:0];
-    requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
-    
-    library = [MMRemoteLibrary libraryWithServer: self];
-    encoder = [MMRemoteEncoder encoderWithServer: self];
-  }
-  return self;
+	self = [super init];
+	if(self)
+	{
+		self.port = aPort;
+		self.host = aHost;
+		self.name = [[self.host componentsSeparatedByString:@".local"] objectAtIndex:0];
+		
+		
+		NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"http://%@:%i", self.host, self.port]];
+		self.httpClient = [[KCHTTPClient alloc] initWithBaseURL: url];
+		//    requestDelegate = [KCRequestDelegate requestDelegateWithHost: host andPort: port];
+		
+		self.library = [MMRemoteLibrary libraryWithServer: self];
+		self.encoder = [MMRemoteEncoder encoderWithServer: self];
+	}
+	return self;
 }
-
-
-@synthesize key;
-@synthesize name;
-@synthesize port;
-@synthesize host;
-@synthesize library;
-@synthesize encoder;
 
 #pragma mark - Playlist convenience
 - (BOOL) hasSystemPlaylist
 {
-  return [library.systemPlaylists count] > 0;
-}
-
-#pragma mark - network calls
-- (void) requestWithPath: (NSString *) path andCallback: (MMServerCallback) callback
-{
-  [self requestWithPath: path params: nil method: @"GET" andCallback: callback];
-}
-
-- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback:(MMServerCallback)callback
-{
-  [self requestWithPath: path params: params method: @"GET" andCallback: callback];
-}
-
-- (void) updateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback
-{
-  [self requestWithPath: path params: params method: @"POST" andCallback: callback];
-}
-
-- (void) deleteRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback {
-  [self requestWithPath: path params: params method: @"DELETE" andCallback: callback];  
-}
-
-- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback) callback
-{
-  if(callback == nil)
-  {
-    NSLog(@"FATAL, callback is required for server calls.");
-    return;
-  }
-  
-  KCRequestCallback networkCallback = ^(KCRequestQueueItem *item){
-#if DEBUG_NETWORK == 1
-    NSLog(@"Request %@: %@", item.success ? @"succeeded" : @"failed", item.url.absoluteString);
-    if(!item.success)
-    {
-      NSLog(@"HTTP Code for failure: %i", item.status);
-    }
-#endif
-    callback(item.jsonObject);
-  };
-  [requestDelegate requestWithPath: path params: params method: method andCallback: networkCallback];
+	return [self.library.systemPlaylists count] > 0;
 }
 
 @end

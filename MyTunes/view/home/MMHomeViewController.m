@@ -101,7 +101,7 @@
 - (UIViewController<MMLibraryViewController> *) loadLibraryController
 {
   NSString *nibName = [KCNibUtils nibName: @"MMLibraryViewController"];
-  Class clazz = [KCNibUtils isiPad] ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
+  Class clazz = isiPad ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
   return [[clazz alloc] initWithNibName: nibName bundle:[NSBundle mainBundle]];
 }
 

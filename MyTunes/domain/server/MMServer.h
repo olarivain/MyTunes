@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class KCHTTPClient;
 @class KCRequestDelegate;
 
 @class MMRemoteLibrary;
@@ -16,16 +17,6 @@
 typedef void(^MMServerCallback)(id dto);
 
 @interface MMServer : NSObject {
-  int port;
-  __weak id key;
-  __strong NSString *host;
-  __strong NSString *name;
-  
-  __strong MMRemoteLibrary *library;
-  
-  __strong MMRemoteEncoder *encoder;
-  
-  __strong KCRequestDelegate *requestDelegate;
 }
 
 + (MMServer *) serverWithHost: (NSString *) host andPort: (NSInteger) port;
@@ -38,19 +29,8 @@ typedef void(^MMServerCallback)(id dto);
 @property (nonatomic, readonly) MMRemoteLibrary *library;
 @property (nonatomic, readonly) MMRemoteEncoder *encoder;
 
+@property (nonatomic, readonly) KCHTTPClient *httpClient;
+
 - (BOOL) hasSystemPlaylist;
-
-// default, GET request
-- (void) requestWithPath: (NSString *) path andCallback: (MMServerCallback) callback;
-// GET request with params
-- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params andCallback:(MMServerCallback)callback;
-// POST request
-- (void) updateRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
-// raw request
-- (void) requestWithPath: (NSString *) path params: (NSDictionary *) params method: (NSString *) method andCallback:(MMServerCallback)callback;
-
-// delete request
-// POST request
-- (void) deleteRequestWithPath: (NSString *) path params: (NSDictionary *) params andCallback: (MMServerCallback) callback;
 
 @end

@@ -261,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				0072339716AC0FE9008C1623 /* domain */,
+				007235FC16ACCB33008C1623 /* Store */,
 				007233B816AC0FE9008C1623 /* util */,
 				007233BD16AC0FE9008C1623 /* view */,
 				0072348E16AC19D3008C1623 /* Supporting Files */,
@@ -542,6 +543,13 @@
 			);
 			name = "Supporting Files";
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		007235FC16ACCB33008C1623 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

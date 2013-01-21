@@ -20,12 +20,9 @@ typedef void(^MMRemoteLibraryCallback)(void);
  */
 @interface MMRemoteLibrary : MMLibrary 
 {
-  __weak MMServer *server;
-  
-  __strong NSMutableArray *systemPlaylists;
-  __strong NSMutableArray *userPlaylists;
+	__strong NSMutableArray *_systemPlaylists;
+	__strong NSMutableArray *_userPlaylists;
 }
-
 @property (nonatomic, readonly, weak) MMServer *server;
 @property (nonatomic, readonly, strong) NSArray *systemPlaylists;
 @property (nonatomic, readonly, strong) NSArray *userPlaylists;

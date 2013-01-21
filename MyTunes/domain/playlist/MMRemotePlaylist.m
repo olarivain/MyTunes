@@ -7,6 +7,7 @@
 //
 
 #import <KraCommons/KCBlocks.h>
+#import <KraCommons/KCHTTPClient.h>
 #import "MMRemotePlaylist.h"
 
 #import "MMRemoteLibrary.h"
@@ -15,8 +16,6 @@
 #import "MMServer.h"
 
 @interface MMPlaylist(MMPlaylist_Remote_Private)
-- (void) didLoad: (NSObject*) dto;
-
 @property (nonatomic, readonly) MMServer *server;
 @end
 
@@ -25,45 +24,52 @@
 #pragma mark - Synthetic Getter
 - (MMServer *) server
 {
-  return ((MMRemoteLibrary *) library).server;
+	return ((MMRemoteLibrary *) library).server;
 }
+
 #pragma mark - Reading playlist content
 - (void) loadWithBlock: (MMPlaylistCallback) callback
 {
-  MMServerCallback reload = ^(id dto){
-    [self didLoad: dto];
-    DispatchMainThread(callback);
-  };
-
-  NSString *readPath = [NSString stringWithFormat:@"/library/%@", uniqueId];
-  [self.server requestWithPath: readPath andCallback: reload];
+	NSString *readPath = [NSString stringWithFormat:@"/library/%@", uniqueId];
+	
+	[self.server.httpClient getPath: readPath
+						 parameters: nil
+							success:^(AFHTTPRequestOperation *operation, id responseObject) {
+								[self didLoad: responseObject callback: callback];
+							}
+							failure:nil];
 }
 
-- (void) didLoad: (NSObject*) dto
+- (void) didLoad: (NSObject*) dto callback: (MMPlaylistCallback) callback
 {
-  if(![dto isKindOfClass: [NSDictionary class]])
-  {
-    NSLog(@"FATAL: got unexpected response while reading playlist with ID %@.", uniqueId);
-    return;
-  }
-  
-  NSDictionary *dictionary = (NSDictionary*) dto;
-  MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
-  [assembler updatePlaylist: self withDto: dictionary];
+	if(![dto isKindOfClass: [NSDictionary class]])
+	{
+		NSLog(@"FATAL: got unexpected response while reading playlist with ID %@.", uniqueId);
+		return;
+	}
+	
+	NSDictionary *dictionary = (NSDictionary*) dto;
+	MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
+	[assembler updatePlaylist: self withDto: dictionary];
+	
+	DispatchMainThread(callback);
 }
 
 
 #pragma mark - Updating a playlist item
 - (void) updateContent: (MMContent*) content withBlock: (MMPlaylistCallback) callback
 {
-  MMServerCallback updated = ^(id dto){
-      DispatchMainThread(callback);
-  };
- 
-  NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
-  NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content]; 
-  
-  [self.server updateRequestWithPath: path params: dictionary andCallback: updated];
+	NSString *path = [NSString stringWithFormat:@"/library/%@/%@", uniqueId, content.contentId];
+	NSDictionary *dictionary = [[MMContentAssembler sharedInstance] writeContent: content];
+	
+	[self.server.httpClient postPath: path
+						  parameters: dictionary
+							 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+								 DispatchMainThread(callback);
+							 }
+							 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+								 DispatchMainThread(callback);
+							 }];
 }
 
 @end

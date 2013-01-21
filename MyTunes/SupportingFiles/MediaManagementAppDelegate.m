@@ -11,6 +11,8 @@
 #import "MMHomeViewController.h"
 #import "MMServers.h"
 
+const int ddLogLevel = LOG_LEVEL_INFO;
+
 @implementation MediaManagementAppDelegate
 
 

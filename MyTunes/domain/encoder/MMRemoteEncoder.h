@@ -17,9 +17,6 @@ typedef void(^MMRemoteEncoderErrorCallback)(NSError *);
 
 @interface MMRemoteEncoder : NSObject
 {
-  __weak MMServer *server;
-  __strong NSArray *availableResources;
-  __strong MMPendingList *pendingList;
 }
 
 + (MMRemoteEncoder *) encoderWithServer: (MMServer *) server;

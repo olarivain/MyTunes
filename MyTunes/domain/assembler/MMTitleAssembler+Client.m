@@ -12,21 +12,6 @@
 
 #import "MMTitleAssembler+Client.h"
 
-@interface MMTitleAssembler (ClientPrivate)
-// create methods
-// title list
-- (MMTitleList *) createTitleList: (NSDictionary *) titleList;
-// top level title objects
-- (MMTitle *) createTitle: (NSDictionary *) dto;
-// audio tracks
-- (MMAudioTrack *) createAudioTrack: (NSDictionary *) dto;
-//subtitle tracks
-- (MMSubtitleTrack *) createSubtitleTrack: (NSDictionary *) dto;
-
-// update a title with new server side content
-- (void) updateTitle: (MMTitle *) title withDto: (NSDictionary *) dto;
-@end
-
 @implementation MMTitleAssembler (Client)
 
 #pragma mark - Creating a fresh title list (DTO -> domain)
@@ -103,8 +88,8 @@
   NSInteger index = [dto integerForKey: @"index"];
   NSTimeInterval duration = [dto doubleForKey: @"duration"];
   MMTitle *title = [MMTitle titleWithIndex: index andDuration:duration];
-  title.selected = [dto booleanForKey: @"selected"];
-  title.completed = [dto booleanForKey: @"completed"];
+  title.selected = [dto boolForKey: @"selected"];
+  title.completed = [dto boolForKey: @"completed"];
   title.eta = [dto integerForKey: @"eta"];
   title.encoding = [dto integerForKey: @"encoding"];
   title.progress = [dto integerForKey: @"progress"];
@@ -138,14 +123,14 @@
   NSInteger index = [dto integerForKey: @"index"];
   MMAudioCodec codec = (MMAudioCodec) [dto integerForKey: @"codec"];
   NSInteger channelCount = [dto integerForKey: @"channelCount"];
-  BOOL lfe = [dto booleanForKey: @"lfe"];
+  BOOL lfe = [dto boolForKey: @"lfe"];
   NSString *language = [dto nullSafeForKey: @"language"];
   MMAudioTrack *audioTrack = [MMAudioTrack audioTrackWithIndex: index 
                                                          codec: codec 
                                                   channelCount: channelCount 
                                                            lfe: lfe 
                                                    andLanguage: language];
-  audioTrack.selected = [dto booleanForKey: @"selected"];
+  audioTrack.selected = [dto boolForKey: @"selected"];
   return audioTrack;
 }
 
@@ -162,7 +147,7 @@
   MMSubtitleTrack *track = [MMSubtitleTrack subtitleTrackWithIndex: index 
                                                           language: language 
                                                            andType: type];
-  track.selected = [dto booleanForKey: @"selected"];
+  track.selected = [dto boolForKey: @"selected"];
   return track;
 }
 
@@ -172,8 +157,8 @@
   // and update its status
   title.eta = [dto integerForKey: @"eta"];
   title.progress = [dto integerForKey: @"progress"];
-  title.completed = [dto booleanForKey: @"completed"];
-  title.encoding =[dto booleanForKey: @"encoding"];
+  title.completed = [dto boolForKey: @"completed"];
+  title.encoding =[dto boolForKey: @"encoding"];
   
   // update all audio tracks
   NSArray *audioTrackDtos = [dto nullSafeForKey: @"audioTracks"];
@@ -181,7 +166,7 @@
   {
     NSInteger audioIndex = [audioTrackDto integerForKey: @"index"];
     MMAudioTrack *audioTrack = [title audioTrackWithIndex: audioIndex];
-    audioTrack.selected = [audioTrackDto booleanForKey: @"selected"];  
+    audioTrack.selected = [audioTrackDto boolForKey: @"selected"];  
   }
   
   // update all subtitle tracks
@@ -190,7 +175,7 @@
   {
     NSInteger subtitleIndex = [subtitleTrackDto integerForKey: @"index"];
     MMSubtitleTrack *subtitleTrack = [title subtitleTrackWithIndex: subtitleIndex];
-    subtitleTrack.selected = [subtitleTrackDto booleanForKey: @"selected"];  
+    subtitleTrack.selected = [subtitleTrackDto boolForKey: @"selected"];  
   } 
 }
 
