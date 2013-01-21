@@ -8,24 +8,32 @@
 
 #import <MediaManagement/MMLibrary.h>
 #import <MediaManagement/MMPlaylist.h>
-#import "MYTPlaylistViewController.h"
+#import "MYTLibraryListViewController.h"
 
 #import "MYTLibraryStore.h"
 
 #import "MYTPlaylistCell.h"
 
-@interface MYTPlaylistViewController ()<UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *playlistTable;
+@interface MYTLibraryListViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet id<MYTPlaylistControllerDelegate> delegate;
 
 @end
 
-@implementation MYTPlaylistViewController
+@implementation MYTLibraryListViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.playlistTable registerNibNamed: @"MMPlaylistCell"
+    [self.table registerNibNamed: @"MMPlaylistCell"
                   forCellReuseIdentifier: @"playlistCell"];
+    
+    // select the first row if we have one
+    if(self.table.numberOfSections > 0 && [self.table numberOfRowsInSection: 0] > 0) {
+        [self.table selectRowAtIndexPath: [NSIndexPath indexPathForRow: 0 inSection: 0]
+                                animated: NO
+                          scrollPosition: UITableViewScrollPositionNone];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +74,25 @@
 #pragma mark - Table view delegate
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return section == 0 ? @"Playlists" : @"Encoder";
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        [self selectPlaylistAtIndexPath: indexPath];
+    } else {
+        [self selectEncodingPlaylistAtIndexPath: indexPath];
+    }
+}
+
+- (void) selectPlaylistAtIndexPath: (NSIndexPath *) indexPath {
+    MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
+    store.currentPlaylist = [store.currentLibrary.playlists boundSafeObjectAtIndex: indexPath.row];
+
+    [self.delegate didSelectPlaylist: store.currentPlaylist];
+}
+
+- (void) selectEncodingPlaylistAtIndexPath: (NSIndexPath *) indexPath {
+    
 }
 
 @end

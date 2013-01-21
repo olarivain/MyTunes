@@ -12,11 +12,14 @@
 
 #import "MYTLibraryStore.h"
 
+#import "MYTLibraryListViewController.h"
 #import "MYTPlaylistViewController.h"
 
-@interface MYTLibrarySplitViewController ()
+@interface MYTLibrarySplitViewController ()<MYTPlaylistControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *masterContainer;
-@property (strong, nonatomic) IBOutlet MYTPlaylistViewController *playlistController;
+@property (weak, nonatomic) IBOutlet UIView *detailsContainer;
+@property (strong, nonatomic) IBOutlet MYTLibraryListViewController *libraryController;
+@property (strong, nonatomic) IBOutlet MYTPlaylistViewController *playlistViewController;
 @end
 
 @implementation MYTLibrarySplitViewController
@@ -28,7 +31,13 @@
     
     self.title = [MYTLibraryStore sharedInstance].currentLibrary.name;
     
-    [self addPlaylistViewController];
+    // add the subview controllers
+    [self addViewController: self.libraryController
+                     toView: self.masterContainer];
+    [self addViewController: self.playlistViewController
+                     toView: self.detailsContainer];
+    
+    [self.playlistViewController refreshSelectedPlaylist];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,19 +47,25 @@
 }
 
 - (void)viewDidUnload {
-    [self setMasterContainer:nil];
+    self.libraryController = nil;
+    self.playlistViewController = nil;
     [super viewDidUnload];
 }
 
 #pragma mark - View Controller containment
-- (void) addPlaylistViewController {
-	[self addChildViewController: self.playlistController];
-    [self.playlistController didMoveToParentViewController: self];
+- (void) addViewController: (UIViewController *) controller toView: (UIView *) view {
+    [self addChildViewController: controller];
+    [controller didMoveToParentViewController: self];
     
-    [self.masterContainer addSubview: self.playlistController.view];
-    CGRect playlistFrame = self.playlistController.view.frame;
-    playlistFrame.size = self.masterContainer.frame.size;
+    [view addSubview: controller.view];
+    CGRect playlistFrame = controller.view.frame;
+    playlistFrame.size = view.frame.size;
     playlistFrame.origin = CGPointZero;
-    self.playlistController.view.frame = playlistFrame;
+    controller.view.frame = playlistFrame;
+}
+
+#pragma mark - playlist delegate
+- (void) didSelectPlaylist:(MMPlaylist *)playlist {
+    [self.playlistViewController refreshSelectedPlaylist];
 }
 @end

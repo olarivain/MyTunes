@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0000C02E16AD576C0009BE81 /* MYTMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C02D16AD576C0009BE81 /* MYTMovieCell.m */; };
+		0000C03116AD577D0009BE81 /* MYTMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C03016AD577D0009BE81 /* MYTMovieCell.xib */; };
 		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
 		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
 		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
@@ -36,15 +38,21 @@
 		0072365C16AD0818008C1623 /* MYTServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072365916AD0817008C1623 /* MYTServerView.m */; };
 		0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */; };
 		0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */; };
-		0072369216AD17BA008C1623 /* MYTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */; };
-		0072369316AD17BA008C1623 /* MYTPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */; };
+		0072369216AD17BA008C1623 /* MYTLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */; };
+		0072369316AD17BA008C1623 /* MYTLibraryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */; };
 		007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236EA16AD444A008C1623 /* MYTLibraryStore.m */; };
 		007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236ED16AD4744008C1623 /* MYTPlaylistCell.m */; };
 		007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */; };
+		0072373016AD54CF008C1623 /* MYTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */; };
+		0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */; };
+		0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0000C02C16AD576C0009BE81 /* MYTMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTMovieCell.h; sourceTree = "<group>"; };
+		0000C02D16AD576C0009BE81 /* MYTMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTMovieCell.m; sourceTree = "<group>"; };
+		0000C03016AD577D0009BE81 /* MYTMovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieCell.xib; sourceTree = "<group>"; };
 		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
 		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
 		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
@@ -91,15 +99,20 @@
 		0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibrarySplitViewController.h; sourceTree = "<group>"; };
 		0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibrarySplitViewController.m; sourceTree = "<group>"; };
 		0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibrarySplitViewController.xib; sourceTree = "<group>"; };
-		0072368F16AD17B9008C1623 /* MYTPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistViewController.h; sourceTree = "<group>"; };
-		0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistViewController.m; sourceTree = "<group>"; };
-		0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTPlaylistViewController.xib; sourceTree = "<group>"; };
+		0072368F16AD17B9008C1623 /* MYTLibraryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryListViewController.h; sourceTree = "<group>"; };
+		0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryListViewController.m; sourceTree = "<group>"; };
+		0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibraryListViewController.xib; sourceTree = "<group>"; };
 		007236E916AD444A008C1623 /* MYTLibraryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryStore.h; sourceTree = "<group>"; };
 		007236EA16AD444A008C1623 /* MYTLibraryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryStore.m; sourceTree = "<group>"; };
 		007236EC16AD4744008C1623 /* MYTPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistCell.h; sourceTree = "<group>"; };
 		007236ED16AD4744008C1623 /* MYTPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistCell.m; sourceTree = "<group>"; };
 		007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistCell.xib; sourceTree = "<group>"; };
 		007236F116AD47E7008C1623 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		0072372E16AD54CD008C1623 /* MYTPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistViewController.h; sourceTree = "<group>"; };
+		0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistViewController.m; sourceTree = "<group>"; };
+		0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTPlaylistViewController.xib; sourceTree = "<group>"; };
+		0072373716AD573F008C1623 /* MYTMoviePlaylistDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTMoviePlaylistDataSource.h; sourceTree = "<group>"; };
+		0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTMoviePlaylistDataSource.m; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -120,6 +133,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0000C03216AD59C20009BE81 /* TVShow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVShow;
+			sourceTree = "<group>";
+		};
 		0028484214AFF295003F5818 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +331,11 @@
 			children = (
 				0072367716AD14C1008C1623 /* iPad */,
 				0072367D16AD151D008C1623 /* iPhone */,
+				0072373616AD573B008C1623 /* Movie */,
+				0000C03216AD59C20009BE81 /* TVShow */,
+				0072372E16AD54CD008C1623 /* MYTPlaylistViewController.h */,
+				0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */,
+				0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -321,9 +346,9 @@
 				0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */,
 				0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */,
 				0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */,
-				0072368F16AD17B9008C1623 /* MYTPlaylistViewController.h */,
-				0072369016AD17B9008C1623 /* MYTPlaylistViewController.m */,
-				0072369116AD17B9008C1623 /* MYTPlaylistViewController.xib */,
+				0072368F16AD17B9008C1623 /* MYTLibraryListViewController.h */,
+				0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */,
+				0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */,
 				007236EC16AD4744008C1623 /* MYTPlaylistCell.h */,
 				007236ED16AD4744008C1623 /* MYTPlaylistCell.m */,
 				007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */,
@@ -345,6 +370,18 @@
 				007236EA16AD444A008C1623 /* MYTLibraryStore.m */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		0072373616AD573B008C1623 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				0072373716AD573F008C1623 /* MYTMoviePlaylistDataSource.h */,
+				0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */,
+				0000C02C16AD576C0009BE81 /* MYTMovieCell.h */,
+				0000C02D16AD576C0009BE81 /* MYTMovieCell.m */,
+				0000C03016AD577D0009BE81 /* MYTMovieCell.xib */,
+			);
+			path = Movie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,8 +466,10 @@
 				0072365A16AD0818008C1623 /* MYTServerView_iPad.xib in Resources */,
 				0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */,
 				0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */,
-				0072369316AD17BA008C1623 /* MYTPlaylistViewController.xib in Resources */,
+				0072369316AD17BA008C1623 /* MYTLibraryListViewController.xib in Resources */,
 				007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */,
+				0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */,
+				0000C03116AD577D0009BE81 /* MYTMovieCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,9 +511,12 @@
 				0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */,
 				0072365C16AD0818008C1623 /* MYTServerView.m in Sources */,
 				0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */,
-				0072369216AD17BA008C1623 /* MYTPlaylistViewController.m in Sources */,
+				0072369216AD17BA008C1623 /* MYTLibraryListViewController.m in Sources */,
 				007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */,
 				007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */,
+				0072373016AD54CF008C1623 /* MYTPlaylistViewController.m in Sources */,
+				0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */,
+				0000C02E16AD576C0009BE81 /* MYTMovieCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
