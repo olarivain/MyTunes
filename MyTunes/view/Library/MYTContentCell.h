@@ -10,7 +10,7 @@
 
 @class MMContent;
 
-@interface MYTMovieCell : UITableViewCell
+@interface MYTContentCell : UITableViewCell
 
 - (void) updateWithContent: (MMContent *) content;
 

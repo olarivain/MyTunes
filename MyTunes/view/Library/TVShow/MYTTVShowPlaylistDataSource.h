@@ -1,5 +1,5 @@
 //
-//  MYTMoviePlaylistDataSource.h
+//  MYTTVShowPlaylistDataSource.h
 //  MyTunes
 //
 //  Created by Olivier Larivain on 1/21/13.
@@ -10,7 +10,9 @@
 
 #import "MYTPlaylistContentDataSource.h"
 
-@interface MYTMoviePlaylistDataSource : NSObject<MYTPlaylistContentDataSource>
+@class MMTVShowPlaylist;
+
+@interface MYTTVShowPlaylistDataSource : NSObject<MYTPlaylistContentDataSource>
 
 @property (nonatomic, strong, readwrite) MMPlaylist *playlist;
 

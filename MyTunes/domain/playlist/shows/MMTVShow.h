@@ -17,4 +17,6 @@
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSArray *seasons;
 
+@property (nonatomic, readonly) NSInteger totalEpisodeCount;
+
 @end

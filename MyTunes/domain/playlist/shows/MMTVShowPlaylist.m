@@ -9,6 +9,7 @@
 #import "MMTVShowPlaylist.h"
 
 #import "MMTVShow.h"
+#import "MMTVShowSeason.h"
 
 @interface MMTVShowPlaylist() {
 }
@@ -33,6 +34,52 @@
     return self;
 }
 
+#pragma mark - add/remove overrides
+- (void) removeContent: (MMContent*) content {
+    [super removeContent: content];
+    
+    // remove the episode from the show
+    MMTVShow *show = [self contentGroupForContent: content];
+    [show removeContent: content];
+    
+    // remove the show altogether if it has no more episodes
+    if(show.totalEpisodeCount == 0) {
+        [self removeContentGroup: show];
+    }
+}
+
+- (void) updateContent: (MMContent *) content {
+    MMTVShow *previousShow = [self contentGroupForContent: content];
+    
+    [super updateContent: content];
+    
+    // remove the show altogether if it has no more episodes
+    if(previousShow.totalEpisodeCount == 0) {
+        [self removeContentGroup: previousShow];
+    }
+}
+
+#pragma mark - accessing all sorted TV Show seasons
+- (NSArray *) sortedSeasons {
+	NSMutableArray *sortedSeasons = [NSMutableArray arrayWithCapacity: self.contentGroups.count * 10];
+
+	for(MMTVShow *show in self.contentGroups) {
+		[sortedSeasons addObjectsFromArray: show.seasons];
+	}
+	
+	return sortedSeasons;
+}
+
+- (NSArray *) sortedUnwatchedSeasons {
+    NSArray *sortedSeason = self.sortedSeasons;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MMTVShowSeason *evaluatedObject, NSDictionary *bindings) {
+        return evaluatedObject.isUnwatched;
+    }];
+    return [sortedSeason filteredArrayUsingPredicate: predicate];
+}
+
+#pragma mark - sorting
 - (void) privateSortContent: (NSMutableArray *) groups {
     [groups sortUsingComparator:^NSComparisonResult(MMTVShow *obj1, MMTVShow *obj2) {
         if(obj1.name == nil) {
@@ -51,6 +98,7 @@
     }
 }
 
+#pragma mark - private overrides
 - (id<MMContentGroup>) contentGroupForContent: (MMContent *) content
 {
     if(content.name == nil) {
@@ -59,12 +107,14 @@
     
     for(MMTVShow *show in self.contentGroups) {
         
-        if([show.name caseInsensitiveCompare: content.name] == NSOrderedSame) {
+        if([show.name caseInsensitiveCompare: content.show] == NSOrderedSame) {
             return show;
         }
     }
     
-    return [MMTVShow tvShowWithName: content.name];
+    MMTVShow *show = [MMTVShow tvShowWithName: content.show];
+    [self addContentGroup: show];
+    return show;
 }
 
 @end

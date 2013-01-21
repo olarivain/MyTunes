@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 kra. All rights reserved.
 //
 
-#import "NSNumber+NSNumber_NonZero.h"
+#import "NSNumber+NonZero.h"
 
 @implementation NSNumber (NSNumber_NonZero)
 

@@ -13,4 +13,7 @@
 {
 }
 
+@property (nonatomic, readonly) NSArray *sortedSeasons;
+@property (nonatomic, readonly) NSArray *sortedUnwatchedSeasons;
+
 @end

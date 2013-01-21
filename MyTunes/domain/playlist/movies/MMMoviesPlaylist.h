@@ -15,4 +15,6 @@
     
 }
 
+@property (nonatomic, readonly) NSArray *unwatchedMovies;
+
 @end

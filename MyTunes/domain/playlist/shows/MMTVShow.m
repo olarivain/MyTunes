@@ -34,6 +34,16 @@
     return self;
 }
 
+#pragma mark - synthetic getters
+- (NSInteger) totalEpisodeCount {
+    NSInteger count = 0;
+    for(MMTVShowSeason *season in self.seasons) {
+        count += season.episodes.count;
+    }
+    
+    return count;
+}
+
 #pragma mark - Content Group protocol
 - (BOOL) addContent:(MMContent *)content {
     MMTVShowSeason *season = [self seasonForContent: content];
@@ -42,7 +52,14 @@
 
 - (BOOL) removeContent:(MMContent *)content {
     MMTVShowSeason *season = [self seasonForContent: content];
-    return [season removeEpisode: content];
+    BOOL removed = [season removeEpisode: content];
+    
+    // season is now empty, remove it
+    if(season.episodes.count == 0) {
+        [_seasons removeObject: season];
+    }
+    
+    return removed;
 }
 
 - (void) sortContent {
@@ -62,7 +79,9 @@
         }
     }
     
-    return [MMTVShowSeason tvShowSeason: self season: seasonNumber];
+    MMTVShowSeason *season = [MMTVShowSeason tvShowSeason: self season: seasonNumber];
+    [_seasons addObjectNilSafe: season];
+    return season;
 }
 
 @end

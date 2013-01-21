@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 kra. All rights reserved.
 //
 
+#import <MediaManagement/MMContent.h>
+
 #import "MMTVShowSeason.h"
 
-#import "MMContent.h"
+#import "MMTVShow.h"
 
 @interface MMTVShowSeason () {
     __strong NSMutableArray *_episodes;
@@ -35,6 +37,22 @@
     return self;
 }
 
+#pragma mark - synthetic getters
+- (NSString *) humanReadableName {
+    NSString *humanReadableSeason = self.season == 0 ? @"Unknown Season" : [NSString stringWithFormat: @"Season %i", self.season];
+    return [NSString stringWithFormat: @"%@ - %@", self.show.name, humanReadableSeason];
+}
+
+- (BOOL) isUnwatched {
+    for(MMContent *content in self.episodes) {
+        if(content.unplayed) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+#pragma mark - managing episodes
 - (BOOL) addEpisode: (MMContent *) content {
     NSAssert(content.kind == TV_SHOW, @"Only tv shows can be added to a TV Show season");
     if([self.episodes containsObject: content]) {
@@ -44,6 +62,7 @@
     [_episodes addObjectNilSafe: content];
     return YES;
 }
+
 - (BOOL) removeEpisode: (MMContent *) content {
     if(![self.episodes containsObject: content]) {
         return NO;
@@ -53,6 +72,7 @@
     return YES;
 }
 
+#pragma mark - sorting
 - (void) sortContent {
     [_episodes sortUsingComparator:^NSComparisonResult(MMContent *obj1, MMContent *obj2) {
         if(obj1.episodeNumber == nil && obj2.episodeNumber == nil) {

@@ -12,13 +12,15 @@
 #import "MYTMoviePlaylistDataSource.h"
 
 #import "MMMoviesPlaylist.h"
-#import "MYTMovieCell.h"
+#import "MYTContentCell.h"
 
 @interface MYTMoviePlaylistDataSource ()
 
-@property (strong, nonatomic, readwrite) MYTMovieCell *templateCell;
+@property (strong, nonatomic, readwrite) MYTContentCell *templateCell;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong, readwrite) NSArray *content;
+
+@property (nonatomic, readonly) MMMoviesPlaylist *moviesPlaylist;
 
 @end
 
@@ -31,13 +33,16 @@
 
 
 #pragma mark - Synthetic getter/setters
+- (MMMoviesPlaylist *) moviesPlaylist {
+    return (MMMoviesPlaylist *) self.playlist;
+}
 // clear the content on set
-- (void) setPlaylist:(MMPlaylist *)playlist {
+- (void) setPlaylist:(MMMoviesPlaylist *)playlist {
     _playlist = playlist;
     self.content = nil;
 }
 
-- (MYTMovieCell *) templateCell {
+- (MYTContentCell *) templateCell {
     if(_templateCell == nil) {
         _templateCell = [self.table dequeueReusableCellWithIdentifier: @"movieCell"];
     }
@@ -46,7 +51,7 @@
 }
 
 - (void) reload:(BOOL) all {
-	self.content = all ? self.playlist.content : self.playlist.unwatchedContent;
+	self.content = all ? self.moviesPlaylist.content : self.moviesPlaylist.unwatchedMovies;
     [self.table reloadData];
 }
 
@@ -60,7 +65,7 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MYTMovieCell *cell = [tableView dequeueReusableCellWithIdentifier: @"movieCell"];
+    MYTContentCell *cell = [tableView dequeueReusableCellWithIdentifier: @"movieCell"];
 	
 	MMContent *content = [self.content boundSafeObjectAtIndex: indexPath.row];
 	[cell updateWithContent: content];

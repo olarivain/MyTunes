@@ -8,20 +8,21 @@
 
 #import <MediaManagement/MMContent.h>
 
-#import "MYTMovieCell.h"
+#import "MYTContentCell.h"
 
-@interface MYTMovieCell () {
+@interface MYTContentCell () {
 	CGSize _constrainedSize;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *unplayedIcon;
+@property (weak, nonatomic) IBOutlet UILabel *episodeNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @end
 
 
 
-@implementation MYTMovieCell
+@implementation MYTContentCell
 
 - (void) awakeFromNib {
 	_constrainedSize = self.movieLabel.frame.size;
@@ -30,6 +31,7 @@
 
 - (void) updateWithContent: (MMContent *) content {
 	self.movieLabel.text = content.name;
+	self.episodeNumberLabel.text = [content.episodeNumber nonZeroStringValue];
 	self.durationLabel.text = content.durationHumanReadable;
 	self.unplayedIcon.hidden = !content.unplayed;
 }

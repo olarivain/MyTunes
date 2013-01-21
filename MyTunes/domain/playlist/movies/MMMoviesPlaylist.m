@@ -25,6 +25,14 @@
     return self;
 }
 
+#pragma mark - synthetic getters
+- (NSArray *) unwatchedMovies {
+	NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MMContent *evaluatedObject, NSDictionary *bindings) {
+		return evaluatedObject.unplayed;
+	}];
+	return [self.content filteredArrayUsingPredicate: predicate];
+}
+
 - (void) privateSortContent: (NSMutableArray *) groups {
     
 }

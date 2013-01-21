@@ -18,6 +18,9 @@
 @property (nonatomic, weak, readonly) MMTVShow *show;
 @property (nonatomic, assign, readonly) NSInteger season;
 @property (nonatomic, readonly) NSArray *episodes;
+@property (nonatomic, readonly) BOOL isUnwatched;
+
+@property (nonatomic, readonly) NSString *humanReadableName;
 
 - (BOOL) addEpisode: (MMContent *) content;
 - (BOOL) removeEpisode: (MMContent *) content;
