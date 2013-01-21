@@ -72,6 +72,7 @@
 		0072365A16AD0818008C1623 /* MMServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365616AD0815008C1623 /* MMServerView_iPad.xib */; };
 		0072365B16AD0818008C1623 /* MMServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365716AD0816008C1623 /* MMServerView_iPhone.xib */; };
 		0072365C16AD0818008C1623 /* MMServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072365916AD0817008C1623 /* MMServerView.m */; };
+		0072367616AD133D008C1623 /* MYTLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072367516AD133D008C1623 /* MYTLibraryViewController.m */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		0072365716AD0816008C1623 /* MMServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMServerView_iPhone.xib; sourceTree = "<group>"; };
 		0072365816AD0817008C1623 /* MMServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMServerView.h; sourceTree = "<group>"; };
 		0072365916AD0817008C1623 /* MMServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMServerView.m; sourceTree = "<group>"; };
+		0072367416AD133D008C1623 /* MYTLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryViewController.h; sourceTree = "<group>"; };
+		0072367516AD133D008C1623 /* MYTLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryViewController.m; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -237,6 +240,7 @@
 				DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		002A0AE21324549D00320A06 /* Products */ = {
 			isa = PBXGroup;
@@ -344,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				007233BE16AC0FE9008C1623 /* home */,
+				0072367316AD1318008C1623 /* Library */,
 				007233C516AC0FE9008C1623 /* loading */,
 				007233C816AC0FE9008C1623 /* main */,
 			);
@@ -553,6 +558,15 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
+		0072367316AD1318008C1623 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0072367416AD133D008C1623 /* MYTLibraryViewController.h */,
+				0072367516AD133D008C1623 /* MYTLibraryViewController.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -580,6 +594,7 @@
 		002A0AD81324549D00320A06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MYT;
 				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 002A0ADB1324549D00320A06 /* Build configuration list for PBXProject "MyTunes" */;
@@ -693,6 +708,7 @@
 				0072349B16AC19D3008C1623 /* MediaManagementAppDelegate.m in Sources */,
 				0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */,
 				0072365C16AD0818008C1623 /* MMServerView.m in Sources */,
+				0072367616AD133D008C1623 /* MYTLibraryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

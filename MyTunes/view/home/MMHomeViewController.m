@@ -44,7 +44,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-
+    
 	// setup the carousel
 	self.serverCarousel.style = KCCarouselViewStyleGrid;
 	self.serverCarousel.contentPadding = 20.0f;
@@ -139,7 +139,7 @@
 	if([error present]) {
 		return ;
 	}
-
+    
 	// create the right view controller for the platform and configure it
 	NSString *nibName = [KCNibUtils nibName: @"MMLibraryViewController"];
 	Class clazz = isiPad ? [MMLibraryViewController_iPad class] : [MMLibraryViewController_iPhone class];
@@ -149,12 +149,12 @@
 	
 	[self.navigationController pushViewController: libraryViewController
 										 animated: YES];
-
+    
 }
 
 - (UIViewController<MMLibraryViewController> *) loadLibraryController
 {
-
+    
 }
 
 @end

@@ -18,7 +18,7 @@ typedef void(^MMRemoteLibraryCallback)(void);
  A remote library represents the full library held by the remote iTunes instance.
  Its "headers" (i.e. the playlists descriptions) can be loaded.
  */
-@interface MMRemoteLibrary : MMLibrary 
+@interface MMRemoteLibrary : MMLibrary
 
 @property (nonatomic, readonly, weak) MMServer *server;
 @property (nonatomic, readonly, strong) NSArray *systemPlaylists;

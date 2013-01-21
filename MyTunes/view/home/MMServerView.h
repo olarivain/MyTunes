@@ -10,7 +10,7 @@
 
 @class MMServer;
 
-@interface MMServerView : UIControl 
+@interface MMServerView : UIControl
 {
 }
 

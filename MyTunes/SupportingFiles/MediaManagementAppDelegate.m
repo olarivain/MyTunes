@@ -25,7 +25,7 @@ const int ddLogLevel = LOG_LEVEL_INFO;
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
 	
-	[DDLog addLogger: [DDTTYLogger sharedInstance]]; 
+	[DDLog addLogger: [DDTTYLogger sharedInstance]];
 	
 	return YES;
 }
