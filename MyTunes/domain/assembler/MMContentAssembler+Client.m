@@ -8,12 +8,12 @@
 
 #import <MediaManagement/MMLibrary.h>
 #import <MediaManagement/MMPlaylist.h>
-#import <MediaManagement/MMMoviesPlaylist.h>
-#import <MediaManagement/MMTVShowPlaylist.h>
 #import <MediaManagement/MMContent.h>
 
 #import "MMContentAssembler+Client.h"
 
+#import "MMMoviesPlaylist.h"
+#import "MMTVShowPlaylist.h"
 
 
 @implementation MMContentAssembler (MMContentAssembler_Client)

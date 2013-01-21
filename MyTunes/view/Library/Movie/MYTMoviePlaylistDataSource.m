@@ -6,11 +6,11 @@
 //
 //
 
-#import <MediaManagement/MMMoviesPlaylist.h>
 #import <MediaManagement/MMContent.h>
 
 #import "MYTMoviePlaylistDataSource.h"
 
+#import "MMMoviesPlaylist.h"
 #import "MYTMovieCell.h"
 
 @interface MYTMoviePlaylistDataSource ()

@@ -1,0 +1,33 @@
+//
+//  MMMoviesMediaLibrary.m
+//  MediaManagementCommon
+//
+//  Created by Kra on 5/1/11.
+//  Copyright 2011 kra. All rights reserved.
+//
+
+#import "MMMoviesPlaylist.h"
+
+
+@implementation MMMoviesPlaylist
+
+- (id)initWithContentKind:(MMContentKind)kind andSize:(NSUInteger)size
+{
+    self = [super initWithContentKind:kind andSize: size];
+    if (self)
+    {
+        if(kind != MOVIE)
+        {
+            DDLogError(@"FATAL: Movie Library Must have a type of MOVIE");
+        }
+    }
+    
+    return self;
+}
+
+- (void) privateSortContent: (NSMutableArray *) groups {
+    
+}
+
+
+@end
