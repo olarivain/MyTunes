@@ -18,35 +18,35 @@
 
 - (void) updateWithSubtitleTrack:(MMSubtitleTrack *)track
 {
-  NSString *title = [self subtitleLabelFromTrack: track];
-  trackLabel.text = title;
-  
-  checkmarkView.hidden = !track.selected;
+	NSString *title = [self subtitleLabelFromTrack: track];
+	trackLabel.text = title;
+	
+	checkmarkView.hidden = !track.selected;
 }
 
 - (NSString *) subtitleLabelFromTrack:(MMSubtitleTrack *)track
 {
-  NSString *subtitle = nil;
-  switch (track.type) 
-  {
-    case SUBTITLE_VOBSUB:
-      subtitle = @"VOBSUB";
-      break;
-    case SUBTITLE_CLOSED_CAPTION:
-      subtitle = @"Closed Caption";
-      break;
-    default:
-      break;
-  }
-  
-  NSString *language = [[NSLocale currentLocale] displayNameForKey: NSLocaleIdentifier value: track.language];
-  NSString *label = [NSString stringWithFormat: @"%@ - %@", language, subtitle];
-  return label;
+	NSString *subtitle = nil;
+	switch (track.type)
+	{
+		case SUBTITLE_VOBSUB:
+			subtitle = @"VOBSUB";
+			break;
+		case SUBTITLE_CLOSED_CAPTION:
+			subtitle = @"Closed Caption";
+			break;
+		default:
+			break;
+	}
+	
+	NSString *language = [[NSLocale currentLocale] displayNameForKey: NSLocaleIdentifier value: track.language];
+	NSString *label = [NSString stringWithFormat: @"%@ - %@", language, subtitle];
+	return label;
 }
 
 - (void) hidesSeparator: (BOOL) hide
 {
-  separator.hidden = hide;
+	separator.hidden = hide;
 }
 
 @end

@@ -18,18 +18,18 @@
 
 - (void) setContent:(MMContent *) newContent
 {
-  if(newContent == content) {
-    return;
-  }
-  
-  content = newContent;
-  
-  [genreFieldView setValue: content.genre];
+	if(newContent == content) {
+		return;
+	}
+	
+	content = newContent;
+	
+	[genreFieldView setValue: content.genre];
 }
 
 - (void) updateContent
 {
-  content.genre = [genreFieldView stringValue];
+	content.genre = [genreFieldView stringValue];
 }
 
 @end

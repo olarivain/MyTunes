@@ -16,32 +16,32 @@
 
 - (void) setContentGroups:(NSArray *)contentTypes
 {
-  if(contentGroups == contentTypes)
-  {
-    return;
-  }
-  
-  contentGroups = contentTypes;
-  
-  [segmentedControl removeAllSegments];
-  segmentedControl.hidden = NO;
-  
-  for(MMContentGroup *contentType in contentGroups)
-  {
-    NSInteger count = [segmentedControl numberOfSegments];
-    [segmentedControl insertSegmentWithTitle: contentType.name atIndex: count animated: NO];
-  }
-  segmentedControl.selectedSegmentIndex = 0;
+	if(contentGroups == contentTypes)
+	{
+		return;
+	}
+	
+	contentGroups = contentTypes;
+	
+	[segmentedControl removeAllSegments];
+	segmentedControl.hidden = NO;
+	
+	for(MMContentGroup *contentType in contentGroups)
+	{
+		NSInteger count = [segmentedControl numberOfSegments];
+		[segmentedControl insertSegmentWithTitle: contentType.name atIndex: count animated: NO];
+	}
+	segmentedControl.selectedSegmentIndex = 0;
 }
 
 - (MMContentGroup*) selectedContentGroup
 {
-  if([contentGroups count] <= segmentedControl.selectedSegmentIndex)
-  {
-    return nil;
-  }
-  
-  return [contentGroups objectAtIndex: segmentedControl.selectedSegmentIndex];
+	if([contentGroups count] <= segmentedControl.selectedSegmentIndex)
+	{
+		return nil;
+	}
+	
+	return [contentGroups objectAtIndex: segmentedControl.selectedSegmentIndex];
 }
 
 @end

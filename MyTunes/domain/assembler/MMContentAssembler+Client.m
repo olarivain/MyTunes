@@ -17,25 +17,25 @@
 
 - (void) updateLibrary: (MMLibrary*) library withDto: (NSArray*) dto
 {
-  [library clear];
-  
-  for(NSDictionary *playlistDto in dto)
-  {
-    MMPlaylist *playlist = [self createPlaylist: playlistDto];
-    [library addPlaylist: playlist];
-  }
+	[library clear];
+	
+	for(NSDictionary *playlistDto in dto)
+	{
+		MMPlaylist *playlist = [self createPlaylist: playlistDto];
+		[library addPlaylist: playlist];
+	}
 }
 
 - (void) updatePlaylist: (MMPlaylist*) playlist withDto: (NSDictionary*) dto
 {
-  [playlist clear];
-  NSArray *contentDtos = [dto objectForKey:@"content"];
-  for(NSDictionary *contentDto in contentDtos)
-  {
-    MMContent *content = [self createContent: contentDto];
-    [playlist addContent: content];
-  }
-  [playlist sortContent];
+	[playlist clear];
+	NSArray *contentDtos = [dto objectForKey:@"content"];
+	for(NSDictionary *contentDto in contentDtos)
+	{
+		MMContent *content = [self createContent: contentDto];
+		[playlist addContent: content];
+	}
+	[playlist sortContent];
 }
 
 @end

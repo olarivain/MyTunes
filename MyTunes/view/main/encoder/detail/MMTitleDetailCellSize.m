@@ -12,18 +12,18 @@
 
 + (MMTitleDetailCellSize *) titleDetailCellSize
 {
-  return [[MMTitleDetailCellSize alloc] init];
+	return [[MMTitleDetailCellSize alloc] init];
 }
 
 - (id) init
 {
-  self = [super init];
-  if(self)
-  {
-    titleTracksHeight = 0.0f;
-    totalHeight = 0.0f;
-  }
-  return self;
+	self = [super init];
+	if(self)
+	{
+		titleTracksHeight = 0.0f;
+		totalHeight = 0.0f;
+	}
+	return self;
 }
 
 @synthesize titleTracksHeight;

@@ -18,45 +18,45 @@
 
 @synthesize textView;
 
-- (void) setValue: (id) value 
+- (void) setValue: (id) value
 {
-  if(value == nil)
-  {
-    textView.text = @"";
-    return;
-  }
-  textView.text = [NSString convert: value];
+	if(value == nil)
+	{
+		textView.text = @"";
+		return;
+	}
+	textView.text = [NSString convert: value];
 }
 
-- (NSString *) stringValue 
+- (NSString *) stringValue
 {
-  return textView.text;
+	return textView.text;
 }
 - (NSNumber *) numberValue
 {
-  // attempt to conveert string to number
-  NSString *value = [self stringValue];
-
-  // no value, return nil
-  if([value length] == 0)
-  {
-    return nil;
-  }
-  
-  NSInteger number = [value integerValue];
-  // number is not parseable, return nil
-  if(number == 0)
-  {
-    return nil;
-  }
-  
-  // convert NSInteger to NSNumber
-  return [NSNumber numberWithInteger: number];
+	// attempt to conveert string to number
+	NSString *value = [self stringValue];
+	
+	// no value, return nil
+	if([value length] == 0)
+	{
+		return nil;
+	}
+	
+	NSInteger number = [value integerValue];
+	// number is not parseable, return nil
+	if(number == 0)
+	{
+		return nil;
+	}
+	
+	// convert NSInteger to NSNumber
+	return [NSNumber numberWithInteger: number];
 }
 
 - (void) setInputAccessoryView: (UIView *) view
 {
-  textView.inputAccessoryView = view;
+	textView.inputAccessoryView = view;
 }
 
 @end

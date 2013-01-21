@@ -14,7 +14,7 @@
 
 - (void) updateWithTitleList: (MMTitleList *) titleList
 {
-  name.text = titleList.name;
+	name.text = titleList.name;
 }
 
 @end

@@ -12,18 +12,18 @@
 
 + (MMPlaylistContentCellSize *) playlistContentCellSize
 {
-  return [[MMPlaylistContentCellSize alloc] init];
+	return [[MMPlaylistContentCellSize alloc] init];
 }
 
 - (id) init
 {
-  self = [super init];
-  if(self)
-  {
-    nameSize = CGSizeZero;
-    totalHeight = 0.0f;
-  }
-  return self;
+	self = [super init];
+	if(self)
+	{
+		nameSize = CGSizeZero;
+		totalHeight = 0.0f;
+	}
+	return self;
 }
 
 @synthesize nameSize;

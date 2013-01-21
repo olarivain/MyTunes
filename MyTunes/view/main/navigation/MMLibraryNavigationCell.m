@@ -12,7 +12,7 @@
 
 - (void) setName: (NSString *) name
 {
-  nameLabel.text = name;
+	nameLabel.text = name;
 }
 
 @end

@@ -17,19 +17,19 @@
 #pragma mark - View lifecycle
 
 /*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
+ // Implement loadView to create a view hierarchy programmatically, without using a nib.
+ - (void)loadView
+ {
+ }
+ */
 
 /*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
+ // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+ - (void)viewDidLoad
+ {
+ [super viewDidLoad];
+ }
+ */
 
 - (void)viewDidUnload
 {
@@ -47,19 +47,19 @@
 #pragma mark - Server get/set
 - (MMServer*) server
 {
-  return server;
+	return server;
 }
 
 - (void) setServer:(MMServer *)newServer
 {
-  if(server == newServer)
-  {
-    return;
-  }
-  
-   server = newServer;
-  
-  [[self navigationItem] setTitle: [server name]];
+	if(server == newServer)
+	{
+		return;
+	}
+	
+	server = newServer;
+	
+	[[self navigationItem] setTitle: [server name]];
 }
 
 #pragma mark - Action handlers

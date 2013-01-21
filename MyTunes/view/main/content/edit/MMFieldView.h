@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MMFieldView : UIView {
-  IBOutlet UITextField *textView;
+	IBOutlet UITextField *textView;
 }
 
 - (void) setValue: (id) value;

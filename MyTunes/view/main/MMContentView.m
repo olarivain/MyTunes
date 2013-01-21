@@ -24,35 +24,35 @@
 #pragma mark - Loading activity
 - (void) setLoading: (BOOL) loading
 {
-  // animation blocks
-  KCAnimationBlock animation = ^{
-    loadingLayer.hidden = !loading;
-  };
-  
-  KCCompletionBlock completion = ^(BOOL finished){
-    if(loading)
-    {
-      [activityIndicator startAnimating]; 
-    }
-    else 
-    {
-      [activityIndicator stopAnimating];
-    }
-    activityIndicator.hidden = !loading;
-  };
-  
-  // we have to bring to front and send back when we're done
-  if(loading)
-  {
-    [self bringSubviewToFront: loadingLayer];
-  }
-  else
-  {
-    [self sendSubviewToBack: loadingLayer];
-  }
-  
-  // now animate shit around
-  [UIView animateWithDuration: SHORT_ANIMATION_DURATION animations: animation completion: completion];   
+	// animation blocks
+	KCAnimationBlock animation = ^{
+		loadingLayer.hidden = !loading;
+	};
+	
+	KCCompletionBlock completion = ^(BOOL finished){
+		if(loading)
+		{
+			[activityIndicator startAnimating];
+		}
+		else
+		{
+			[activityIndicator stopAnimating];
+		}
+		activityIndicator.hidden = !loading;
+	};
+	
+	// we have to bring to front and send back when we're done
+	if(loading)
+	{
+		[self bringSubviewToFront: loadingLayer];
+	}
+	else
+	{
+		[self sendSubviewToBack: loadingLayer];
+	}
+	
+	// now animate shit around
+	[UIView animateWithDuration: SHORT_ANIMATION_DURATION animations: animation completion: completion];
 }
 
 @end

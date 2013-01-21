@@ -22,13 +22,13 @@
 
 - (void) awakeFromNib
 {
-  self.layer.cornerRadius = 20;
+	self.layer.cornerRadius = 20;
 }
 
 #pragma  mark - Server management;
 - (void) update
 {
-  [label setText: server.name]; 
+	[label setText: server.name];
 }
 
 @end

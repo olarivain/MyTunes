@@ -12,12 +12,12 @@
 
 - (NSString *) nonZeroStringValue
 {
-  if([self floatValue] != 0)
-  {
-    return [self stringValue];
-  }
-  
-  return @"";
+	if([self floatValue] != 0)
+	{
+		return [self stringValue];
+	}
+	
+	return @"";
 }
 
 @end

@@ -36,158 +36,158 @@
 
 - (void) selectPlaylist: (MMPlaylist *) playlist
 {
-  if(playlist == nil)
-  {
-    NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
-    playlist = [self playlistForIndexPath: path];
-  }
-  
-  // plauylist doesn't exist, get the hell out
-  if(playlist == nil)
-  {
-    return;
-  }
-  
-  // select it in the table
-  NSIndexPath *selectedIndexPath = [self indexPathForPlaylist: playlist];
-  [table selectRowAtIndexPath: selectedIndexPath animated: NO scrollPosition:UITableViewScrollPositionTop];
-  
-  // and notify delegate it has been selected
-  [delegate didSelectPlaylist: playlist];
+	if(playlist == nil)
+	{
+		NSIndexPath *path = [NSIndexPath indexPathForRow: 0 inSection: 0];
+		playlist = [self playlistForIndexPath: path];
+	}
+	
+	// plauylist doesn't exist, get the hell out
+	if(playlist == nil)
+	{
+		return;
+	}
+	
+	// select it in the table
+	NSIndexPath *selectedIndexPath = [self indexPathForPlaylist: playlist];
+	[table selectRowAtIndexPath: selectedIndexPath animated: NO scrollPosition:UITableViewScrollPositionTop];
+	
+	// and notify delegate it has been selected
+	[delegate didSelectPlaylist: playlist];
 }
 
 #pragma mark - TableView Data source
 #pragma mark Section/Rows count
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-  // library + encoder are ALWAYS there.
-  // don't display user playlists if there not available
-  return 2 + [library hasUserPlaylist];
+	// library + encoder are ALWAYS there.
+	// don't display user playlists if there not available
+	return 2 + [library hasUserPlaylist];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  if([self isPlaylistAtSection: section])
-  {
-    NSArray *playlists = [self playlistListForSection: section];
-    return [playlists count];
-  }
-  
-  // only one cell in encoder section: resource list
-  return 1;
+	if([self isPlaylistAtSection: section])
+	{
+		NSArray *playlists = [self playlistListForSection: section];
+		return [playlists count];
+	}
+	
+	// only one cell in encoder section: resource list
+	return 1;
 }
 
 #pragma mark Build Cells
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if([self isPlaylistAtIndexPath: indexPath])
-  {
-    return [self tableView: tableView playlistCellForRowAtIndexPath: indexPath];
-  }
-  
-  return [self tableView: tableView encoderCellForRowAtIndexPath: indexPath];
+	if([self isPlaylistAtIndexPath: indexPath])
+	{
+		return [self tableView: tableView playlistCellForRowAtIndexPath: indexPath];
+	}
+	
+	return [self tableView: tableView encoderCellForRowAtIndexPath: indexPath];
 }
 
 #pragma mark Playlist cells
 - (UITableViewCell *) tableView:(UITableView *)tableView playlistCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *cellId = @"playlistCell";
-  MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
-  if(cell == nil)
-  {
-    NSBundle *bundle = [NSBundle mainBundle];
-    [bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
-    cell = navigationCell;
-    navigationCell = nil;
-  }
-  
-  MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-  [cell setName: playlist.name];
-  return cell;
+	NSString *cellId = @"playlistCell";
+	MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
+	if(cell == nil)
+	{
+		NSBundle *bundle = [NSBundle mainBundle];
+		[bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
+		cell = navigationCell;
+		navigationCell = nil;
+	}
+	
+	MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
+	[cell setName: playlist.name];
+	return cell;
 }
 
 #pragma mark Encoder cells
 - (UITableViewCell *) tableView:(UITableView *)tableView encoderCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *cellId = @"playlistCell";
-  MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
-  if(cell == nil)
-  {
-    NSBundle *bundle = [NSBundle mainBundle];
-    [bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
-    cell = navigationCell;
-    navigationCell = nil;
-  }
-  
-  [cell setName: @"Resources"];
-  return cell;
+	NSString *cellId = @"playlistCell";
+	MMLibraryNavigationCell *cell = (MMLibraryNavigationCell *) [tableView dequeueReusableCellWithIdentifier: cellId];
+	if(cell == nil)
+	{
+		NSBundle *bundle = [NSBundle mainBundle];
+		[bundle loadNibNamed:@"MMLibraryNavigationCell" owner: self options: nil];
+		cell = navigationCell;
+		navigationCell = nil;
+	}
+	
+	[cell setName: @"Resources"];
+	return cell;
 }
 
 - (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  // titles for playlists
-  if([self isPlaylistAtSection: section])
-  {
-    return section == 0 ? @"Library" : @"Encoder";
-  }
-  
-  // if we got here, we have no user playlist and we're beyond library: the section is the encoder
-  return @"Encoder";
+	// titles for playlists
+	if([self isPlaylistAtSection: section])
+	{
+		return section == 0 ? @"Library" : @"Encoder";
+	}
+	
+	// if we got here, we have no user playlist and we're beyond library: the section is the encoder
+	return @"Encoder";
 }
 
 #pragma mark - Table Delegate
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{ 
-  if([self isPlaylistAtIndexPath: indexPath])
-  {
-    MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
-    [delegate didSelectPlaylist: playlist];
-    return;
-  }
-  
-
-  [delegate didSelectEncoderResources];
-  return;
+{
+	if([self isPlaylistAtIndexPath: indexPath])
+	{
+		MMPlaylist *playlist = [self playlistForIndexPath: indexPath];
+		[delegate didSelectPlaylist: playlist];
+		return;
+	}
+	
+	
+	[delegate didSelectEncoderResources];
+	return;
 }
 
 #pragma - Plaulist from index paths/sections
 - (NSArray*) playlistListForSection: (NSInteger) index
 {
-  NSArray *playlists = index == 0 ? library.systemPlaylists : library.userPlaylists;
-  return playlists;
+	NSArray *playlists = index == 0 ? library.systemPlaylists : library.userPlaylists;
+	return playlists;
 }
 
 - (MMPlaylist*) playlistForIndexPath: (NSIndexPath*) indexPath
 {
-  NSArray *playlists = [self playlistListForSection: indexPath.section];
-  MMPlaylist *playlist = [playlists boundSafeObjectAtIndex: indexPath.row];
-  return playlist;
+	NSArray *playlists = [self playlistListForSection: indexPath.section];
+	MMPlaylist *playlist = [playlists boundSafeObjectAtIndex: indexPath.row];
+	return playlist;
 }
-                                    
+
 - (NSIndexPath *) indexPathForPlaylist: (MMPlaylist *) playlist
 {
-  NSArray *container = library.systemPlaylists;
-  NSInteger section = 0;
-  if([library.userPlaylists containsObject:playlist])
-  {
-    section = 1;
-    container = library.userPlaylists;
-  }
-  
-  NSInteger row = [container indexOfObject: playlist];
-  return [NSIndexPath indexPathForRow: row inSection: section];
+	NSArray *container = library.systemPlaylists;
+	NSInteger section = 0;
+	if([library.userPlaylists containsObject:playlist])
+	{
+		section = 1;
+		container = library.userPlaylists;
+	}
+	
+	NSInteger row = [container indexOfObject: playlist];
+	return [NSIndexPath indexPathForRow: row inSection: section];
 }
 
 #pragma mark - whether an index path represents a playlist or the encoder's sections
 - (BOOL) isPlaylistAtIndexPath: (NSIndexPath *) indexPath
 {
-  return [self isPlaylistAtSection: indexPath.section];
+	return [self isPlaylistAtSection: indexPath.section];
 }
-      
+
 - (BOOL) isPlaylistAtSection: (NSInteger) section
 {
-  return section == 0 || (section == 1 && [library hasUserPlaylist]);
+	return section == 0 || (section == 1 && [library hasUserPlaylist]);
 }
-  
+
 
 @end
