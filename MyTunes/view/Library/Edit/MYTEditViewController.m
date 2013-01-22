@@ -49,6 +49,8 @@
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.navigationItem.rightBarButtonItem = self.doneButton;
     
+    self.inputVIewController.enabled = isiPhone;
+    
     self.currentIndex = [self.contentList indexOfObject: self.content];
     [self updateNextPreviousButtons];
 
