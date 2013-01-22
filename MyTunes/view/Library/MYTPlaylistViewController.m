@@ -42,10 +42,11 @@
     
     self.title = [MYTLibraryStore sharedInstance].currentLibrary.name;
     
-    // 
-    dispatch_once(&initialPlaylistSelectionToken, ^{
-        [self refreshSelectedPlaylist];
-    });
+    // iOS 6 only, meaning viewDidLoad happens once and only once.
+    // so just get crazy and refresh on did load :)
+    [self refreshSelectedPlaylist];
+    // same applies for the tab bar buddy!
+    self.playlistTabBar.selectedItem = [self.playlistTabBar.items boundSafeObjectAtIndex: 0];
 }
 
 - (void)didReceiveMemoryWarning

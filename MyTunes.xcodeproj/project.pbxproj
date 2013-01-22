@@ -36,7 +36,6 @@
 		0072342816AC0FE9008C1623 /* MYTHomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */; };
 		0072342916AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */; };
 		0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C416AC0FE9008C1623 /* MYTHomeViewController.m */; };
-		0072342B16AC0FE9008C1623 /* MMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C716AC0FE9008C1623 /* MMLoadingView.m */; };
 		0072349716AC19D3008C1623 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0072348F16AC19D3008C1623 /* InfoPlist.strings */; };
 		0072349816AC19D3008C1623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072349016AC19D3008C1623 /* main.m */; };
 		0072349916AC19D3008C1623 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072349116AC19D3008C1623 /* MainWindow_iPad.xib */; };
@@ -105,8 +104,6 @@
 		007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		007233C316AC0FE9008C1623 /* MYTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeViewController.h; sourceTree = "<group>"; };
 		007233C416AC0FE9008C1623 /* MYTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTHomeViewController.m; sourceTree = "<group>"; };
-		007233C616AC0FE9008C1623 /* MMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoadingView.h; sourceTree = "<group>"; };
-		007233C716AC0FE9008C1623 /* MMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoadingView.m; sourceTree = "<group>"; };
 		0072348F16AC19D3008C1623 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		0072349016AC19D3008C1623 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0072349116AC19D3008C1623 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
@@ -347,7 +344,6 @@
 			children = (
 				007233BE16AC0FE9008C1623 /* home */,
 				0072367316AD1318008C1623 /* Library */,
-				007233C516AC0FE9008C1623 /* loading */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -367,15 +363,6 @@
 				0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */,
 			);
 			path = home;
-			sourceTree = "<group>";
-		};
-		007233C516AC0FE9008C1623 /* loading */ = {
-			isa = PBXGroup;
-			children = (
-				007233C616AC0FE9008C1623 /* MMLoadingView.h */,
-				007233C716AC0FE9008C1623 /* MMLoadingView.m */,
-			);
-			path = loading;
 			sourceTree = "<group>";
 		};
 		0072348E16AC19D3008C1623 /* Supporting Files */ = {
@@ -592,7 +579,6 @@
 				0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */,
 				0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */,
 				0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */,
-				0072342B16AC0FE9008C1623 /* MMLoadingView.m in Sources */,
 				0072349816AC19D3008C1623 /* main.m in Sources */,
 				0072349B16AC19D3008C1623 /* MYTAppDelegate.m in Sources */,
 				0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */,
