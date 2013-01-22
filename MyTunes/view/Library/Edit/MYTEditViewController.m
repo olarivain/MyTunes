@@ -5,7 +5,9 @@
 //  Created by Olivier Larivain on 1/21/13.
 //
 //
+#import <KraCommons/KCInputViewController.h>
 #import <MediaManagement/MMContent.h>
+
 #import "MYTEditViewController.h"
 
 @interface MYTEditViewController ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
@@ -20,11 +22,14 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *contentInputAccessoryView;
 
 @property (strong, nonatomic) IBOutlet UIView *editView;
+@property (strong, nonatomic) IBOutlet KCInputViewController *inputVIewController;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *typeField;
 @property (weak, nonatomic) IBOutlet UITextField *showField;
 @property (weak, nonatomic) IBOutlet UITextField *seasonField;
 @property (weak, nonatomic) IBOutlet UITextField *episodeField;
+@property (weak, nonatomic) IBOutlet UIScrollView *editScrollView;
+@property (weak, nonatomic) IBOutlet UIView *scrollContentView;
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
 
@@ -107,7 +112,11 @@
     };
     // don't forget to swap views out when done
     KCCompletionBlock completion = ^(BOOL finished) {
+        if(!finished) {
+            return ;
+        }
 		UITextField *newResponder = [self.fields boundSafeObjectAtIndex: responderIndex];
+		self.inputVIewController.activeField = newResponder;
 		[newResponder becomeFirstResponder];
 		
         [self.currentEditView removeFromSuperview];
@@ -127,6 +136,10 @@
                  options: nil];
     UIView *view = self.editView;
     self.editView = nil;
+	
+	self.editScrollView.contentSize = self.scrollContentView.frame.size;
+    self.inputVIewController.scrollView = self.editScrollView;
+    self.inputVIewController.textInputFields = self.fields;
     
     // size appropriately
     CGRect frame = view.frame;
@@ -135,7 +148,7 @@
     view.frame = frame;
     
     // set up input view/accesory views
-    for(UITextField *field in self.fields) {
+	for(UITextView *field in self.fields) {
 		field.inputAccessoryView = self.contentInputAccessoryView;
 	}
 	self.typeField.inputView = self.typePicker;
@@ -198,6 +211,12 @@
 	[next becomeFirstResponder];
 	
 	return YES;
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    if(self.inputVIewController.activeField != nil) {
+        self.inputVIewController.activeField = textField;
+    }
 }
 
 #pragma mark - Picker data source
