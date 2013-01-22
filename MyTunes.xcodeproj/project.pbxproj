@@ -17,6 +17,8 @@
 		0000C07A16ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C07916ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m */; };
 		0000C08016AE05280009BE81 /* MYTContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C07F16AE05270009BE81 /* MYTContentCell.m */; };
 		0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08116AE05430009BE81 /* MYTTVShowCell.xib */; };
+		0000C08A16AE1A3D0009BE81 /* MYPlaylistTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08916AE1A3C0009BE81 /* MYPlaylistTabViewController.xib */; };
+		0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */; };
 		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
 		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
 		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
@@ -75,6 +77,8 @@
 		0000C07E16AE05270009BE81 /* MYTContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTContentCell.h; sourceTree = "<group>"; };
 		0000C07F16AE05270009BE81 /* MYTContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTContentCell.m; sourceTree = "<group>"; };
 		0000C08116AE05430009BE81 /* MYTTVShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowCell.xib; sourceTree = "<group>"; };
+		0000C08916AE1A3C0009BE81 /* MYPlaylistTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYPlaylistTabViewController.xib; sourceTree = "<group>"; };
+		0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
 		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
 		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
@@ -205,9 +209,25 @@
 			path = playlists;
 			sourceTree = "<group>";
 		};
+		0000C08316AE16B80009BE81 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		0000C08D16AE1C0F0009BE81 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
 		0028484214AFF295003F5818 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0000C08D16AE1C0F0009BE81 /* Default */,
 				0028484314AFF2CD003F5818 /* encoder */,
 				0000C06D16ADF0430009BE81 /* playlists */,
 			);
@@ -397,13 +417,14 @@
 			isa = PBXGroup;
 			children = (
 				0072367716AD14C1008C1623 /* iPad */,
-				0072367D16AD151D008C1623 /* iPhone */,
+				0000C08316AE16B80009BE81 /* Edit */,
 				0072373616AD573B008C1623 /* Movie */,
 				0000C03216AD59C20009BE81 /* TVShow */,
 				0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */,
 				0072372E16AD54CD008C1623 /* MYTPlaylistViewController.h */,
 				0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */,
 				0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */,
+				0000C08916AE1A3C0009BE81 /* MYPlaylistTabViewController.xib */,
 				0000C07E16AE05270009BE81 /* MYTContentCell.h */,
 				0000C07F16AE05270009BE81 /* MYTContentCell.m */,
 			);
@@ -424,13 +445,6 @@
 				007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */,
 			);
 			path = iPad;
-			sourceTree = "<group>";
-		};
-		0072367D16AD151D008C1623 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iPhone;
 			sourceTree = "<group>";
 		};
 		007236E816AD443B008C1623 /* Library */ = {
@@ -541,6 +555,8 @@
 				0000C07416ADF0430009BE81 /* Unplayed.png in Resources */,
 				0000C07516ADF0430009BE81 /* Unplayed@2x.png in Resources */,
 				0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */,
+				0000C08A16AE1A3D0009BE81 /* MYPlaylistTabViewController.xib in Resources */,
+				0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

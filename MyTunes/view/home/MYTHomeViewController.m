@@ -20,6 +20,7 @@
 #import "MYTServerView.h"
 
 #import "MYTLibrarySplitViewController.h"
+#import "MYTPlaylistViewController.h"
 
 @interface MYTHomeViewController()<MYTServerStoreDelegate, KCCarouselViewDelegate, KCCarouselViewDataSource> {
 	dispatch_once_t tileDispatchToken;
@@ -150,7 +151,8 @@
         controller = [[MYTLibrarySplitViewController alloc] initWithNibName: @"MYTLibrarySplitViewController"
                                                                      bundle: nil];
     } else {
-        return;
+        controller = [[MYTPlaylistViewController alloc] initWithNibName: @"MYPlaylistTabViewController"
+                                                                 bundle: nil];
     }
 	
 	[self.navigationController pushViewController: controller

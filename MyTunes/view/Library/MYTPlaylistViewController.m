@@ -6,6 +6,7 @@
 //
 //
 #import <MediaManagement/MMPlaylist.h>
+#import <MediaManagement/MMLibrary.h>
 #import "MYTPlaylistViewController.h"
 
 #import "MYTPlaylistContentDataSource.h"
@@ -13,13 +14,17 @@
 
 #import "MYTLibraryStore.h"
 
-@interface MYTPlaylistViewController ()
+@interface MYTPlaylistViewController ()<UITabBarDelegate> {
+    dispatch_once_t initialPlaylistSelectionToken;
+}
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> moviePlaylistDataSource;
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> tvShowPlaylistDataSource;
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegmentedControl;
+
+@property (weak, nonatomic) IBOutlet UITabBar *playlistTabBar;
 
 @property (nonatomic, readonly) id<MYTPlaylistContentDataSource> currentDataSource;
 @property (assign, nonatomic) BOOL showAll;
@@ -34,6 +39,13 @@
     [super viewDidLoad];
     
     self.filterSegmentedControl.selectedSegmentIndex = self.showAll;
+    
+    self.title = [MYTLibraryStore sharedInstance].currentLibrary.name;
+    
+    // 
+    dispatch_once(&initialPlaylistSelectionToken, ^{
+        [self refreshSelectedPlaylist];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +73,21 @@
 - (IBAction)updateFilter:(id)sender {
     self.showAll = self.filterSegmentedControl.selectedSegmentIndex;
 	[self.currentDataSource reload: self.showAll];
+}
+
+#pragma mark - tab bar delegate
+- (void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSInteger index = [tabBar.items indexOfObject: item];
+    
+    MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
+    MMPlaylist *playlist = [store.currentLibrary.playlists boundSafeObjectAtIndex: index];
+    
+    // user tapped a playlist, go for it
+    if(playlist != nil) {
+        store.currentPlaylist = playlist;
+        [self refreshSelectedPlaylist];
+        return;
+    }
 }
 
 #pragma mark - Updating the selection
@@ -102,7 +129,11 @@
                      animations:^{
                          self.table.alpha = 1.0f;
                      }];
-
 }
+
+//- (void) didSelectContent:(MMContent *)content {
+//    NSArray *contentList = self.currentDataSource.content;
+//    
+//}
 
 @end

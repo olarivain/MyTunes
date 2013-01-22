@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MYTPlaylistViewController : UIViewController
+#import "MYTPlaylistContentDataSource.h"
+
+@interface MYTPlaylistViewController : UIViewController<MYTPlaylistContentDataSourceDelegate>
 
 - (void) refreshSelectedPlaylist;
 

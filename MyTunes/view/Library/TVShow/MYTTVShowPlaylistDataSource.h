@@ -15,5 +15,6 @@
 @interface MYTTVShowPlaylistDataSource : NSObject<MYTPlaylistContentDataSource>
 
 @property (nonatomic, strong, readwrite) MMPlaylist *playlist;
+@property (nonatomic, weak, readwrite) IBOutlet id<MYTPlaylistContentDataSourceDelegate> delegate;
 
 @end

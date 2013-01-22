@@ -82,4 +82,8 @@
 	return [self.templateCell idealHeightForContent: content];
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 @end

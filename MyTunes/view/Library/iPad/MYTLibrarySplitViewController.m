@@ -36,8 +36,6 @@
                      toView: self.masterContainer];
     [self addViewController: self.playlistViewController
                      toView: self.detailsContainer];
-    
-    [self.playlistViewController refreshSelectedPlaylist];
 }
 
 - (void)didReceiveMemoryWarning
