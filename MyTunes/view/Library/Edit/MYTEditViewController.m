@@ -59,8 +59,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) updateContentItem: (BOOL) forward {
+	NSInteger directionFactor = forward ? 1 : -1;
+	self.previousContent = self.content;
+    self.currentIndex += directionFactor;
+    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
+	
+	// we have a show, prefill the elements of the next with 
+	if(self.previousContent.kind == TV_SHOW) {
+		self.content.kind = TV_SHOW;
+
+		if (self.content.show.length == 0) {
+			self.content.show = self.previousContent.show;
+		}
+		
+		if(self.content.season == nil) {
+			self.content.season = [self.previousContent.season copy];
+		}
+		
+		if(self.content.episodeNumber == nil && self.previousContent.episodeNumber != nil) {
+			self.content.episodeNumber = [NSNumber numberWithInteger: self.previousContent.episodeNumber.intValue + directionFactor];
+		}
+	}
+}
+
 #pragma mark - Managing the edit view
 - (void) presentNextContentItem: (BOOL) forward {
+    // before we destroy our fields array with a new one, compute the index of the first responder, if any
+    UIView *currentResponder = [self.view kc_findFirstResponder];
+    NSInteger responderIndex = [self.fields indexOfObject: currentResponder];
+
     UIView *theView = [self loadEditView];
     // add the new view to the main view
     [self.view addSubview: theView];
@@ -71,6 +99,7 @@
     CGAffineTransform newViewTransform = CGAffineTransformMakeTranslation( direction * width, 0.0f);
     theView.transform = newViewTransform;
 
+	
     //then animate both together
     KCVoidBlock animation = ^{
         theView.transform = CGAffineTransformIdentity;
@@ -78,6 +107,9 @@
     };
     // don't forget to swap views out when done
     KCCompletionBlock completion = ^(BOOL finished) {
+		UITextField *newResponder = [self.fields boundSafeObjectAtIndex: responderIndex];
+		[newResponder becomeFirstResponder];
+		
         [self.currentEditView removeFromSuperview];
         self.currentEditView = theView;
     };

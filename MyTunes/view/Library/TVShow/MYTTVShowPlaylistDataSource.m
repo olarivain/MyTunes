@@ -96,7 +96,7 @@
 	MMContent *content = [season.episodes boundSafeObjectAtIndex: indexPath.row];
     
     [self.delegate didSelectContent: content
-                    withContentList: self.contentList];
+                    withContentList: season.episodes];
 }
 
 @end
