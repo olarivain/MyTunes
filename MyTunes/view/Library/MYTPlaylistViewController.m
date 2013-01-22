@@ -140,9 +140,10 @@
                                                                                               bundle: nil];
     controller.contentList = contentList;
     controller.content = content;
-    controller.modalTransitionStyle = isiPhone ? UIModalTransitionStyleFlipHorizontal : UIModalTransitionStyleCoverVertical;
-    
+
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
+    navigation.modalPresentationStyle = UIModalPresentationFormSheet;
+    navigation.modalTransitionStyle = isiPhone ? UIModalTransitionStyleFlipHorizontal : UIModalTransitionStyleCoverVertical;
     [self presentViewController: navigation
                        animated: YES
                      completion: nil];

@@ -131,7 +131,7 @@
     // load the righ nib
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *nibName = self.content.kind == MOVIE ? @"MYTMovieEditViewController" : @"MYTTVShowEditViewController";
-    [bundle loadNibNamed: [KCNibUtils nibName: nibName]
+    [bundle loadNibNamed: nibName
                    owner: self
                  options: nil];
     UIView *view = self.editView;

@@ -21,8 +21,8 @@
 		0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */; };
 		0000C0A216AE20670009BE81 /* MYTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C0A016AE20670009BE81 /* MYTEditViewController.m */; };
 		0000C0A316AE20670009BE81 /* MYTEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0A116AE20670009BE81 /* MYTEditViewController.xib */; };
-		0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController_iPhone.xib */; };
-		0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController_iPhone.xib */; };
+		0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */; };
+		0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */; };
 		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
 		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
 		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
@@ -85,8 +85,8 @@
 		0000C09F16AE20670009BE81 /* MYTEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEditViewController.h; sourceTree = "<group>"; };
 		0000C0A016AE20670009BE81 /* MYTEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEditViewController.m; sourceTree = "<group>"; };
 		0000C0A116AE20670009BE81 /* MYTEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEditViewController.xib; sourceTree = "<group>"; };
-		0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowEditViewController_iPhone.xib; sourceTree = "<group>"; };
-		0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieEditViewController_iPhone.xib; sourceTree = "<group>"; };
+		0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowEditViewController.xib; sourceTree = "<group>"; };
+		0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieEditViewController.xib; sourceTree = "<group>"; };
 		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
 		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
 		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 				0000C09F16AE20670009BE81 /* MYTEditViewController.h */,
 				0000C0A016AE20670009BE81 /* MYTEditViewController.m */,
 				0000C0A116AE20670009BE81 /* MYTEditViewController.xib */,
-				0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController_iPhone.xib */,
-				0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController_iPhone.xib */,
+				0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */,
+				0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -559,8 +559,8 @@
 				0000C08A16AE1A3D0009BE81 /* MYPlaylistTabViewController.xib in Resources */,
 				0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */,
 				0000C0A316AE20670009BE81 /* MYTEditViewController.xib in Resources */,
-				0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController_iPhone.xib in Resources */,
-				0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController_iPhone.xib in Resources */,
+				0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController.xib in Resources */,
+				0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
