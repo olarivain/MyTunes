@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic, readwrite) MYTContentCell *templateCell;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (nonatomic, strong, readwrite) NSArray *content;
 
 @property (nonatomic, readonly) MMMoviesPlaylist *moviesPlaylist;
 
@@ -37,9 +36,9 @@
     return (MMMoviesPlaylist *) self.playlist;
 }
 // clear the content on set
-- (void) setPlaylist:(MMMoviesPlaylist *)playlist {
+- (void) setPlaylist:(MMPlaylist *)playlist {
     _playlist = playlist;
-    self.content = nil;
+    self.contentList = nil;
 }
 
 - (MYTContentCell *) templateCell {
@@ -51,7 +50,7 @@
 }
 
 - (void) reload:(BOOL) all {
-	self.content = all ? self.moviesPlaylist.content : self.moviesPlaylist.unwatchedMovies;
+	self.contentList = all ? self.moviesPlaylist.content : self.moviesPlaylist.unwatchedMovies;
     [self.table reloadData];
 }
 
@@ -61,13 +60,13 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.content.count;
+    return self.contentList.count;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MYTContentCell *cell = [tableView dequeueReusableCellWithIdentifier: @"movieCell"];
 	
-	MMContent *content = [self.content boundSafeObjectAtIndex: indexPath.row];
+	MMContent *content = [self.contentList boundSafeObjectAtIndex: indexPath.row];
 	[cell updateWithContent: content];
 	
 	return cell;
@@ -75,7 +74,7 @@
 
 #pragma mark - Table Delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MMContent *content = [self.content boundSafeObjectAtIndex: indexPath.row];
+    MMContent *content = [self.contentList boundSafeObjectAtIndex: indexPath.row];
     
     // resize the cell appropraitely and size it
     [self.templateCell resizeTo: self.table.frame.size];
@@ -83,7 +82,9 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    MMContent *movie = [self.contentList boundSafeObjectAtIndex: indexPath.row];
+    [self.delegate didSelectContent: movie
+                    withContentList: self.contentList];
 }
 
 @end

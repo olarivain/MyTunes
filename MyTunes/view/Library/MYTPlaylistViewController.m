@@ -11,6 +11,7 @@
 
 #import "MYTPlaylistContentDataSource.h"
 #import "MYTMoviePlaylistDataSource.h"
+#import "MYTEditViewController.h"
 
 #import "MYTLibraryStore.h"
 
@@ -132,9 +133,20 @@
                      }];
 }
 
-//- (void) didSelectContent:(MMContent *)content {
-//    NSArray *contentList = self.currentDataSource.content;
-//    
-//}
+- (void) didSelectContent: (MMContent *) content
+          withContentList: (NSArray *) contentList {
+    
+    MYTEditViewController *controller = [[MYTEditViewController alloc] initWithNibName: @"MYTEditViewController"
+                                                                                              bundle: nil];
+    controller.contentList = contentList;
+    controller.content = content;
+    controller.modalTransitionStyle = isiPhone ? UIModalTransitionStyleFlipHorizontal : UIModalTransitionStyleCoverVertical;
+    
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
+    [self presentViewController: navigation
+                       animated: YES
+                     completion: nil];
+    
+}
 
 @end

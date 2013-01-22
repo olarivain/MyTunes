@@ -36,6 +36,12 @@
     return (MMTVShowPlaylist *) self.playlist;
 }
 
+// clear the content on set
+- (void) setPlaylist:(MMPlaylist *)playlist {
+    _playlist = playlist;
+    self.contentList = nil;
+}
+
 - (MYTContentCell *) templateCell {
     if(_templateCell == nil) {
         _templateCell = [self.table dequeueReusableCellWithIdentifier: @"tvShowCell"];
@@ -85,6 +91,12 @@
 	return [self.templateCell idealHeightForContent: content];
 }
 
-
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMTVShowSeason *season = [self.sortedSeasons boundSafeObjectAtIndex: indexPath.section];
+	MMContent *content = [season.episodes boundSafeObjectAtIndex: indexPath.row];
+    
+    [self.delegate didSelectContent: content
+                    withContentList: self.contentList];
+}
 
 @end

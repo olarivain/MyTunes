@@ -13,6 +13,8 @@
 @interface MYTMoviePlaylistDataSource : NSObject<MYTPlaylistContentDataSource>
 
 @property (nonatomic, strong, readwrite) MMPlaylist *playlist;
+@property (nonatomic, strong, readwrite) NSArray *contentList;
+
 @property (nonatomic, weak, readwrite) IBOutlet id<MYTPlaylistContentDataSourceDelegate> delegate;
 
 @end

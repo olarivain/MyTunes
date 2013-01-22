@@ -13,7 +13,8 @@
 
 @protocol MYTPlaylistContentDataSourceDelegate <NSObject>
 
-- (void) didSelectContent: (MMContent *) content;
+- (void) didSelectContent: (MMContent *) content
+          withContentList: (NSArray *) contentList;
 
 @end
 
@@ -21,7 +22,7 @@
 
 @property (nonatomic, weak, readwrite) IBOutlet id<MYTPlaylistContentDataSourceDelegate> delegate;
 @property (nonatomic, strong, readwrite) MMPlaylist *playlist;
-@property (nonatomic, strong, readonly) NSArray *content;
+@property (nonatomic, strong, readonly) NSArray *contentList;
 
 - (void) reload: (BOOL) unwatched;
 
