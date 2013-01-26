@@ -68,6 +68,10 @@
         
         return diff < 0 ? NSOrderedAscending : diff == 0 ? NSOrderedSame : NSOrderedDescending;
     }];
+    
+    for(MMTVShowSeason *season in _seasons){
+        [season sortContent];
+    }
 }
 
 #pragma mark - convenience accessor

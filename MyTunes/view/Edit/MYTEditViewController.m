@@ -39,15 +39,15 @@
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
 
+@property (weak, nonatomic) IBOutlet UIView *activityShield;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property (strong, nonatomic) UIView *currentEditView;
 
 @property (assign, nonatomic) NSInteger currentIndex;
 @property (strong, nonatomic, readwrite) MMContent *previousContent;
-
 @property (strong, nonatomic, readwrite) NSMutableSet *pendingContent;
 
-@property (weak, nonatomic) IBOutlet UIView *activityShield;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation MYTEditViewController
@@ -78,33 +78,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) updateContentItem: (BOOL) forward {
-	NSInteger directionFactor = forward ? 1 : -1;
-	self.previousContent = self.content;
-    self.currentIndex += directionFactor;
-    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
-	
-	// we have a show, prefill the elements of the next with
-	if(self.previousContent.kind == TV_SHOW) {
-		self.content.kind = TV_SHOW;
-        
-		if (self.content.show.length == 0) {
-			self.content.show = self.previousContent.show;
-		}
-		
-		if(self.content.season == nil) {
-			self.content.season = [self.previousContent.season copy];
-		}
-		
-		if(self.content.episodeNumber == nil && self.previousContent.episodeNumber != nil) {
-			self.content.episodeNumber = [NSNumber numberWithInteger: self.previousContent.episodeNumber.intValue + directionFactor];
-		}
-	}
-}
-
 #pragma mark - Managing the edit view
 - (void) presentNextContentItem: (BOOL) forward {
-    [self updateContentItem: forward];
+    [self advanceContentItem: forward];
     // before we destroy our fields array with a new one, compute the index of the first responder, if any
     UIView *currentResponder = [self.view kc_findFirstResponder];
     NSInteger responderIndex = [self.fields indexOfObject: currentResponder];
@@ -140,6 +116,30 @@
     [UIView animateWithDuration: MEDIUM_ANIMATION_DURATION
                      animations: animation
                      completion:completion];
+}
+
+- (void) advanceContentItem: (BOOL) forward {
+	NSInteger directionFactor = forward ? 1 : -1;
+	self.previousContent = self.content;
+    self.currentIndex += directionFactor;
+    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
+	
+	// we had a show before, prefill the elements of the next with the same content
+	if(self.previousContent.kind == TV_SHOW) {
+		self.content.kind = TV_SHOW;
+        
+		if (self.content.show.length == 0) {
+			self.content.show = self.previousContent.show;
+		}
+		
+		if(self.content.season == nil) {
+			self.content.season = [self.previousContent.season copy];
+		}
+		
+		if(self.content.episodeNumber == nil && self.previousContent.episodeNumber != nil) {
+			self.content.episodeNumber = [NSNumber numberWithInteger: self.previousContent.episodeNumber.intValue + directionFactor];
+		}
+	}
 }
 
 - (UIView *) loadEditView {
@@ -194,6 +194,9 @@
 - (IBAction)done:(id)sender {
     [self copyBackToContent];
     
+    // resign the responder
+    [self.view kc_findAndResignFirstResponder];
+    
     self.activityShield.hidden = NO;
     [self.activityIndicator startAnimating];
     
@@ -228,6 +231,9 @@
 
 - (IBAction) confirmAndEditPreviousItem:(id)sender {
     [self copyBackToContent];
+    
+    // present it
+    [self presentNextContentItem: NO];
     
     // and update the bar buttons
     [self updateNextPreviousButtons];

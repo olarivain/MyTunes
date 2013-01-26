@@ -19,10 +19,6 @@
 		0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08116AE05430009BE81 /* MYTTVShowCell.xib */; };
 		0000C08A16AE1A3D0009BE81 /* MYPlaylistTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08916AE1A3C0009BE81 /* MYPlaylistTabViewController.xib */; };
 		0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */; };
-		0000C0A216AE20670009BE81 /* MYTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C0A016AE20670009BE81 /* MYTEditViewController.m */; };
-		0000C0A316AE20670009BE81 /* MYTEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0A116AE20670009BE81 /* MYTEditViewController.xib */; };
-		0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */; };
-		0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */; };
 		0028484814AFF2CD003F5818 /* CircleCheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484414AFF2CD003F5818 /* CircleCheckBox.png */; };
 		0028484914AFF2CD003F5818 /* CircleCheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */; };
 		0028484A14AFF2CD003F5818 /* IconCheckMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0028484614AFF2CD003F5818 /* IconCheckMark.png */; };
@@ -32,12 +28,15 @@
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
 		0069FAFA16B3C336001CF155 /* textborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF816B3C336001CF155 /* textborder.png */; };
 		0069FAFB16B3C336001CF155 /* textborder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF916B3C336001CF155 /* textborder@2x.png */; };
+		0069FB2F16B4896E001CF155 /* MYTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB2B16B4896E001CF155 /* MYTEditViewController.m */; };
+		0069FB3016B4896E001CF155 /* MYTEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2C16B4896E001CF155 /* MYTEditViewController.xib */; };
+		0069FB3116B4896E001CF155 /* MYTMovieEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2D16B4896E001CF155 /* MYTMovieEditViewController.xib */; };
+		0069FB3216B4896E001CF155 /* MYTTVShowEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2E16B4896E001CF155 /* MYTTVShowEditViewController.xib */; };
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
 		0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */; };
 		0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MYTServer.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */; };
-		0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BC16AC0FE9008C1623 /* NSString+Converteer.m */; };
 		0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MYTHomeView.m */; };
 		0072342816AC0FE9008C1623 /* MYTHomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */; };
 		0072342916AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */; };
@@ -84,11 +83,6 @@
 		0000C08116AE05430009BE81 /* MYTTVShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowCell.xib; sourceTree = "<group>"; };
 		0000C08916AE1A3C0009BE81 /* MYPlaylistTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYPlaylistTabViewController.xib; sourceTree = "<group>"; };
 		0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0000C09F16AE20670009BE81 /* MYTEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEditViewController.h; sourceTree = "<group>"; };
-		0000C0A016AE20670009BE81 /* MYTEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEditViewController.m; sourceTree = "<group>"; };
-		0000C0A116AE20670009BE81 /* MYTEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEditViewController.xib; sourceTree = "<group>"; };
-		0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowEditViewController.xib; sourceTree = "<group>"; };
-		0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieEditViewController.xib; sourceTree = "<group>"; };
 		0028484414AFF2CD003F5818 /* CircleCheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleCheckBox.png; sourceTree = "<group>"; };
 		0028484514AFF2CD003F5818 /* CircleCheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleCheckBox@2x.png"; sourceTree = "<group>"; };
 		0028484614AFF2CD003F5818 /* IconCheckMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheckMark.png; sourceTree = "<group>"; };
@@ -99,6 +93,11 @@
 		002A0AE91324549D00320A06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0069FAF816B3C336001CF155 /* textborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textborder.png; sourceTree = "<group>"; };
 		0069FAF916B3C336001CF155 /* textborder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textborder@2x.png"; sourceTree = "<group>"; };
+		0069FB2A16B4896E001CF155 /* MYTEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEditViewController.h; sourceTree = "<group>"; };
+		0069FB2B16B4896E001CF155 /* MYTEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEditViewController.m; sourceTree = "<group>"; };
+		0069FB2C16B4896E001CF155 /* MYTEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEditViewController.xib; sourceTree = "<group>"; };
+		0069FB2D16B4896E001CF155 /* MYTMovieEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieEditViewController.xib; sourceTree = "<group>"; };
+		0069FB2E16B4896E001CF155 /* MYTTVShowEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowEditViewController.xib; sourceTree = "<group>"; };
 		0072339916AC0FE9008C1623 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
 		0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		0072339B16AC0FE9008C1623 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
@@ -109,8 +108,6 @@
 		007233AB16AC0FE9008C1623 /* MYTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServer.m; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NonZero.h"; sourceTree = "<group>"; };
 		007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NonZero.m"; sourceTree = "<group>"; };
-		007233BB16AC0FE9008C1623 /* NSString+Converteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Converteer.h"; sourceTree = "<group>"; };
-		007233BC16AC0FE9008C1623 /* NSString+Converteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Converteer.m"; sourceTree = "<group>"; };
 		007233BF16AC0FE9008C1623 /* MYTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeView.h; sourceTree = "<group>"; };
 		007233C016AC0FE9008C1623 /* MYTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTHomeView.m; sourceTree = "<group>"; };
 		007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPad.xib; sourceTree = "<group>"; };
@@ -221,18 +218,6 @@
 			path = playlists;
 			sourceTree = "<group>";
 		};
-		0000C08316AE16B80009BE81 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				0000C09F16AE20670009BE81 /* MYTEditViewController.h */,
-				0000C0A016AE20670009BE81 /* MYTEditViewController.m */,
-				0000C0A116AE20670009BE81 /* MYTEditViewController.xib */,
-				0000C0B316AE2DCA0009BE81 /* MYTMovieEditViewController.xib */,
-				0000C0A416AE265F0009BE81 /* MYTTVShowEditViewController.xib */,
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
 		0000C08D16AE1C0F0009BE81 /* Default */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +280,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0069FB2916B4896E001CF155 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				0069FB2A16B4896E001CF155 /* MYTEditViewController.h */,
+				0069FB2B16B4896E001CF155 /* MYTEditViewController.m */,
+				0069FB2C16B4896E001CF155 /* MYTEditViewController.xib */,
+				0069FB2D16B4896E001CF155 /* MYTMovieEditViewController.xib */,
+				0069FB2E16B4896E001CF155 /* MYTTVShowEditViewController.xib */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		0072339616AC0FE9008C1623 /* MyTunes */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,8 +350,6 @@
 			children = (
 				007233B916AC0FE9008C1623 /* NSNumber+NonZero.h */,
 				007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */,
-				007233BB16AC0FE9008C1623 /* NSString+Converteer.h */,
-				007233BC16AC0FE9008C1623 /* NSString+Converteer.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -362,26 +357,28 @@
 		007233BD16AC0FE9008C1623 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				007233BE16AC0FE9008C1623 /* home */,
+				007233BE16AC0FE9008C1623 /* Home */,
 				0072367316AD1318008C1623 /* Library */,
+				0069FB2916B4896E001CF155 /* Edit */,
 			);
 			path = view;
 			sourceTree = "<group>";
 		};
-		007233BE16AC0FE9008C1623 /* home */ = {
+		007233BE16AC0FE9008C1623 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				007233BF16AC0FE9008C1623 /* MYTHomeView.h */,
+				007233C016AC0FE9008C1623 /* MYTHomeView.m */,
 				007233C316AC0FE9008C1623 /* MYTHomeViewController.h */,
 				007233C416AC0FE9008C1623 /* MYTHomeViewController.m */,
 				007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */,
 				007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */,
-				007233BF16AC0FE9008C1623 /* MYTHomeView.h */,
-				007233C016AC0FE9008C1623 /* MYTHomeView.m */,
 				0072365816AD0817008C1623 /* MYTServerView.h */,
 				0072365916AD0817008C1623 /* MYTServerView.m */,
 				0072365616AD0815008C1623 /* MYTServerView_iPad.xib */,
 				0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */,
 			);
+			name = Home;
 			path = home;
 			sourceTree = "<group>";
 		};
@@ -423,8 +420,7 @@
 		0072367316AD1318008C1623 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0072367716AD14C1008C1623 /* iPad */,
-				0000C08316AE16B80009BE81 /* Edit */,
+				0072367716AD14C1008C1623 /* Split View */,
 				0072373616AD573B008C1623 /* Movie */,
 				0000C03216AD59C20009BE81 /* TVShow */,
 				0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */,
@@ -438,7 +434,7 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		0072367716AD14C1008C1623 /* iPad */ = {
+		0072367716AD14C1008C1623 /* Split View */ = {
 			isa = PBXGroup;
 			children = (
 				0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */,
@@ -451,6 +447,7 @@
 				007236ED16AD4744008C1623 /* MYTPlaylistCell.m */,
 				007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */,
 			);
+			name = "Split View";
 			path = iPad;
 			sourceTree = "<group>";
 		};
@@ -564,11 +561,11 @@
 				0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */,
 				0000C08A16AE1A3D0009BE81 /* MYPlaylistTabViewController.xib in Resources */,
 				0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */,
-				0000C0A316AE20670009BE81 /* MYTEditViewController.xib in Resources */,
-				0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController.xib in Resources */,
-				0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController.xib in Resources */,
 				0069FAFA16B3C336001CF155 /* textborder.png in Resources */,
 				0069FAFB16B3C336001CF155 /* textborder@2x.png in Resources */,
+				0069FB3016B4896E001CF155 /* MYTEditViewController.xib in Resources */,
+				0069FB3116B4896E001CF155 /* MYTMovieEditViewController.xib in Resources */,
+				0069FB3216B4896E001CF155 /* MYTTVShowEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +598,6 @@
 				0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */,
 				0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */,
-				0072342616AC0FE9008C1623 /* NSString+Converteer.m in Sources */,
 				0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */,
 				0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */,
 				0072349816AC19D3008C1623 /* main.m in Sources */,
@@ -620,7 +616,7 @@
 				0000C05616ADEAB10009BE81 /* MMTVShowSeason.m in Sources */,
 				0000C07A16ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m in Sources */,
 				0000C08016AE05280009BE81 /* MYTContentCell.m in Sources */,
-				0000C0A216AE20670009BE81 /* MYTEditViewController.m in Sources */,
+				0069FB2F16B4896E001CF155 /* MYTEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

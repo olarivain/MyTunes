@@ -46,6 +46,7 @@
     // iOS 6 only, meaning viewDidLoad happens once and only once.
     // so just get crazy and refresh on did load :)
     [self refreshSelectedPlaylist];
+    
     // same applies for the tab bar buddy!
     self.playlistTabBar.selectedItem = [self.playlistTabBar.items boundSafeObjectAtIndex: 0];
 }
@@ -83,9 +84,8 @@
     
     MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
     MMPlaylist *playlist = [store.currentLibrary.playlists boundSafeObjectAtIndex: index];
-    
-    // user tapped a playlist, go for it
-    if(playlist != nil) {
+    // user tapped a playlist, different than the one we have, go for it
+    if(playlist != nil && playlist != store.currentPlaylist) {
         store.currentPlaylist = playlist;
         [self refreshSelectedPlaylist];
         return;
@@ -141,7 +141,7 @@
     controller.contentList = contentList;
     controller.content = content;
     controller.completion = ^{
-        [self.currentDataSource reload: YES];
+        [self.currentDataSource reload: self.showAll];
     };
 
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
