@@ -5,7 +5,9 @@
 //  Created by Olivier Larivain on 1/21/13.
 //
 //
+#import <KraCommons/NSNumber+String.h>
 #import <KraCommons/KCInputViewController.h>
+
 #import <MediaManagement/MMContent.h>
 
 #import "MYTEditViewController.h"
@@ -28,8 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *showField;
 @property (weak, nonatomic) IBOutlet UITextField *seasonField;
 @property (weak, nonatomic) IBOutlet UITextField *episodeField;
-@property (weak, nonatomic) IBOutlet UIScrollView *editScrollView;
-@property (weak, nonatomic) IBOutlet UIView *scrollContentView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollContentView;
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
 
@@ -49,14 +50,12 @@
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.navigationItem.rightBarButtonItem = self.doneButton;
     
-    self.inputVIewController.enabled = isiPhone;
-    
     self.currentIndex = [self.contentList indexOfObject: self.content];
     [self updateNextPreviousButtons];
 
     // add the initial edit view to the scene
     UIView *theView = [self loadEditView];
-    [self.view addSubview: theView];
+    [self.scrollContentView addSubview: theView];
     self.currentEditView = theView;
 }
 
@@ -92,16 +91,17 @@
 
 #pragma mark - Managing the edit view
 - (void) presentNextContentItem: (BOOL) forward {
+    [self updateContentItem: forward];
     // before we destroy our fields array with a new one, compute the index of the first responder, if any
     UIView *currentResponder = [self.view kc_findFirstResponder];
     NSInteger responderIndex = [self.fields indexOfObject: currentResponder];
 
     UIView *theView = [self loadEditView];
     // add the new view to the main view
-    [self.view addSubview: theView];
+    [self.scrollContentView addSubview: theView];
     
     // apply the relevant transforms for the transition
-    CGFloat width = self.currentEditView.frame.size.width;
+    CGFloat width = self.scrollContentView.frame.size.width;
     CGFloat direction = forward ? 1.0f : -1.0f;
     CGAffineTransform newViewTransform = CGAffineTransformMakeTranslation( direction * width, 0.0f);
     theView.transform = newViewTransform;
@@ -118,13 +118,13 @@
             return ;
         }
 		UITextField *newResponder = [self.fields boundSafeObjectAtIndex: responderIndex];
-		self.inputVIewController.activeField = newResponder;
-		[newResponder becomeFirstResponder];
+        [newResponder becomeFirstResponder];
+		[self.inputVIewController makeFirstResponderVisible];
 		
         [self.currentEditView removeFromSuperview];
         self.currentEditView = theView;
     };
-    [UIView animateWithDuration: SHORT_ANIMATION_DURATION
+    [UIView animateWithDuration: MEDIUM_ANIMATION_DURATION
                      animations: animation
                      completion:completion];
 }
@@ -139,15 +139,14 @@
     UIView *view = self.editView;
     self.editView = nil;
 	
-	self.editScrollView.contentSize = self.scrollContentView.frame.size;
-    self.inputVIewController.scrollView = self.editScrollView;
     self.inputVIewController.textInputFields = self.fields;
     
     // size appropriately
     CGRect frame = view.frame;
     frame.origin = CGPointZero;
-    frame.size = self.view.frame.size;
+    frame.size.width = self.scrollContentView.frame.size.width;
     view.frame = frame;
+    self.scrollContentView.contentSize = view.frame.size;
     
     // set up input view/accesory views
 	for(UITextView *field in self.fields) {
@@ -178,15 +177,14 @@
 }
 
 - (IBAction)done:(id)sender {
+    [self saveCurrentItem];
+    
 	[self dismissViewControllerAnimated: YES
 							 completion:nil];
 }
 
 - (IBAction) confirmAndEditNextItem:(id)sender {
-    // get the next item
-    self.previousContent = self.content;
-    self.currentIndex += 1;
-    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
+    [self saveCurrentItem];
     
     // present it
     [self presentNextContentItem: YES];
@@ -196,14 +194,17 @@
 }
 
 - (IBAction) confirmAndEditPreviousItem:(id)sender {
-    self.previousContent = self.content;
-    self.currentIndex -= 1;
-    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
+    [self saveCurrentItem];
     
     [self presentNextContentItem: NO];
     
     // and update the bar buttons
     [self updateNextPreviousButtons];
+}
+
+- (void) saveCurrentItem {
+    self.content.episodeNumber = [NSNumber numberFromString: self.episodeField.text];
+    self.content.season = [NSNumber numberFromString: self.seasonField.text];
 }
 
 #pragma mark - TextField Delegate
@@ -216,9 +217,7 @@
 }
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
-    if(self.inputVIewController.activeField != nil) {
-        self.inputVIewController.activeField = textField;
-    }
+    [self.inputVIewController makeFirstResponderVisible];
 }
 
 #pragma mark - Picker data source
