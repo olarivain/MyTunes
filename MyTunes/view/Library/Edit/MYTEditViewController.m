@@ -7,10 +7,13 @@
 //
 #import <KraCommons/NSNumber+String.h>
 #import <KraCommons/KCInputViewController.h>
+#import <KraCommons/UIImage+extensions.h>
 
 #import <MediaManagement/MMContent.h>
 
 #import "MYTEditViewController.h"
+
+#import "MYTLibraryStore.h"
 
 @interface MYTEditViewController ()<UITextFieldDelegate>
 
@@ -31,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *seasonField;
 @property (weak, nonatomic) IBOutlet UITextField *episodeField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollContentView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionField;
+@property (weak, nonatomic) IBOutlet UIImageView *descriptionBackground;
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
 
@@ -39,6 +44,10 @@
 @property (assign, nonatomic) NSInteger currentIndex;
 @property (strong, nonatomic, readwrite) MMContent *previousContent;
 
+@property (strong, nonatomic, readwrite) NSMutableSet *pendingContent;
+
+@property (weak, nonatomic) IBOutlet UIView *activityShield;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation MYTEditViewController
@@ -59,6 +68,8 @@
     UIView *theView = [self loadEditView];
     [self.scrollContentView addSubview: theView];
     self.currentEditView = theView;
+    
+    self.pendingContent = [NSMutableSet setWithCapacity: self.contentList.count];
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,6 +153,7 @@
     self.editView = nil;
 	
     self.inputVIewController.textInputFields = self.fields;
+    self.descriptionBackground.image = [self.descriptionBackground.image stretchableImageWithDefaultCaps];
     
     // size appropriately
     CGRect frame = view.frame;
@@ -160,8 +172,9 @@
     self.typeField.selectedSegmentIndex = self.content.kind;
     
     self.showField.text = self.content.show;
-    self.seasonField.text = [self.content.season nonZeroStringValue];
-    self.episodeField.text = [self.content.episodeNumber nonZeroStringValue];
+    self.seasonField.text = [self.content.season stringValue];
+    self.episodeField.text = [self.content.episodeNumber stringValue];
+    self.descriptionField.text = self.content.description;
     
     return view;
 }
@@ -175,20 +188,36 @@
 #pragma mark - Actions
 - (IBAction)cancel:(id)sender {
 	[self dismissViewControllerAnimated: YES
-							 completion:nil];
+							 completion: nil];
 }
 
 - (IBAction)done:(id)sender {
-    [self saveCurrentItem: nil];
+    [self copyBackToContent];
     
-	[self dismissViewControllerAnimated: YES
+    self.activityShield.hidden = NO;
+    [self.activityIndicator startAnimating];
+    
+    MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
+    [store saveContentList: self.pendingContent
+                  callback:^(NSError *error) {
+                      [self didSave: error];
+                  }];
+}
+
+- (void) didSave: (NSError *) error {
+    [self.activityIndicator stopAnimating];
+    self.activityShield.hidden = YES;
+    
+    if([error present]) {
+        return;
+    }
+    
+    [self dismissViewControllerAnimated: YES
 							 completion: self.completion];
 }
 
 - (IBAction) confirmAndEditNextItem:(id)sender {
-    [self saveCurrentItem:^(NSError *error) {
-        [error present];
-    }];
+    [self copyBackToContent];
     
     // present it
     [self presentNextContentItem: YES];
@@ -198,11 +227,7 @@
 }
 
 - (IBAction) confirmAndEditPreviousItem:(id)sender {
-    [self saveCurrentItem:^(NSError *error) {
-        [error present];
-    }];
-    
-    [self presentNextContentItem: NO];
+    [self copyBackToContent];
     
     // and update the bar buttons
     [self updateNextPreviousButtons];
@@ -221,11 +246,15 @@
                     }];
 }
 
-- (void) saveCurrentItem: (KCErrorBlock) callback {
+- (void) copyBackToContent {
+    // copy items back into the content object
     self.content.name = self.nameField.text;
     self.content.show = self.showField.text;
     self.content.episodeNumber = [NSNumber numberFromString: self.episodeField.text];
     self.content.season = [NSNumber numberFromString: self.seasonField.text];
+    self.content.description = self.descriptionField.text;
+    
+    [self.pendingContent addObjectNilSafe: self.content];
 }
 
 #pragma mark - TextField Delegate

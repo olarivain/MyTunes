@@ -26,8 +26,9 @@ const int ddLogLevel = LOG_LEVEL_INFO;
 	[self.window makeKeyAndVisible];
     
     [[UINavigationBar appearance] setTintColor: [UIColor blackColor]];
-    [[UITabBar appearance] setTintColor: [UIColor darkGrayColor]];
+    [[UITabBar appearance] setTintColor: [UIColor blackColor]];
     [[UIToolbar appearance] setTintColor: [UIColor blackColor]];
+    [[UISegmentedControl appearance] setTintColor: [UIColor darkGrayColor]];
 	
 	[DDLog addLogger: [DDTTYLogger sharedInstance]];
 	

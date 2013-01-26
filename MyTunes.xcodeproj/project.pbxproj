@@ -30,6 +30,8 @@
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
+		0069FAFA16B3C336001CF155 /* textborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF816B3C336001CF155 /* textborder.png */; };
+		0069FAFB16B3C336001CF155 /* textborder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF916B3C336001CF155 /* textborder@2x.png */; };
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
 		0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */; };
@@ -95,6 +97,8 @@
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		002A0AE91324549D00320A06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0069FAF816B3C336001CF155 /* textborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textborder.png; sourceTree = "<group>"; };
+		0069FAF916B3C336001CF155 /* textborder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textborder@2x.png"; sourceTree = "<group>"; };
 		0072339916AC0FE9008C1623 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
 		0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		0072339B16AC0FE9008C1623 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		0000C06D16ADF0430009BE81 /* playlists */ = {
 			isa = PBXGroup;
 			children = (
+				0069FAF816B3C336001CF155 /* textborder.png */,
+				0069FAF916B3C336001CF155 /* textborder@2x.png */,
 				0000C07016ADF0430009BE81 /* Unplayed.png */,
 				0000C07116ADF0430009BE81 /* Unplayed@2x.png */,
 			);
@@ -561,6 +567,8 @@
 				0000C0A316AE20670009BE81 /* MYTEditViewController.xib in Resources */,
 				0000C0A516AE265F0009BE81 /* MYTTVShowEditViewController.xib in Resources */,
 				0000C0B416AE2DCA0009BE81 /* MYTMovieEditViewController.xib in Resources */,
+				0069FAFA16B3C336001CF155 /* textborder.png in Resources */,
+				0069FAFB16B3C336001CF155 /* textborder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -118,4 +118,47 @@ static MYTLibraryStore *sharedInstance;
     DispatchMainThread(callback, nil);
 }
 
+- (void) saveContentList: (NSMutableSet *) content
+                callback: (KCErrorBlock) callback {
+    if(content.count == 0) {
+        DispatchMainThread(callback, nil);
+        return;
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"/library/%@/", self.currentPlaylist.uniqueId];
+    
+    MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
+    NSArray *params = [assembler writeContentArray: [content allObjects]];
+    
+    MYTServer *server = [MYTServerStore sharedInstance].currentServer;
+    [server.httpClient postPath: path
+#warning AFNetworking only takes a dictionary for input, even though array is valid for json
+                     parameters: (NSDictionary *) params
+                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            [self didSaveContentList: content callback: callback];
+                        }
+                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            [self didFaileToSaveContentList: error
+                                               callback: callback];
+                        }];
+}
+
+- (void) didSaveContentList: (NSMutableSet *) contentList
+                   callback: (KCErrorBlock) callback {
+    for(MMContent *content in contentList) {
+        [content.parent updateContent: content];
+    }
+    // resort the content, since it probably moved
+    [self.currentPlaylist sortContent];
+    DispatchMainThread(callback, nil);
+}
+
+- (void) didFaileToSaveContentList: (NSError *) error
+                          callback: (KCErrorBlock) callback {
+    NSString *errorMessage = [NSString stringWithFormat: @"Could not save content:\n%@",
+                              error.localizedDescription];
+    NSError *wrappedError = [NSError errorWithCode: -50 andMessage: errorMessage];
+    DispatchMainThread(callback, wrappedError);
+}
+
 @end

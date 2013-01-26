@@ -45,6 +45,7 @@
 		
 		NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"http://%@:%i", self.host, self.port]];
 		self.httpClient = [[KCHTTPClient alloc] initWithBaseURL: url];
+        self.httpClient.parameterEncoding = AFJSONParameterEncoding;
 	}
 	return self;
 }

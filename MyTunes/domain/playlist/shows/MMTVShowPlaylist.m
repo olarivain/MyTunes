@@ -105,10 +105,19 @@
         return self.unknownShow;
     }
     
+    // try by show name first
     for(MMTVShow *show in self.contentGroups) {
-        
         if([show.name caseInsensitiveCompare: content.show] == NSOrderedSame) {
             return show;
+        }
+    }
+    
+    // try by id now
+    for(MMTVShow *show in self.contentGroups) {
+        for(MMTVShowSeason *season in show.seasons) {
+            if([season.episodes containsObject: content]) {
+                return show;
+            }
         }
     }
     

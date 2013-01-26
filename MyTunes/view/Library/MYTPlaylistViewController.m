@@ -141,7 +141,7 @@
     controller.contentList = contentList;
     controller.content = content;
     controller.completion = ^{
-        [self.table reloadData];
+        [self.currentDataSource reload: YES];
     };
 
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];

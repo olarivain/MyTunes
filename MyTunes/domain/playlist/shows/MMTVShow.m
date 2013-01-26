@@ -74,7 +74,7 @@
 - (MMTVShowSeason *) seasonForContent: (MMContent *) content {
     NSInteger seasonNumber = [content.season integerValue];
     for(MMTVShowSeason *season in _seasons) {
-        if(season.season == seasonNumber) {
+        if(season.season == seasonNumber || [season.episodes containsObject: content]) {
             return season;
         }
     }
