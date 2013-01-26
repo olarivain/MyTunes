@@ -39,8 +39,9 @@
 
 #pragma mark - synthetic getters
 - (NSString *) humanReadableName {
+    NSString *humanReadableShow = self.show.name == nil ? @"Unknown Show" : self.show.name;
     NSString *humanReadableSeason = self.season == 0 ? @"Unknown Season" : [NSString stringWithFormat: @"Season %i", self.season];
-    return [NSString stringWithFormat: @"%@ - %@", self.show.name, humanReadableSeason];
+    return [NSString stringWithFormat: @"%@ - %@", humanReadableShow, humanReadableSeason];
 }
 
 - (BOOL) isUnwatched {

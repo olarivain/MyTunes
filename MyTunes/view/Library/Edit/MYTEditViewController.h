@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic, readwrite) MMContent *content;
 @property (strong, nonatomic, readwrite) NSArray *contentList;
+@property (strong, nonatomic, readwrite) KCVoidBlock completion;
 
 @end

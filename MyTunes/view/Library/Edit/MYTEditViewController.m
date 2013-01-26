@@ -12,7 +12,7 @@
 
 #import "MYTEditViewController.h"
 
-@interface MYTEditViewController ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface MYTEditViewController ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIView *editView;
 @property (strong, nonatomic) IBOutlet KCInputViewController *inputVIewController;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *typeField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *typeField;
 @property (weak, nonatomic) IBOutlet UITextField *showField;
 @property (weak, nonatomic) IBOutlet UITextField *seasonField;
 @property (weak, nonatomic) IBOutlet UITextField *episodeField;
@@ -47,12 +47,14 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Edit";
+    
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.navigationItem.rightBarButtonItem = self.doneButton;
     
     self.currentIndex = [self.contentList indexOfObject: self.content];
     [self updateNextPreviousButtons];
-
+    
     // add the initial edit view to the scene
     UIView *theView = [self loadEditView];
     [self.scrollContentView addSubview: theView];
@@ -71,10 +73,10 @@
     self.currentIndex += directionFactor;
     self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
 	
-	// we have a show, prefill the elements of the next with 
+	// we have a show, prefill the elements of the next with
 	if(self.previousContent.kind == TV_SHOW) {
 		self.content.kind = TV_SHOW;
-
+        
 		if (self.content.show.length == 0) {
 			self.content.show = self.previousContent.show;
 		}
@@ -95,7 +97,7 @@
     // before we destroy our fields array with a new one, compute the index of the first responder, if any
     UIView *currentResponder = [self.view kc_findFirstResponder];
     NSInteger responderIndex = [self.fields indexOfObject: currentResponder];
-
+    
     UIView *theView = [self loadEditView];
     // add the new view to the main view
     [self.scrollContentView addSubview: theView];
@@ -105,7 +107,7 @@
     CGFloat direction = forward ? 1.0f : -1.0f;
     CGAffineTransform newViewTransform = CGAffineTransformMakeTranslation( direction * width, 0.0f);
     theView.transform = newViewTransform;
-
+    
 	
     //then animate both together
     KCVoidBlock animation = ^{
@@ -152,11 +154,11 @@
 	for(UITextView *field in self.fields) {
 		field.inputAccessoryView = self.contentInputAccessoryView;
 	}
-	self.typeField.inputView = self.typePicker;
     
     // fill the content
     self.nameField.text = self.content.name;
-    self.typeField.text = self.content.kindHumanReadable;
+    self.typeField.selectedSegmentIndex = self.content.kind;
+    
     self.showField.text = self.content.show;
     self.seasonField.text = [self.content.season nonZeroStringValue];
     self.episodeField.text = [self.content.episodeNumber nonZeroStringValue];
@@ -177,14 +179,16 @@
 }
 
 - (IBAction)done:(id)sender {
-    [self saveCurrentItem];
+    [self saveCurrentItem: nil];
     
 	[self dismissViewControllerAnimated: YES
-							 completion:nil];
+							 completion: self.completion];
 }
 
 - (IBAction) confirmAndEditNextItem:(id)sender {
-    [self saveCurrentItem];
+    [self saveCurrentItem:^(NSError *error) {
+        [error present];
+    }];
     
     // present it
     [self presentNextContentItem: YES];
@@ -194,7 +198,9 @@
 }
 
 - (IBAction) confirmAndEditPreviousItem:(id)sender {
-    [self saveCurrentItem];
+    [self saveCurrentItem:^(NSError *error) {
+        [error present];
+    }];
     
     [self presentNextContentItem: NO];
     
@@ -202,7 +208,22 @@
     [self updateNextPreviousButtons];
 }
 
-- (void) saveCurrentItem {
+- (IBAction) changeType:(id)sender {
+    self.content.kind = self.typeField.selectedSegmentIndex;
+    
+    UIView *view = [self loadEditView];
+    [UIView transitionFromView: self.currentEditView
+                        toView: view
+                      duration: SHORT_ANIMATION_DURATION
+                       options: UIViewAnimationOptionTransitionCrossDissolve
+                    completion: ^(BOOL finished) {
+                        self.currentEditView = view;
+                    }];
+}
+
+- (void) saveCurrentItem: (KCErrorBlock) callback {
+    self.content.name = self.nameField.text;
+    self.content.show = self.showField.text;
     self.content.episodeNumber = [NSNumber numberFromString: self.episodeField.text];
     self.content.season = [NSNumber numberFromString: self.seasonField.text];
 }
@@ -218,19 +239,6 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
     [self.inputVIewController makeFirstResponderVisible];
-}
-
-#pragma mark - Picker data source
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return 1;
-}
-
-- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	return 2;
-}
-
-- (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	return row == 0 ? @"Movie" : @"TV Show";
 }
 
 @end

@@ -140,6 +140,9 @@
                                                                                               bundle: nil];
     controller.contentList = contentList;
     controller.content = content;
+    controller.completion = ^{
+        [self.table reloadData];
+    };
 
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
     navigation.modalPresentationStyle = UIModalPresentationFormSheet;
