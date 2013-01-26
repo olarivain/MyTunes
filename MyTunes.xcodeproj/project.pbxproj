@@ -32,6 +32,12 @@
 		0069FB3016B4896E001CF155 /* MYTEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2C16B4896E001CF155 /* MYTEditViewController.xib */; };
 		0069FB3116B4896E001CF155 /* MYTMovieEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2D16B4896E001CF155 /* MYTMovieEditViewController.xib */; };
 		0069FB3216B4896E001CF155 /* MYTTVShowEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB2E16B4896E001CF155 /* MYTTVShowEditViewController.xib */; };
+		0069FB3D16B48F5C001CF155 /* MMPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB3416B48F5C001CF155 /* MMPlaylistCell.xib */; };
+		0069FB3E16B48F5C001CF155 /* MYTLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB3616B48F5C001CF155 /* MYTLibraryListViewController.m */; };
+		0069FB3F16B48F5C001CF155 /* MYTLibraryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB3716B48F5C001CF155 /* MYTLibraryListViewController.xib */; };
+		0069FB4016B48F5C001CF155 /* MYTLibrarySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB3916B48F5C001CF155 /* MYTLibrarySplitViewController.m */; };
+		0069FB4116B48F5C001CF155 /* MYTLibrarySplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */; };
+		0069FB4216B48F5C001CF155 /* MYTPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */; };
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
 		0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */; };
@@ -50,13 +56,7 @@
 		0072365A16AD0818008C1623 /* MYTServerView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365616AD0815008C1623 /* MYTServerView_iPad.xib */; };
 		0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */; };
 		0072365C16AD0818008C1623 /* MYTServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072365916AD0817008C1623 /* MYTServerView.m */; };
-		0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */; };
-		0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */; };
-		0072369216AD17BA008C1623 /* MYTLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */; };
-		0072369316AD17BA008C1623 /* MYTLibraryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */; };
 		007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236EA16AD444A008C1623 /* MYTLibraryStore.m */; };
-		007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007236ED16AD4744008C1623 /* MYTPlaylistCell.m */; };
-		007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */; };
 		0072373016AD54CF008C1623 /* MYTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */; };
 		0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */; };
 		0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */; };
@@ -98,6 +98,15 @@
 		0069FB2C16B4896E001CF155 /* MYTEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEditViewController.xib; sourceTree = "<group>"; };
 		0069FB2D16B4896E001CF155 /* MYTMovieEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTMovieEditViewController.xib; sourceTree = "<group>"; };
 		0069FB2E16B4896E001CF155 /* MYTTVShowEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowEditViewController.xib; sourceTree = "<group>"; };
+		0069FB3416B48F5C001CF155 /* MMPlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistCell.xib; sourceTree = "<group>"; };
+		0069FB3516B48F5C001CF155 /* MYTLibraryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryListViewController.h; sourceTree = "<group>"; };
+		0069FB3616B48F5C001CF155 /* MYTLibraryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryListViewController.m; sourceTree = "<group>"; };
+		0069FB3716B48F5C001CF155 /* MYTLibraryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibraryListViewController.xib; sourceTree = "<group>"; };
+		0069FB3816B48F5C001CF155 /* MYTLibrarySplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibrarySplitViewController.h; sourceTree = "<group>"; };
+		0069FB3916B48F5C001CF155 /* MYTLibrarySplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibrarySplitViewController.m; sourceTree = "<group>"; };
+		0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibrarySplitViewController.xib; sourceTree = "<group>"; };
+		0069FB3B16B48F5C001CF155 /* MYTPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistCell.h; sourceTree = "<group>"; };
+		0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistCell.m; sourceTree = "<group>"; };
 		0072339916AC0FE9008C1623 /* MMContentAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMContentAssembler+Client.h"; sourceTree = "<group>"; };
 		0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		0072339B16AC0FE9008C1623 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
@@ -129,17 +138,8 @@
 		0072365716AD0816008C1623 /* MYTServerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTServerView_iPhone.xib; sourceTree = "<group>"; };
 		0072365816AD0817008C1623 /* MYTServerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServerView.h; sourceTree = "<group>"; };
 		0072365916AD0817008C1623 /* MYTServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServerView.m; sourceTree = "<group>"; };
-		0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibrarySplitViewController.h; sourceTree = "<group>"; };
-		0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibrarySplitViewController.m; sourceTree = "<group>"; };
-		0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibrarySplitViewController.xib; sourceTree = "<group>"; };
-		0072368F16AD17B9008C1623 /* MYTLibraryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryListViewController.h; sourceTree = "<group>"; };
-		0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryListViewController.m; sourceTree = "<group>"; };
-		0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibraryListViewController.xib; sourceTree = "<group>"; };
 		007236E916AD444A008C1623 /* MYTLibraryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryStore.h; sourceTree = "<group>"; };
 		007236EA16AD444A008C1623 /* MYTLibraryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryStore.m; sourceTree = "<group>"; };
-		007236EC16AD4744008C1623 /* MYTPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistCell.h; sourceTree = "<group>"; };
-		007236ED16AD4744008C1623 /* MYTPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistCell.m; sourceTree = "<group>"; };
-		007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPlaylistCell.xib; sourceTree = "<group>"; };
 		007236F116AD47E7008C1623 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		0072372E16AD54CD008C1623 /* MYTPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistViewController.h; sourceTree = "<group>"; };
 		0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistViewController.m; sourceTree = "<group>"; };
@@ -292,6 +292,22 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
+		0069FB3316B48F5B001CF155 /* Split View */ = {
+			isa = PBXGroup;
+			children = (
+				0069FB3416B48F5C001CF155 /* MMPlaylistCell.xib */,
+				0069FB3516B48F5C001CF155 /* MYTLibraryListViewController.h */,
+				0069FB3616B48F5C001CF155 /* MYTLibraryListViewController.m */,
+				0069FB3716B48F5C001CF155 /* MYTLibraryListViewController.xib */,
+				0069FB3816B48F5C001CF155 /* MYTLibrarySplitViewController.h */,
+				0069FB3916B48F5C001CF155 /* MYTLibrarySplitViewController.m */,
+				0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */,
+				0069FB3B16B48F5C001CF155 /* MYTPlaylistCell.h */,
+				0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */,
+			);
+			path = "Split View";
+			sourceTree = "<group>";
+		};
 		0072339616AC0FE9008C1623 /* MyTunes */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,7 +436,7 @@
 		0072367316AD1318008C1623 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0072367716AD14C1008C1623 /* Split View */,
+				0069FB3316B48F5B001CF155 /* Split View */,
 				0072373616AD573B008C1623 /* Movie */,
 				0000C03216AD59C20009BE81 /* TVShow */,
 				0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */,
@@ -432,23 +448,6 @@
 				0000C07F16AE05270009BE81 /* MYTContentCell.m */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		0072367716AD14C1008C1623 /* Split View */ = {
-			isa = PBXGroup;
-			children = (
-				0072367816AD14C1008C1623 /* MYTLibrarySplitViewController.h */,
-				0072367916AD14C1008C1623 /* MYTLibrarySplitViewController.m */,
-				0072367B16AD14F4008C1623 /* MYTLibrarySplitViewController.xib */,
-				0072368F16AD17B9008C1623 /* MYTLibraryListViewController.h */,
-				0072369016AD17B9008C1623 /* MYTLibraryListViewController.m */,
-				0072369116AD17B9008C1623 /* MYTLibraryListViewController.xib */,
-				007236EC16AD4744008C1623 /* MYTPlaylistCell.h */,
-				007236ED16AD4744008C1623 /* MYTPlaylistCell.m */,
-				007236EF16AD47B6008C1623 /* MMPlaylistCell.xib */,
-			);
-			name = "Split View";
-			path = iPad;
 			sourceTree = "<group>";
 		};
 		007236E816AD443B008C1623 /* Library */ = {
@@ -551,9 +550,6 @@
 				0072349A16AC19D3008C1623 /* MainWindow_iPhone.xib in Resources */,
 				0072365A16AD0818008C1623 /* MYTServerView_iPad.xib in Resources */,
 				0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */,
-				0072367C16AD14F4008C1623 /* MYTLibrarySplitViewController.xib in Resources */,
-				0072369316AD17BA008C1623 /* MYTLibraryListViewController.xib in Resources */,
-				007236F016AD47B7008C1623 /* MMPlaylistCell.xib in Resources */,
 				0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */,
 				0000C03116AD577D0009BE81 /* MYTMovieCell.xib in Resources */,
 				0000C07416ADF0430009BE81 /* Unplayed.png in Resources */,
@@ -566,6 +562,9 @@
 				0069FB3016B4896E001CF155 /* MYTEditViewController.xib in Resources */,
 				0069FB3116B4896E001CF155 /* MYTMovieEditViewController.xib in Resources */,
 				0069FB3216B4896E001CF155 /* MYTTVShowEditViewController.xib in Resources */,
+				0069FB3D16B48F5C001CF155 /* MMPlaylistCell.xib in Resources */,
+				0069FB3F16B48F5C001CF155 /* MYTLibraryListViewController.xib in Resources */,
+				0069FB4116B48F5C001CF155 /* MYTLibrarySplitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,10 +603,7 @@
 				0072349B16AC19D3008C1623 /* MYTAppDelegate.m in Sources */,
 				0072361A16ACF82B008C1623 /* MYTServerStore.m in Sources */,
 				0072365C16AD0818008C1623 /* MYTServerView.m in Sources */,
-				0072367A16AD14C1008C1623 /* MYTLibrarySplitViewController.m in Sources */,
-				0072369216AD17BA008C1623 /* MYTLibraryListViewController.m in Sources */,
 				007236EB16AD444A008C1623 /* MYTLibraryStore.m in Sources */,
-				007236EE16AD4745008C1623 /* MYTPlaylistCell.m in Sources */,
 				0072373016AD54CF008C1623 /* MYTPlaylistViewController.m in Sources */,
 				0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */,
 				0000C05316ADEAB10009BE81 /* MMMoviesPlaylist.m in Sources */,
@@ -617,6 +613,9 @@
 				0000C07A16ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m in Sources */,
 				0000C08016AE05280009BE81 /* MYTContentCell.m in Sources */,
 				0069FB2F16B4896E001CF155 /* MYTEditViewController.m in Sources */,
+				0069FB3E16B48F5C001CF155 /* MYTLibraryListViewController.m in Sources */,
+				0069FB4016B48F5C001CF155 /* MYTLibrarySplitViewController.m in Sources */,
+				0069FB4216B48F5C001CF155 /* MYTPlaylistCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
