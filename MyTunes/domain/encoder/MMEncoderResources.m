@@ -11,7 +11,6 @@
 
 @interface MMEncoderResources () {
     __strong NSMutableArray *_allResources;
-    __strong NSMutableArray *_scheduledResources;
 }
 
 @end
@@ -33,7 +32,7 @@
 #pragma mark - Synthetic getter
 - (NSArray *) scheduledResources {
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MMTitleList *evaluatedObject, NSDictionary *bindings) {
-        return evaluatedObject.selectedTitles.count > 0;
+        return evaluatedObject.selectedCount > 0;
     }];
     return [_allResources filteredArrayUsingPredicate: predicate];
 }

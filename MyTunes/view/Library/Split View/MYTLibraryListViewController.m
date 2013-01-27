@@ -73,7 +73,7 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? 2 : 2;
+    return section == 0 ? 2 : 1;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,7 +85,7 @@
         MMPlaylist *playlist = [library.playlists boundSafeObjectAtIndex: indexPath.row];
         title = playlist.name;
     } else {
-        title = indexPath.row == 0 ? @"Resources" : @"Queue";
+        title = @"Resources";
     }
     
     [cell updateWithTitle: title];
@@ -118,7 +118,7 @@
     if(indexPath.section == 0) {
         [self selectPlaylistAtIndexPath: indexPath];
     } else {
-        [self selectEncodingPlaylistAtIndexPath: indexPath];
+        [self.delegate didSelectEncoder];
     }
 }
 
@@ -129,9 +129,6 @@
     [self.delegate didSelectPlaylist: store.currentPlaylist];
 }
 
-- (void) selectEncodingPlaylistAtIndexPath: (NSIndexPath *) indexPath {
-    
-}
 
 
 

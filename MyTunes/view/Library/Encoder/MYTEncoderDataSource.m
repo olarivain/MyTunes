@@ -48,9 +48,9 @@
     return _templateCell;
 }
 
-- (void) reload:(BOOL)filtered {
+- (void) reload:(BOOL) showAll {
     MMEncoderResources *resources = [MYTEncoderStore sharedInstance].resources;
-    self.resources = filtered ? resources.scheduledResources : resources.allResources;
+    self.resources = showAll ? resources.allResources : resources.scheduledResources;
     
     [self.table reloadData];
 }

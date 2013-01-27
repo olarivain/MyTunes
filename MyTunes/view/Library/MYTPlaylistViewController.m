@@ -79,7 +79,13 @@
 #pragma mark - Switching between unwatched/all
 - (IBAction)updateFilter:(id)sender {
     self.showAll = self.filterSegmentedControl.selectedSegmentIndex;
-	[self.currentDataSource reload: self.showAll];
+    
+    MMPlaylist *playlist = [MYTLibraryStore sharedInstance].currentPlaylist;
+    if(playlist == nil) {
+        [self.currentDataSource reload: self.showAll];
+    }
+    
+    [self.encoderResources reload: self.showAll];;
 }
 
 #pragma mark - tab bar delegate

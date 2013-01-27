@@ -13,6 +13,7 @@
 @protocol MYTPlaylistControllerDelegate <NSObject>
 
 - (void) didSelectPlaylist: (MMPlaylist *) playlist;
+- (void) didSelectEncoder;
 
 @end
 

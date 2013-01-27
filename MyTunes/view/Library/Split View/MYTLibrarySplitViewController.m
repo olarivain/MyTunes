@@ -66,4 +66,9 @@
 - (void) didSelectPlaylist:(MMPlaylist *)playlist {
     [self.playlistViewController refreshSelectedPlaylist];
 }
+
+- (void) didSelectEncoder {
+    [self.playlistViewController refreshEncoderResources];
+}
+
 @end

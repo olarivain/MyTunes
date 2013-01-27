@@ -76,6 +76,8 @@
 		009A1FA916B513EA004AF368 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA716B513EA004AF368 /* checkmark.png */; };
 		009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA816B513EA004AF368 /* checkmark@2x.png */; };
 		009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */; };
+		009A1FB016B51DCA004AF368 /* MYTTitleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */; };
+		009A1FB216B51E01004AF368 /* MYTTileListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +186,9 @@
 		009A1FA716B513EA004AF368 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		009A1FA816B513EA004AF368 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
 		009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEncoderResourceCell.xib; sourceTree = "<group>"; };
+		009A1FAE16B51DCA004AF368 /* MYTTitleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTTitleListViewController.h; sourceTree = "<group>"; };
+		009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTTitleListViewController.m; sourceTree = "<group>"; };
+		009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTileListViewController.xib; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -441,6 +446,7 @@
 				007233BE16AC0FE9008C1623 /* Home */,
 				0072367316AD1318008C1623 /* Library */,
 				0069FB2916B4896E001CF155 /* Edit */,
+				009A1FAD16B51DB3004AF368 /* Encoder */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -541,6 +547,16 @@
 			children = (
 				009A1F9C16B50801004AF368 /* MYTEncoderStore.h */,
 				009A1F9D16B50801004AF368 /* MYTEncoderStore.m */,
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
+		009A1FAD16B51DB3004AF368 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				009A1FAE16B51DCA004AF368 /* MYTTitleListViewController.h */,
+				009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */,
+				009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */,
 			);
 			path = Encoder;
 			sourceTree = "<group>";
@@ -651,6 +667,7 @@
 				009A1FA916B513EA004AF368 /* checkmark.png in Resources */,
 				009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */,
 				009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */,
+				009A1FB216B51E01004AF368 /* MYTTileListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +725,7 @@
 				009A1F9E16B50801004AF368 /* MYTEncoderStore.m in Sources */,
 				009A1FA116B50955004AF368 /* MMEncoderResources.m in Sources */,
 				009A1FA416B51392004AF368 /* MYTEncoderResourceCell.m in Sources */,
+				009A1FB016B51DCA004AF368 /* MYTTitleListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

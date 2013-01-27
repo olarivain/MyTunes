@@ -13,5 +13,6 @@
 @interface MYTPlaylistViewController : UIViewController<MYTPlaylistContentDataSourceDelegate>
 
 - (void) refreshSelectedPlaylist;
+- (void) refreshEncoderResources;
 
 @end
