@@ -2,33 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>NSMainNibFile~ipad</key>
-    <string>MainWindow_iPad</string>
-    <key>CFBundleIconFile</key>
-    <string></string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
     <key>CFBundleIdentifier</key>
     <string>com.kra.${PRODUCT_NAME:rfc1034identifier}</string>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>en</string>
-    <key>CFBundleDisplayName</key>
-    <string>${PRODUCT_NAME}</string>
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleBlackOpaque</string>
     <key>CFBundleVersion</key>
-    <string>0.9.11</string>
+    <string>0.9.12</string>
+    <key>NSMainNibFile~ipad</key>
+    <string>MainWindow_iPad</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
-    </array>
-    <key>CFBundleName</key>
-    <string>${PRODUCT_NAME}</string>
+    <key>CFBundleIconFile</key>
+    <string></string>
+    <key>CFBundleExecutable</key>
+    <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleShortVersionString</key>
     <string>0.9</string>
-    <key>CFBundleSignature</key>
-    <string>????</string>
     <key>UISupportedInterfaceOrientations~ipad</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
@@ -36,13 +27,22 @@
       <string>UIInterfaceOrientationLandscapeLeft</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+    </array>
+    <key>CFBundleName</key>
+    <string>${PRODUCT_NAME}</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleDisplayName</key>
+    <string>${PRODUCT_NAME}</string>
     <key>NSMainNibFile</key>
     <string>MainWindow_iPhone</string>
-    <key>CFBundleExecutable</key>
-    <string>${EXECUTABLE_NAME}</string>
-    <key>UIStatusBarStyle</key>
-    <string>UIStatusBarStyleBlackOpaque</string>
-    <key>CFBundlePackageType</key>
-    <string>APPL</string>
   </dict>
 </plist>
