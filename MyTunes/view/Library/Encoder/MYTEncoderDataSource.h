@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MYTEncoderResourcesDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
+@interface MYTEncoderDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *resourceList;
 
-- (void) reload;
+- (void) reload: (BOOL) filtered;
 
 @end

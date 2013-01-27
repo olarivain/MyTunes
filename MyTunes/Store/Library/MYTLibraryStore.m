@@ -118,6 +118,7 @@ static MYTLibraryStore *sharedInstance;
     DispatchMainThread(callback, nil);
 }
 
+#pragma mark - saving update content
 - (void) saveContentList: (NSSet *) content
                 callback: (KCErrorBlock) callback {
     if(content.count == 0) {
@@ -142,7 +143,7 @@ static MYTLibraryStore *sharedInstance;
                         }
                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                             [self didFaileToSaveContentList: error
-                                               callback: callback];
+                                                   callback: callback];
                         }];
 #pragma clang diagnostic pop
 }

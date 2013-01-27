@@ -10,10 +10,11 @@
 #import "MYTPlaylistViewController.h"
 
 #import "MYTLibraryStore.h"
+#import "MYTEncoderStore.h"
 
 #import "MYTPlaylistContentDataSource.h"
 #import "MYTMoviePlaylistDataSource.h"
-#import "MYTEncoderResourcesDataSource.h"
+#import "MYTEncoderDataSource.h"
 
 #import "MYTEditViewController.h"
 
@@ -22,7 +23,7 @@
 }
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> moviePlaylistDataSource;
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> tvShowPlaylistDataSource;
-@property (strong, nonatomic) IBOutlet MYTEncoderResourcesDataSource *encoderReousrces;
+@property (strong, nonatomic) IBOutlet MYTEncoderDataSource *encoderResources;
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -83,19 +84,28 @@
 
 #pragma mark - tab bar delegate
 - (void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+
     NSInteger index = [tabBar.items indexOfObject: item];
     
     MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
     MMPlaylist *playlist = [store.currentLibrary.playlists boundSafeObjectAtIndex: index];
+    
     // user tapped a playlist, different than the one we have, go for it
     if(playlist != nil && playlist != store.currentPlaylist) {
         store.currentPlaylist = playlist;
         [self refreshSelectedPlaylist];
         return;
     }
+    
+    // user tapped the encoder tab again, do nothing
+    if(self.table.dataSource == self.encoderResources) {
+        return;
+    }
+    store.currentPlaylist = nil;
+    [self refreshEncoderResources];
 }
 
-#pragma mark - Updating the selection
+#pragma mark - Updating the playlist
 - (void) refreshSelectedPlaylist {
     MMPlaylist *playlist = [MYTLibraryStore sharedInstance].currentPlaylist;
 	
@@ -127,6 +137,7 @@
     }
     
     [self.activityIndicator stopAnimating];
+    self.table.contentOffset = CGPointZero;
     [self.currentDataSource reload: self.showAll];
     
     // fade the table out and start the spinning spinner
@@ -136,6 +147,41 @@
                      }];
 }
 
+#pragma mark - Updating the encoder
+- (void) refreshEncoderResources {
+    // swap the data source on the table
+	self.table.dataSource = self.encoderResources;
+	self.table.delegate = self.encoderResources;
+    
+	// fade the table out and start the spinning spinner
+	[UIView animateWithDuration: SHORT_ANIMATION_DURATION
+                     animations:^{
+                         self.table.alpha = 0.0f;
+                     }];
+	[self.activityIndicator startAnimating];
+    
+    MYTEncoderStore *store = [MYTEncoderStore sharedInstance];
+    [store loadEncoderResources:^(NSError *error) {
+        [self didLoadEncoderResources: error];
+    }];
+}
+
+- (void) didLoadEncoderResources: (NSError *) error {
+    if([error present]) {
+        return;
+    }
+    
+    [self.activityIndicator stopAnimating];
+    self.table.contentOffset = CGPointZero;
+    [self.encoderResources reload: self.showAll];
+
+	[UIView animateWithDuration: SHORT_ANIMATION_DURATION
+                     animations:^{
+                         self.table.alpha = 1.0f;
+                     }];
+}
+
+#pragma mark - Playlist data source delegate
 - (void) didSelectContent: (MMContent *) content
           withContentList: (NSArray *) contentList {
     

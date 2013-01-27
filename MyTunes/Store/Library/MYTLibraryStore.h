@@ -24,4 +24,6 @@
 
 - (void) saveContentList: (NSSet *) content
                 callback: (KCErrorBlock) callback;
+
+- (void) loadEncoderResources: (KCErrorBlock) callback;
 @end

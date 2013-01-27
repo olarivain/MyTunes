@@ -33,14 +33,12 @@
 		0069FB4016B48F5C001CF155 /* MYTLibrarySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB3916B48F5C001CF155 /* MYTLibrarySplitViewController.m */; };
 		0069FB4116B48F5C001CF155 /* MYTLibrarySplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */; };
 		0069FB4216B48F5C001CF155 /* MYTPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */; };
-		0069FB4616B49312001CF155 /* MYTEncoderResourcesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB4516B49312001CF155 /* MYTEncoderResourcesDataSource.m */; };
+		0069FB4616B49312001CF155 /* MYTEncoderDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB4516B49312001CF155 /* MYTEncoderDataSource.m */; };
 		0069FB5316B49A28001CF155 /* tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB4F16B49A28001CF155 /* tv.png */; };
 		0069FB5416B49A28001CF155 /* tv@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5016B49A28001CF155 /* tv@2x.png */; };
 		0069FB5616B49B3E001CF155 /* MYPlaylistTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5516B49B3D001CF155 /* MYPlaylistTabViewController.xib */; };
 		0069FB5B16B4A0AA001CF155 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5716B4A0AA001CF155 /* download.png */; };
 		0069FB5C16B4A0AA001CF155 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5816B4A0AA001CF155 /* download@2x.png */; };
-		0069FB5D16B4A0AA001CF155 /* videocamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5916B4A0AA001CF155 /* videocamera.png */; };
-		0069FB5E16B4A0AA001CF155 /* videocamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5A16B4A0AA001CF155 /* videocamera@2x.png */; };
 		0069FB6116B4A0DE001CF155 /* clapboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5F16B4A0DE001CF155 /* clapboard.png */; };
 		0069FB6216B4A0DE001CF155 /* clapboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6016B4A0DE001CF155 /* clapboard@2x.png */; };
 		0069FB6516B4AAE2001CF155 /* Unplayed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6316B4AAE2001CF155 /* Unplayed.png */; };
@@ -71,6 +69,13 @@
 		0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */; };
 		009A1F6416B4E314004AF368 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1F6216B4E314004AF368 /* button.png */; };
 		009A1F6516B4E314004AF368 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1F6316B4E314004AF368 /* button@2x.png */; };
+		009A1F9E16B50801004AF368 /* MYTEncoderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1F9D16B50801004AF368 /* MYTEncoderStore.m */; };
+		009A1FA116B50955004AF368 /* MMEncoderResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1FA016B50955004AF368 /* MMEncoderResources.m */; };
+		009A1FA416B51392004AF368 /* MYTEncoderResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1FA316B51392004AF368 /* MYTEncoderResourceCell.m */; };
+		009A1FA616B513A1004AF368 /* MYTEncoderResourceActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA516B513A1004AF368 /* MYTEncoderResourceActiveCell.xib */; };
+		009A1FA916B513EA004AF368 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA716B513EA004AF368 /* checkmark.png */; };
+		009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA816B513EA004AF368 /* checkmark@2x.png */; };
+		009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -114,15 +119,13 @@
 		0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibrarySplitViewController.xib; sourceTree = "<group>"; };
 		0069FB3B16B48F5C001CF155 /* MYTPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistCell.h; sourceTree = "<group>"; };
 		0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTPlaylistCell.m; sourceTree = "<group>"; };
-		0069FB4416B49312001CF155 /* MYTEncoderResourcesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEncoderResourcesDataSource.h; sourceTree = "<group>"; };
-		0069FB4516B49312001CF155 /* MYTEncoderResourcesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEncoderResourcesDataSource.m; sourceTree = "<group>"; };
+		0069FB4416B49312001CF155 /* MYTEncoderDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEncoderDataSource.h; sourceTree = "<group>"; };
+		0069FB4516B49312001CF155 /* MYTEncoderDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEncoderDataSource.m; sourceTree = "<group>"; };
 		0069FB4F16B49A28001CF155 /* tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tv.png; sourceTree = "<group>"; };
 		0069FB5016B49A28001CF155 /* tv@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tv@2x.png"; sourceTree = "<group>"; };
 		0069FB5516B49B3D001CF155 /* MYPlaylistTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYPlaylistTabViewController.xib; sourceTree = "<group>"; };
 		0069FB5716B4A0AA001CF155 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		0069FB5816B4A0AA001CF155 /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
-		0069FB5916B4A0AA001CF155 /* videocamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videocamera.png; sourceTree = "<group>"; };
-		0069FB5A16B4A0AA001CF155 /* videocamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videocamera@2x.png"; sourceTree = "<group>"; };
 		0069FB5F16B4A0DE001CF155 /* clapboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clapboard.png; sourceTree = "<group>"; };
 		0069FB6016B4A0DE001CF155 /* clapboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clapboard@2x.png"; sourceTree = "<group>"; };
 		0069FB6316B4AAE2001CF155 /* Unplayed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unplayed.png; sourceTree = "<group>"; };
@@ -171,6 +174,16 @@
 		0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTMoviePlaylistDataSource.m; sourceTree = "<group>"; };
 		009A1F6216B4E314004AF368 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		009A1F6316B4E314004AF368 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		009A1F9C16B50801004AF368 /* MYTEncoderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEncoderStore.h; sourceTree = "<group>"; };
+		009A1F9D16B50801004AF368 /* MYTEncoderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEncoderStore.m; sourceTree = "<group>"; };
+		009A1F9F16B50955004AF368 /* MMEncoderResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMEncoderResources.h; sourceTree = "<group>"; };
+		009A1FA016B50955004AF368 /* MMEncoderResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMEncoderResources.m; sourceTree = "<group>"; };
+		009A1FA216B51392004AF368 /* MYTEncoderResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEncoderResourceCell.h; sourceTree = "<group>"; };
+		009A1FA316B51392004AF368 /* MYTEncoderResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTEncoderResourceCell.m; sourceTree = "<group>"; };
+		009A1FA516B513A1004AF368 /* MYTEncoderResourceActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEncoderResourceActiveCell.xib; sourceTree = "<group>"; };
+		009A1FA716B513EA004AF368 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		009A1FA816B513EA004AF368 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
+		009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEncoderResourceCell.xib; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -273,10 +286,10 @@
 		0028484314AFF2CD003F5818 /* encoder */ = {
 			isa = PBXGroup;
 			children = (
+				009A1FA716B513EA004AF368 /* checkmark.png */,
+				009A1FA816B513EA004AF368 /* checkmark@2x.png */,
 				0069FB5716B4A0AA001CF155 /* download.png */,
 				0069FB5816B4A0AA001CF155 /* download@2x.png */,
-				0069FB5916B4A0AA001CF155 /* videocamera.png */,
-				0069FB5A16B4A0AA001CF155 /* videocamera@2x.png */,
 			);
 			path = encoder;
 			sourceTree = "<group>";
@@ -348,8 +361,12 @@
 		0069FB4316B492F5001CF155 /* Encoder */ = {
 			isa = PBXGroup;
 			children = (
-				0069FB4416B49312001CF155 /* MYTEncoderResourcesDataSource.h */,
-				0069FB4516B49312001CF155 /* MYTEncoderResourcesDataSource.m */,
+				0069FB4416B49312001CF155 /* MYTEncoderDataSource.h */,
+				0069FB4516B49312001CF155 /* MYTEncoderDataSource.m */,
+				009A1FA216B51392004AF368 /* MYTEncoderResourceCell.h */,
+				009A1FA316B51392004AF368 /* MYTEncoderResourceCell.m */,
+				009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */,
+				009A1FA516B513A1004AF368 /* MYTEncoderResourceActiveCell.xib */,
 			);
 			path = Encoder;
 			sourceTree = "<group>";
@@ -394,6 +411,8 @@
 			children = (
 				007233A116AC0FE9008C1623 /* MMRemoteEncoder.h */,
 				007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */,
+				009A1F9F16B50955004AF368 /* MMEncoderResources.h */,
+				009A1FA016B50955004AF368 /* MMEncoderResources.m */,
 			);
 			path = encoder;
 			sourceTree = "<group>";
@@ -463,6 +482,7 @@
 		007235FC16ACCB33008C1623 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				009A1F9A16B507F3004AF368 /* Encoder */,
 				007236E816AD443B008C1623 /* Library */,
 				0072361616ACF80B008C1623 /* Server */,
 			);
@@ -514,6 +534,15 @@
 				0000C03016AD577D0009BE81 /* MYTMovieCell.xib */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		009A1F9A16B507F3004AF368 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				009A1F9C16B50801004AF368 /* MYTEncoderStore.h */,
+				009A1F9D16B50801004AF368 /* MYTEncoderStore.m */,
+			);
+			path = Encoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -610,8 +639,6 @@
 				0069FB5616B49B3E001CF155 /* MYPlaylistTabViewController.xib in Resources */,
 				0069FB5B16B4A0AA001CF155 /* download.png in Resources */,
 				0069FB5C16B4A0AA001CF155 /* download@2x.png in Resources */,
-				0069FB5D16B4A0AA001CF155 /* videocamera.png in Resources */,
-				0069FB5E16B4A0AA001CF155 /* videocamera@2x.png in Resources */,
 				0069FB6116B4A0DE001CF155 /* clapboard.png in Resources */,
 				0069FB6216B4A0DE001CF155 /* clapboard@2x.png in Resources */,
 				0069FB6516B4AAE2001CF155 /* Unplayed.png in Resources */,
@@ -620,6 +647,10 @@
 				0048440316B4C3AF0098843E /* MYTLibraryHeader.xib in Resources */,
 				009A1F6416B4E314004AF368 /* button.png in Resources */,
 				009A1F6516B4E314004AF368 /* button@2x.png in Resources */,
+				009A1FA616B513A1004AF368 /* MYTEncoderResourceActiveCell.xib in Resources */,
+				009A1FA916B513EA004AF368 /* checkmark.png in Resources */,
+				009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */,
+				009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,9 +702,12 @@
 				0069FB3E16B48F5C001CF155 /* MYTLibraryListViewController.m in Sources */,
 				0069FB4016B48F5C001CF155 /* MYTLibrarySplitViewController.m in Sources */,
 				0069FB4216B48F5C001CF155 /* MYTPlaylistCell.m in Sources */,
-				0069FB4616B49312001CF155 /* MYTEncoderResourcesDataSource.m in Sources */,
+				0069FB4616B49312001CF155 /* MYTEncoderDataSource.m in Sources */,
 				0069FB6B16B4B112001CF155 /* MYTTVShowHeader.m in Sources */,
 				0048440116B4C39F0098843E /* MYTLibraryHeader.m in Sources */,
+				009A1F9E16B50801004AF368 /* MYTEncoderStore.m in Sources */,
+				009A1FA116B50955004AF368 /* MMEncoderResources.m in Sources */,
+				009A1FA416B51392004AF368 /* MYTEncoderResourceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
