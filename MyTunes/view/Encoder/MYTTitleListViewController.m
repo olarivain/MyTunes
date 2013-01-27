@@ -142,13 +142,47 @@
     return self.templateAudioSubtitleCell.frame.size.height;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0) {
+        return;
+    }
+    
+    MMTitle *title = [self.titleList.titles boundSafeObjectAtIndex: indexPath.section];
+    NSInteger audioIndex = indexPath.row - 1;
+    MMAudioTrack *audio = [title.audioTracks boundSafeObjectAtIndex: audioIndex];
+    if(audio) {
+        [title selectAudioTrack: audio];
+    } else {
+        NSInteger subtitleIndex = indexPath.row - title.audioTracks.count - 1;
+        MMSubtitleTrack *subtitle = [title.subtitleTracks boundSafeObjectAtIndex: subtitleIndex];
+        [title selectSubtitleTrack: subtitle];
+    }
+    
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex: indexPath.section];
+    [tableView reloadSections: set
+             withRowAnimation: UITableViewRowAnimationNone];
+}
+
 #pragma mark - Button
 - (IBAction) done: (id)sender {
+    [self.activityIndicator startAnimating];
+    
+    MYTEncoderStore *store = [MYTEncoderStore sharedInstance];
+    [store encodeResource: self.titleList
+                 callback:^(NSError *error) {
+                     [self didEncodeResource: error];
+                 }];
+}
+
+- (void) didEncodeResource: (NSError *) error {
+    if([error present]) {
+        return;
+    }
+    
     [self dismissViewControllerAnimated:YES
                              completion:^{
                                  InvokeBlock(self.dismissBlock, YES);
                              }];
-    
 }
 
 - (IBAction) cancel: (id)sender {

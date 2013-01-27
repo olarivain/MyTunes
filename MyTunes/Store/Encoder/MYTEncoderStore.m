@@ -89,5 +89,24 @@ static MYTEncoderStore *sharedInstance;
     DispatchMainThread(callback, nil);
 }
 
+#pragma mark - encoding a resource
+- (void) encodeResource: (MMTitleList *) titleList
+               callback: (KCErrorBlock) callback {
+    MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+    NSDictionary *params = [assembler writeTitleList: titleList];
+    
+    NSString *encodedTitleName = [titleList.titleListId stringByURLEncoding];
+    NSString *path = [NSString stringWithFormat: @"/encoder/%@", encodedTitleName];
+    MYTServer *server = [MYTServerStore sharedInstance].currentServer;
+    [server.httpClient postPath: path
+                     parameters: params
+                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            DispatchMainThread(callback, nil);
+                        }
+                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            DispatchMainThread(callback, error);
+                        }];
+    
+}
 
 @end

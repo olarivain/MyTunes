@@ -55,6 +55,11 @@
 	[store startSearching];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    [self.serverCarousel reload];
+}
+
 - (void)viewDidUnload
 {
 	[super viewDidUnload];

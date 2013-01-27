@@ -20,4 +20,6 @@
 - (void) loadEncoderResources: (KCErrorBlock) callback;
 - (void) loadResource: (MMTitleList *) titleList
              callback: (KCErrorBlock) callback;
+- (void) encodeResource: (MMTitleList *) titleList
+               callback: (KCErrorBlock) callback;
 @end
