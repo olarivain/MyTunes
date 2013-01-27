@@ -69,6 +69,8 @@
 		0072373016AD54CF008C1623 /* MYTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072372F16AD54CE008C1623 /* MYTPlaylistViewController.m */; };
 		0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */; };
 		0072373916AD573F008C1623 /* MYTMoviePlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */; };
+		009A1F6416B4E314004AF368 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1F6216B4E314004AF368 /* button.png */; };
+		009A1F6516B4E314004AF368 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1F6316B4E314004AF368 /* button@2x.png */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +169,8 @@
 		0072373116AD54E4008C1623 /* MYTPlaylistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTPlaylistViewController.xib; sourceTree = "<group>"; };
 		0072373716AD573F008C1623 /* MYTMoviePlaylistDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTMoviePlaylistDataSource.h; sourceTree = "<group>"; };
 		0072373816AD573F008C1623 /* MYTMoviePlaylistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTMoviePlaylistDataSource.m; sourceTree = "<group>"; };
+		009A1F6216B4E314004AF368 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		009A1F6316B4E314004AF368 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -260,6 +264,8 @@
 				0000C08D16AE1C0F0009BE81 /* Default */,
 				0028484314AFF2CD003F5818 /* encoder */,
 				0000C06D16ADF0430009BE81 /* playlists */,
+				009A1F6216B4E314004AF368 /* button.png */,
+				009A1F6316B4E314004AF368 /* button@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -612,6 +618,8 @@
 				0069FB6616B4AAE2001CF155 /* Unplayed@2x.png in Resources */,
 				0069FB6816B4B0B5001CF155 /* MYTTVShowHeader.xib in Resources */,
 				0048440316B4C3AF0098843E /* MYTLibraryHeader.xib in Resources */,
+				009A1F6416B4E314004AF368 /* button.png in Resources */,
+				009A1F6516B4E314004AF368 /* button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

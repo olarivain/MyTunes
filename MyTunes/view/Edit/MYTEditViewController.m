@@ -7,7 +7,7 @@
 //
 #import <KraCommons/NSNumber+String.h>
 #import <KraCommons/KCInputViewController.h>
-#import <KraCommons/UIImage+extensions.h>
+#import <KraCommons/UIImage+Stretchable.h>
 
 #import <MediaManagement/MMContent.h>
 

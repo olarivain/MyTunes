@@ -53,6 +53,23 @@
     return NO;
 }
 
+#pragma mark - viewed
+- (BOOL) isUnplayed {
+    for(MMContent *content in self.episodes) {
+        if(content.unplayed) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+- (void) changeUnplayedState {
+    BOOL viewed = self.isUnplayed;
+    for(MMContent *content in self.episodes) {
+        content.unplayed = !viewed;
+    }
+}
+
 #pragma mark - managing episodes
 - (BOOL) addEpisode: (MMContent *) content {
     NSAssert(content.kind == TV_SHOW, @"Only tv shows can be added to a TV Show season");

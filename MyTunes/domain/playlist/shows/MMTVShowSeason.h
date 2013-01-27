@@ -21,9 +21,12 @@
 @property (nonatomic, readonly) BOOL isUnwatched;
 
 @property (nonatomic, readonly) NSString *humanReadableName;
+@property (nonatomic, readonly) BOOL isUnplayed;
 
 - (BOOL) addEpisode: (MMContent *) content;
 - (BOOL) removeEpisode: (MMContent *) content;
 - (void) sortContent;
+
+- (void) changeUnplayedState;
 
 @end

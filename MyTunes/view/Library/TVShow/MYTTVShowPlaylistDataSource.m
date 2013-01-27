@@ -10,13 +10,15 @@
 
 #import "MYTTVShowPlaylistDataSource.h"
 
+#import "MYTLibraryStore.h"
+
 #import "MMTVShowPlaylist.h"
 #import "MMTVShowSeason.h"
 
 #import "MYTTVShowHeader.h"
 #import "MYTContentCell.h"
 
-@interface MYTTVShowPlaylistDataSource ()
+@interface MYTTVShowPlaylistDataSource ()<MYTTVShowHeaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) MYTContentCell *templateCell;
@@ -105,6 +107,7 @@
     MYTTVShowHeader *header = (MYTTVShowHeader *) [self.viewDequeuer dequeueReusableViewWithIdentifier: @"showHeader"];
     
     [header updateWithShow: season];
+    header.delegate = self;
     return header;
 }
 
@@ -127,6 +130,19 @@
     
     [self.delegate didSelectContent: content
                     withContentList: season.episodes];
+}
+
+#pragma mark - TV Show Header delegate
+- (void) didMarkAsViewed:(MMTVShowSeason *)season {
+    [season changeUnplayedState];
+    MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
+    NSSet *set = [NSSet setWithArray: season.episodes];
+    [store saveContentList: set
+                  callback:^(NSError *error) {
+        if(self.table.dataSource == self) {
+            [self.table reloadData];
+        }
+    }];
 }
 
 @end

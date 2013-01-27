@@ -118,7 +118,7 @@ static MYTLibraryStore *sharedInstance;
     DispatchMainThread(callback, nil);
 }
 
-- (void) saveContentList: (NSMutableSet *) content
+- (void) saveContentList: (NSSet *) content
                 callback: (KCErrorBlock) callback {
     if(content.count == 0) {
         DispatchMainThread(callback, nil);
@@ -147,7 +147,7 @@ static MYTLibraryStore *sharedInstance;
 #pragma clang diagnostic pop
 }
 
-- (void) didSaveContentList: (NSMutableSet *) contentList
+- (void) didSaveContentList: (NSSet *) contentList
                    callback: (KCErrorBlock) callback {
     for(MMContent *content in contentList) {
         [self.currentLibrary updateContent: content];

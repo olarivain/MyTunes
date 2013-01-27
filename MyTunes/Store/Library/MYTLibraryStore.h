@@ -22,6 +22,6 @@
 - (void) loadCurrentLibraryListing: (KCErrorBlock) callback;
 - (void) loadPlaylist: (KCErrorBlock) callback;
 
-- (void) saveContentList: (NSMutableSet *) content
+- (void) saveContentList: (NSSet *) content
                 callback: (KCErrorBlock) callback;
 @end
