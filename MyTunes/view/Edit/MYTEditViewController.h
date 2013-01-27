@@ -14,7 +14,8 @@ typedef void(^MYTDismissBlock)(BOOL);
 
 @interface MYTEditViewController : UIViewController
 
-@property (strong, nonatomic, readwrite) MMContent *content;
+
+@property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic, readwrite) NSArray *contentList;
 @property (strong, nonatomic, readwrite) MYTDismissBlock completion;
 

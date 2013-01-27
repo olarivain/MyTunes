@@ -44,7 +44,7 @@
 
 @property (strong, nonatomic) UIView *currentEditView;
 
-@property (assign, nonatomic) NSInteger currentIndex;
+@property (strong, nonatomic, readwrite) MMContent *content;
 @property (strong, nonatomic, readwrite) MMContent *previousContent;
 @property (strong, nonatomic, readwrite) NSMutableSet *pendingContent;
 
@@ -52,6 +52,7 @@
 
 @implementation MYTEditViewController
 
+#pragma mark - view lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,7 +62,7 @@
     self.navigationItem.leftBarButtonItem = self.cancelButton;
     self.navigationItem.rightBarButtonItem = self.doneButton;
     
-    self.currentIndex = [self.contentList indexOfObject: self.content];
+    self.content = [self.contentList boundSafeObjectAtIndex: self.index];
     [self updateNextPreviousButtons];
     
     // add the initial edit view to the scene
@@ -76,6 +77,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Synthetic getters/setter
+- (void) setContentList:(NSArray *)contentList {
+    NSMutableArray *copiedList = [NSMutableArray arrayWithCapacity: contentList.count];
+    
+    for(MMContent *content in contentList) {
+        [copiedList addObjectNilSafe: [content deepCopy]];
+    }
+    _contentList = copiedList;
 }
 
 #pragma mark - Managing the edit view
@@ -121,8 +132,8 @@
 - (void) advanceContentItem: (BOOL) forward {
 	NSInteger directionFactor = forward ? 1 : -1;
 	self.previousContent = self.content;
-    self.currentIndex += directionFactor;
-    self.content = [self.contentList boundSafeObjectAtIndex: self.currentIndex];
+    self.index += directionFactor;
+    self.content = [self.contentList boundSafeObjectAtIndex: self.index];
 	
 	// we had a show before, prefill the elements of the next with the same content
 	if(self.previousContent.kind == TV_SHOW) {
@@ -181,8 +192,8 @@
 
 #pragma mark - managing toolbar buttons
 - (void) updateNextPreviousButtons {
-    self.previousItemButton.enabled = self.currentIndex > 0;
-    self.nextItemButton.enabled = self.currentIndex < (self.contentList.count - 1);
+    self.previousItemButton.enabled = self.index > 0;
+    self.nextItemButton.enabled = self.index < (self.contentList.count - 1);
 }
 
 #pragma mark - Actions
@@ -263,6 +274,7 @@
     self.content.episodeNumber = [NSNumber numberFromString: self.episodeField.text];
     self.content.season = [NSNumber numberFromString: self.seasonField.text];
     self.content.description = self.descriptionField.text;
+    self.content.kind = self.typeField.selectedSegmentIndex;
     
     [self.pendingContent addObjectNilSafe: self.content];
 }

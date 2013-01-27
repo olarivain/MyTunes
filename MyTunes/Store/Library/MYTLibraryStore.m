@@ -131,9 +131,12 @@ static MYTLibraryStore *sharedInstance;
     NSArray *params = [assembler writeContentArray: [content allObjects]];
     
     MYTServer *server = [MYTServerStore sharedInstance].currentServer;
+    
+    // AFNetworking only takes a dictionary for input, even though array is valid for json
+    // it sucks, but we have to live with it for now, and silence clang about it...
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
     [server.httpClient postPath: path
-#warning AFNetworking only takes a dictionary for input, even though array is valid for json
-                     parameters: (NSDictionary *) params
+                     parameters: params
                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
                             [self didSaveContentList: content callback: callback];
                         }
@@ -141,12 +144,13 @@ static MYTLibraryStore *sharedInstance;
                             [self didFaileToSaveContentList: error
                                                callback: callback];
                         }];
+#pragma clang diagnostic pop
 }
 
 - (void) didSaveContentList: (NSMutableSet *) contentList
                    callback: (KCErrorBlock) callback {
     for(MMContent *content in contentList) {
-        [content.parent updateContent: content];
+        [self.currentLibrary updateContent: content];
     }
     // resort the content, since it probably moved
     [self.currentPlaylist sortContent];

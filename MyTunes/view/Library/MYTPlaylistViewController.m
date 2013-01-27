@@ -142,7 +142,7 @@
     MYTEditViewController *controller = [[MYTEditViewController alloc] initWithNibName: @"MYTEditViewController"
                                                                                               bundle: nil];
     controller.contentList = contentList;
-    controller.content = content;
+    controller.index = [contentList indexOfObject: content];
     controller.completion = ^(BOOL saved) {
         [self.currentDataSource deselectCurrentCell];
         if(saved) {
