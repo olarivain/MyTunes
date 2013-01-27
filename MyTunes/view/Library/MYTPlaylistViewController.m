@@ -17,6 +17,7 @@
 #import "MYTEncoderDataSource.h"
 
 #import "MYTEditViewController.h"
+#import "MYTTitleListViewController.h"
 
 @interface MYTPlaylistViewController ()<UITabBarDelegate> {
     dispatch_once_t initialPlaylistSelectionToken;
@@ -195,7 +196,7 @@
                                                                                               bundle: nil];
     controller.contentList = contentList;
     controller.index = [contentList indexOfObject: content];
-    controller.completion = ^(BOOL saved) {
+    controller.dismissBlock = ^(BOOL saved) {
         [self.currentDataSource deselectCurrentCell];
         if(saved) {
             [self.currentDataSource reload: self.showAll];
@@ -208,7 +209,26 @@
     [self presentViewController: navigation
                        animated: YES
                      completion: nil];
+}
+
+- (void) didSelectTitleList:(MMTitleList *)titleList {
+    MYTTitleListViewController *controller = [[MYTTitleListViewController alloc] initWithNibName: @"MYTTitleListViewController"
+                                                                                          bundle: nil];
     
+    controller.titleList = titleList;
+    controller.dismissBlock = ^(BOOL saved) {
+        [self.encoderResources deselectCurrentCell];
+        if(saved) {
+            [self refreshEncoderResources];
+        }
+    };
+    
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
+    navigation.modalPresentationStyle = UIModalPresentationFormSheet;
+    navigation.modalTransitionStyle = isiPhone ? UIModalTransitionStyleFlipHorizontal : UIModalTransitionStyleCoverVertical;
+    [self presentViewController: navigation
+                       animated: YES
+                     completion: nil];
 }
 
 @end

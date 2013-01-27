@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "MYTPlaylistContentDataSource.h"
+#import "MYTEncoderDataSource.h"
 
-@interface MYTPlaylistViewController : UIViewController<MYTPlaylistContentDataSourceDelegate>
+@interface MYTPlaylistViewController : UIViewController<MYTPlaylistContentDataSourceDelegate, MYTEncoderDataSourceDelegate>
 
 - (void) refreshSelectedPlaylist;
 - (void) refreshEncoderResources;

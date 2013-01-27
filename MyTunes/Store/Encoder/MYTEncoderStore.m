@@ -6,6 +6,9 @@
 //
 //
 #import <KraCommons/KCHTTPClient.h>
+#import <KraCommons/NSString+URLEncoding.h>
+
+#import <MediaManagement/MMTitleList.h>
 
 #import "MYTEncoderStore.h"
 
@@ -32,7 +35,7 @@ static MYTEncoderStore *sharedInstance;
     return sharedInstance;
 }
 
-#pragma mark - Loading encoder resources
+#pragma mark - Loading all resources
 - (void) loadEncoderResources: (KCErrorBlock) callback {
     MYTServer *server = [MYTServerStore sharedInstance].currentServer;
     [server.httpClient getPath: @"/encoder"
@@ -59,6 +62,32 @@ static MYTEncoderStore *sharedInstance;
     DispatchMainThread(callback, nil);
 }
 
+#pragma mark - loading a resource
+- (void) loadResource: (MMTitleList *) titleList
+             callback: (KCErrorBlock) callback {
+    NSString *encodedTitleName = [titleList.titleListId stringByURLEncoding];
+    NSString *path = [NSString stringWithFormat: @"/encoder/%@", encodedTitleName];
+    MYTServer *server = [MYTServerStore sharedInstance].currentServer;
+    [server.httpClient getPath: path
+                    parameters: nil
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           [self didLoadResource: responseObject
+                                       titleList: titleList
+                                        callback: callback];
+                       }
+                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           DispatchMainThread(callback, error);
+                       }];
+}
+
+- (void) didLoadResource: (NSDictionary *) dto
+               titleList: (MMTitleList *) titleList
+                callback: (KCErrorBlock) callback {
+    MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+    [assembler updateTitleList: titleList withDto: dto];
+    
+    DispatchMainThread(callback, nil);
+}
 
 
 @end

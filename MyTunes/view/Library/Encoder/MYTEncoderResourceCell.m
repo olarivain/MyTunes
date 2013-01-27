@@ -45,7 +45,7 @@
 
 - (NSString *) progressStringForTitleList: (MMTitleList *) titleList {
     return [NSString stringWithFormat: @"Title %i of %i, %@ remaining", titleList.completedCount,
-                                titleList.selectedCount, titleList.name];
+                                titleList.selectedCount, titleList.activeTitle.formattedEta];
 }
 
 - (CGFloat) idealHeightForTitleList:(MMTitleList *)titleList {

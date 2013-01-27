@@ -48,11 +48,18 @@
     return _templateCell;
 }
 
+#pragma mark - updating content
 - (void) reload:(BOOL) showAll {
     MMEncoderResources *resources = [MYTEncoderStore sharedInstance].resources;
     self.resources = showAll ? resources.allResources : resources.scheduledResources;
     
     [self.table reloadData];
+}
+
+- (void) deselectCurrentCell {
+    NSIndexPath *path = [self.table indexPathForSelectedRow];
+    [self.table deselectRowAtIndexPath: path
+                              animated: YES];
 }
 
 #pragma mark - Table data source
@@ -75,12 +82,19 @@
     return cell;
 }
 
+#pragma mark - Table delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     MMTitleList *titleList = [self.resources boundSafeObjectAtIndex: indexPath.row];
     
     MYTEncoderResourceCell *sizingCell = titleList.activeTitle == nil ? self.templateCell : self.templateActiveCell;
     
     return [sizingCell idealHeightForTitleList: titleList];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMTitleList *titleList = [self.resources boundSafeObjectAtIndex: indexPath.row];
+    
+    [self.delegate didSelectTitleList: titleList];
 }
 
 

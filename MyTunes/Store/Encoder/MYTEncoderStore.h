@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MMEncoderResources;
+@class MMTitleList;
 
 @interface MYTEncoderStore : NSObject
 
@@ -17,4 +18,6 @@
 @property (strong, nonatomic, readonly) MMEncoderResources *resources;
 
 - (void) loadEncoderResources: (KCErrorBlock) callback;
+- (void) loadResource: (MMTitleList *) titleList
+             callback: (KCErrorBlock) callback;
 @end

@@ -12,6 +12,7 @@
 
 @interface MYTTitleListViewController : UIViewController
 
+@property (strong, nonatomic) KCBooleanBlock dismissBlock;
 @property (strong, nonatomic) MMTitleList *titleList;
 
 @end

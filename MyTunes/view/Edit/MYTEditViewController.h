@@ -10,13 +10,11 @@
 
 @class MMContent;
 
-typedef void(^MYTDismissBlock)(BOOL);
-
 @interface MYTEditViewController : UIViewController
 
 
 @property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic, readwrite) NSArray *contentList;
-@property (strong, nonatomic, readwrite) MYTDismissBlock completion;
+@property (strong, nonatomic, readwrite) KCBooleanBlock dismissBlock;
 
 @end

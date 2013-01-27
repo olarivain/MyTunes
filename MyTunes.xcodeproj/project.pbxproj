@@ -16,6 +16,8 @@
 		0000C08016AE05280009BE81 /* MYTContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C07F16AE05270009BE81 /* MYTContentCell.m */; };
 		0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08116AE05430009BE81 /* MYTTVShowCell.xib */; };
 		0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */; };
+		000A5D0516B5398A0013C16D /* MYTAudioSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A5D0416B5398A0013C16D /* MYTAudioSubtitleTrackCell.m */; };
+		000A5D0716B539960013C16D /* MYTAudioSubtitleTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000A5D0616B539960013C16D /* MYTAudioSubtitleTrackCell.xib */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -77,7 +79,9 @@
 		009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FA816B513EA004AF368 /* checkmark@2x.png */; };
 		009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */; };
 		009A1FB016B51DCA004AF368 /* MYTTitleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */; };
-		009A1FB216B51E01004AF368 /* MYTTileListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */; };
+		009A1FB216B51E01004AF368 /* MYTTitleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FB116B51E01004AF368 /* MYTTitleListViewController.xib */; };
+		009A1FB516B524B2004AF368 /* MYTTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A1FB416B524B2004AF368 /* MYTTitleCell.m */; };
+		009A1FB716B524C5004AF368 /* MYTTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009A1FB616B524C5004AF368 /* MYTTitleCell.xib */; };
 		A3221172AA3E4E608F1F916D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01277D429E354F1F98E38650 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +102,9 @@
 		0000C07F16AE05270009BE81 /* MYTContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTContentCell.m; sourceTree = "<group>"; };
 		0000C08116AE05430009BE81 /* MYTTVShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowCell.xib; sourceTree = "<group>"; };
 		0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		000A5D0316B539890013C16D /* MYTAudioSubtitleTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTAudioSubtitleTrackCell.h; sourceTree = "<group>"; };
+		000A5D0416B5398A0013C16D /* MYTAudioSubtitleTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTAudioSubtitleTrackCell.m; sourceTree = "<group>"; };
+		000A5D0616B539960013C16D /* MYTAudioSubtitleTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTAudioSubtitleTrackCell.xib; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MyTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,7 +195,10 @@
 		009A1FAB16B5150D004AF368 /* MYTEncoderResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTEncoderResourceCell.xib; sourceTree = "<group>"; };
 		009A1FAE16B51DCA004AF368 /* MYTTitleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTTitleListViewController.h; sourceTree = "<group>"; };
 		009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTTitleListViewController.m; sourceTree = "<group>"; };
-		009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTileListViewController.xib; sourceTree = "<group>"; };
+		009A1FB116B51E01004AF368 /* MYTTitleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTitleListViewController.xib; sourceTree = "<group>"; };
+		009A1FB316B524B2004AF368 /* MYTTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTTitleCell.h; sourceTree = "<group>"; };
+		009A1FB416B524B2004AF368 /* MYTTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTTitleCell.m; sourceTree = "<group>"; };
+		009A1FB616B524C5004AF368 /* MYTTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTitleCell.xib; sourceTree = "<group>"; };
 		00DC022E1597EB4E00F891C9 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		01277D429E354F1F98E38650 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -556,7 +566,13 @@
 			children = (
 				009A1FAE16B51DCA004AF368 /* MYTTitleListViewController.h */,
 				009A1FAF16B51DCA004AF368 /* MYTTitleListViewController.m */,
-				009A1FB116B51E01004AF368 /* MYTTileListViewController.xib */,
+				009A1FB116B51E01004AF368 /* MYTTitleListViewController.xib */,
+				009A1FB316B524B2004AF368 /* MYTTitleCell.h */,
+				009A1FB416B524B2004AF368 /* MYTTitleCell.m */,
+				009A1FB616B524C5004AF368 /* MYTTitleCell.xib */,
+				000A5D0316B539890013C16D /* MYTAudioSubtitleTrackCell.h */,
+				000A5D0416B5398A0013C16D /* MYTAudioSubtitleTrackCell.m */,
+				000A5D0616B539960013C16D /* MYTAudioSubtitleTrackCell.xib */,
 			);
 			path = Encoder;
 			sourceTree = "<group>";
@@ -667,7 +683,9 @@
 				009A1FA916B513EA004AF368 /* checkmark.png in Resources */,
 				009A1FAA16B513EA004AF368 /* checkmark@2x.png in Resources */,
 				009A1FAC16B5150D004AF368 /* MYTEncoderResourceCell.xib in Resources */,
-				009A1FB216B51E01004AF368 /* MYTTileListViewController.xib in Resources */,
+				009A1FB216B51E01004AF368 /* MYTTitleListViewController.xib in Resources */,
+				009A1FB716B524C5004AF368 /* MYTTitleCell.xib in Resources */,
+				000A5D0716B539960013C16D /* MYTAudioSubtitleTrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +744,8 @@
 				009A1FA116B50955004AF368 /* MMEncoderResources.m in Sources */,
 				009A1FA416B51392004AF368 /* MYTEncoderResourceCell.m in Sources */,
 				009A1FB016B51DCA004AF368 /* MYTTitleListViewController.m in Sources */,
+				009A1FB516B524B2004AF368 /* MYTTitleCell.m in Sources */,
+				000A5D0516B5398A0013C16D /* MYTAudioSubtitleTrackCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -200,7 +200,7 @@
 - (IBAction)cancel:(id)sender {
 	[self dismissViewControllerAnimated: YES
 							 completion: ^{
-                                 InvokeBlock(self.completion, NO);
+                                 InvokeBlock(self.dismissBlock, NO);
                              }];
 }
 
@@ -230,7 +230,7 @@
     
     [self dismissViewControllerAnimated: YES
 							 completion:^{
-                                 InvokeBlock(self.completion, YES);
+                                 InvokeBlock(self.dismissBlock, YES);
                              }];
 }
 
