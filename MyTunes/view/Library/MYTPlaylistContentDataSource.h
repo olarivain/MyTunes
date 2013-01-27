@@ -25,5 +25,6 @@
 @property (nonatomic, strong, readonly) NSArray *contentList;
 
 - (void) reload: (BOOL) unwatched;
+- (void) deselectCurrentCell;
 
 @end

@@ -188,7 +188,9 @@
 #pragma mark - Actions
 - (IBAction)cancel:(id)sender {
 	[self dismissViewControllerAnimated: YES
-							 completion: nil];
+							 completion: ^{
+                                 InvokeBlock(self.completion, NO);
+                             }];
 }
 
 - (IBAction)done:(id)sender {
@@ -216,7 +218,9 @@
     }
     
     [self dismissViewControllerAnimated: YES
-							 completion: self.completion];
+							 completion:^{
+                                 InvokeBlock(self.completion, YES);
+                             }];
 }
 
 - (IBAction) confirmAndEditNextItem:(id)sender {

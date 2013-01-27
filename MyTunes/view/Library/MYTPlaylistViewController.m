@@ -143,8 +143,11 @@
                                                                                               bundle: nil];
     controller.contentList = contentList;
     controller.content = content;
-    controller.completion = ^{
-        [self.currentDataSource reload: self.showAll];
+    controller.completion = ^(BOOL saved) {
+        [self.currentDataSource deselectCurrentCell];
+        if(saved) {
+            [self.currentDataSource reload: self.showAll];
+        }
     };
 
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];

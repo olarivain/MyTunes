@@ -155,6 +155,7 @@
 				<reference key="NSNextKeyView" ref="312572499"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<int key="IBUISelectionStyle">2</int>
 				<reference key="IBUIContentView" ref="312572499"/>
 				<string key="IBUIReuseIdentifier">tvShowCell</string>
 			</object>

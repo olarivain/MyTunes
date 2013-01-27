@@ -67,10 +67,16 @@
     return _templateHeader;
 }
 
-#pragma mark - updating content
+#pragma mark - Playlistdata source delegate
 - (void) reload:(BOOL)unwatched {
     self.sortedSeasons = unwatched ? self.tvShowPlaylist.sortedSeasons: self.tvShowPlaylist.sortedUnwatchedSeasons;
     [self.table reloadData];
+}
+
+- (void) deselectCurrentCell {
+    NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
+    [self.table deselectRowAtIndexPath: indexPath
+                              animated: YES];
 }
 
 #pragma mark - Table Data source

@@ -6,18 +6,23 @@
 //
 //
 
+#import <KraCommons/KCViewDequeuer.h>
+
 #import <MediaManagement/MMLibrary.h>
 #import <MediaManagement/MMPlaylist.h>
 #import "MYTLibraryListViewController.h"
 
 #import "MYTLibraryStore.h"
 
+#import "MYTLibraryHeader.h"
 #import "MYTPlaylistCell.h"
 
 @interface MYTLibraryListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet id<MYTPlaylistControllerDelegate> delegate;
 
+@property (strong, nonatomic) KCViewDequeuer *headerDequeuer;
+@property (strong, nonatomic) MYTLibraryHeader *templateHeader;
 @end
 
 @implementation MYTLibraryListViewController
@@ -25,8 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // configure table
     [self.table registerNibNamed: @"MMPlaylistCell"
                   forCellReuseIdentifier: @"playlistCell"];
+    
+    // configure header dequeuer
+    self.headerDequeuer = [[KCViewDequeuer alloc] init];
+    [self.headerDequeuer registerNibName: @"MYTLibraryHeader"
+                      forReuseIdentifier: @"libraryHeader"];
     
     // select the first row if we have one
     if(self.table.numberOfSections > 0 && [self.table numberOfRowsInSection: 0] > 0) {
@@ -43,6 +55,15 @@
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
+}
+
+#pragma mark - synthetic getter
+- (MYTLibraryHeader *) templateHeader {
+    if (_templateHeader == nil) {
+        _templateHeader = (MYTLibraryHeader *) [self.headerDequeuer dequeueReusableViewWithIdentifier: @"libraryHeader"];
+    }
+    
+    return _templateHeader;
 }
 
 #pragma mark - Table data source
@@ -71,12 +92,20 @@
     return cell;
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == 0 ? @"Playlists" : @"Encoder";
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    MYTLibraryHeader *header = (MYTLibraryHeader *) [self.headerDequeuer dequeueReusableViewWithIdentifier: @"libraryHeader"];
+    
+    NSString *title = section == 0 ? @"Resources" : @"Encoder";
+    [header updateWithTitle: title];
+    
+    return header;
 }
 
 
 #pragma mark - Table view delegate
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return self.templateHeader.frame.size.height;
+}
 - (NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // cancel selection if the row is already selected
     if([indexPath isEqual: [tableView indexPathForSelectedRow]]) {

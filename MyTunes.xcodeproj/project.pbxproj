@@ -12,8 +12,6 @@
 		0000C05416ADEAB10009BE81 /* MMTVShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C04E16ADEAB10009BE81 /* MMTVShow.m */; };
 		0000C05516ADEAB10009BE81 /* MMTVShowPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C05016ADEAB10009BE81 /* MMTVShowPlaylist.m */; };
 		0000C05616ADEAB10009BE81 /* MMTVShowSeason.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C05216ADEAB10009BE81 /* MMTVShowSeason.m */; };
-		0000C07416ADF0430009BE81 /* Unplayed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C07016ADF0430009BE81 /* Unplayed.png */; };
-		0000C07516ADF0430009BE81 /* Unplayed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C07116ADF0430009BE81 /* Unplayed@2x.png */; };
 		0000C07A16ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C07916ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m */; };
 		0000C08016AE05280009BE81 /* MYTContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000C07F16AE05270009BE81 /* MYTContentCell.m */; };
 		0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08116AE05430009BE81 /* MYTTVShowCell.xib */; };
@@ -21,6 +19,8 @@
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
+		0048440116B4C39F0098843E /* MYTLibraryHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048440016B4C39F0098843E /* MYTLibraryHeader.m */; };
+		0048440316B4C3AF0098843E /* MYTLibraryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0048440216B4C3AF0098843E /* MYTLibraryHeader.xib */; };
 		0069FAFA16B3C336001CF155 /* textborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF816B3C336001CF155 /* textborder.png */; };
 		0069FAFB16B3C336001CF155 /* textborder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FAF916B3C336001CF155 /* textborder@2x.png */; };
 		0069FB2F16B4896E001CF155 /* MYTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB2B16B4896E001CF155 /* MYTEditViewController.m */; };
@@ -43,8 +43,8 @@
 		0069FB5E16B4A0AA001CF155 /* videocamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5A16B4A0AA001CF155 /* videocamera@2x.png */; };
 		0069FB6116B4A0DE001CF155 /* clapboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB5F16B4A0DE001CF155 /* clapboard.png */; };
 		0069FB6216B4A0DE001CF155 /* clapboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6016B4A0DE001CF155 /* clapboard@2x.png */; };
-		0069FB6516B4AAE2001CF155 /* Unplayed-mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6316B4AAE2001CF155 /* Unplayed-mine.png */; };
-		0069FB6616B4AAE2001CF155 /* Unplayed-mine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6416B4AAE2001CF155 /* Unplayed-mine@2x.png */; };
+		0069FB6516B4AAE2001CF155 /* Unplayed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6316B4AAE2001CF155 /* Unplayed.png */; };
+		0069FB6616B4AAE2001CF155 /* Unplayed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6416B4AAE2001CF155 /* Unplayed@2x.png */; };
 		0069FB6816B4B0B5001CF155 /* MYTTVShowHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0069FB6716B4B0B5001CF155 /* MYTTVShowHeader.xib */; };
 		0069FB6B16B4B112001CF155 /* MYTTVShowHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB6A16B4B112001CF155 /* MYTTVShowHeader.m */; };
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
@@ -82,8 +82,6 @@
 		0000C05016ADEAB10009BE81 /* MMTVShowPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowPlaylist.m; sourceTree = "<group>"; };
 		0000C05116ADEAB10009BE81 /* MMTVShowSeason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTVShowSeason.h; sourceTree = "<group>"; };
 		0000C05216ADEAB10009BE81 /* MMTVShowSeason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTVShowSeason.m; sourceTree = "<group>"; };
-		0000C07016ADF0430009BE81 /* Unplayed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unplayed.png; sourceTree = "<group>"; };
-		0000C07116ADF0430009BE81 /* Unplayed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unplayed@2x.png"; sourceTree = "<group>"; };
 		0000C07716ADF8890009BE81 /* MYTPlaylistContentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTPlaylistContentDataSource.h; sourceTree = "<group>"; };
 		0000C07816ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTTVShowPlaylistDataSource.h; sourceTree = "<group>"; };
 		0000C07916ADFCD70009BE81 /* MYTTVShowPlaylistDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTTVShowPlaylistDataSource.m; sourceTree = "<group>"; };
@@ -95,6 +93,9 @@
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		002A0AE91324549D00320A06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		004843FF16B4C39F0098843E /* MYTLibraryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTLibraryHeader.h; sourceTree = "<group>"; };
+		0048440016B4C39F0098843E /* MYTLibraryHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTLibraryHeader.m; sourceTree = "<group>"; };
+		0048440216B4C3AF0098843E /* MYTLibraryHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTLibraryHeader.xib; sourceTree = "<group>"; };
 		0069FAF816B3C336001CF155 /* textborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textborder.png; sourceTree = "<group>"; };
 		0069FAF916B3C336001CF155 /* textborder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textborder@2x.png"; sourceTree = "<group>"; };
 		0069FB2A16B4896E001CF155 /* MYTEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTEditViewController.h; sourceTree = "<group>"; };
@@ -122,8 +123,8 @@
 		0069FB5A16B4A0AA001CF155 /* videocamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videocamera@2x.png"; sourceTree = "<group>"; };
 		0069FB5F16B4A0DE001CF155 /* clapboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clapboard.png; sourceTree = "<group>"; };
 		0069FB6016B4A0DE001CF155 /* clapboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clapboard@2x.png"; sourceTree = "<group>"; };
-		0069FB6316B4AAE2001CF155 /* Unplayed-mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unplayed-mine.png"; sourceTree = "<group>"; };
-		0069FB6416B4AAE2001CF155 /* Unplayed-mine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unplayed-mine@2x.png"; sourceTree = "<group>"; };
+		0069FB6316B4AAE2001CF155 /* Unplayed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unplayed.png; sourceTree = "<group>"; };
+		0069FB6416B4AAE2001CF155 /* Unplayed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unplayed@2x.png"; sourceTree = "<group>"; };
 		0069FB6716B4B0B5001CF155 /* MYTTVShowHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTTVShowHeader.xib; sourceTree = "<group>"; };
 		0069FB6916B4B112001CF155 /* MYTTVShowHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTTVShowHeader.h; sourceTree = "<group>"; };
 		0069FB6A16B4B112001CF155 /* MYTTVShowHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTTVShowHeader.m; sourceTree = "<group>"; };
@@ -239,10 +240,8 @@
 				0069FB5016B49A28001CF155 /* tv@2x.png */,
 				0069FAF816B3C336001CF155 /* textborder.png */,
 				0069FAF916B3C336001CF155 /* textborder@2x.png */,
-				0069FB6316B4AAE2001CF155 /* Unplayed-mine.png */,
-				0069FB6416B4AAE2001CF155 /* Unplayed-mine@2x.png */,
-				0000C07016ADF0430009BE81 /* Unplayed.png */,
-				0000C07116ADF0430009BE81 /* Unplayed@2x.png */,
+				0069FB6316B4AAE2001CF155 /* Unplayed.png */,
+				0069FB6416B4AAE2001CF155 /* Unplayed@2x.png */,
 			);
 			path = playlists;
 			sourceTree = "<group>";
@@ -324,15 +323,18 @@
 		0069FB3316B48F5B001CF155 /* Split View */ = {
 			isa = PBXGroup;
 			children = (
-				0069FB3416B48F5C001CF155 /* MMPlaylistCell.xib */,
-				0069FB3516B48F5C001CF155 /* MYTLibraryListViewController.h */,
-				0069FB3616B48F5C001CF155 /* MYTLibraryListViewController.m */,
-				0069FB3716B48F5C001CF155 /* MYTLibraryListViewController.xib */,
 				0069FB3816B48F5C001CF155 /* MYTLibrarySplitViewController.h */,
 				0069FB3916B48F5C001CF155 /* MYTLibrarySplitViewController.m */,
 				0069FB3A16B48F5C001CF155 /* MYTLibrarySplitViewController.xib */,
+				0069FB3516B48F5C001CF155 /* MYTLibraryListViewController.h */,
+				0069FB3616B48F5C001CF155 /* MYTLibraryListViewController.m */,
+				0069FB3716B48F5C001CF155 /* MYTLibraryListViewController.xib */,
+				004843FF16B4C39F0098843E /* MYTLibraryHeader.h */,
+				0048440016B4C39F0098843E /* MYTLibraryHeader.m */,
+				0048440216B4C3AF0098843E /* MYTLibraryHeader.xib */,
 				0069FB3B16B48F5C001CF155 /* MYTPlaylistCell.h */,
 				0069FB3C16B48F5C001CF155 /* MYTPlaylistCell.m */,
+				0069FB3416B48F5C001CF155 /* MMPlaylistCell.xib */,
 			);
 			path = "Split View";
 			sourceTree = "<group>";
@@ -587,8 +589,6 @@
 				0072365B16AD0818008C1623 /* MYTServerView_iPhone.xib in Resources */,
 				0072373216AD54E8008C1623 /* MYTPlaylistViewController.xib in Resources */,
 				0000C03116AD577D0009BE81 /* MYTMovieCell.xib in Resources */,
-				0000C07416ADF0430009BE81 /* Unplayed.png in Resources */,
-				0000C07516ADF0430009BE81 /* Unplayed@2x.png in Resources */,
 				0000C08216AE05430009BE81 /* MYTTVShowCell.xib in Resources */,
 				0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */,
 				0069FAFA16B3C336001CF155 /* textborder.png in Resources */,
@@ -608,9 +608,10 @@
 				0069FB5E16B4A0AA001CF155 /* videocamera@2x.png in Resources */,
 				0069FB6116B4A0DE001CF155 /* clapboard.png in Resources */,
 				0069FB6216B4A0DE001CF155 /* clapboard@2x.png in Resources */,
-				0069FB6516B4AAE2001CF155 /* Unplayed-mine.png in Resources */,
-				0069FB6616B4AAE2001CF155 /* Unplayed-mine@2x.png in Resources */,
+				0069FB6516B4AAE2001CF155 /* Unplayed.png in Resources */,
+				0069FB6616B4AAE2001CF155 /* Unplayed@2x.png in Resources */,
 				0069FB6816B4B0B5001CF155 /* MYTTVShowHeader.xib in Resources */,
+				0048440316B4C3AF0098843E /* MYTLibraryHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +665,7 @@
 				0069FB4216B48F5C001CF155 /* MYTPlaylistCell.m in Sources */,
 				0069FB4616B49312001CF155 /* MYTEncoderResourcesDataSource.m in Sources */,
 				0069FB6B16B4B112001CF155 /* MYTTVShowHeader.m in Sources */,
+				0048440116B4C39F0098843E /* MYTLibraryHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +723,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyTunes/SupportingFiles/MyTunes-Prefix.pch";
 				INFOPLIST_FILE = "MyTunes/SupportingFiles/MyTunes-Info.plist";
+				OTHER_CFLAGS = "-v";
 				PRODUCT_NAME = MyTunes;
 				WRAPPER_EXTENSION = app;
 			};

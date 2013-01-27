@@ -49,9 +49,16 @@
     return _templateCell;
 }
 
+#pragma mark - Playlistdata source delegate
 - (void) reload:(BOOL) all {
 	self.contentList = all ? self.moviesPlaylist.content : self.moviesPlaylist.unwatchedMovies;
     [self.table reloadData];
+}
+
+- (void) deselectCurrentCell {
+    NSIndexPath *indexPath = [self.table indexPathForSelectedRow];
+    [self.table deselectRowAtIndexPath: indexPath
+                              animated: YES];
 }
 
 #pragma mark - Table data source

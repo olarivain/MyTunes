@@ -10,10 +10,12 @@
 
 @class MMContent;
 
+typedef void(^MYTDismissBlock)(BOOL);
+
 @interface MYTEditViewController : UIViewController
 
 @property (strong, nonatomic, readwrite) MMContent *content;
 @property (strong, nonatomic, readwrite) NSArray *contentList;
-@property (strong, nonatomic, readwrite) KCVoidBlock completion;
+@property (strong, nonatomic, readwrite) MYTDismissBlock completion;
 
 @end
