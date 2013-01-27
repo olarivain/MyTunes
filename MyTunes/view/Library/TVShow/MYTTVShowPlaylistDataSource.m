@@ -6,22 +6,27 @@
 //
 //
 
+#import <KraCommons/KCViewDequeuer.h>
+
 #import "MYTTVShowPlaylistDataSource.h"
 
 #import "MMTVShowPlaylist.h"
 #import "MMTVShowSeason.h"
 
+#import "MYTTVShowHeader.h"
 #import "MYTContentCell.h"
 
 @interface MYTTVShowPlaylistDataSource ()
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) MYTContentCell *templateCell;
+@property (strong, nonatomic) MYTTVShowHeader *templateHeader;
 
 @property (copy, nonatomic) NSArray *sortedSeasons;
 
 @property (nonatomic, readonly) MMTVShowPlaylist *tvShowPlaylist;
 
+@property (strong, nonatomic) KCViewDequeuer *viewDequeuer;
 @end
 
 @implementation MYTTVShowPlaylistDataSource
@@ -29,6 +34,10 @@
 #pragma mark - lifecycle
 - (void) awakeFromNib {
     [self.table registerNibNamed: @"MYTTVShowCell" forCellReuseIdentifier: @"tvShowCell"];
+    
+    self.viewDequeuer = [[KCViewDequeuer alloc] init];
+    [self.viewDequeuer registerNibName: @"MYTTVShowHeader"
+                    forReuseIdentifier: @"showHeader"];
 }
 
 #pragma mark - Synthetic getters
@@ -48,6 +57,14 @@
     }
     
     return _templateCell;
+}
+
+- (MYTTVShowHeader *) templateHeader {
+    if(_templateHeader == nil) {
+       _templateHeader = (MYTTVShowHeader *) [self.viewDequeuer loadViewWithIdentifier: @"showHeader"];
+    }
+    
+    return _templateHeader;
 }
 
 #pragma mark - updating content
@@ -76,12 +93,19 @@
 	return cell;
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     MMTVShowSeason *season = [self.sortedSeasons boundSafeObjectAtIndex: section];
-    return season.humanReadableName;
+    
+    MYTTVShowHeader *header = (MYTTVShowHeader *) [self.viewDequeuer dequeueReusableViewWithIdentifier: @"showHeader"];
+    
+    [header updateWithShow: season];
+    return header;
 }
 
 #pragma mark - Table Delegate
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return self.templateHeader.frame.size.height;
+}
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     MMTVShowSeason *season = [self.sortedSeasons boundSafeObjectAtIndex: indexPath.section];
 	MMContent *content = [season.episodes boundSafeObjectAtIndex: indexPath.row];

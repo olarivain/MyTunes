@@ -58,7 +58,7 @@
 							<object class="IBUILabel" id="265430605">
 								<reference key="NSNextResponder" ref="312572499"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{42, 11}, {19, 22}}</string>
+								<string key="NSFrame">{{42, 11}, {19, 21}}</string>
 								<reference key="NSSuperview" ref="312572499"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="104121226"/>
@@ -69,10 +69,9 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText"/>
-								<object class="NSColor" key="IBUITextColor" id="814293266">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
-									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+								<object class="NSColor" key="IBUITextColor" id="769599730">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -103,11 +102,8 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText"/>
-								<reference key="IBUITextColor" ref="814293266"/>
-								<object class="NSColor" key="IBUIHighlightedColor" id="769599730">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-								</object>
+								<reference key="IBUITextColor" ref="769599730"/>
+								<reference key="IBUIHighlightedColor" ref="769599730"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUINumberOfLines">0</int>
 								<reference key="IBUIFontDescription" ref="495139906"/>
@@ -128,7 +124,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText"/>
-								<reference key="IBUITextColor" ref="814293266"/>
+								<reference key="IBUITextColor" ref="769599730"/>
 								<reference key="IBUIHighlightedColor" ref="769599730"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUITextAlignment">2</int>

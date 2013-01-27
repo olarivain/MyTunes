@@ -9,17 +9,20 @@
 #import <MediaManagement/MMLibrary.h>
 #import "MYTPlaylistViewController.h"
 
+#import "MYTLibraryStore.h"
+
 #import "MYTPlaylistContentDataSource.h"
 #import "MYTMoviePlaylistDataSource.h"
-#import "MYTEditViewController.h"
+#import "MYTEncoderResourcesDataSource.h"
 
-#import "MYTLibraryStore.h"
+#import "MYTEditViewController.h"
 
 @interface MYTPlaylistViewController ()<UITabBarDelegate> {
     dispatch_once_t initialPlaylistSelectionToken;
 }
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> moviePlaylistDataSource;
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> tvShowPlaylistDataSource;
+@property (strong, nonatomic) IBOutlet MYTEncoderResourcesDataSource *encoderReousrces;
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
