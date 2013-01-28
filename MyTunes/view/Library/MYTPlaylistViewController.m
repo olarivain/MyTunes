@@ -42,6 +42,8 @@
 @property (assign, nonatomic) BOOL showAll;
 
 @property (nonatomic, readonly) UIViewController *navigationItemController;
+@property (weak, nonatomic) IBOutlet UIView *deleteShieldView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *deleteActivityIndicator;
 
 @end
 
@@ -166,16 +168,39 @@
     }
     
     if(alertView.cancelButtonIndex == buttonIndex) {
-        DDLogInfo(@"Canceling delete..");
         return;
     }
     
-    DDLogInfo(@"Deleting items..");
+    [self deleteSelectedEncoderResources];
+}
+
+#pragma mark - Deleting resources
+- (void) deleteSelectedEncoderResources {
+    self.deleteShieldView.hidden = NO;
+    [self.deleteActivityIndicator startAnimating];
+    
+    NSArray *selectedResources = self.encoderResources.selectedResources;
+    
+    MYTEncoderStore *store = [MYTEncoderStore sharedInstance];
+    [store deleteResources: selectedResources
+                  callback:^(NSError *error) {
+                      [self didDeleteEncoderResources: error];
+                  }];
+}
+
+- (void) didDeleteEncoderResources: (NSError *) error {
+    [self.encoderResources reload: self.showAll];
+    [self.deleteActivityIndicator stopAnimating];
+    self.deleteShieldView.hidden = YES;
+    
+    [error present];
+    [self refreshEncoderResources: NO];
+    [self cancel: nil];
 }
 
 #pragma mark - tab bar delegate
 - (void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-
+    
     NSInteger index = [tabBar.items indexOfObject: item];
     
     MYTLibraryStore *store = [MYTLibraryStore sharedInstance];
@@ -283,7 +308,7 @@
         self.table.contentOffset = CGPointZero;
     }
     [self.encoderResources reload: self.showAll];
-
+    
 	[UIView animateWithDuration: SHORT_ANIMATION_DURATION
                      animations:^{
                          self.table.alpha = 1.0f;
@@ -299,7 +324,7 @@
     }
     
     MYTEditViewController *controller = [[MYTEditViewController alloc] initWithNibName: @"MYTEditViewController"
-                                                                                              bundle: nil];
+                                                                                bundle: nil];
     controller.contentList = contentList;
     controller.index = [contentList indexOfObject: content];
     controller.dismissBlock = ^(BOOL saved) {
@@ -308,7 +333,7 @@
             [self.currentDataSource reload: self.showAll];
         }
     };
-
+    
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController: controller];
     navigation.modalPresentationStyle = UIModalPresentationFormSheet;
     navigation.modalTransitionStyle = isiPhone ? UIModalTransitionStyleFlipHorizontal : UIModalTransitionStyleCoverVertical;

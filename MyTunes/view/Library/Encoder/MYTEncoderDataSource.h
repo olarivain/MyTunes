@@ -20,7 +20,7 @@
 @interface MYTEncoderDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet id<MYTEncoderDataSourceDelegate> delegate;
-@property (strong, nonatomic) NSArray *resourceList;
+@property (nonatomic, readonly) NSArray *selectedResources;
 
 - (void) reload: (BOOL) filtered;
 - (void) deselectCurrentCell;

@@ -34,6 +34,17 @@
 }
 
 #pragma mark - synthetic getters
+- (NSArray *) selectedResources {
+    NSArray *selectedIndexPaths = [self.table indexPathsForSelectedRows];
+    
+    NSMutableArray *selectedResources = [NSMutableArray arrayWithCapacity: selectedIndexPaths.count];
+    for(NSIndexPath *indexPath in selectedIndexPaths) {
+        MMTitleList *resource = [self.resources boundSafeObjectAtIndex: indexPath.row];
+        [selectedResources addObjectNilSafe: resource];
+    }
+    return selectedResources;
+}
+
 - (MYTEncoderResourceCell *) templateActiveCell {
     if(_templateActiveCell == nil) {
         _templateActiveCell = [self.table dequeueReusableCellWithIdentifier: @"encoderActiveCell"];

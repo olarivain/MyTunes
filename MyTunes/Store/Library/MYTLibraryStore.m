@@ -135,6 +135,7 @@ static MYTLibraryStore *sharedInstance;
     
     // AFNetworking only takes a dictionary for input, even though array is valid for json
     // it sucks, but we have to live with it for now, and silence clang about it...
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincompatible-pointer-types"
     [server.httpClient postPath: path
                      parameters: params

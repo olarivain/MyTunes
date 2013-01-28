@@ -106,7 +106,26 @@ static MYTEncoderStore *sharedInstance;
                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                             DispatchMainThread(callback, error);
                         }];
-    
 }
+
+- (void) deleteResources:(NSArray *)titleLists
+                callback:(KCErrorBlock)callback {
+    MMTitleAssembler *assembler = [MMTitleAssembler sharedInstance];
+    NSDictionary *params = [assembler writeTitleListIDs: titleLists];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+    MYTServer *server = [MYTServerStore sharedInstance].currentServer;
+    [server.httpClient deletePath: @"/encoder"
+                       parameters: params
+                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                              DispatchMainThread(callback, nil);
+                          }
+                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              DispatchMainThread(callback, error);
+                          }];
+#pragma clang diagnostic pop
+}
+
 
 @end

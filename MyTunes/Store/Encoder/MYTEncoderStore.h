@@ -18,8 +18,13 @@
 @property (strong, nonatomic, readonly) MMEncoderResources *resources;
 
 - (void) loadEncoderResources: (KCErrorBlock) callback;
+
 - (void) loadResource: (MMTitleList *) titleList
              callback: (KCErrorBlock) callback;
+
 - (void) encodeResource: (MMTitleList *) titleList
                callback: (KCErrorBlock) callback;
+
+- (void) deleteResources: (NSArray *) titleLists
+                callback: (KCErrorBlock) callback;
 @end
