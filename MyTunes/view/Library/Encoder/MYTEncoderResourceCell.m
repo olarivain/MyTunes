@@ -13,11 +13,15 @@
     CGSize _constrainedNameSize;
     CGSize _constrainedProgressSize;
 }
+
 @property (weak, nonatomic) IBOutlet UIImageView *checkmark;
 @property (weak, nonatomic) IBOutlet UIImageView *clock;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *progress;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
+@property (strong, nonatomic) UIColor *nameOriginalColor;
+@property (strong, nonatomic) UIColor *progressOriginalColor;
 
 @end
 
@@ -29,6 +33,15 @@
     
     _constrainedProgressSize = self.progress.frame.size;
     _constrainedProgressSize.height = CGFLOAT_MAX;
+    self.nameOriginalColor = self.name.textColor;
+    self.progressOriginalColor = self.progress.textColor;
+}
+
+- (void) setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected: selected animated: animated];
+    
+    self.name.textColor = self.editing && selected ? [UIColor blackColor] : self.nameOriginalColor;
+    self.progress.textColor = self.editing && selected ? [UIColor blackColor] :  self.progressOriginalColor;
 }
 
 - (void) updateWithTitleList: (MMTitleList *) titleList

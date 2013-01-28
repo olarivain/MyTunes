@@ -4522,6 +4522,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{0, 499}, {320, 49}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="389372841"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -4584,10 +4585,41 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUIBarButtonItem" id="410069548">
+			<object class="IBUIBarButtonItem" id="867916773">
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUIStyle">1</int>
 				<int key="IBUISystemItemIdentifier">13</int>
+			</object>
+			<object class="IBUIBarButtonItem" id="808419577">
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<float key="IBUIWidth">50</float>
+				<int key="IBUIStyle">1</int>
+				<int key="IBUISystemItemIdentifier">6</int>
+			</object>
+			<object class="IBUIBarButtonItem" id="66482176">
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUIStyle">1</int>
+				<int key="IBUISystemItemIdentifier">2</int>
+			</object>
+			<object class="IBUIBarButtonItem" id="1036326724">
+				<string key="IBUITitle">Delete</string>
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUIStyle">1</int>
+				<object class="NSColor" key="IBUITintColor">
+					<int key="NSColorSpace">1</int>
+					<bytes key="NSRGB">MSAwLjIgMAA</bytes>
+				</object>
+			</object>
+			<object class="IBUIBarButtonItem" id="660507498">
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<float key="IBUIWidth">50</float>
+				<int key="IBUIStyle">1</int>
+				<int key="IBUISystemItemIdentifier">6</int>
+			</object>
+			<object class="IBUIBarButtonItem" id="601233044">
+				<string key="IBUITitle">Cancel</string>
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUIStyle">1</int>
 			</object>
 			<object class="IBUICustomObject" id="105252115">
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -4666,12 +4698,64 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<int key="connectionID">39</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">refreshButton</string>
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">defaultRightBarItems</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="410069548"/>
+						<reference key="destination" ref="867916773"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
 					</object>
-					<int key="connectionID">44</int>
+					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">defaultRightBarItems</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="808419577"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">56</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">defaultRightBarItems</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="66482176"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">editRightBarItems</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1036326724"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">58</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">editRightBarItems</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="660507498"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">editRightBarItems</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="601233044"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">NO</bool>
+					</object>
+					<int key="connectionID">60</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -4741,10 +4825,34 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">forceRefresh:</string>
-						<reference key="source" ref="410069548"/>
+						<reference key="source" ref="867916773"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">45</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">edit:</string>
+						<reference key="source" ref="66482176"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">cancel:</string>
+						<reference key="source" ref="601233044"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">62</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">deleteSelectedItems:</string>
+						<reference key="source" ref="1036326724"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">61</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4844,9 +4952,39 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">42</int>
-						<reference key="object" ref="410069548"/>
+						<reference key="object" ref="867916773"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Refresh</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">46</int>
+						<reference key="object" ref="66482176"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Edit</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">49</int>
+						<reference key="object" ref="601233044"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Cancel</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">50</int>
+						<reference key="object" ref="660507498"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Space</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">51</int>
+						<reference key="object" ref="1036326724"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Delete</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">54</int>
+						<reference key="object" ref="808419577"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Space</string>
 					</object>
 				</array>
 			</object>
@@ -4872,12 +5010,17 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="46.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="51.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="54.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">62</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

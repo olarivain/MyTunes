@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *episodeNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+
+@property (strong, nonatomic) UIColor *episodeOriginalColor;
+@property (strong, nonatomic) UIColor *labelOriginalColor;
+@property (strong, nonatomic) UIColor *durationOriginalColor;
+
 @end
 
 
@@ -27,6 +32,19 @@
 - (void) awakeFromNib {
 	_constrainedSize = self.movieLabel.frame.size;
 	_constrainedSize.height = CGFLOAT_MAX;
+    
+    self.episodeOriginalColor = self.episodeNumberLabel.textColor;
+    self.labelOriginalColor = self.movieLabel.textColor;
+    self.durationOriginalColor = self.durationLabel.textColor;
+}
+
+- (void) setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected: selected animated: animated];
+    
+    self.episodeNumberLabel.textColor = self.editing && selected ? [UIColor blackColor] : self.episodeOriginalColor;
+    self.movieLabel.textColor = self.editing && selected ? [UIColor blackColor] :  self.labelOriginalColor;
+    self.durationLabel.textColor = self.editing && selected ? [UIColor blackColor] :  self.durationOriginalColor;
+    
 }
 
 - (void) updateWithContent: (MMContent *) content {

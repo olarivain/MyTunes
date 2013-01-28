@@ -13,6 +13,8 @@
 
 @protocol MYTPlaylistContentDataSourceDelegate <NSObject>
 
+- (void) didDeselectContent: (MMContent *) content
+            withContentList: (NSArray *) contentList;
 - (void) didSelectContent: (MMContent *) content
           withContentList: (NSArray *) contentList;
 

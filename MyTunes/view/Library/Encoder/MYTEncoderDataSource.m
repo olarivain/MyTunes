@@ -96,8 +96,13 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MMTitleList *titleList = [self.resources boundSafeObjectAtIndex: indexPath.row];
     
+    MMTitleList *titleList = [self.resources boundSafeObjectAtIndex: indexPath.row];
+    [self.delegate didSelectTitleList: titleList];
+}
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMTitleList *titleList = [self.resources boundSafeObjectAtIndex: indexPath.row];
     [self.delegate didSelectTitleList: titleList];
 }
 

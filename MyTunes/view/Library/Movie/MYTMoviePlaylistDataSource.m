@@ -94,4 +94,10 @@
                     withContentList: self.contentList];
 }
 
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMContent *movie = [self.contentList boundSafeObjectAtIndex: indexPath.row];
+    [self.delegate didDeselectContent: movie
+                      withContentList: self.contentList];
+}
+
 @end

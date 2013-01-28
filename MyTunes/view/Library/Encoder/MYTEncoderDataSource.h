@@ -13,6 +13,7 @@
 @protocol MYTEncoderDataSourceDelegate <NSObject>
 
 - (void) didSelectTitleList: (MMTitleList *) titleList;
+- (void) didDeselectTitleList: (MMTitleList *) titleList;
 
 @end
 

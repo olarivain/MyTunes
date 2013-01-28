@@ -19,7 +19,10 @@
 #import "MYTEditViewController.h"
 #import "MYTTitleListViewController.h"
 
-@interface MYTPlaylistViewController ()<UITabBarDelegate> {
+#define  UNSUPPORTED_DELETE_TAG 1
+#define  DELETE_CONFIRMATION_TAG 2
+
+@interface MYTPlaylistViewController ()<UITabBarDelegate, UIAlertViewDelegate> {
     dispatch_once_t initialPlaylistSelectionToken;
 }
 @property (strong, nonatomic) IBOutlet id<MYTPlaylistContentDataSource> moviePlaylistDataSource;
@@ -31,10 +34,14 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UITabBar *playlistTabBar;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (strong, nonatomic) IBOutlet IBOutletCollection(UIBarButtonItem) NSArray *defaultRightBarItems;
+@property (strong, nonatomic) IBOutlet IBOutletCollection(UIBarButtonItem) NSArray *editRightBarItems;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *deleteButton;
 
 @property (nonatomic, readonly) id<MYTPlaylistContentDataSource> currentDataSource;
 @property (assign, nonatomic) BOOL showAll;
+
+@property (nonatomic, readonly) UIViewController *navigationItemController;
 
 @end
 
@@ -48,11 +55,8 @@
     self.filterSegmentedControl.selectedSegmentIndex = self.showAll;
     
     self.title = [MYTLibraryStore sharedInstance].currentLibrary.name;
-    UIViewController *parent = self.parentViewController;
-    if([parent isKindOfClass: UINavigationController.class]) {
-        parent = self;
-    }
-    parent.navigationItem.rightBarButtonItem = self.refreshButton;
+    
+    self.navigationItemController.navigationItem.rightBarButtonItems = self.defaultRightBarItems;
     
     // iOS 6 only, meaning viewDidLoad happens once and only once.
     // so just get crazy and refresh on did load :)
@@ -69,6 +73,14 @@
 }
 
 #pragma mark - synthetic getter
+- (UIViewController *) navigationItemController {
+    UIViewController *parent = self.parentViewController;
+    if([parent isKindOfClass: UINavigationController.class]) {
+        parent = self;
+    }
+    return parent;
+}
+
 - (id<MYTPlaylistContentDataSource>) currentDataSource {
 	MMPlaylist *playlist = [MYTLibraryStore sharedInstance].currentPlaylist;
     if(playlist ==  nil) {
@@ -108,6 +120,57 @@
     }
     
     [self refreshEncoderResources: NO];
+}
+
+- (IBAction)edit:(id)sender {
+	[self setEditing: YES animated: YES];
+    [self.table setEditing: YES animated: YES];
+    self.deleteButton.enabled = NO;
+    [self.navigationItemController.navigationItem setRightBarButtonItems: self.editRightBarItems
+                                                                animated: YES];
+}
+
+- (IBAction)cancel:(id)sender {
+	[self setEditing: NO animated: YES];
+    [self.table setEditing: NO animated: YES];
+    [self.navigationItemController.navigationItem setRightBarButtonItems: self.defaultRightBarItems
+                                                                animated: YES];
+}
+
+- (IBAction)deleteSelectedItems:(id)sender {
+    if(self.currentDataSource != nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
+                                                        message: @"Deleting iTunes content is not supported yet."
+                                                       delegate: self
+                                              cancelButtonTitle: @"OK"
+                                              otherButtonTitles: nil];
+        alert.tag = UNSUPPORTED_DELETE_TAG;
+        [alert show];
+        return;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
+                                                    message: @"Are you sure you want to delete these items?"
+                                                   delegate: self
+                                          cancelButtonTitle: nil
+                                          otherButtonTitles: @"Yes", @"No", nil];
+    alert.cancelButtonIndex = 1;
+    alert.tag = DELETE_CONFIRMATION_TAG;
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if(alertView.tag == UNSUPPORTED_DELETE_TAG) {
+        [self cancel: nil];
+        return;
+    }
+    
+    if(alertView.cancelButtonIndex == buttonIndex) {
+        DDLogInfo(@"Canceling delete..");
+        return;
+    }
+    
+    DDLogInfo(@"Deleting items..");
 }
 
 #pragma mark - tab bar delegate
@@ -230,6 +293,10 @@
 #pragma mark - Playlist data source delegate
 - (void) didSelectContent: (MMContent *) content
           withContentList: (NSArray *) contentList {
+    if(self.editing) {
+        self.deleteButton.enabled = [self.table indexPathsForSelectedRows].count > 0;
+        return;
+    }
     
     MYTEditViewController *controller = [[MYTEditViewController alloc] initWithNibName: @"MYTEditViewController"
                                                                                               bundle: nil];
@@ -250,7 +317,18 @@
                      completion: nil];
 }
 
+- (void) didDeselectContent:(MMContent *)content withContentList:(NSArray *)contentList {
+    self.deleteButton.enabled = [self.table indexPathsForSelectedRows].count > 0;
+    return;
+}
+
+#pragma mark - Encoder data source delegate
 - (void) didSelectTitleList:(MMTitleList *)titleList {
+    if(self.editing) {
+        self.deleteButton.enabled = [self.table indexPathsForSelectedRows].count > 0;
+        return;
+    }
+    
     MYTTitleListViewController *controller = [[MYTTitleListViewController alloc] initWithNibName: @"MYTTitleListViewController"
                                                                                           bundle: nil];
     
@@ -268,6 +346,10 @@
     [self presentViewController: navigation
                        animated: YES
                      completion: nil];
+}
+
+- (void) didDeselectTitleList:(MMTitleList *)titleList {
+    self.deleteButton.enabled = [self.table indexPathsForSelectedRows].count > 0;
 }
 
 @end

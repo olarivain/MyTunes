@@ -132,6 +132,13 @@
                     withContentList: season.episodes];
 }
 
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMTVShowSeason *season = [self.sortedSeasons boundSafeObjectAtIndex: indexPath.section];
+	MMContent *content = [season.episodes boundSafeObjectAtIndex: indexPath.row];
+    
+    [self.delegate didDeselectContent: content withContentList: self.contentList];
+}
+
 #pragma mark - TV Show Header delegate
 - (void) didMarkAsViewed:(MMTVShowSeason *)season {
     [season changeUnplayedState];
