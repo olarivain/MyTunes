@@ -18,6 +18,8 @@
 		0000C08F16AE1C0F0009BE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0000C08E16AE1C0F0009BE81 /* Default-568h@2x.png */; };
 		000A5D0516B5398A0013C16D /* MYTAudioSubtitleTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A5D0416B5398A0013C16D /* MYTAudioSubtitleTrackCell.m */; };
 		000A5D0716B539960013C16D /* MYTAudioSubtitleTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000A5D0616B539960013C16D /* MYTAudioSubtitleTrackCell.xib */; };
+		000A5D2E16B5F9080013C16D /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 000A5D2C16B5F9080013C16D /* clock.png */; };
+		000A5D2F16B5F9080013C16D /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000A5D2D16B5F9080013C16D /* clock@2x.png */; };
 		002A0AE61324549D00320A06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE51324549D00320A06 /* UIKit.framework */; };
 		002A0AE81324549D00320A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE71324549D00320A06 /* Foundation.framework */; };
 		002A0AEA1324549D00320A06 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A0AE91324549D00320A06 /* CoreGraphics.framework */; };
@@ -49,7 +51,6 @@
 		0069FB6B16B4B112001CF155 /* MYTTVShowHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0069FB6A16B4B112001CF155 /* MYTTVShowHeader.m */; };
 		0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */; };
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
-		0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */; };
 		0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MYTServer.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */; };
 		0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MYTHomeView.m */; };
@@ -105,6 +106,8 @@
 		000A5D0316B539890013C16D /* MYTAudioSubtitleTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTAudioSubtitleTrackCell.h; sourceTree = "<group>"; };
 		000A5D0416B5398A0013C16D /* MYTAudioSubtitleTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTAudioSubtitleTrackCell.m; sourceTree = "<group>"; };
 		000A5D0616B539960013C16D /* MYTAudioSubtitleTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTAudioSubtitleTrackCell.xib; sourceTree = "<group>"; };
+		000A5D2C16B5F9080013C16D /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		000A5D2D16B5F9080013C16D /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		002A0AE11324549D00320A06 /* MyTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A0AE51324549D00320A06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		002A0AE71324549D00320A06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,8 +149,6 @@
 		0072339A16AC0FE9008C1623 /* MMContentAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMContentAssembler+Client.m"; sourceTree = "<group>"; };
 		0072339B16AC0FE9008C1623 /* MMTitleAssembler+Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMTitleAssembler+Client.h"; sourceTree = "<group>"; };
 		0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMTitleAssembler+Client.m"; sourceTree = "<group>"; };
-		007233A116AC0FE9008C1623 /* MMRemoteEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRemoteEncoder.h; sourceTree = "<group>"; };
-		007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRemoteEncoder.m; sourceTree = "<group>"; };
 		007233AA16AC0FE9008C1623 /* MYTServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTServer.h; sourceTree = "<group>"; };
 		007233AB16AC0FE9008C1623 /* MYTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServer.m; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NonZero.h"; sourceTree = "<group>"; };
@@ -303,6 +304,8 @@
 			children = (
 				009A1FA716B513EA004AF368 /* checkmark.png */,
 				009A1FA816B513EA004AF368 /* checkmark@2x.png */,
+				000A5D2C16B5F9080013C16D /* clock.png */,
+				000A5D2D16B5F9080013C16D /* clock@2x.png */,
 				0069FB5716B4A0AA001CF155 /* download.png */,
 				0069FB5816B4A0AA001CF155 /* download@2x.png */,
 			);
@@ -424,8 +427,6 @@
 		007233A016AC0FE9008C1623 /* encoder */ = {
 			isa = PBXGroup;
 			children = (
-				007233A116AC0FE9008C1623 /* MMRemoteEncoder.h */,
-				007233A216AC0FE9008C1623 /* MMRemoteEncoder.m */,
 				009A1F9F16B50955004AF368 /* MMEncoderResources.h */,
 				009A1FA016B50955004AF368 /* MMEncoderResources.m */,
 			);
@@ -686,6 +687,8 @@
 				009A1FB216B51E01004AF368 /* MYTTitleListViewController.xib in Resources */,
 				009A1FB716B524C5004AF368 /* MYTTitleCell.xib in Resources */,
 				000A5D0716B539960013C16D /* MYTAudioSubtitleTrackCell.xib in Resources */,
+				000A5D2E16B5F9080013C16D /* clock.png in Resources */,
+				000A5D2F16B5F9080013C16D /* clock@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,7 +718,6 @@
 			files = (
 				0072341716AC0FE9008C1623 /* MMContentAssembler+Client.m in Sources */,
 				0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */,
-				0072341A16AC0FE9008C1623 /* MMRemoteEncoder.m in Sources */,
 				0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */,
 				0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */,

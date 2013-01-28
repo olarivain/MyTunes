@@ -12,7 +12,8 @@
 
 @interface MYTEncoderResourceCell : UITableViewCell
 
-- (void) updateWithTitleList: (MMTitleList *) titleList;
+- (void) updateWithTitleList: (MMTitleList *) titleList
+                  showingAll: (BOOL) showingAll;
 - (CGFloat) idealHeightForTitleList: (MMTitleList *) titleList;
 
 @end

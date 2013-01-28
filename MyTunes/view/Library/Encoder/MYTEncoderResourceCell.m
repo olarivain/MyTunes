@@ -14,6 +14,7 @@
     CGSize _constrainedProgressSize;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *checkmark;
+@property (weak, nonatomic) IBOutlet UIImageView *clock;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *progress;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
@@ -30,8 +31,10 @@
     _constrainedProgressSize.height = CGFLOAT_MAX;
 }
 
-- (void) updateWithTitleList: (MMTitleList *) titleList {
-	self.checkmark.hidden = titleList.selectedTitles.count == 0 || titleList.active;
+- (void) updateWithTitleList: (MMTitleList *) titleList
+                  showingAll: (BOOL) showingAll {
+    self.clock.hidden = !showingAll || titleList.completedCount == titleList.selectedCount;
+    self.checkmark.hidden = titleList.selectedCount == 0 || titleList.selectedCount != titleList.completedCount;
     self.name.text = titleList.name;
 
     if(self.progress == nil) {

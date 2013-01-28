@@ -126,7 +126,7 @@ static MYTLibraryStore *sharedInstance;
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"/library/%@/", self.currentPlaylist.uniqueId];
+    NSString *path = [NSString stringWithFormat:@"/library/%@", self.currentPlaylist.uniqueId];
     
     MMContentAssembler *assembler = [MMContentAssembler sharedInstance];
     NSArray *params = [assembler writeContentArray: [content allObjects]];

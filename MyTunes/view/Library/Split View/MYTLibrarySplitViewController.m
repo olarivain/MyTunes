@@ -64,11 +64,11 @@
 
 #pragma mark - playlist delegate
 - (void) didSelectPlaylist:(MMPlaylist *)playlist {
-    [self.playlistViewController refreshSelectedPlaylist];
+    [self.playlistViewController refreshSelectedPlaylist: YES];
 }
 
 - (void) didSelectEncoder {
-    [self.playlistViewController refreshEncoderResources];
+    [self.playlistViewController refreshEncoderResources: YES];
 }
 
 @end

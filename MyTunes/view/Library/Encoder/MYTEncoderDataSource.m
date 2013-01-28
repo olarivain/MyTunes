@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) MYTEncoderResourceCell *templateActiveCell;
 @property (strong, nonatomic) MYTEncoderResourceCell *templateCell;;
+
+@property (nonatomic) BOOL showingAll;
 @end
 
 @implementation MYTEncoderDataSource
@@ -50,8 +52,9 @@
 
 #pragma mark - updating content
 - (void) reload:(BOOL) showAll {
+    self.showingAll = showAll;
     MMEncoderResources *resources = [MYTEncoderStore sharedInstance].resources;
-    self.resources = showAll ? resources.allResources : resources.scheduledResources;
+    self.resources = self.showingAll ? resources.allResources : resources.scheduledResources;
     
     [self.table reloadData];
 }
@@ -77,7 +80,8 @@
     NSString *reuseID = titleList.activeTitle == nil ? @"encoderCell" : @"encoderActiveCell";
     MYTEncoderResourceCell *cell = [tableView dequeueReusableCellWithIdentifier: reuseID];
     
-    [cell updateWithTitleList: titleList];
+    [cell updateWithTitleList: titleList
+                   showingAll: self.showingAll];
     
     return cell;
 }

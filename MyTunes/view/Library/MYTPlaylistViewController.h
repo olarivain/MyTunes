@@ -13,7 +13,7 @@
 
 @interface MYTPlaylistViewController : UIViewController<MYTPlaylistContentDataSourceDelegate, MYTEncoderDataSourceDelegate>
 
-- (void) refreshSelectedPlaylist;
-- (void) refreshEncoderResources;
+- (void) refreshSelectedPlaylist: (BOOL) resetContentOffset;
+- (void) refreshEncoderResources: (BOOL) resetContentOffset;;
 
 @end
