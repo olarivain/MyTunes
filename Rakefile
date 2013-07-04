@@ -20,13 +20,13 @@ builder = XcodeBuilder::XcodeBuilder.new do |config|
   
   # testflight app is used for deployment
   config.deploy_using(:testflight) do |testFlight|
-	testFlight.api_token = "0cafa432a85d87075459c4ce599bbb37_MzUyMTQ4MjAxMi0wMy0xMSAxODoyMDo1OS4yMTg2NjA"
-	testFlight.team_token = "885726797eb57d89b4756e984ea66202_NzAzNjIyMDEyLTAzLTExIDE5OjE1OjQyLjY2MTczMQ"
+  	testFlight.api_token = "0cafa432a85d87075459c4ce599bbb37_MzUyMTQ4MjAxMi0wMy0xMSAxODoyMDo1OS4yMTg2NjA"
+  	testFlight.team_token = "885726797eb57d89b4756e984ea66202_NzAzNjIyMDEyLTAzLTExIDE5OjE1OjQyLjY2MTczMQ"
 
-	testFlight.distribution_lists = ["Internal"]
-	testFlight.generate_release_notes do
-	    "Nightly build"
-	end
+  	testFlight.distribution_lists = ["Internal"]
+  	testFlight.generate_release_notes do
+  	    "Nightly build"
+  	end
   end
 
   # tag and release with git
