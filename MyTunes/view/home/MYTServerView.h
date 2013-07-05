@@ -10,7 +10,7 @@
 
 @class MYTServer;
 
-@interface MYTServerView : UIControl
+@interface MYTServerView : UICollectionViewCell
 {
 }
 

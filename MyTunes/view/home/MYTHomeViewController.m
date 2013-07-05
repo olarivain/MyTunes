@@ -22,11 +22,12 @@
 #import "MYTLibrarySplitViewController.h"
 #import "MYTPlaylistViewController.h"
 
-@interface MYTHomeViewController()<MYTServerStoreDelegate, KCCarouselViewDelegate, KCCarouselViewDataSource> {
+@interface MYTHomeViewController()<MYTServerStoreDelegate, UICollectionViewDataSource, UICollectionViewDelegate,
+KCCarouselViewDelegate, KCCarouselViewDataSource> {
 	dispatch_once_t tileDispatchToken;
 }
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet KCCarouselView *serverCarousel;
+@property (weak, nonatomic) IBOutlet UICollectionView *serverCarousel;
 @property (weak, nonatomic, readwrite) IBOutlet MYTServerView *serverTile;
 
 @property (assign, nonatomic) CGSize tileSize;
@@ -47,8 +48,11 @@
 	[super viewDidLoad];
     
 	// setup the carousel
-	self.serverCarousel.style = KCCarouselViewStyleGrid;
-	self.serverCarousel.contentPadding = 20.0f;
+//	self.serverCarousel.style = KCCarouselViewStyleGrid;
+//	self.serverCarousel.contentPadding = 20.0f;
+    NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
+    [self.serverCarousel registerNib: [UINib nibWithNibName: nibName bundle:nil]
+          forCellWithReuseIdentifier: @"server"];
 	
 	// and fire the search. This is safe to do multiple times
 	MYTServerStore *store = [MYTServerStore sharedInstance];
@@ -57,7 +61,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    [self.serverCarousel reload];
+    [self.serverCarousel reloadData];
 }
 
 - (void)viewDidUnload
@@ -75,7 +79,7 @@
 	// we have a new server, so stop the activity indicator
 	[self.activityIndicator stopAnimating];
 	
-	[self.serverCarousel reload];
+	[self.serverCarousel reloadData];
 	
 }
 
@@ -85,10 +89,18 @@
 		[self.activityIndicator startAnimating];
 	}
 	
-	[self.serverCarousel reload];
+	[self.serverCarousel reloadData];
 }
 
 #pragma mark - Carousel data source
+- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [MYTServerStore sharedInstance].servers.count;
+}
+
 - (NSUInteger) numberOfTilesInCarousel:(KCCarouselView *)carousel {
 	return [MYTServerStore sharedInstance].servers.count;
 }
@@ -103,6 +115,17 @@
 		self.tileSize = self.serverTile.frame.size;
 	});
 	return self.tileSize;
+}
+
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MYTServerView *tile = [collectionView dequeueReusableCellWithReuseIdentifier: @"server"
+                                                                    forIndexPath: indexPath];
+	
+	NSArray *servers = [MYTServerStore sharedInstance].servers;
+	MYTServer *server = [servers boundSafeObjectAtIndex: indexPath.row];
+	[tile updateWithServer: server];
+	return tile;
+
 }
 
 - (UIView *) carousel:(KCCarouselView *)carousel tileForIndex:(NSUInteger)index {
