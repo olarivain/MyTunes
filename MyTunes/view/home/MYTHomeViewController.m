@@ -6,7 +6,6 @@
 //  Copyright 2011 kra. All rights reserved.
 //
 #import <KraCommons/KCNibUtils.h>
-#import <KraCommons/KCCarouselView.h>
 
 #import "MYTHomeViewController.h"
 
@@ -22,8 +21,7 @@
 #import "MYTLibrarySplitViewController.h"
 #import "MYTPlaylistViewController.h"
 
-@interface MYTHomeViewController()<MYTServerStoreDelegate, UICollectionViewDataSource, UICollectionViewDelegate,
-KCCarouselViewDelegate, KCCarouselViewDataSource> {
+@interface MYTHomeViewController()<MYTServerStoreDelegate, UICollectionViewDataSource, UICollectionViewDelegate> {
 	dispatch_once_t tileDispatchToken;
 }
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -36,20 +34,13 @@ KCCarouselViewDelegate, KCCarouselViewDataSource> {
 
 @implementation MYTHomeViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
     
-	// setup the carousel
-//	self.serverCarousel.style = KCCarouselViewStyleGrid;
-//	self.serverCarousel.contentPadding = 20.0f;
+	// setup the collection view of servers
     NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
     [self.serverCarousel registerNib: [UINib nibWithNibName: nibName bundle:nil]
           forCellWithReuseIdentifier: @"server"];
@@ -59,9 +50,13 @@ KCCarouselViewDelegate, KCCarouselViewDataSource> {
 	[store startSearching];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear: animated];
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
     [self.serverCarousel reloadData];
+    for(NSIndexPath *indexPath in self.serverCarousel.indexPathsForSelectedItems) {
+        [self.serverCarousel deselectItemAtIndexPath: indexPath
+                                            animated: YES];
+    }
 }
 
 - (void)viewDidUnload
@@ -101,22 +96,6 @@ KCCarouselViewDelegate, KCCarouselViewDataSource> {
     return [MYTServerStore sharedInstance].servers.count;
 }
 
-- (NSUInteger) numberOfTilesInCarousel:(KCCarouselView *)carousel {
-	return [MYTServerStore sharedInstance].servers.count;
-}
-
-- (CGSize) carousel:(KCCarouselView *)carousel sizeForTileAtIndex:(NSUInteger)index {
-	dispatch_once(&tileDispatchToken, ^{
-		NSBundle *bundle = [NSBundle mainBundle];
-		NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
-		[bundle loadNibNamed: nibName
-					   owner: self
-					 options: nil];
-		self.tileSize = self.serverTile.frame.size;
-	});
-	return self.tileSize;
-}
-
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MYTServerView *tile = [collectionView dequeueReusableCellWithReuseIdentifier: @"server"
                                                                     forIndexPath: indexPath];
@@ -128,29 +107,12 @@ KCCarouselViewDelegate, KCCarouselViewDataSource> {
 
 }
 
-- (UIView *) carousel:(KCCarouselView *)carousel tileForIndex:(NSUInteger)index {
-	MYTServerView *tile = [carousel dequeueResuableTile];
-	if(tile == nil) {
-		NSBundle *bundle = [NSBundle mainBundle];
-		NSString *nibName = [KCNibUtils nibName: @"MYTServerView"];
-		[bundle loadNibNamed: nibName
-					   owner: self
-					 options: nil];
-		tile = self.serverTile;
-		self.serverTile = nil;
-	}
-	
-	NSArray *servers = [MYTServerStore sharedInstance].servers;
-	MYTServer *server = [servers boundSafeObjectAtIndex: index];
-	[tile updateWithServer: server];
-	return tile;
-}
-
 #pragma mark - carousel delegate
-- (void) carousel:(KCCarouselView *)carousel didSelectIndex:(NSUInteger)index {
-	MYTServerStore *store = [MYTServerStore sharedInstance];
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    MYTServerStore *store = [MYTServerStore sharedInstance];
 	NSArray *servers = store.servers;
-	MYTServer *server = [servers boundSafeObjectAtIndex: index];
+	MYTServer *server = [servers boundSafeObjectAtIndex: indexPath.row];
 	// the server just died below us, abort
 	if(server == nil) {
 		return;
@@ -163,6 +125,7 @@ KCCarouselViewDelegate, KCCarouselViewDataSource> {
     [libraryStore loadCurrentLibraryListing:^(NSError *error) {
         [self didLoadLibraryListing: error];
     }];
+
 }
 
 - (void) didLoadLibraryListing: (NSError *) error {
