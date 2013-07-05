@@ -15,7 +15,6 @@
 
 #import "MYTServer.h"
 
-#import "MYTHomeView.h"
 #import "MYTServerView.h"
 
 #import "MYTLibrarySplitViewController.h"

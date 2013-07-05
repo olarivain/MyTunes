@@ -53,7 +53,6 @@
 		0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072339C16AC0FE9008C1623 /* MMTitleAssembler+Client.m */; };
 		0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233AB16AC0FE9008C1623 /* MYTServer.m */; };
 		0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */; };
-		0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C016AC0FE9008C1623 /* MYTHomeView.m */; };
 		0072342816AC0FE9008C1623 /* MYTHomeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */; };
 		0072342916AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */; };
 		0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007233C416AC0FE9008C1623 /* MYTHomeViewController.m */; };
@@ -153,8 +152,6 @@
 		007233AB16AC0FE9008C1623 /* MYTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTServer.m; sourceTree = "<group>"; };
 		007233B916AC0FE9008C1623 /* NSNumber+NonZero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NonZero.h"; sourceTree = "<group>"; };
 		007233BA16AC0FE9008C1623 /* NSNumber+NonZero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NonZero.m"; sourceTree = "<group>"; };
-		007233BF16AC0FE9008C1623 /* MYTHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeView.h; sourceTree = "<group>"; };
-		007233C016AC0FE9008C1623 /* MYTHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTHomeView.m; sourceTree = "<group>"; };
 		007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPad.xib; sourceTree = "<group>"; };
 		007233C216AC0FE9008C1623 /* MYTHomeViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYTHomeViewController_iPhone.xib; sourceTree = "<group>"; };
 		007233C316AC0FE9008C1623 /* MYTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTHomeViewController.h; sourceTree = "<group>"; };
@@ -465,8 +462,6 @@
 		007233BE16AC0FE9008C1623 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				007233BF16AC0FE9008C1623 /* MYTHomeView.h */,
-				007233C016AC0FE9008C1623 /* MYTHomeView.m */,
 				007233C316AC0FE9008C1623 /* MYTHomeViewController.h */,
 				007233C416AC0FE9008C1623 /* MYTHomeViewController.m */,
 				007233C116AC0FE9008C1623 /* MYTHomeViewController_iPad.xib */,
@@ -725,7 +720,6 @@
 				0072341816AC0FE9008C1623 /* MMTitleAssembler+Client.m in Sources */,
 				0072341D16AC0FE9008C1623 /* MYTServer.m in Sources */,
 				0072342516AC0FE9008C1623 /* NSNumber+NonZero.m in Sources */,
-				0072342716AC0FE9008C1623 /* MYTHomeView.m in Sources */,
 				0072342A16AC0FE9008C1623 /* MYTHomeViewController.m in Sources */,
 				0072349816AC19D3008C1623 /* main.m in Sources */,
 				0072349B16AC19D3008C1623 /* MYTAppDelegate.m in Sources */,
