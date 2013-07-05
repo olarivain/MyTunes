@@ -53,7 +53,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    if([self respondsToSelector: @selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIExtendedEdgeNone;
+    }
     self.filterSegmentedControl.selectedSegmentIndex = self.showAll;
     
     self.title = [MYTLibraryStore sharedInstance].currentLibrary.name;

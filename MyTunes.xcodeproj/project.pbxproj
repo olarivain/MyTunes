@@ -802,7 +802,7 @@
 			baseConfigurationReference = DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Olivier Laravaine (A4SY3N7VVC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyTunes/SupportingFiles/MyTunes-Prefix.pch";
 				INFOPLIST_FILE = "MyTunes/SupportingFiles/MyTunes-Info.plist";
@@ -817,7 +817,7 @@
 			baseConfigurationReference = DCAD1AC3D37C4A4FA597F994 /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Olivier Laravaine (A4SY3N7VVC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyTunes/SupportingFiles/MyTunes-Prefix.pch";
 				INFOPLIST_FILE = "MyTunes/SupportingFiles/MyTunes-Info.plist";
